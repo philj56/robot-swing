@@ -1,3 +1,6 @@
+/* Simple damped-driven pendulum solver
+ */
+
 #include <iomanip>
 #include <iostream>
 #include <fstream>

@@ -1,3 +1,6 @@
+/* Damped pendulum, with shifting centre of mass to simulate robot
+ */
+
 #include <iomanip>
 #include <iostream>
 #include <fstream>
@@ -45,7 +48,8 @@ int main()
 		{
 			break;
 		}
-		
+	
+		// Record maximum angle reached
 		if (y[0] > maxTheta)
 		{
 			maxTheta = y[0];
@@ -56,6 +60,8 @@ int main()
 			  << std::setw(columnWidth) << t
 			  << std::setw(columnWidth) << y[0] 
 			  << std::setw(columnWidth) << evolve->yerr[0] 
+			  << std::setw(columnWidth) << y[1] 
+			  << std::setw(columnWidth) << evolve->yerr[1] 
 			  << std::endl;
 	}
 	std::cerr << maxTheta << std::endl;
@@ -64,9 +70,10 @@ int main()
 // Derivatives of theta and w
 int PrimeFuncGSL(double t, const double y[], double dydt[], void* params)
 {
-	double theta = (mp * y[0] + m * (y[0] + (range / (l - height)) * cos(wr * t))) / (mp + m);
-	double f = (wr * wr * range / (l - height)) * cos(wr * t);
+	double theta = (mp * y[0] + m * (y[0] + (range / (l - height)) * cos(wr * t))) / (mp + m);	// Theta of centre of mass
+	double f = - (m * m * wr * wr * range / ((l - height) * (mp + m))) * cos(wr * t);		// Approximate force exered by robot on swing
+
 	dydt[0] = y[1];
-	dydt[1] = - (g / l) * sin(theta) - (b * y[1] - f) / (m * l * l); 
+	dydt[1] = - (g / l) * sin(theta) + (f - b * y[1]) / (m * l * l); 
 	return GSL_SUCCESS;
 }
