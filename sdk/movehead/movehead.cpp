@@ -72,16 +72,18 @@ int main(int argc, char* argv[]) {
 
 //    motion.moveTo(0.5, 0, 0);
 
-    AL::ALValue names = "RShoulderPitch";
+   /*---------Harry's Edits-------*/
+    AL::ALValue names = "RShoulderPitch"; //String is the limb name
     AL::ALValue names2 = "LShoulderPitch";
-    AL::ALValue angles = 1.0f;
+    AL::ALValue angles = 1.0f; //Angle is in robot unit, f
     AL::ALValue angles2 = 0.0f;
     AL::ALValue times = 1.0f;
-    bool isAbsolute = true;
+    bool isAbsolute = true; // Tells robot the angle values are absolute
     std::cout << "\nShoulder Pitch:\n";
 
 
     for (int i = 0; i < 3; i++){
+        //Function calls robot to move
         motion.angleInterpolation(names, angles, times, isAbsolute);
         motion.angleInterpolation(names2, angles2, times, isAbsolute);
         //angles = 0.0f;
@@ -91,6 +93,7 @@ int main(int argc, char* argv[]) {
 
 
   std::cout << "Shoulder Roll";
+    //Creates arrays of values to send to robot.
     AL::ALValue angle_list, time_list;
     angle_list = AL::ALValue::array(1.0f);
     time_list = AL::ALValue::array(1.0f);
@@ -99,18 +102,22 @@ int main(int argc, char* argv[]) {
     time_list.clear();
 
     angle_list.arraySetSize(2);
-    angle_list[0] = AL::ALValue::array(-0.5f, 0.5f);
+    //Array lists angles to move through
+    angle_list[0] = AL::ALValue::array(-0.5f, 0.5f); //From -0.5 to 0.5
     angle_list[1] = AL::ALValue::array(0.5f, -0.5f);
 
     time_list.arraySetSize(2);
+    //Time arrays - unsure of what this does...
     time_list[0] = AL::ALValue::array(1.0f, 2.0f);
     time_list[1] = AL::ALValue::array(1.0f, 2.0f);
 
     motion.angleInterpolation(names, angles, times, isAbsolute);
+    //Array tells robot what limbs to move
+    //All array[0] (angle, time) are assigned to the first limb
     names = AL::ALValue::array("RShoulderRoll", "LShoulderRoll");
 
     motion.angleInterpolation(names, angle_list, time_list, isAbsolute);
-
+    /*-------------------*/
   }
   catch (const AL::ALError& e) {
     std::cerr << "Caught exception: " << e.what() << std::endl;
