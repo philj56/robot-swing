@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/test_com.dir/test.cpp.o  -o sdk/bin/test_com -rdynamic 

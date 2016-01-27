@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="com" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\qi\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\qi\toolchains\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\qi\toolchains\harry\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\;CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\internal\;CMake Files\build-harry\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="com">
+         <Option output="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/sdk/bin/com" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 com" />
+            <CompileFile command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="com/fast">
+         <Option output="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/sdk/bin/com" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 com/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="install">
+         <Option working_dir="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 install" />
+            <CompileFile command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="install/local">
+         <Option working_dir="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 install/local" />
+            <CompileFile command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="install/strip">
+         <Option working_dir="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 install/strip" />
+            <CompileFile command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="list_install_components">
+         <Option working_dir="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 list_install_components" />
+            <CompileFile command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test_com">
+         <Option output="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/sdk/bin/test_com" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 test_com" />
+            <CompileFile command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test_com/fast">
+         <Option output="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/sdk/bin/test_com" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 test_com/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/main.cpp">
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/test.cpp">
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/qi/toolchains/harry/toolchain-harry.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\qi\toolchains\harry\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/qibuild-config.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/general.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/version.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/log.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/set.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/subdirectory.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/python.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/find.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/flags.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/tests.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/install.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/target.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/submodule.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/stage.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/option.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/codegen.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/gettext.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/git.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/internal/layout.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\internal\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/internal/install.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\internal\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/internal/glob.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\internal\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/internal/tests.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\internal\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/internal/stage.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\internal\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/internal/list.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\internal\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/internal/uselib.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\internal\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/../../../../../../../../../../../home/harry/.local/share/cmake/qibuild/internal/list.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\..\..\home\harry\.local\share\cmake\qibuild\internal\" />
+      </Unit>
+      <Unit filename="/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/dependencies.cmake">
+          <Option virtualFolder="CMake Files\build-harry\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

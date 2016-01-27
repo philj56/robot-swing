@@ -1,0 +1,2 @@
+/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/CMakeFiles/com.dir
+/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/CMakeFiles/test_com.dir

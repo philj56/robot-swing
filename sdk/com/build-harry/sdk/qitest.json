@@ -1,0 +1,14 @@
+[
+  {
+    "environment": null, 
+    "name": "test_com", 
+    "cmd": [
+      "/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/sdk/bin/test_com"
+    ], 
+    "nightly": false, 
+    "gtest": false, 
+    "working_directory": null, 
+    "timeout": 20, 
+    "perf": false
+  }
+]
