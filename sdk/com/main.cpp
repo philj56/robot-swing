@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
    //String of which components to get CoM
    std::string name = "Body";
-   int pSpace = 0; //Robot frame, 1 = world, 0 = torso
+   int pSpace = 2; //2 = Robot frame, 1 = world, 0 = torso
    bool pUseSensors = false;
 
    std::vector<float> com = motion.getCOM(name, pSpace, pUseSensors);
