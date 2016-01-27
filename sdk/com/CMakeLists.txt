@@ -11,4 +11,4 @@ qi_use_lib(com ALCOMMON ALPROXIES)
 
 
 # Add a simple test:
-qi_create_test(test_com "test.cpp")
+#qi_create_test(test_com "test.cpp")

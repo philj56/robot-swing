@@ -32,7 +32,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/harry/.local/share/cmake/qibuild/target.cmake"
   "/home/harry/.local/share/cmake/qibuild/tests.cmake"
   "/home/harry/.local/share/cmake/qibuild/version.cmake"
-  "/home/harry/.local/share/qi/toolchains/harry/toolchain-harry.cmake"
+  "/home/harry/.local/share/qi/toolchains/naoqi/toolchain-naoqi.cmake"
   "../CMakeLists.txt"
   "CMakeFiles/3.0.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.0.2/CMakeCXXCompiler.cmake"
@@ -69,5 +69,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/com.dir/DependInfo.cmake"
+  "CMakeFiles/sensormodule.dir/DependInfo.cmake"
+  "CMakeFiles/test_sensormodule.dir/DependInfo.cmake"
   )

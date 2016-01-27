@@ -1,4 +1,4 @@
-# Install script for directory: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com
+# Install script for directory: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,27 +37,15 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "runtime
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "runtime")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/qi" TYPE FILE FILES "/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/path.conf")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/qi" TYPE FILE FILES "/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/path.conf")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "runtime")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/com" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/com")
-    file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/com"
-         RPATH "$ORIGIN/../lib")
-  endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/sdk/bin/com")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/com" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/com")
-    file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/com"
-         OLD_RPATH "/media/harry/Windows/scratch/sdk/ubuntu/nao/lib:"
-         NEW_RPATH "$ORIGIN/../lib")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/com")
-    endif()
-  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeRelink.dir/sensormodule")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "test")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeRelink.dir/test_sensormodule")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -66,7 +54,7 @@ else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
-file(WRITE "/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/${CMAKE_INSTALL_MANIFEST}" "")
+file(WRITE "/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/${CMAKE_INSTALL_MANIFEST}" "")
 foreach(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  file(APPEND "/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  file(APPEND "/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 endforeach()

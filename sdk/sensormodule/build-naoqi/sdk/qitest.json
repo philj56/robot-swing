@@ -1,0 +1,14 @@
+[
+  {
+    "environment": null, 
+    "name": "test_sensormodule", 
+    "cmd": [
+      "/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/sdk/bin/test_sensormodule"
+    ], 
+    "nightly": false, 
+    "gtest": false, 
+    "working_directory": null, 
+    "timeout": 20, 
+    "perf": false
+  }
+]

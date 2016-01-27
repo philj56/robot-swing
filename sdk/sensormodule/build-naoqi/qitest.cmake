@@ -1,0 +1,1 @@
+--name;test_sensormodule;--timeout;20;--;/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/sdk/bin/test_sensormodule

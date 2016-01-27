@@ -1,0 +1,346 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1051755965/fast"
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1051755965.dir/build.make CMakeFiles/cmTryCompileExec1051755965.dir/build
+make[2]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1051755965.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1051755965.dir/CheckSymbolExists.c.o   -c /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec1051755965
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1051755965.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1051755965.dir/CheckSymbolExists.c.o  -o cmTryCompileExec1051755965 -rdynamic 
+CMakeFiles/cmTryCompileExec1051755965.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec1051755965.dir/build.make:88: recipe for target 'cmTryCompileExec1051755965' failed
+make[2]: *** [cmTryCompileExec1051755965] Error 1
+make[2]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec1051755965/fast' failed
+make[1]: *** [cmTryCompileExec1051755965/fast] Error 2
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+
+File /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec237757498/fast"
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec237757498.dir/build.make CMakeFiles/cmTryCompileExec237757498.dir/build
+make[2]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec237757498.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec237757498.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.0/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec237757498
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec237757498.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec237757498.dir/CheckFunctionExists.c.o  -o cmTryCompileExec237757498 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec237757498.dir/build.make:88: recipe for target 'cmTryCompileExec237757498' failed
+make[2]: *** [cmTryCompileExec237757498] Error 1
+make[2]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec237757498/fast' failed
+make[1]: *** [cmTryCompileExec237757498/fast] Error 2
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec235287516/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec235287516.dir/build.make CMakeFiles/cmTryCompileExec235287516.dir/build
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec235287516.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec235287516.dir/CheckSymbolExists.c.o   -c /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec235287516
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec235287516.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec235287516.dir/CheckSymbolExists.c.o  -o cmTryCompileExec235287516 -rdynamic 
+CMakeFiles/cmTryCompileExec235287516.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec235287516.dir/build.make:88: recipe for target 'cmTryCompileExec235287516' failed
+make[1]: *** [cmTryCompileExec235287516] Error 1
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec235287516/fast' failed
+make: *** [cmTryCompileExec235287516/fast] Error 2
+
+File /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec26008358/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec26008358.dir/build.make CMakeFiles/cmTryCompileExec26008358.dir/build
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec26008358.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec26008358.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.0/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec26008358
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec26008358.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec26008358.dir/CheckFunctionExists.c.o  -o cmTryCompileExec26008358 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec26008358.dir/build.make:88: recipe for target 'cmTryCompileExec26008358' failed
+make[1]: *** [cmTryCompileExec26008358] Error 1
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec26008358/fast' failed
+make: *** [cmTryCompileExec26008358/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1449009206/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1449009206.dir/build.make CMakeFiles/cmTryCompileExec1449009206.dir/build
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1449009206.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1449009206.dir/CheckSymbolExists.c.o   -c /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec1449009206
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1449009206.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1449009206.dir/CheckSymbolExists.c.o  -o cmTryCompileExec1449009206 -rdynamic 
+CMakeFiles/cmTryCompileExec1449009206.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec1449009206.dir/build.make:88: recipe for target 'cmTryCompileExec1449009206' failed
+make[1]: *** [cmTryCompileExec1449009206] Error 1
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec1449009206/fast' failed
+make: *** [cmTryCompileExec1449009206/fast] Error 2
+
+File /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2533889850/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2533889850.dir/build.make CMakeFiles/cmTryCompileExec2533889850.dir/build
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2533889850.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2533889850.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.0/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2533889850
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2533889850.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2533889850.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2533889850 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec2533889850.dir/build.make:88: recipe for target 'cmTryCompileExec2533889850' failed
+make[1]: *** [cmTryCompileExec2533889850] Error 1
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec2533889850/fast' failed
+make: *** [cmTryCompileExec2533889850/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec4039963229/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4039963229.dir/build.make CMakeFiles/cmTryCompileExec4039963229.dir/build
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4039963229.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec4039963229.dir/CheckSymbolExists.c.o   -c /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec4039963229
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4039963229.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec4039963229.dir/CheckSymbolExists.c.o  -o cmTryCompileExec4039963229 -rdynamic 
+CMakeFiles/cmTryCompileExec4039963229.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec4039963229.dir/build.make:88: recipe for target 'cmTryCompileExec4039963229' failed
+make[1]: *** [cmTryCompileExec4039963229] Error 1
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec4039963229/fast' failed
+make: *** [cmTryCompileExec4039963229/fast] Error 2
+
+File /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2480876205/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2480876205.dir/build.make CMakeFiles/cmTryCompileExec2480876205.dir/build
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2480876205.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2480876205.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.0/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2480876205
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2480876205.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2480876205.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2480876205 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec2480876205.dir/build.make:88: recipe for target 'cmTryCompileExec2480876205' failed
+make[1]: *** [cmTryCompileExec2480876205] Error 1
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec2480876205/fast' failed
+make: *** [cmTryCompileExec2480876205/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1794192386/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1794192386.dir/build.make CMakeFiles/cmTryCompileExec1794192386.dir/build
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1794192386.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1794192386.dir/CheckSymbolExists.c.o   -c /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec1794192386
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1794192386.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1794192386.dir/CheckSymbolExists.c.o  -o cmTryCompileExec1794192386 -rdynamic 
+CMakeFiles/cmTryCompileExec1794192386.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec1794192386.dir/build.make:88: recipe for target 'cmTryCompileExec1794192386' failed
+make[1]: *** [cmTryCompileExec1794192386] Error 1
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec1794192386/fast' failed
+make: *** [cmTryCompileExec1794192386/fast] Error 2
+
+File /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec472916944/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec472916944.dir/build.make CMakeFiles/cmTryCompileExec472916944.dir/build
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec472916944.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec472916944.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.0/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec472916944
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec472916944.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec472916944.dir/CheckFunctionExists.c.o  -o cmTryCompileExec472916944 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec472916944.dir/build.make:88: recipe for target 'cmTryCompileExec472916944' failed
+make[1]: *** [cmTryCompileExec472916944] Error 1
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec472916944/fast' failed
+make: *** [cmTryCompileExec472916944/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3883147364/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3883147364.dir/build.make CMakeFiles/cmTryCompileExec3883147364.dir/build
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3883147364.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3883147364.dir/CheckSymbolExists.c.o   -c /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec3883147364
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3883147364.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3883147364.dir/CheckSymbolExists.c.o  -o cmTryCompileExec3883147364 -rdynamic 
+CMakeFiles/cmTryCompileExec3883147364.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec3883147364.dir/build.make:88: recipe for target 'cmTryCompileExec3883147364' failed
+make[1]: *** [cmTryCompileExec3883147364] Error 1
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec3883147364/fast' failed
+make: *** [cmTryCompileExec3883147364/fast] Error 2
+
+File /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1219339243/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1219339243.dir/build.make CMakeFiles/cmTryCompileExec1219339243.dir/build
+make[1]: Entering directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1219339243.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1219339243.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.0/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1219339243
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1219339243.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1219339243.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1219339243 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec1219339243.dir/build.make:88: recipe for target 'cmTryCompileExec1219339243' failed
+make[1]: *** [cmTryCompileExec1219339243] Error 1
+make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/CMakeTmp'
+Makefile:118: recipe for target 'cmTryCompileExec1219339243/fast' failed
+make: *** [cmTryCompileExec1219339243/fast] Error 2
+
+

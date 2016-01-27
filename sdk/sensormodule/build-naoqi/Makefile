@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com
+CMAKE_SOURCE_DIR = /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry
+CMAKE_BINARY_DIR = /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -83,19 +83,9 @@ install/local: preinstall
 install/local/fast: install/local
 .PHONY : install/local/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-.PHONY : install/strip/fast
-
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"runtime\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"runtime\" \"test\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -114,9 +104,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/CMakeFiles /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -144,24 +134,47 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named com
+# Target rules for targets named sensormodule
 
 # Build rule for target.
-com: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 com
-.PHONY : com
+sensormodule: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensormodule
+.PHONY : sensormodule
 
 # fast build rule for target.
-com/fast:
-	$(MAKE) -f CMakeFiles/com.dir/build.make CMakeFiles/com.dir/build
-.PHONY : com/fast
+sensormodule/fast:
+	$(MAKE) -f CMakeFiles/sensormodule.dir/build.make CMakeFiles/sensormodule.dir/build
+.PHONY : sensormodule/fast
+
+# Manual pre-install relink rule for target.
+sensormodule/preinstall:
+	$(MAKE) -f CMakeFiles/sensormodule.dir/build.make CMakeFiles/sensormodule.dir/preinstall
+.PHONY : sensormodule/preinstall
+
+#=============================================================================
+# Target rules for targets named test_sensormodule
+
+# Build rule for target.
+test_sensormodule: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_sensormodule
+.PHONY : test_sensormodule
+
+# fast build rule for target.
+test_sensormodule/fast:
+	$(MAKE) -f CMakeFiles/test_sensormodule.dir/build.make CMakeFiles/test_sensormodule.dir/build
+.PHONY : test_sensormodule/fast
+
+# Manual pre-install relink rule for target.
+test_sensormodule/preinstall:
+	$(MAKE) -f CMakeFiles/test_sensormodule.dir/build.make CMakeFiles/test_sensormodule.dir/preinstall
+.PHONY : test_sensormodule/preinstall
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/com.dir/build.make CMakeFiles/com.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/sensormodule.dir/build.make CMakeFiles/sensormodule.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -169,7 +182,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/com.dir/build.make CMakeFiles/com.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/sensormodule.dir/build.make CMakeFiles/sensormodule.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -177,8 +190,56 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/com.dir/build.make CMakeFiles/com.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/sensormodule.dir/build.make CMakeFiles/sensormodule.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+test.o: test.cpp.o
+.PHONY : test.o
+
+# target to build an object file
+test.cpp.o:
+	$(MAKE) -f CMakeFiles/test_sensormodule.dir/build.make CMakeFiles/test_sensormodule.dir/test.cpp.o
+.PHONY : test.cpp.o
+
+test.i: test.cpp.i
+.PHONY : test.i
+
+# target to preprocess a source file
+test.cpp.i:
+	$(MAKE) -f CMakeFiles/test_sensormodule.dir/build.make CMakeFiles/test_sensormodule.dir/test.cpp.i
+.PHONY : test.cpp.i
+
+test.s: test.cpp.s
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.cpp.s:
+	$(MAKE) -f CMakeFiles/test_sensormodule.dir/build.make CMakeFiles/test_sensormodule.dir/test.cpp.s
+.PHONY : test.cpp.s
+
+testmodule.o: testmodule.cpp.o
+.PHONY : testmodule.o
+
+# target to build an object file
+testmodule.cpp.o:
+	$(MAKE) -f CMakeFiles/sensormodule.dir/build.make CMakeFiles/sensormodule.dir/testmodule.cpp.o
+.PHONY : testmodule.cpp.o
+
+testmodule.i: testmodule.cpp.i
+.PHONY : testmodule.i
+
+# target to preprocess a source file
+testmodule.cpp.i:
+	$(MAKE) -f CMakeFiles/sensormodule.dir/build.make CMakeFiles/sensormodule.dir/testmodule.cpp.i
+.PHONY : testmodule.cpp.i
+
+testmodule.s: testmodule.cpp.s
+.PHONY : testmodule.s
+
+# target to generate assembly for a file
+testmodule.cpp.s:
+	$(MAKE) -f CMakeFiles/sensormodule.dir/build.make CMakeFiles/sensormodule.dir/testmodule.cpp.s
+.PHONY : testmodule.cpp.s
 
 # Help Target
 help:
@@ -186,16 +247,22 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... com"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
-	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... sensormodule"
+	@echo "... test_sensormodule"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
+	@echo "... testmodule.o"
+	@echo "... testmodule.i"
+	@echo "... testmodule.s"
 .PHONY : help
 
 
