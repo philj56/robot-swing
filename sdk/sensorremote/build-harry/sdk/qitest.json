@@ -1,0 +1,14 @@
+[
+  {
+    "environment": null, 
+    "name": "test_sensorremote", 
+    "cmd": [
+      "/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/sdk/bin/test_sensorremote"
+    ], 
+    "nightly": false, 
+    "gtest": false, 
+    "working_directory": null, 
+    "timeout": 20, 
+    "perf": false
+  }
+]

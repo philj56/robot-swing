@@ -1,0 +1,897 @@
+The system is: Linux - 3.19.0-47-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/2.8.12.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/2.8.12.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4041632311/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4041632311.dir/build.make CMakeFiles/cmTryCompileExec4041632311.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4041632311.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec4041632311.dir/testCCompiler.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec4041632311
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4041632311.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec4041632311.dir/testCCompiler.c.o  -o cmTryCompileExec4041632311 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2254012160/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2254012160.dir/build.make CMakeFiles/cmTryCompileExec2254012160.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2254012160.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2254012160.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec2254012160
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2254012160.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTryCompileExec2254012160.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec2254012160 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2254012160' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec2254012160 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec2254012160.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec2254012160/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec2254012160.dir/build.make CMakeFiles/cmTryCompileExec2254012160.dir/build]
+  ignore line: [make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec2254012160.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2254012160.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec2254012160]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2254012160.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTryCompileExec2254012160.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec2254012160 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2254012160' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec2254012160 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec2254012160.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
+    arg [--sysroot=/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec2254012160] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
+    arg [CMakeFiles/cmTryCompileExec2254012160.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
+  implicit libs: [c]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2483724254/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2483724254.dir/build.make CMakeFiles/cmTryCompileExec2483724254.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2483724254.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2483724254.dir/testCXXCompiler.cxx.o -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec2483724254
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2483724254.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTryCompileExec2483724254.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec2483724254 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2632004854/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2632004854.dir/build.make CMakeFiles/cmTryCompileExec2632004854.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2632004854.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2632004854.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec2632004854
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2632004854.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTryCompileExec2632004854.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2632004854 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2632004854' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec2632004854 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec2632004854.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec2632004854/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec2632004854.dir/build.make CMakeFiles/cmTryCompileExec2632004854.dir/build]
+  ignore line: [make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec2632004854.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2632004854.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec2632004854]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2632004854.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTryCompileExec2632004854.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2632004854 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2632004854' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec2632004854 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec2632004854.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
+    arg [--sysroot=/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec2632004854] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
+    arg [CMakeFiles/cmTryCompileExec2632004854.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec461589029/fast"
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec461589029.dir/build.make CMakeFiles/cmTryCompileExec461589029.dir/build
+make[2]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec461589029.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec461589029.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec461589029
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec461589029.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec461589029.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec461589029 -rdynamic 
+make[2]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2643494539/fast"
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2643494539.dir/build.make CMakeFiles/cmTryCompileExec2643494539.dir/build
+make[2]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2643494539.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2643494539.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2643494539
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2643494539.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2643494539.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2643494539 -rdynamic -lpthread 
+make[2]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3217805449/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3217805449.dir/build.make CMakeFiles/cmTryCompileExec3217805449.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3217805449.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3217805449.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3217805449
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3217805449.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3217805449.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3217805449 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1948164535/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1948164535.dir/build.make CMakeFiles/cmTryCompileExec1948164535.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1948164535.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1948164535.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1948164535
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1948164535.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1948164535.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1948164535 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2795634024/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2795634024.dir/build.make CMakeFiles/cmTryCompileExec2795634024.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2795634024.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2795634024.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2795634024
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2795634024.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2795634024.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2795634024 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2609738901/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2609738901.dir/build.make CMakeFiles/cmTryCompileExec2609738901.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2609738901.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2609738901.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2609738901
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2609738901.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2609738901.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2609738901 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3457779639/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3457779639.dir/build.make CMakeFiles/cmTryCompileExec3457779639.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3457779639.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3457779639.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3457779639
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3457779639.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3457779639.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3457779639 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2387829898/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2387829898.dir/build.make CMakeFiles/cmTryCompileExec2387829898.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2387829898.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2387829898.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2387829898
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2387829898.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2387829898.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2387829898 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3786630221/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3786630221.dir/build.make CMakeFiles/cmTryCompileExec3786630221.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3786630221.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3786630221.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3786630221
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3786630221.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3786630221.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3786630221 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3662634408/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3662634408.dir/build.make CMakeFiles/cmTryCompileExec3662634408.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3662634408.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3662634408.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3662634408
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3662634408.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3662634408.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3662634408 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1184994975/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1184994975.dir/build.make CMakeFiles/cmTryCompileExec1184994975.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1184994975.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1184994975.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1184994975
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1184994975.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1184994975.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1184994975 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4248567209/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4248567209.dir/build.make CMakeFiles/cmTryCompileExec4248567209.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4248567209.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec4248567209.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec4248567209
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4248567209.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec4248567209.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4248567209 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec159585564/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec159585564.dir/build.make CMakeFiles/cmTryCompileExec159585564.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec159585564.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec159585564.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec159585564
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec159585564.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec159585564.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec159585564 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec680500981/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec680500981.dir/build.make CMakeFiles/cmTryCompileExec680500981.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec680500981.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec680500981.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec680500981
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec680500981.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec680500981.dir/CheckFunctionExists.c.o  -o cmTryCompileExec680500981 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2795347382/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2795347382.dir/build.make CMakeFiles/cmTryCompileExec2795347382.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2795347382.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2795347382.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2795347382
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2795347382.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2795347382.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2795347382 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2766831604/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2766831604.dir/build.make CMakeFiles/cmTryCompileExec2766831604.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2766831604.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2766831604.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2766831604
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2766831604.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2766831604.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2766831604 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1084336077/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1084336077.dir/build.make CMakeFiles/cmTryCompileExec1084336077.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1084336077.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1084336077.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1084336077
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1084336077.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1084336077.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1084336077 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2564789564/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2564789564.dir/build.make CMakeFiles/cmTryCompileExec2564789564.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2564789564.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2564789564.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2564789564
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2564789564.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2564789564.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2564789564 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3442003443/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3442003443.dir/build.make CMakeFiles/cmTryCompileExec3442003443.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3442003443.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3442003443.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3442003443
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3442003443.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3442003443.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3442003443 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1253552095/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1253552095.dir/build.make CMakeFiles/cmTryCompileExec1253552095.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1253552095.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1253552095.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1253552095
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1253552095.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1253552095.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1253552095 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec69581752/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec69581752.dir/build.make CMakeFiles/cmTryCompileExec69581752.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec69581752.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec69581752.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec69581752
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec69581752.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec69581752.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec69581752 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec263504596/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec263504596.dir/build.make CMakeFiles/cmTryCompileExec263504596.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec263504596.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec263504596.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec263504596
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec263504596.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec263504596.dir/CheckFunctionExists.c.o  -o cmTryCompileExec263504596 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec274247039/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec274247039.dir/build.make CMakeFiles/cmTryCompileExec274247039.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec274247039.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec274247039.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec274247039
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec274247039.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec274247039.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec274247039 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3027404322/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3027404322.dir/build.make CMakeFiles/cmTryCompileExec3027404322.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3027404322.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3027404322.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3027404322
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3027404322.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3027404322.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3027404322 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2193237067/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2193237067.dir/build.make CMakeFiles/cmTryCompileExec2193237067.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2193237067.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2193237067.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2193237067
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2193237067.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2193237067.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2193237067 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3281751311/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3281751311.dir/build.make CMakeFiles/cmTryCompileExec3281751311.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3281751311.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3281751311.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3281751311
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3281751311.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3281751311.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3281751311 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3309758107/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3309758107.dir/build.make CMakeFiles/cmTryCompileExec3309758107.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3309758107.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3309758107.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3309758107
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3309758107.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3309758107.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3309758107 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3850940359/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3850940359.dir/build.make CMakeFiles/cmTryCompileExec3850940359.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3850940359.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3850940359.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3850940359
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3850940359.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3850940359.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3850940359 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1863048743/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1863048743.dir/build.make CMakeFiles/cmTryCompileExec1863048743.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1863048743.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1863048743.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1863048743
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1863048743.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1863048743.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1863048743 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1267103619/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1267103619.dir/build.make CMakeFiles/cmTryCompileExec1267103619.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1267103619.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1267103619.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1267103619
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1267103619.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1267103619.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1267103619 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3437434641/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3437434641.dir/build.make CMakeFiles/cmTryCompileExec3437434641.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3437434641.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3437434641.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3437434641
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3437434641.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3437434641.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3437434641 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3587009727/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3587009727.dir/build.make CMakeFiles/cmTryCompileExec3587009727.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3587009727.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3587009727.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3587009727
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3587009727.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3587009727.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3587009727 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3293624029/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3293624029.dir/build.make CMakeFiles/cmTryCompileExec3293624029.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3293624029.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3293624029.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3293624029
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3293624029.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3293624029.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3293624029 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1907034842/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1907034842.dir/build.make CMakeFiles/cmTryCompileExec1907034842.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1907034842.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1907034842.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1907034842
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1907034842.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1907034842.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1907034842 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3116715587/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3116715587.dir/build.make CMakeFiles/cmTryCompileExec3116715587.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3116715587.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3116715587.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3116715587
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3116715587.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3116715587.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3116715587 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4155376020/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4155376020.dir/build.make CMakeFiles/cmTryCompileExec4155376020.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4155376020.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec4155376020.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec4155376020
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4155376020.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec4155376020.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4155376020 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3509990694/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3509990694.dir/build.make CMakeFiles/cmTryCompileExec3509990694.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3509990694.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3509990694.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3509990694
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3509990694.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3509990694.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3509990694 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3269318616/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3269318616.dir/build.make CMakeFiles/cmTryCompileExec3269318616.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3269318616.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3269318616.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3269318616
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3269318616.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3269318616.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3269318616 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2661000188/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2661000188.dir/build.make CMakeFiles/cmTryCompileExec2661000188.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2661000188.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2661000188.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec2661000188
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2661000188.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2661000188.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2661000188 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec435682300/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec435682300.dir/build.make CMakeFiles/cmTryCompileExec435682300.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec435682300.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec435682300.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec435682300
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec435682300.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec435682300.dir/CheckFunctionExists.c.o  -o cmTryCompileExec435682300 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec903512435/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec903512435.dir/build.make CMakeFiles/cmTryCompileExec903512435.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec903512435.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec903512435.dir/CheckIncludeFiles.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec903512435
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec903512435.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec903512435.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec903512435 -rdynamic 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec980504145/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec980504145.dir/build.make CMakeFiles/cmTryCompileExec980504145.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec980504145.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec980504145.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec980504145
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec980504145.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec980504145.dir/CheckFunctionExists.c.o  -o cmTryCompileExec980504145 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/CMakeTmp'
+
+

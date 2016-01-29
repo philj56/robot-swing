@@ -1,0 +1,2 @@
+/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/sensorremote.dir
+/home/harry/Desktop/git/robot-swing/sdk/sensorremote/build-harry/CMakeFiles/test_sensorremote.dir
