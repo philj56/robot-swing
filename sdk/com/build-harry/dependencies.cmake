@@ -4,7 +4,7 @@
 #############################################
 
 # Add path to CMake framework path if necessary:
-set(_qibuild_path "/home/harry/.local/share/cmake")
+set(_qibuild_path "/usr/local/share/cmake")
 list(FIND CMAKE_MODULE_PATH "${_qibuild_path}" _found)
 if(_found STREQUAL "-1")
   # Prefer cmake files matching  current qibuild installation
@@ -18,9 +18,11 @@ if(_found STREQUAL "-1")
   list(APPEND CMAKE_PREFIX_PATH "/media/harry/Windows/scratch/sdk/ubuntu/nao")
 endif()
 
+
 # Store CMAKE_MODULE_PATH and CMAKE_PREFIX_PATH in cache:
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} CACHE INTERNAL ""  FORCE)
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} CACHE INTERNAL ""  FORCE)
 
 
-set(QIBUILD_PYTHON_PATH "/home/harry/.local/lib/python2.7/site-packages" CACHE STRING "" FORCE)
+
+set(QIBUILD_PYTHON_PATH "/usr/local/lib/python2.7/dist-packages" CACHE STRING "" FORCE)

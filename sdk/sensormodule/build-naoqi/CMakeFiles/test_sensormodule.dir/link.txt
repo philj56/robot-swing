@@ -1,1 +1,0 @@
-/usr/bin/c++   -g    CMakeFiles/test_sensormodule.dir/test.cpp.o  -o sdk/bin/test_sensormodule -rdynamic 

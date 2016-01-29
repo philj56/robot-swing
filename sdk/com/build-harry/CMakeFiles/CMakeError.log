@@ -59,3 +59,56 @@ make[1]: *** [cmTryCompileExec579416083/fast] Error 2
 make[1]: Leaving directory '/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/com/build-harry/CMakeFiles/CMakeTmp'
 
 
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/com/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec243263165/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec243263165.dir/build.make CMakeFiles/cmTryCompileExec243263165.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/com/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/com/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec243263165.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec243263165.dir/CheckSymbolExists.c.o   -c /home/harry/Desktop/git/robot-swing/sdk/com/build-harry/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec243263165
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec243263165.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec243263165.dir/CheckSymbolExists.c.o  -o cmTryCompileExec243263165 -rdynamic 
+CMakeFiles/cmTryCompileExec243263165.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec243263165] Error 1
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/com/build-harry/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec243263165/fast] Error 2
+
+File /home/harry/Desktop/git/robot-swing/sdk/com/build-harry/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/harry/Desktop/git/robot-swing/sdk/com/build-harry/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3201731381/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3201731381.dir/build.make CMakeFiles/cmTryCompileExec3201731381.dir/build
+make[1]: Entering directory `/home/harry/Desktop/git/robot-swing/sdk/com/build-harry/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/harry/Desktop/git/robot-swing/sdk/com/build-harry/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3201731381.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3201731381.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3201731381
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3201731381.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3201731381.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3201731381 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec3201731381] Error 1
+make[1]: Leaving directory `/home/harry/Desktop/git/robot-swing/sdk/com/build-harry/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3201731381/fast] Error 2
+
+

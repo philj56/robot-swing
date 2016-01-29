@@ -1,2 +1,0 @@
-/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/sensormodule.dir
-/media/harry/Windows/scratch/sdk/ubuntu/nao/gs/robot-swing/sdk/sensormodule/build-naoqi/CMakeFiles/test_sensormodule.dir

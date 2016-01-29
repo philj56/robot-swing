@@ -10,13 +10,13 @@
 int main(int argc, char **argv)
 {
    //Throws error is IP address not specified
- /*  if(argc != 2)
+   if(argc != 2)
    {
      std::cerr << "Wrong number of arguments!" << std::endl;
      std::cerr << "Usage: movehead NAO_IP" << std::endl;
      exit(2);
-   }*/
-   argv[1] = "10.20.90.177:9559";
+   }
+   //argv[1] = "10.20.90.177:9559";
    AL::ALMotionProxy motion(argv[1]);
 
 

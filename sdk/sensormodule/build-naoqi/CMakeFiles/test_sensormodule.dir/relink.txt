@@ -1,1 +1,0 @@
-/usr/bin/c++   -g    CMakeFiles/test_sensormodule.dir/test.cpp.o  -o CMakeFiles/CMakeRelink.dir/test_sensormodule -rdynamic -Wl,-rpath,"\$ORIGIN/../lib" 
