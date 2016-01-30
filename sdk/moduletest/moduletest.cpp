@@ -1,3 +1,7 @@
+/* moduletest.cpp
+ * Generic module source file
+ */
+
 #include "moduletest.h"
 
 #include <iostream>
@@ -5,11 +9,13 @@
 #include <alcommon/alproxy.h>
 #include <alproxies/altexttospeechproxy.h>
 
+// Constructor
 ModuleTest::ModuleTest(boost::shared_ptr<AL::ALBroker> broker,
 		   const std::string &name)
 	: AL::ALModule(broker, name)
 {
-	setModuleDescription("Simple movement testing module");
+	// Set description, and bind each function
+	setModuleDescription("Simple generic testing module");
 
 	functionName("printHello", getName(), "Print hello to the world");
 	BIND_METHOD(ModuleTest::printHello);
@@ -25,44 +31,50 @@ ModuleTest::ModuleTest(boost::shared_ptr<AL::ALBroker> broker,
 	setReturn("boolean", "return true");
 	BIND_METHOD(ModuleTest::returnTrue);
 
+	// Set broker parent IP and port
 	pip = broker->getParentIP();
 	pport = broker->getParentPort();
 }
 
+// Destructor
 ModuleTest::~ModuleTest()
 {
 }
 
+// init() - called as soon as the module is constructed
 void ModuleTest::init()
 {
-	std::cout << "Parent: " << pip << ":" << pport << std::endl;
 }
 
+// Print hello to the command line
 void ModuleTest::printHello()
 {
 	std::cout << "Hello" << std::endl;
 }
 
+// Say hello
 void ModuleTest::sayHello()
 {
   try
   {
-  	/** Create a proxy to TTS.*/
+  	// Create a proxy to TTS
 	AL::ALTextToSpeechProxy tts(pip, pport);
-  	/** Call the say method. */
+  	// Say hello
   	tts.say("Hello");
   }
-  catch(const AL::ALError&) // no object name given to avoid warning
+  catch(const AL::ALError&)
   {
 	std::cerr << "Could not get proxy to ALTextToSpeech" << std::endl;
   }
 }
 
+// Print a word to the command line
 void ModuleTest::printWord(const std::string &word)
 {
 	std::cout << word << std::endl;
 }
 
+// Return true
 bool ModuleTest::returnTrue()
 {
 	return true;

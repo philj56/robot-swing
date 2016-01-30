@@ -1,6 +1,10 @@
+/* main.cpp
+ * moduletest main file - compiles as a library if local,
+ * or an executable that calls the ModuleTest::sayHello() function if remote.
+ */
+
 #include <iostream>
 #include <cstdlib>
-#include <qi/os.hpp>
 #include <boost/shared_ptr.hpp>
 
 #include "moduletest.h"
@@ -9,14 +13,15 @@
 #include <alcommon/albroker.h>
 #include <alcommon/albrokermanager.h>
 #include <alcommon/alproxy.h>
-#include <alproxies/altexttospeechproxy.h>
 
+// Need to export entry point if on Windows
 #ifdef _WIN32
 	#define ALCALL __declspec(dllexport)
 #else
 	#define ALCALL
 #endif
 
+// Setup for local module
 extern "C"
 {
 	ALCALL int _createModule(boost::shared_ptr<AL::ALBroker> broker)
@@ -35,6 +40,7 @@ extern "C"
 	}
 }; /* extern "C" */
 
+// main() for remote module only
 #ifdef MODULETEST_IS_REMOTE
 int main(int argc, char* argv[])
 {
@@ -96,6 +102,7 @@ int main(int argc, char* argv[])
 	setlocale(LC_NUMERIC, "C");
 
 	// Set broker name, ip and port
+	// TODO: put in a check for whether the port is free
 	const std::string brokerName = "moduleTestBroker";
 	int brokerPort = 54000;
 	const std::string brokerIp = "0.0.0.0";
@@ -112,6 +119,7 @@ int main(int argc, char* argv[])
 				pport,
 				0);
 	}
+	// Throw error and quit if a broker could not be created
 	catch(...)
 	{
 		std::cerr << "Failed to connect broker to: "
@@ -132,11 +140,13 @@ int main(int argc, char* argv[])
 	// Load the module
 	AL::ALModule::createModule<ModuleTest>(broker, "ModuleTest");
 
-	// Create a proxy
+	// Create a proxy to the module
 	AL::ALProxy testProxy = AL::ALProxy("ModuleTest", pip, pport);
 
+	// Call a function
 	testProxy.callVoid("sayHello");
 
+	// Shutdown the broker
 	return broker->shutdown();
 }
 #endif /* MODULETEST_IS_REMOTE */
