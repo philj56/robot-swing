@@ -38,8 +38,8 @@ To use:
 
 		./localcall
 	
-	This should successfully demonstrate:
-		loading a library, 
-		creating a module instance from that library, 
-		calling a function from the module instance 
-		and deleting the module instance.
+This should successfully demonstrate:
+	- Loading a library.
+	- Creating a module instance from that library. 
+	- Calling a function from the module instance.
+	- Deleting the module instance.
