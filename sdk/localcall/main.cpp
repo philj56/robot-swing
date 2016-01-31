@@ -15,6 +15,18 @@
 #include <alcommon/albroker.h>
 #include <alcommon/albrokermanager.h>
 
+// Turn bold text on
+std::ostream& bold_on(std::ostream& os)
+{
+	    return os << "\e[1m";
+}
+
+// Turn bold text off
+std::ostream& bold_off(std::ostream& os)
+{
+	    return os << "\e[0m";
+}
+
 int main(int argc, char* argv[])
 {
 	// Name of desired library
@@ -119,11 +131,11 @@ int main(int argc, char* argv[])
 	AL::ALBrokerManager::getInstance()->addBroker(broker);
 
 	// Find the desired library
-	std::cout << "Finding " << libName << "..." << std::endl;
+	std::cout << bold_on << "Finding " << libName << "..." << bold_off << std::endl;
 	std::string library = qi::path::findLib(libName.c_str());
 
 	// Open the library
-	std::cout << "Loading " << library << "..." << std::endl;
+	std::cout << bold_on << "Loading " << library << "..." << bold_off << std::endl;
 	void* handle = qi::os::dlopen(library.c_str());
 	if (!handle)
 	{
@@ -134,7 +146,7 @@ int main(int argc, char* argv[])
 	}
 
 	// Load the create symbol
-	std::cout << "Loading _createModule symbol..." << std::endl;
+	std::cout << bold_on << "Loading _createModule symbol..." << bold_off << std::endl;
 	int(*createModule)(boost::shared_ptr<AL::ALBroker>) = (int(*)(boost::shared_ptr<AL::ALBroker>))(qi::os::dlsym(handle, "_createModule"));
 	if (!createModule)
 	{
@@ -145,45 +157,45 @@ int main(int argc, char* argv[])
 	}
 
 	// Check if module is already present
-	std::cout << "Module " << moduleName << " is ";
+	std::cout << bold_on << "Module " << moduleName << " is ";
 	if (!(broker->isModulePresent(moduleName)))
 	{
 		std::cout << "not ";
 	}
-	std::cout << "present" << std::endl;
+	std::cout << "present" << bold_off << std::endl;
 
 	// Create an instance of the desired module
-	std::cout << "Creating " << moduleName << " instance..." << std::endl;
+	std::cout << bold_on << "Creating " << moduleName << " instance..." << bold_off << std::endl;
 	createModule(broker);
 
 	// Check for module creation
-	std::cout << "Module " << moduleName.c_str() << " is ";
+	std::cout << bold_on << "Module " << moduleName.c_str() << " is ";
 	if (!(broker->isModulePresent(moduleName)))
 	{
 		std::cout << "not ";
 	}
-	std::cout << "present" << std::endl;
+	std::cout << "present" << bold_off << std::endl;
 
 	// Create a proxy to the module	
-	std::cout << "Creating proxy to module..." << std::endl;
+	std::cout << bold_on << "Creating proxy to module..." << bold_off << std::endl;
 	AL::ALProxy testProxy(moduleName, pip, pport);
 	
 	// Call a generic function from the module with no arguments
-	std::cout << "Calling function " << funcName << "..." << std::endl;
+	std::cout << bold_on << "Calling function " << funcName << "..." << bold_off << std::endl;
 	testProxy.callVoid(funcName);
 
 	// Get a handle to the module and close it
 	boost::shared_ptr<AL::ALModuleCore> module = broker->getModuleByName(moduleName);
-	std::cout << "Closing module " << moduleName << "..." << std::endl;
+	std::cout << bold_on << "Closing module " << moduleName << "..." << bold_off << std::endl;
 	module->exit();
 	
 	// Check module has closed
-	std::cout << "Module " << moduleName << " is ";
+	std::cout << bold_on << "Module " << moduleName << " is ";
 	if (!(broker->isModulePresent(moduleName)))
 	{
 		std::cout << "not ";
 	}
-	std::cout << "present" << std::endl;
+	std::cout << "present" << bold_off << std::endl;
 
 	return 0;
 }
