@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <boost/shared_ptr.hpp>
+#include <qi/os.hpp>
 
 #include "moduletest.h"
 
@@ -101,10 +102,9 @@ int main(int argc, char* argv[])
 	// Need this for SOAP serialisation of floats to work
 	setlocale(LC_NUMERIC, "C");
 
-	// Set broker name, ip and port
-	// TODO: put in a check for whether the port is free
+	// Set broker name, ip and port, finding first available port from 54000
 	const std::string brokerName = "moduleTestBroker";
-	int brokerPort = 54000;
+	int brokerPort = qi::os::findAvailablePort(54000);
 	const std::string brokerIp = "0.0.0.0";
 
 	// Create a broker
