@@ -11,9 +11,10 @@ To use:
 	
 	copy the resulting library to the NAOqi, eg.
 		
-		scp ./build-{cc toolchain}/sdk/lib/libmoduletest.so nao@{NAO IP}:{some library path}
+		scp ./build-{cc toolchain}/sdk/lib/libmoduletest.so nao@{NAO IP}:{some path}
 
-	add the library to the NAOqi's autoload.ini, located at /home/nao/naoqi/preferences/autoload.ini on the robot, eg.
+	add the library to the NAOqi's autoload.ini, located at 
+	/home/nao/naoqi/preferences/autoload.ini on the robot, eg.
 		
 		[user]
 		/path/to/libmoduletest.so
@@ -37,5 +38,8 @@ To use:
 
 		./localcall
 	
-	This should successfully demonstrate loading a library, creating a module instance from that library, 
-	calling a function from the module instance and deleting the module instance.
+	This should successfully demonstrate:
+		loading a library, 
+		creating a module instance from that library, 
+		calling a function from the module instance 
+		and deleting the module instance.
