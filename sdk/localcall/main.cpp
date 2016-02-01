@@ -175,7 +175,7 @@ int main(int argc, char* argv[])
 		std::cout << "not ";
 	}
 	std::cout << "present" << bold_off << std::endl;
-
+	
 	// Create a proxy to the module	
 	std::cout << bold_on << "Creating proxy to module..." << bold_off << std::endl;
 	AL::ALProxy testProxy(moduleName, pip, pport);
@@ -185,10 +185,12 @@ int main(int argc, char* argv[])
 	testProxy.callVoid(funcName);
 
 	// Get a handle to the module and close it
-	boost::shared_ptr<AL::ALModuleCore> module = broker->getModuleByName(moduleName);
-	std::cout << bold_on << "Closing module " << moduleName << "..." << bold_off << std::endl;
-	module->exit();
-	
+	{
+		boost::shared_ptr<AL::ALModuleCore> module = broker->getModuleByName(moduleName);
+		std::cout << bold_on << "Closing module " << moduleName << "..." << bold_off << std::endl;
+		module->exit();
+	}
+
 	// Check module has closed
 	std::cout << bold_on << "Module " << moduleName << " is ";
 	if (!(broker->isModulePresent(moduleName)))
@@ -196,6 +198,13 @@ int main(int argc, char* argv[])
 		std::cout << "not ";
 	}
 	std::cout << "present" << bold_off << std::endl;
+
+	// Close the broker
+	std::cout << bold_on << "Closing broker..." << bold_off << std::endl;
+	broker->shutdown();
+
+	// Exit program
+	std::cout << bold_on << "Exiting..." << bold_off << std::endl;
 
 	return 0;
 }
