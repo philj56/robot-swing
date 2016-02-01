@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <unistd.h>
+#include <getopt.h>
 #include <boost/shared_ptr.hpp>
 #include <qi/os.hpp>
 #include <qi/path.hpp>
@@ -27,15 +29,26 @@ std::ostream& bold_off(std::ostream& os)
 	    return os << "\e[0m";
 }
 
+// Wrong number of arguments
+void argErr(void)
+{
+	// Standard usage message
+	std::string usage = "Usage: localcall [--pip robot_ip] [--pport port] [--lib library] [--mod module] [--fun function]";
+	
+	std::cerr << "Wrong number of arguments!" << std::endl;
+	std::cerr << usage << std::endl;
+	exit(2);
+}
+
 int main(int argc, char* argv[])
 {
-	// Name of desired library
+	// Default name of desired library
 	std::string libName = "libmoduletest.so";
 	
-	// Name of desired module in library
+	// Default name of desired module in library
 	std::string moduleName = "ModuleTest";
 
-	// Name of void(void) function to call in class
+	// Default name of void(void) function to call in module
 	std::string funcName = "printHello";
 
 	// Set broker name, ip and port, finding first available port from 54000
@@ -47,54 +60,63 @@ int main(int argc, char* argv[])
 	int pport = 9559;
 	std::string pip = "127.0.0.1";
 	
-	// Check number of command line arguments
-	if (argc != 1 && argc != 3 && argc != 5)
+	// Check for odd number of command line arguments (in this case)
+	if (argc % 2 != 1)
 	{
-		std::cerr << "Wrong number of arguments!" << std::endl;
-		std::cerr << "Usage: localcall [--pip robot_ip] [--pport port]" << std::endl;
-		exit(2);
+		argErr();
 	}
-
-	// If there is only one argument it should be the IP or PORT
-	if (argc == 3)
+	
+	// Get any arguments
+	while (true)
 	{
-		if (std::string(argv[1]) == "--pip")
-		{
-			pip = argv[2];
-		}
-		else if (std::string(argv[1]) == "--pport")
-		{
-			pport = atoi(argv[2]);
-		}
-		else
-		{
-			std::cerr << "Wrong number of arguments!" << std::endl;
-			std::cerr << "Usage: localcall [--pip robot_ip] [--pport port]" << std::endl;
-			exit(2);
-		}
-	}
+		static int index = 0;
 
-	// Specified IP or PORT for the connection
-	if (argc == 5)
-	{
-		if (std::string(argv[1]) == "--pport"
-		    && std::string(argv[3]) == "--pip")
+		// Struct of options
+		static const struct option longopts[] =
 		{
-			pport = atoi(argv[2]);
-			pip = argv[4];
-		}
-		else if (std::string(argv[3]) == "--pport"
-			 && std::string(argv[1]) == "--pip")
+			{"pip", 	1, 	0, 	'p'},
+			{"pport",	1,	0,	'o'},
+			{"lib",		1,	0,	'l'},
+			{"mod",		1,	0,	'm'},
+			{"fun",		1,	0,	'f'},
+			{0,		0,	0,	 0 }
+		};
+
+		switch(index = getopt_long(argc, argv, "", longopts, &index))
 		{
-			pport = atoi(argv[4]);
-			pip = argv[2];
+			case 'p':
+				if (optarg)
+					pip = std::string(optarg);
+				else
+					argErr();
+				break;
+			case 'o':
+				if (optarg)
+					pport = atoi(optarg);
+				else
+					argErr();
+				break;
+			case 'l':
+				if (optarg)
+					libName = std::string(optarg);
+				else
+					argErr();
+				break;
+			case 'm':
+				if (optarg)
+					moduleName = std::string(optarg);
+				else
+					argErr();
+				break;
+			case 'f':
+				if (optarg)
+					funcName = std::string(optarg);
+				else
+					argErr();
+				break;
 		}
-		else
-		{
-			std::cerr << "Wrong number of arguments!" << std::endl;
-			std::cerr << "Usage: localcall [--pip robot_ip] [--pport port]" << std::endl;
-			exit(2);
-		}
+		if (index == -1)
+			break;
 	}
 
 	// Need this for SOAP serialisation of floats to work
