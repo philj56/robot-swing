@@ -36,51 +36,58 @@ void SmoothMove::init()
 
 void SmoothMove::moveTest()
 {
-	// Get brokers, and go to initial posture
-	AL::ALMotionProxy motion(pip, pport);
-	AL::ALRobotPostureProxy posture(pip, pport);
-
-	posture.goToPosture("StandInit", 0.5f);
-
-	int space       =  2; // FRAME_ROBOT
-	int axisMask    = 63; // control all the effector's axes
-	bool isAbsolute = false;
-
-	// Lower the Torso and move to the side
-	std::string torso = "Torso";
-	std::string lArm  = "LArm";
-	std::string rArm  = "RArm";
-	std::vector<float> position(6, 0.0f);
-
-	position[0] = 0.0f;
-	position[1] = 0.0f;
-	position[2] = 0.3f;
-	position[3] = 0.0f;
-	position[4] = 0.0f;
-	position[5] = 0.0f;
-
-	// Amplitude of oscillation
-	float amplitude = 0.05f;
-
-	// Oscillation time in seconds
-	float freq 	= 4.0f;
-
-	// Update time in milliseconds
-	unsigned int update	= 50;
-
-	// Max speed of robot movement
-	float speed = 1.0f;
-
-	// Go to initial position
-	motion.setPosition(torso, space, position, speed, axisMask);
-	qi::os::sleep(1.0f);
-
-	for (float t = 0; t < freq * 2.0; t += 0.001 * update)
+	try
 	{
-		position[0] = amplitude * sin (2.0 * M_PI * t / freq);
+		// Get brokers, and go to initial posture
+		AL::ALMotionProxy motion(pip, pport);
+		AL::ALRobotPostureProxy posture(pip, pport);
+	
+		posture.goToPosture("StandInit", 0.5f);
+	
+		int space       =  2; // FRAME_ROBOT
+		int axisMask    = 63; // control all the effector's axes
+		bool isAbsolute = false;
+	
+		// Lower the Torso and move to the side
+		std::string torso = "Torso";
+		std::string lArm  = "LArm";
+		std::string rArm  = "RArm";
+		std::vector<float> position(6, 0.0f);
+	
+		position[0] = 0.0f;
+		position[1] = 0.0f;
+		position[2] = 0.3f;
+		position[3] = 0.0f;
+		position[4] = 0.0f;
+		position[5] = 0.0f;
+		
+		// Amplitude of oscillation
+		float amplitude = 0.05f;
+	
+		// Oscillation time in seconds
+		float freq 	= 4.0f;
+	
+		// Update time in milliseconds
+		unsigned int update	= 50;
+	
+		// Max speed of robot movement
+		float speed = 1.0f;
+	
+		// Go to initial position
 		motion.setPosition(torso, space, position, speed, axisMask);
-		qi::os::msleep(update);
-	}
+		qi::os::sleep(1.0f);
+	
+		for (float t = 0; t < freq * 2.0; t += 0.001 * update)
+		{
+			position[0] = amplitude * sin (2.0 * M_PI * t / freq);
+			motion.setPosition(torso, space, position, speed, axisMask);
+			qi::os::msleep(update);
+		}
+	}	
+  	catch (const AL::ALError& e) 
+	{
+    		std::cerr << "Caught exception: " << e.what() << std::endl;
+  	}
 }
 
 void SmoothMove::harryDance()
