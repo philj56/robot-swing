@@ -12,4 +12,4 @@ set(_srcs
 # with the source file: main.cpp
 qi_create_lib(smoothmove SHARED ${_srcs} SUBFOLDER naoqi)
 
-qi_use_lib(smoothmove ALCOMMON BOOST)
+qi_use_lib(smoothmove QI ALCOMMON ALERROR ALVALUE BOOST)
