@@ -42,8 +42,6 @@ void SmoothMove::moveTest()
 
 	posture.goToPosture("StandInit", 0.5f);
 
-	qi::os::sleep(5.0f);
-
 	int space       =  2; // FRAME_ROBOT
 	int axisMask    = 63; // control all the effector's axes
 	bool isAbsolute = false;
@@ -67,18 +65,17 @@ void SmoothMove::moveTest()
 	// Oscillation time in seconds
 	float freq 	= 8.0f;
 
-	// Update time in seconds
-	float update	= 1.0f;
+	// Update time in milliseconds
+	unsigned int update	= 50;
 
 	// Max speed of robot movement
 	float speed = 1.0f;
 
-	for (float t = 0; t < freq * 2.0; t += update)
+	for (float t = 0; t < freq * 2.0; t += 0.001 * update)
 	{
-		std::cout << "Update" << std::endl;
 		position[0] = amplitude * sin (2.0 * M_PI * t / freq);
 		motion.setPosition(torso, space, position, speed, axisMask);
-		qi::os::sleep(update);
+		qi::os::msleep(update);
 	}
 }
 
