@@ -52,6 +52,9 @@ int main(int argc, char* argv[])
 	// Default name of void(void) function to call in module
 	std::string funcName = "printHello";
 
+	// Explicit library path
+	std::string libPath = "";
+
 	// Set broker name, ip and port, finding first available port from 54000
 	const std::string brokerName = "localCallBroker";
 	int brokerPort = qi::os::findAvailablePort(54000);
@@ -82,6 +85,7 @@ int main(int argc, char* argv[])
 			{"lib",		1,	0,	'l'},
 			{"mod",		1,	0,	'm'},
 			{"fun",		1,	0,	'f'},
+			{"path",	1,	0,	'x'},
 			{"verb",	0,	0,	'v'},
 			{"help",	0,	0,	'h'},
 			{0,		0,	0,	 0 }
@@ -130,6 +134,12 @@ int main(int argc, char* argv[])
 				else
 					argErr();
 				break;
+			case 'x':
+				if (optarg)
+					libPath = std::string(optarg);
+				else
+					argErr();
+				break;
 			case 'v':
 				verb = true;
 		}
@@ -175,7 +185,13 @@ int main(int argc, char* argv[])
 	// Find the desired library
 	if(verb)
 		std::cout << bold_on << "Finding " << libName << "..." << bold_off << std::endl;
-	std::string library = qi::path::findLib(libName.c_str());
+
+	std::string library;
+
+	if (libPath == "")
+		library = qi::path::findLib(libName.c_str());
+	else
+		library = libPath;
 
 	// Open the library
 	if(verb)
@@ -241,7 +257,8 @@ int main(int argc, char* argv[])
 	// Get a handle to the module and close it
 	{
 		boost::shared_ptr<AL::ALModuleCore> module = broker->getModuleByName(moduleName);
-		std::cout << bold_on << "Closing module " << moduleName << "..." << bold_off << std::endl;
+		if(verb)
+			std::cout << bold_on << "Closing module " << moduleName << "..." << bold_off << std::endl;
 		module->exit();
 	}
 
