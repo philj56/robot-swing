@@ -63,13 +63,17 @@ void SmoothMove::moveTest()
 	float amplitude = 0.05f;
 
 	// Oscillation time in seconds
-	float freq 	= 8.0f;
+	float freq 	= 4.0f;
 
 	// Update time in milliseconds
 	unsigned int update	= 50;
 
 	// Max speed of robot movement
 	float speed = 1.0f;
+
+	// Go to initial position
+	motion.setPosition(torso, space, position, speed, axisMask);
+	qi::os::sleep(1.0f);
 
 	for (float t = 0; t < freq * 2.0; t += 0.001 * update)
 	{
