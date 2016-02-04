@@ -17,6 +17,12 @@
 #include <alcommon/albroker.h>
 #include <alcommon/albrokermanager.h>
 
+// Find and open a library, and create an instance of a module in that library
+bool CreateModule(std::string libName, std::string moduleName, boost::shared_ptr<AL::ALBroker> broker, bool verb, bool find);
+
+// Init some modules
+void Init (boost::shared_ptr<AL::ALBroker> broker, bool verb);
+
 // Turn bold text on
 std::ostream& bold_on(std::ostream& os)
 {
@@ -42,6 +48,9 @@ int main(int argc, char* argv[])
 {
 	// Whether to print verbose output - default off
 	bool verb = false;
+	
+	// Whether to manually load Libraries - default off
+	bool init = false;
 
 	// Default name of desired library
 	std::string libName = "libmoduletest.so";
@@ -54,6 +63,9 @@ int main(int argc, char* argv[])
 
 	// Explicit library path
 	std::string libPath = "";
+	
+	// Motion library path
+	std::string motionLibPath = "/usr/lib/naoqi/libmotion.so";
 
 	// Set broker name, ip and port, finding first available port from 54000
 	const std::string brokerName = "localCallBroker";
@@ -80,14 +92,15 @@ int main(int argc, char* argv[])
 		// 	{Option name,	Option required?,	flag(not needed here),	return value/character}
 		static const struct option longopts[] =
 		{
-			{"pip", 	1, 	0, 	'p'},
-			{"pport",	1,	0,	'o'},
+			{"pip", 	1, 	0, 	'i'},
+			{"pport",	1,	0,	'p'},
 			{"lib",		1,	0,	'l'},
 			{"mod",		1,	0,	'm'},
 			{"fun",		1,	0,	'f'},
 			{"path",	1,	0,	'x'},
 			{"verb",	0,	0,	'v'},
 			{"help",	0,	0,	'h'},
+			{"init",	0,	0,	't'},
 			{0,		0,	0,	 0 }
 		};
 
@@ -100,14 +113,14 @@ int main(int argc, char* argv[])
 				argErr();
 				break;
 			// Set parent IP
-			case 'p':
+			case 'i':
 				if (optarg)
 					pip = std::string(optarg);
 				else
 					argErr();
 				break;
 			// Set parent port
-			case 'o':
+			case 'p':
 				if (optarg)
 					pport = atoi(optarg);
 				else
@@ -142,6 +155,10 @@ int main(int argc, char* argv[])
 				break;
 			case 'v':
 				verb = true;
+				break;
+			case 't':
+				init = true;
+				break;
 		}
 		if (index == -1)
 			break;
@@ -182,16 +199,98 @@ int main(int argc, char* argv[])
 	AL::ALBrokerManager::setInstance(broker->fBrokerManager.lock());
 	AL::ALBrokerManager::getInstance()->addBroker(broker);
 
-	// Find the desired library
-	if(verb)
-		std::cout << bold_on << "Finding " << libName << "..." << bold_off << std::endl;
-
-	std::string library;
-
+	// Create an instance of the desired module
 	if (libPath == "")
-		library = qi::path::findLib(libName.c_str());
+		CreateModule(libName, moduleName, broker, verb, true);
 	else
-		library = libPath;
+		CreateModule(libPath, moduleName, broker, verb, false);
+	
+
+	// Load modules not loaded by naoqi for some reason
+	if (init)
+		Init(broker, verb);
+	
+	// Create a proxy to the module	
+	if(verb)
+		std::cout << bold_on << "Creating proxy to module..." << bold_off << std::endl;
+	AL::ALProxy testProxy(moduleName, pip, pport);
+	
+	// Call a generic function from the module with no arguments
+	if(verb)
+		std::cout << bold_on << "Calling function " << funcName << "..." << bold_off << std::endl;
+	testProxy.callVoid(funcName);
+
+	// Get a handle to the module and close it
+	{
+		boost::shared_ptr<AL::ALModuleCore> module = broker->getModuleByName(moduleName);
+		if(verb)
+			std::cout << bold_on << "Closing module " << moduleName << "..." << bold_off << std::endl;
+		module->exit();
+	}
+
+	// Check module has closed
+	if(verb)
+	{
+		std::cout << bold_on << "Module " << moduleName << " is ";
+		if (!(broker->isModulePresent(moduleName)))
+		{
+			std::cout << "not ";
+		}
+		std::cout << "present" << bold_off << std::endl;
+	}
+	
+	// Close the broker
+	if(verb)
+		std::cout << bold_on << "Closing broker..." << bold_off << std::endl;
+	broker->shutdown();
+
+	// Exit program
+	if(verb)
+		std::cout << bold_on << "Exiting..." << bold_off << std::endl;
+
+	return 0;
+}
+
+void Init (boost::shared_ptr<AL::ALBroker> broker, bool verb)
+{
+	CreateModule("/usr/lib/naoqi/libalbase.so", "ALBase", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/liblauncher.so", "ALLauncher", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/libalbonjour.so", "ALBonjour", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/libalresourcemanager.so", "ALResourceManager", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/libleds.so", "ALLeds", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/libsensors.so", "ALSensors", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/librobotmodel.so", "ALRobotModel", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/libmotion.so", "ALMotion", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/librobotposture.so", "ALRobotPosture", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/libredballtracker.so", "ALRedBallTracker", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/libmotionrecorder.so", "ALMotionRecorder", broker, verb, false);
+	//CreateModule("/usr/lib/naoqi/libaudioout.so", "ALAudioOut", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/libframemanager.so", "ALFrameManager", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/libpythonbridge.so", "ALPythonBridge", broker, verb, false);
+	//CreateModule("/usr/lib/naoqi/libvideoinput.so", "ALVideoInput", broker, verb, false);
+	//CreateModule("/usr/lib/naoqi/libredballdetection.so", "ALRedBallDetection", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/libbehaviormanager.so", "ALBehaviorManager", broker, verb, false);
+	CreateModule("/usr/lib/naoqi/libmemorywatcher.so", "ALMemoryWatcher", broker, verb, false);
+}
+
+// Find and open a library, and create an instance of a module in that library
+bool CreateModule(std::string libName, std::string moduleName, boost::shared_ptr<AL::ALBroker> broker, bool verb, bool find)
+{
+	std::string library;
+	
+	if (find)
+	{
+		// Find the desired library
+		if (verb)
+			std::cout << bold_on << "Finding " << libName << "..." << bold_off << std::endl;
+		library = qi::path::findLib(libName.c_str());
+
+	}
+	else
+	{
+		// Use libName as library path
+		library = libName;
+	}
 
 	// Open the library
 	if(verb)
@@ -243,44 +342,8 @@ int main(int argc, char* argv[])
 		}
 		std::cout << "present" << bold_off << std::endl;
 	}
-
-	// Create a proxy to the module	
-	if(verb)
-		std::cout << bold_on << "Creating proxy to module..." << bold_off << std::endl;
-	AL::ALProxy testProxy(moduleName, pip, pport);
-	
-	// Call a generic function from the module with no arguments
-	if(verb)
-		std::cout << bold_on << "Calling function " << funcName << "..." << bold_off << std::endl;
-	testProxy.callVoid(funcName);
-
-	// Get a handle to the module and close it
-	{
-		boost::shared_ptr<AL::ALModuleCore> module = broker->getModuleByName(moduleName);
-		if(verb)
-			std::cout << bold_on << "Closing module " << moduleName << "..." << bold_off << std::endl;
-		module->exit();
-	}
-
-	// Check module has closed
-	if(verb)
-	{
-		std::cout << bold_on << "Module " << moduleName << " is ";
-		if (!(broker->isModulePresent(moduleName)))
-		{
-			std::cout << "not ";
-		}
-		std::cout << "present" << bold_off << std::endl;
-	}
-	
-	// Close the broker
-	if(verb)
-		std::cout << bold_on << "Closing broker..." << bold_off << std::endl;
-	broker->shutdown();
-
-	// Exit program
-	if(verb)
-		std::cout << bold_on << "Exiting..." << bold_off << std::endl;
-
-	return 0;
+	if (broker->isModulePresent(moduleName))
+		return true;
+	else
+		return false;
 }
