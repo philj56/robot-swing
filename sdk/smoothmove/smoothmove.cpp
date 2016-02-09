@@ -75,7 +75,7 @@ void SmoothMove::moveTest()
 		float amplitude = 0.05f;
 	
 		// Oscillation time in seconds
-		float freq 	= 4.0f;
+		float period 	= 4.0f;
 	
 		// Update time in milliseconds
 		unsigned int update	= 50;
@@ -87,9 +87,10 @@ void SmoothMove::moveTest()
 		motion.setPosition(torso, space, position, speed, axisMask);
 		qi::os::sleep(1.0f);
 	
-		for (float t = 0; t < freq * 2.0; t += 0.001 * update)
+		for (float t = 0; t < period * 2.0; t += 0.001 * update)
 		{
-			position[0] = amplitude * sin (2.0 * M_PI * t / freq);
+			speed = 0.5 * (1.0 + cos(2.0 * M_PI * t / period));
+			position[0] = amplitude * (sin(2.0 * M_PI * t / period) > 0 ? 1 : -1);
 			motion.setPosition(torso, space, position, speed, axisMask);
 			qi::os::msleep(update);
 		}
