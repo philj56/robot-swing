@@ -40,7 +40,10 @@ public:
 	
 	// Do a dance
 	void harryDance();
-		
+
+	// SDK example move head
+	void moveHead();
+
 private:
 	// Broker Parent IP and port
 	std::string pip;

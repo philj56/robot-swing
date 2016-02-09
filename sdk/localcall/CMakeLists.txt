@@ -9,4 +9,4 @@ set(_srcs
 # Create an executable named localcall
 qi_create_bin(localcall ${_srcs})
 
-qi_use_lib(localcall ALCOMMON)
+qi_use_lib(localcall QI ALCOMMON ALERROR ALVALUE BOOST)

@@ -3,6 +3,8 @@
  */
 
 #include "smoothmove.h"
+#include <alproxies/almotionproxy.h>
+#include <alproxies/alrobotpostureproxy.h>
 
 // Constructor
 SmoothMove::SmoothMove(boost::shared_ptr<AL::ALBroker> broker,
@@ -18,10 +20,15 @@ SmoothMove::SmoothMove(boost::shared_ptr<AL::ALBroker> broker,
 	functionName("moveTest", getName(), "Testing movement");
 	BIND_METHOD(SmoothMove::moveTest);
 	
+	functionName("moveHead", getName(), "SDK movehead example");
+	BIND_METHOD(SmoothMove::moveHead);
 
 	// Set broker parent IP and port
 	pip = broker->getParentIP();
 	pport = broker->getParentPort();
+
+	std::cout << "ip:   " << pip << std::endl;
+	std::cout << "port: " << pport << std::endl;
 }
 
 // Destructor
@@ -36,10 +43,13 @@ void SmoothMove::init()
 
 void SmoothMove::moveTest()
 {
+	std::cout<<"MoveTest "<<pip<<":"<<pport<<std::endl;
 	try
 	{
+		std::cout<<"MotionProxy "<<pip<<":"<<pport<<std::endl;
 		// Get brokers, and go to initial posture
 		AL::ALMotionProxy motion(pip, pport);
+		std::cout<<"Done"<<std::endl;
 		AL::ALRobotPostureProxy posture(pip, pport);
 	
 		posture.goToPosture("StandInit", 0.5f);
@@ -176,3 +186,50 @@ void SmoothMove::harryDance()
   	}
 }
 
+void SmoothMove::moveHead()
+{
+  std::cout<<"MoveHead "<<pip<<":"<<pport<<std::endl;
+  /** The name of the joint to be moved. */
+  const AL::ALValue jointName = "HeadYaw";
+
+
+  try {
+    /** Create a ALMotionProxy to call the methods to move NAO's head.
+    * Arguments for the constructor are:
+    * - IP adress of the robot
+    * - port on which NAOqi is listening, by default 9559
+    */
+    AL::ALMotionProxy motion(pip, pport);
+
+    /** Make sure the head is stiff to be able to move it.
+    * To do so, make the stiffness go to the maximum in one second.
+    */
+    /** Target stiffness. */
+    AL::ALValue stiffness = 1.0f;
+    /** Time (in seconds) to reach the target. */
+    AL::ALValue time = 1.0f;
+    /** Call the stiffness interpolation method. */
+    motion.stiffnessInterpolation(jointName, stiffness, time);
+
+    /** Set the target angle list, in radians. */
+    AL::ALValue targetAngles = AL::ALValue::array(-1.5f, 1.5f, 0.0f);
+    /** Set the corresponding time lists, in seconds. */
+    AL::ALValue targetTimes = AL::ALValue::array(3.0f, 6.0f, 9.0f);
+    /** Specify that the desired angles are absolute. */
+    bool isAbsolute = true;
+
+    /** Call the angle interpolation method. The joint will reach the
+    * desired angles at the desired times.
+    */
+    motion.angleInterpolation(jointName, targetAngles, targetTimes, isAbsolute);
+
+    /** Remove the stiffness on the head. */
+    stiffness = 0.0f;
+    time = 1.0f;
+    motion.stiffnessInterpolation(jointName, stiffness, time);
+
+  }
+  catch (const AL::ALError& e) {
+    std::cerr << "Caught exception: " << e.what() << std::endl;
+  }
+}

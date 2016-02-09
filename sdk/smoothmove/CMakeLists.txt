@@ -11,5 +11,6 @@ set(_srcs
 # Create a executable named smoothmove
 # with the source file: main.cpp
 qi_create_lib(smoothmove SHARED ${_srcs} SUBFOLDER naoqi)
+#qi_create_bin(smoothmove ${_srcs})
 
 qi_use_lib(smoothmove QI ALCOMMON ALERROR ALVALUE BOOST)

@@ -16,6 +16,8 @@
 #include <alcommon/alproxy.h>
 #include <alcommon/albroker.h>
 #include <alcommon/albrokermanager.h>
+#include <alproxies/almotionproxy.h>
+#include <alproxies/alrobotpostureproxy.h>
 
 // Find and open a library, and create an instance of a module in that library
 bool CreateModule(std::string libName, std::string moduleName, boost::shared_ptr<AL::ALBroker> broker, bool verb, bool find);
@@ -76,12 +78,6 @@ int main(int argc, char* argv[])
 	int pport = 9559;
 	std::string pip = "127.0.0.1";
 	
-	// Check for odd number of command line arguments (in this case)
-/*	if (argc % 2 != 1)
-	{
-		argErr();
-	}
-*/	
 	// Get any arguments
 	while (true)
 	{
@@ -106,7 +102,7 @@ int main(int argc, char* argv[])
 
 		// Get next option, and check return value
 		// p:o:l:m:f:vh allow short option specification
-		switch(index = getopt_long(argc, argv, "p:o:l:m:f:vh", longopts, &index))
+		switch(index = getopt_long(argc, argv, "i:p:l:m:f:vh", longopts, &index))
 		{
 			// Print usage and quit
 			case 'h':
@@ -204,8 +200,13 @@ int main(int argc, char* argv[])
 		CreateModule(libName, moduleName, broker, verb, true);
 	else
 		CreateModule(libPath, moduleName, broker, verb, false);
-	
 
+	// Test motion proxy
+/*	std::cout<<"TESTING MOTION"<<std::endl;
+	{
+		AL::ALMotionProxy motion(pip, pport);
+	}
+*/
 	// Load modules not loaded by naoqi for some reason
 	if (init)
 		Init(broker, verb);

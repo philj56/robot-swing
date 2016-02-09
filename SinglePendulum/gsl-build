@@ -1,1 +1,1 @@
-g++ -Wall -pedantic -O2 $* -lgsl -lgslcblas 
+g++ -Wall -pedantic -g $* -lgsl -lgslcblas 
