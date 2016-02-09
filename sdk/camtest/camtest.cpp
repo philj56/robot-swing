@@ -21,6 +21,13 @@ CamTest::CamTest(boost::shared_ptr<AL::ALBroker> broker,
 	functionName("GetRes", getName(), "Get the photo capture resolution");
 	BIND_METHOD(CamTest::GetRes);
 	
+	functionName("SetRate", getName(), "Set the photo capture rate");
+	addParam("rate", "The capture interval to set");
+	BIND_METHOD(CamTest::SetRate);
+
+	functionName("GetRate", getName(), "Get the photo capture rate");
+	BIND_METHOD(CamTest::GetRate);
+	
 	// Set broker parent IP and port
 	pip = broker->getParentIP();
 	pport = broker->getParentPort();
@@ -67,3 +74,30 @@ int CamTest::GetRes()
   	}
 }
 
+void CamTest::SetRate(const int &rate)
+{
+	try
+	{
+		// Get brokers, and go to initial posture
+		AL::ALPhotoCaptureProxy photo(pip, pport);
+		photo.setCaptureInterval(rate);
+	}	
+  	catch (const AL::ALError& e) 
+	{
+    		std::cerr << "Caught exception: " << e.what() << std::endl;
+  	}
+}
+
+int CamTest::GetRate()
+{
+	try
+	{
+		// Get brokers, and go to initial posture
+		AL::ALPhotoCaptureProxy photo(pip, pport);
+		return photo.getCaptureInterval();
+	}	
+  	catch (const AL::ALError& e) 
+	{
+    		std::cerr << "Caught exception: " << e.what() << std::endl;
+  	}
+}

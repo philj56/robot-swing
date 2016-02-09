@@ -38,6 +38,10 @@ public:
 	void SetRes(const int &res);
 	int GetRes();
 
+	// Testing camera resolution
+	void SetRate(const int &rate);
+	int GetRate();
+	
 private:
 	// Broker Parent IP and port
 	std::string pip;

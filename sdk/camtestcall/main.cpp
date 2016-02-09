@@ -193,13 +193,23 @@ int main(int argc, char* argv[])
 
 	std::cout << "Resolution: " << res << std::endl;
 
-	std::cout << "Setting resolution to " << (res + 1) % 3 << std::endl;
+	std::cout << "Setting resolution to 0" << std::endl;
 
-	testProxy.callVoid("SetRes", (res + 1) % 3);
+	testProxy.callVoid("SetRes", 0);
 
 	res = testProxy.genericCall("GetRes", 0);
+	
+	int rate = testProxy.genericCall("GetRate", 0);
 
-	std::cout << "Resolution: " << res << std::endl;
+	std::cout << "Rate: " << rate << std::endl;
+
+	std::cout << "Setting rate to 33" << std::endl;
+
+	testProxy.callVoid("SetRate", 33);
+
+	res = testProxy.genericCall("GetRate", 0);
+
+	std::cout << "Rate: " << res << std::endl;
 
 	// Get a handle to the module and close it
 	{
