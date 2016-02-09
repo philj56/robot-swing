@@ -189,15 +189,15 @@ int main(int argc, char* argv[])
 		std::cout << bold_on << "Creating proxy to module..." << bold_off << std::endl;
 	AL::ALProxy testProxy(moduleName, pip, pport);
 	
-	int res = testProxy.genericCall("GetResolution", 0);
+	int res = testProxy.genericCall("GetRes", 0);
 
 	std::cout << "Resolution: " << res << std::endl;
 
 	std::cout << "Setting resolution to " << (res + 1) % 3 << std::endl;
 
-	testProxy.callVoid("SetResolution", (res + 1) % 3);
+	testProxy.callVoid("SetRes", (res + 1) % 3);
 
-	res = testProxy.genericCall("GetResolution", 0);
+	res = testProxy.genericCall("GetRes", 0);
 
 	std::cout << "Resolution: " << res << std::endl;
 
