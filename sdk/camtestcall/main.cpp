@@ -207,27 +207,30 @@ int main(int argc, char* argv[])
 		std::cout << bold_on << "Creating proxy to module..." << bold_off << std::endl;
 	AL::ALProxy testProxy(moduleName, pip, pport);
 	
-	res = testProxy.genericCall("GetRes", 0);
+	int rres = testProxy.genericCall("GetRes", 0);
 
-	std::cout << "Resolution: " << res << std::endl;
+	std::cout << "Resolution: " << rres << std::endl;
 
-	std::cout << "Setting resolution to 0" << std::endl;
+	std::cout << "Setting resolution to " << res << std::endl;
 
-	testProxy.callVoid("SetRes", 0);
+	testProxy.callVoid("SetRes", res);
 
-	res = testProxy.genericCall("GetRes", 0);
+	rres = testProxy.genericCall("GetRes", 0);
 	
-	rate = testProxy.genericCall("GetRate", 0);
+	std::cout << "Resolution: " << rres << std::endl;
+	
 
-	std::cout << "Rate: " << rate << std::endl;
+	int rrate = testProxy.genericCall("GetRate", 0);
 
-	std::cout << "Setting rate to 33" << std::endl;
+	std::cout << "Rate: " << rrate << std::endl;
 
-	testProxy.callVoid("SetRate", 33);
+	std::cout << "Setting rate to " << rate << std::endl;
 
-	res = testProxy.genericCall("GetRate", 0);
+	testProxy.callVoid("SetRate", rate);
 
-	std::cout << "Rate: " << res << std::endl;
+	rrate = testProxy.genericCall("GetRate", 0);
+
+	std::cout << "Rate: " << rrate << std::endl;
 
 	// Get a handle to the module and close it
 	{
