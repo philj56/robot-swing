@@ -63,6 +63,10 @@ int main(int argc, char* argv[])
 	// Explicit library path
 	std::string libPath = "";
 
+	// Resolution and frame delay of camera
+	int res;
+	int rate;
+
 	// Set broker name, ip and port, finding first available port from 54000
 	const std::string brokerName = "CamTestCallBroker";
 	int brokerPort = qi::os::findAvailablePort(54000);
@@ -87,6 +91,8 @@ int main(int argc, char* argv[])
 			{"lib",		1,	0,	'l'},
 			{"mod",		1,	0,	'm'},
 			{"path",	1,	0,	'x'},
+			{"res",		0,	0,	'r'},
+			{"period",	0,	0,	'e'},
 			{"verb",	0,	0,	'v'},
 			{"help",	0,	0,	'h'},
 			{0,		0,	0,	 0 }
@@ -94,7 +100,7 @@ int main(int argc, char* argv[])
 
 		// Get next option, and check return value
 		// p:o:l:m:f:vh allow short option specification
-		switch(index = getopt_long(argc, argv, "i:p:l:m:f:vh", longopts, &index))
+		switch(index = getopt_long(argc, argv, "i:p:l:m:f:r:e:vh", longopts, &index))
 		{
 			// Print usage and quit
 			case 'h':
@@ -131,6 +137,18 @@ int main(int argc, char* argv[])
 			case 'x':
 				if (optarg)
 					libPath = std::string(optarg);
+				else
+					argErr();
+				break;
+			case 'r':
+				if (optarg)
+					res = atoi(optarg);
+				else
+					argErr();
+				break;
+			case 'e':
+				if (optarg)
+					rate = atoi(optarg);
 				else
 					argErr();
 				break;
@@ -189,7 +207,7 @@ int main(int argc, char* argv[])
 		std::cout << bold_on << "Creating proxy to module..." << bold_off << std::endl;
 	AL::ALProxy testProxy(moduleName, pip, pport);
 	
-	int res = testProxy.genericCall("GetRes", 0);
+	res = testProxy.genericCall("GetRes", 0);
 
 	std::cout << "Resolution: " << res << std::endl;
 
@@ -199,7 +217,7 @@ int main(int argc, char* argv[])
 
 	res = testProxy.genericCall("GetRes", 0);
 	
-	int rate = testProxy.genericCall("GetRate", 0);
+	rate = testProxy.genericCall("GetRate", 0);
 
 	std::cout << "Rate: " << rate << std::endl;
 
