@@ -22,9 +22,6 @@
 // Find and open a library, and create an instance of a module in that library
 bool CreateModule(std::string libName, std::string moduleName, boost::shared_ptr<AL::ALBroker> broker, bool verb, bool find);
 
-// Init some modules
-void Init (boost::shared_ptr<AL::ALBroker> broker, bool verb);
-
 // Turn bold text on
 std::ostream& bold_on(std::ostream& os)
 {
@@ -96,7 +93,6 @@ int main(int argc, char* argv[])
 			{"path",	1,	0,	'x'},
 			{"verb",	0,	0,	'v'},
 			{"help",	0,	0,	'h'},
-			{"init",	0,	0,	't'},
 			{0,		0,	0,	 0 }
 		};
 
@@ -152,9 +148,6 @@ int main(int argc, char* argv[])
 			case 'v':
 				verb = true;
 				break;
-			case 't':
-				init = true;
-				break;
 		}
 		if (index == -1)
 			break;
@@ -201,16 +194,6 @@ int main(int argc, char* argv[])
 	else
 		CreateModule(libPath, moduleName, broker, verb, false);
 
-	// Test motion proxy
-/*	std::cout<<"TESTING MOTION"<<std::endl;
-	{
-		AL::ALMotionProxy motion(pip, pport);
-	}
-*/
-	// Load modules not loaded by naoqi for some reason
-	if (init)
-		Init(broker, verb);
-	
 	// Create a proxy to the module	
 	if(verb)
 		std::cout << bold_on << "Creating proxy to module..." << bold_off << std::endl;
@@ -250,28 +233,6 @@ int main(int argc, char* argv[])
 		std::cout << bold_on << "Exiting..." << bold_off << std::endl;
 
 	return 0;
-}
-
-void Init (boost::shared_ptr<AL::ALBroker> broker, bool verb)
-{
-	CreateModule("/usr/lib/naoqi/libalbase.so", "ALBase", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/liblauncher.so", "ALLauncher", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/libalbonjour.so", "ALBonjour", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/libalresourcemanager.so", "ALResourceManager", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/libleds.so", "ALLeds", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/libsensors.so", "ALSensors", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/librobotmodel.so", "ALRobotModel", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/libmotion.so", "ALMotion", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/librobotposture.so", "ALRobotPosture", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/libredballtracker.so", "ALRedBallTracker", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/libmotionrecorder.so", "ALMotionRecorder", broker, verb, false);
-	//CreateModule("/usr/lib/naoqi/libaudioout.so", "ALAudioOut", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/libframemanager.so", "ALFrameManager", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/libpythonbridge.so", "ALPythonBridge", broker, verb, false);
-	//CreateModule("/usr/lib/naoqi/libvideoinput.so", "ALVideoInput", broker, verb, false);
-	//CreateModule("/usr/lib/naoqi/libredballdetection.so", "ALRedBallDetection", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/libbehaviormanager.so", "ALBehaviorManager", broker, verb, false);
-	CreateModule("/usr/lib/naoqi/libmemorywatcher.so", "ALMemoryWatcher", broker, verb, false);
 }
 
 // Find and open a library, and create an instance of a module in that library
