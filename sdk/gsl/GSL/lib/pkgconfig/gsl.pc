@@ -1,0 +1,10 @@
+prefix=/home/phil/gslbuild
+exec_prefix=/home/phil/gslbuild
+libdir=/home/phil/gslbuild/lib
+includedir=/home/phil/gslbuild/include
+
+Name: GSL
+Description: GNU Scientific Library
+Version: 1.14
+Libs: -L/home/phil/gslbuild/lib -lgsl -lgslcblas -lm 
+Cflags: -I/home/phil/gslbuild/include
