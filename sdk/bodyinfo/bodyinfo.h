@@ -51,6 +51,10 @@ private:
 	float lArmMass;
 	float rArmMass;
 	float headMass;
+	float lLegMass;
+	float rLegMass;
+	
+	float hipOffset;
 };
 
 #endif /* BODYINFO_H */
