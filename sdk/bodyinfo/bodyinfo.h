@@ -36,12 +36,21 @@ public:
 	virtual void init();
 
 	// Get angles
-	void getAngles();
+	float getHipPitch();
+
+	std::vector<float> getSittingCOMAngles();
 
 private:
 	// Broker Parent IP and port
 	std::string pip;
 	int pport;
+	
+	AL::ALMotionProxy motion;
+
+	float torsoMass;
+	float lArmMass;
+	float rArmMass;
+	float headMass;
 };
 
 #endif /* BODYINFO_H */

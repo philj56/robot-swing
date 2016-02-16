@@ -11,11 +11,14 @@ BodyInfo::BodyInfo(boost::shared_ptr<AL::ALBroker> broker,
 	: AL::ALModule(broker, name)
 {
 	// Set description, and bind each function
-	setModuleDescription("Read angles from body");
+	setModuleDescription("Various functions to obtain relevant body information");
 
-	functionName("getAngles", getName(), "Read body angles");
-	BIND_METHOD(BodyInfo::getAngles);
+	functionName("getHipPitch", getName(), "Read hip pitch angles");
+	BIND_METHOD(BodyInfo::getHipPitch);
 
+	functionName("getSittingCOMAngles", getName(), "Get COM angles from seat for sitting position");
+	BIND_METHOD(BodyInfo::getSittingCOMAngles);
+	
 	// Set broker parent IP and port
 	pip = broker->getParentIP();
 	pport = broker->getParentPort();
@@ -29,19 +32,40 @@ BodyInfo::~BodyInfo()
 // init() - called as soon as the module is constructed
 void BodyInfo::init()
 {
+	try
+	{
+		motion = AL::ALMotionProxy(pip, pport);
+		torsoMass = motion.getMass("Torso");
+		lArmMass = motion.getMass("LArm");
+		rArmMass = motion.getMass("RArm");
+		headMass = motion.getMass("Head");
+	}	
+  	catch (const AL::ALError& e) 
+	{
+    		std::cerr << "Caught exception: " << e.what() << std::endl;
+  	}
 }
 
-void BodyInfo::getAngles()
+// Return the average hip pitch angle
+float BodyInfo::getHipPitch()
 {
 	try
 	{
-		AL::ALMotionProxy motion(pip, pport);
-
-
-	  	std::vector<float> commandAngles = motion.getAngles("Body", false);
-    		std::cout << "Command angles: " << std::endl << commandAngles << std::endl;
 	        std::vector<float> sensorAngles = motion.getAngles("Body", true);
-		std::cout << "Sensor angles: " << std::endl << sensorAngles << std::endl;
+		return (sensorAngles[10] + sensorAngles[16]) / 2.0;
+	}	
+  	catch (const AL::ALError& e) 
+	{
+    		std::cerr << "Caught exception: " << e.what() << std::endl;
+  	}
+}
+
+// Return vector of [Torso COM angle, lower body COM angle] when robot is sitting
+std::vector<float> BodyInfo::getSittingCOMAngles()
+{
+	try
+	{
+	        std::vector<float> sensorAngles = motion.getAngles("Body", true);
 	}	
   	catch (const AL::ALError& e) 
 	{
