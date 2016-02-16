@@ -1,4 +1,4 @@
-BodyAngles - Generic module template, can be compiled as remote or local
+BodyInfo - Generic module template, can be compiled as remote or local
 
 To compile as a remote module:
 

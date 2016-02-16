@@ -1,12 +1,12 @@
-/* bodyangles.cpp
+/* bodyinfo.cpp
  * Get body angles source file
  */
 
-#include "bodyangles.h"
+#include "bodyinfo.h"
 #include <alproxies/almotionproxy.h>
 
 // Constructor
-BodyAngles::BodyAngles(boost::shared_ptr<AL::ALBroker> broker,
+BodyInfo::BodyInfo(boost::shared_ptr<AL::ALBroker> broker,
 			 const std::string &name)
 	: AL::ALModule(broker, name)
 {
@@ -14,7 +14,7 @@ BodyAngles::BodyAngles(boost::shared_ptr<AL::ALBroker> broker,
 	setModuleDescription("Read angles from body");
 
 	functionName("getAngles", getName(), "Read body angles");
-	BIND_METHOD(BodyAngles::getAngles);
+	BIND_METHOD(BodyInfo::getAngles);
 
 	// Set broker parent IP and port
 	pip = broker->getParentIP();
@@ -22,16 +22,16 @@ BodyAngles::BodyAngles(boost::shared_ptr<AL::ALBroker> broker,
 }
 
 // Destructor
-BodyAngles::~BodyAngles()
+BodyInfo::~BodyInfo()
 {
 }
 
 // init() - called as soon as the module is constructed
-void BodyAngles::init()
+void BodyInfo::init()
 {
 }
 
-void BodyAngles::getAngles()
+void BodyInfo::getAngles()
 {
 	try
 	{

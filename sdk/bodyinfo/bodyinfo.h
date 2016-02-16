@@ -1,9 +1,9 @@
-/* bodyangles.h
+/* bodyinfo.h
  * Generic module header file
  */
 
-#ifndef BODYANGLES_H
-#define BODYANGLES_H
+#ifndef BODYINFO_H
+#define BODYINFO_H
 
 #include <iostream>
 #include <cstdlib>
@@ -21,16 +21,16 @@ namespace AL
 	class ALBroker;
 }
 
-// BodyAngles
-class BodyAngles : public AL::ALModule
+// BodyInfo
+class BodyInfo : public AL::ALModule
 {
 public:
 	// Constructor
-	BodyAngles(boost::shared_ptr<AL::ALBroker> broker,
+	BodyInfo(boost::shared_ptr<AL::ALBroker> broker,
 		 const std::string &name);
 
 	// Destructor
-	virtual ~BodyAngles();
+	virtual ~BodyInfo();
 
 	// init() - called just after the constructor
 	virtual void init();
@@ -44,4 +44,4 @@ private:
 	int pport;
 };
 
-#endif /* BODYANGLES_H */
+#endif /* BODYINFO_H */

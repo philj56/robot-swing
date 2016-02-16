@@ -1,6 +1,6 @@
 /* main.cpp
- * bodyangles main file - compiles as a library if local,
- * or an executable that calls the BodyAngles::sayHello() function if remote.
+ * bodyinfo main file - compiles as a library if local,
+ * or an executable that calls the BodyInfo::sayHello() function if remote.
  */
 
 #include <iostream>
@@ -8,7 +8,7 @@
 #include <boost/shared_ptr.hpp>
 #include <qi/os.hpp>
 
-#include "bodyangles.h"
+#include "bodyinfo.h"
 
 #include <alcommon/almodule.h>
 #include <alcommon/albroker.h>
@@ -34,7 +34,7 @@ extern "C"
 		AL::ALBrokerManager::getInstance()->addBroker(broker);
 
 		// Create instance of module
-		AL::ALModule::createModule<BodyAngles>(broker, "BodyAngles");
+		AL::ALModule::createModule<BodyInfo>(broker, "BodyInfo");
 	}
 
 	ALCALL int _closeModule()
