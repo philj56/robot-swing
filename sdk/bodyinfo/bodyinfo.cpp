@@ -128,8 +128,8 @@ std::vector<float> BodyInfo::getSittingCOMAngles()
 		}
 
 		std::vector<float> COMAngles;
-		COMAngles.push_back(arg (upperCOM[0], upperCOM[1]) + hipAngle);
-		COMAngles.push_back(arg (lowerCOM[0], lowerCOM[1]) + hipAngle);
+		COMAngles.push_back(arg (upperCOM[0], upperCOM[1] + hipOffset) + hipAngle);
+		COMAngles.push_back(arg (lowerCOM[0], lowerCOM[1] - hipOffset) + hipAngle);
 //		std::cout << "Upper COM: " << upperCOM[0] << ", " << upperCOM[1] << std::endl;
 
 		// Transform COMs from torso frame to seat frame
