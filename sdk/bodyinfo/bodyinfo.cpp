@@ -93,7 +93,7 @@ std::vector<float> BodyInfo::getSittingCOMAngles()
 	try
 	{
 		// Angle to transform torso frame to seat frame
-		float hipAngle = M_PI / 2 + getHipPitch();
+		float hipAngle = M_PI / 2 + getHipPitch() - 0.65;
 		unsigned int frame = 0;		// FRAME_TORSO
 		bool sensors = true;		// Use sensors
 	
