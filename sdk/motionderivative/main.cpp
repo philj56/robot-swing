@@ -199,6 +199,7 @@ int main(int argc, char* argv[])
 		std::cout << std::setw(15) << std::left << "Lower Body:" << COMAngles[1] << std::endl;
 		qi::os::sleep(1);
 		qi::os::gettimeofday(&currentTime);
+		COMAngles = bodyProxy.genericCall("getSittingCOMAngles", 0);
 	}
 
 	// Get a handle to the module and close it
