@@ -1,6 +1,6 @@
 /* main.cpp
- * camtest main file - compiles as a library if local,
- * or an executable that calls the CamTest::sayHello() function if remote.
+ * cameratools main file - compiles as a library if local,
+ * or an executable that calls the CameraTools::sayHello() function if remote.
  */
 
 #include <iostream>
@@ -8,7 +8,7 @@
 #include <boost/shared_ptr.hpp>
 #include <qi/os.hpp>
 
-#include "camtest.h"
+#include "cameratools.h"
 
 #include <alcommon/almodule.h>
 #include <alcommon/albroker.h>
@@ -34,7 +34,7 @@ extern "C"
 		AL::ALBrokerManager::getInstance()->addBroker(broker);
 
 		// Create instance of module
-		AL::ALModule::createModule<CamTest>(broker, "CamTest");
+		AL::ALModule::createModule<CameraTools>(broker, "CameraTools");
 	}
 
 	ALCALL int _closeModule()
