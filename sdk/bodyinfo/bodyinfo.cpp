@@ -109,7 +109,8 @@ std::vector<float> BodyInfo::getSittingCOMAngles()
 		std::vector<float> upperCOM;
 		std::vector<float> lowerCOM;
 
-		for (int i = 0; i < 3; i++)
+		// Only care about x and z (0 & 2 index)
+		for (int i = 0; i < 3; i+=2)
 		{
 
 			upperCOM.push_back(
@@ -125,24 +126,27 @@ std::vector<float> BodyInfo::getSittingCOMAngles()
 					);
 
 		}
-		
-//		std::cout << "Upper COM: " << upperCOM[0] << ", " << upperCOM[1] << "," << upperCOM[2] << std::endl;
+
+		std::vector<float> COMAngles;
+		COMAngles.push_back(arg (upperCOM[0], upperCOM[1]) + hipAngle);
+		COMAngles.push_back(arg (lowerCOM[0], lowerCOM[1]) + hipAngle);
+//		std::cout << "Upper COM: " << upperCOM[0] << ", " << upperCOM[1] << std::endl;
 
 		// Transform COMs from torso frame to seat frame
-		std::vector<float> upperSeatCOM;
-		upperSeatCOM.push_back(upperCOM[0] * cos(hipAngle) - (upperCOM[2] + hipOffset) * sin(hipAngle));
-		upperSeatCOM.push_back(upperCOM[0] * sin(hipAngle) + (upperCOM[2] + hipOffset) * cos(hipAngle));
+/*		std::vector<float> upperSeatCOM;
+		upperSeatCOM.push_back(upperCOM[0] * cos(hipAngle) - V(upperCOM[1] + hipOffset) * sin(hipAngle));
+		upperSeatCOM.push_back(upperCOM[0] * sin(hipAngle) + (upperCOM[1] + hipOffset) * cos(hipAngle));
 		
 //		std::cout << "Upper Seat COM: " << upperSeatCOM[0] << ", " << upperSeatCOM[1] << std::endl;
 		
 		std::vector<float> lowerSeatCOM;
-		lowerSeatCOM.push_back(lowerCOM[0] * cos(hipAngle) - (lowerCOM[2] - hipOffset) * sin(hipAngle));
-		lowerSeatCOM.push_back(lowerCOM[0] * sin(hipAngle) + (lowerCOM[2] - hipOffset) * cos(hipAngle));
-
+		lowerSeatCOM.push_back(lowerCOM[0] * cos(hipAngle) - (lowerCOM[1] - hipOffset) * sin(hipAngle));
+		lowerSeatCOM.push_back(lowerCOM[0] * sin(hipAngle) + (lowerCOM[1] - hipOffset) * cos(hipAngle));
+*/
 		// Convert COMs to angles
-		std::vector<float> COMAngles;
-		COMAngles.push_back( arg( -upperSeatCOM[0], upperSeatCOM[1]));	// Upper body angle
-		COMAngles.push_back( arg( -lowerSeatCOM[0], lowerSeatCOM[1]));	// Lower body angle
+//		std::vector<float> COMAngles;
+//		COMAngles.push_back( arg( -upperSeatCOM[0], upperSeatCOM[1]));	// Upper body angle
+//		COMAngles.push_back( arg( -lowerSeatCOM[0], lowerSeatCOM[1]));	// Lower body angle
 
 //		std::cout << "Upper Seat Angle: " << COMAngles[0] << std::endl;
 
