@@ -5,6 +5,29 @@
 #include "bodyinfo.h"
 #include <alproxies/almotionproxy.h>
 
+// Argument of point
+double arg (double x, double y)
+{
+	double offset;
+	if (x < 0)
+	{
+		offset = M_PI;
+	}
+	else
+	{
+		if (y > 0)
+		{
+			offset = 0;
+		}
+		else
+		{
+			offset = 2 * M_PI;
+		}
+	}
+
+	return offset + atan(y / x);
+}
+
 // Constructor
 BodyInfo::BodyInfo(boost::shared_ptr<AL::ALBroker> broker,
 			 const std::string &name)
@@ -69,7 +92,8 @@ std::vector<float> BodyInfo::getSittingCOMAngles()
 {
 	try
 	{
-		float hipAngle = getHipPitch();
+		// Angle to transform torso frame to seat frame
+		float hipAngle = M_PI / 2 + getHipPitch();
 		unsigned int frame = 0;		// FRAME_TORSO
 		bool sensors = true;		// Use sensors
 	
@@ -106,19 +130,19 @@ std::vector<float> BodyInfo::getSittingCOMAngles()
 
 		// Transform COMs from torso frame to seat frame
 		std::vector<float> upperSeatCOM;
-		upperSeatCOM.push_back(upperCOM[0] * sin(hipAngle) + (upperCOM[2] + hipOffset) * cos(hipAngle));
 		upperSeatCOM.push_back(upperCOM[0] * cos(hipAngle) - (upperCOM[2] + hipOffset) * sin(hipAngle));
+		upperSeatCOM.push_back(upperCOM[0] * sin(hipAngle) + (upperCOM[2] + hipOffset) * cos(hipAngle));
 		
 //		std::cout << "Upper Seat COM: " << upperSeatCOM[0] << ", " << upperSeatCOM[1] << std::endl;
 		
 		std::vector<float> lowerSeatCOM;
-		lowerSeatCOM.push_back(lowerCOM[0] * sin(hipAngle) + (lowerCOM[2] - hipOffset) * cos(hipAngle));
 		lowerSeatCOM.push_back(lowerCOM[0] * cos(hipAngle) - (lowerCOM[2] - hipOffset) * sin(hipAngle));
+		lowerSeatCOM.push_back(lowerCOM[0] * sin(hipAngle) + (lowerCOM[2] - hipOffset) * cos(hipAngle));
 
 		// Convert COMs to angles
 		std::vector<float> COMAngles;
-		COMAngles.push_back(-atan(upperSeatCOM[0] / upperSeatCOM[1]));	// Upper body angle
-		COMAngles.push_back( atan(lowerSeatCOM[0] / lowerSeatCOM[1]));	// Lower body angle
+		COMAngles.push_back( arg( -upperSeatCOM[0], upperSeatCOM[1]));	// Upper body angle
+		COMAngles.push_back( arg( -lowerSeatCOM[0], lowerSeatCOM[1]));	// Lower body angle
 
 //		std::cout << "Upper Seat Angle: " << COMAngles[0] << std::endl;
 
@@ -129,3 +153,5 @@ std::vector<float> BodyInfo::getSittingCOMAngles()
     		std::cerr << "Caught exception: " << e.what() << std::endl;
   	}
 }
+
+
