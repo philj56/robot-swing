@@ -80,6 +80,8 @@ std::vector<float> BodyInfo::getSittingCOMAngles()
 		std::vector<float> lLegCOM  = motion.getCOM("LLeg",  frame, sensors);
 		std::vector<float> rLegCOM  = motion.getCOM("RLeg",  frame, sensors);
 
+//		std::cout << "Torso COM: " << torsoCOM[0] << ", " << torsoCOM[1] << "," << torsoCOM[2] << std::endl;
+
 		std::vector<float> upperCOM;
 		std::vector<float> lowerCOM;
 
@@ -99,20 +101,26 @@ std::vector<float> BodyInfo::getSittingCOMAngles()
 					);
 
 		}
+		
+//		std::cout << "Upper COM: " << upperCOM[0] << ", " << upperCOM[1] << "," << upperCOM[2] << std::endl;
 
 		// Transform COMs from torso frame to seat frame
 		std::vector<float> upperSeatCOM;
-		upperSeatCOM.push_back(upperCOM[0] * sin(hipAngle) + (upperCOM[3] + hipOffset) * cos(hipAngle));
-		upperSeatCOM.push_back(upperCOM[0] * cos(hipAngle) - (upperCOM[3] + hipOffset) * sin(hipAngle));
+		upperSeatCOM.push_back(upperCOM[0] * sin(hipAngle) + (upperCOM[2] + hipOffset) * cos(hipAngle));
+		upperSeatCOM.push_back(upperCOM[0] * cos(hipAngle) - (upperCOM[2] + hipOffset) * sin(hipAngle));
+		
+//		std::cout << "Upper Seat COM: " << upperSeatCOM[0] << ", " << upperSeatCOM[1] << std::endl;
 		
 		std::vector<float> lowerSeatCOM;
-		lowerSeatCOM.push_back(lowerCOM[0] * sin(hipAngle) + (lowerCOM[3] - hipOffset) * cos(hipAngle));
-		lowerSeatCOM.push_back(lowerCOM[0] * cos(hipAngle) - (lowerCOM[3] - hipOffset) * sin(hipAngle));
+		lowerSeatCOM.push_back(lowerCOM[0] * sin(hipAngle) + (lowerCOM[2] - hipOffset) * cos(hipAngle));
+		lowerSeatCOM.push_back(lowerCOM[0] * cos(hipAngle) - (lowerCOM[2] - hipOffset) * sin(hipAngle));
 
 		// Convert COMs to angles
 		std::vector<float> COMAngles;
-		COMAngles.push_back(-atan(upperSeatCOM[0] / upperSeatCOM[3]));	// Upper body angle
-		COMAngles.push_back( atan(lowerSeatCOM[0] / lowerSeatCOM[3]));	// Lower body angle
+		COMAngles.push_back(-atan(upperSeatCOM[0] / upperSeatCOM[1]));	// Upper body angle
+		COMAngles.push_back( atan(lowerSeatCOM[0] / lowerSeatCOM[1]));	// Lower body angle
+
+//		std::cout << "Upper Seat Angle: " << COMAngles[0] << std::endl;
 
 		return COMAngles;
 	}

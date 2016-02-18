@@ -3,6 +3,7 @@
  */
 
 #include <iostream>
+#include <iomanip>
 #include <cstdlib>
 #include <unistd.h>
 #include <getopt.h>
@@ -72,6 +73,9 @@ int main(int argc, char* argv[])
 	int pport = 9559;
 	std::string pip = "127.0.0.1";
 	
+	// Default time to run in seconds
+	int timeToRun = 10;
+
 	// Get any arguments
 	while (true)
 	{
@@ -85,13 +89,14 @@ int main(int argc, char* argv[])
 			{"pip", 	1, 	0, 	'i'},
 			{"pport",	1,	0,	'p'},
 			{"path",	1,	0,	'x'},
+			{"time",	0,	0,	't'},
 			{"verb",	0,	0,	'v'},
 			{"help",	0,	0,	'h'},
 			{0,		0,	0,	 0 }
 		};
 
 		// Get next option, and check return value
-		switch(index = getopt_long(argc, argv, "i:p:vh", longopts, &index))
+		switch(index = getopt_long(argc, argv, "i:p:t:vh", longopts, &index))
 		{
 			// Print usage and quit
 			case 'h':
@@ -114,6 +119,12 @@ int main(int argc, char* argv[])
 			case 'x':
 				if (optarg)
 					libPath = std::string(optarg);
+				else
+					argErr();
+				break;
+			case 't':
+				if (optarg)
+					timeToRun = atoi(optarg);
 				else
 					argErr();
 				break;
@@ -172,11 +183,22 @@ int main(int argc, char* argv[])
 		std::cout << bold_on << "Creating proxy to module..." << bold_off << std::endl;
 	AL::ALProxy bodyProxy(moduleName, pip, pport);
 	
+	// Get COM angles as vector of [upper body, lower body]
 	std::vector<float> COMAngles = bodyProxy.genericCall("getSittingCOMAngles", 0);
 
-	for (int i = 0; i < 2; i++)
+	// Get start time of simulation and store it
+	qi::os::timeval startTime;
+	qi::os::timeval currentTime;
+	qi::os::gettimeofday(&startTime);
+	qi::os::gettimeofday(&currentTime);
+
+	// Run for time "timeToRun"
+	while (currentTime.tv_sec - startTime.tv_sec < timeToRun)
 	{
-		std::cout << COMAngles[i] << std::endl;
+		std::cout << std::setw(15) << std::left << "Upper Body:" << COMAngles[0] << std::endl;
+		std::cout << std::setw(15) << std::left << "Lower Body:" << COMAngles[1] << std::endl;
+		qi::os::sleep(1);
+		qi::os::gettimeofday(&currentTime);
 	}
 
 	// Get a handle to the module and close it
