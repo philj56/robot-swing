@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(camtestcall)
+project(landmarkswing)
 
 find_package(qibuild)
 
@@ -7,6 +7,6 @@ set(_srcs
     main.cpp)
 
 # Create an executable named localcall
-qi_create_bin(camtestcall ${_srcs})
+qi_create_bin(landmarkswing ${_srcs})
 
-qi_use_lib(camtestcall QI ALCOMMON ALERROR ALVALUE BOOST)
+qi_use_lib(landmarkswing QI ALCOMMON ALERROR ALVALUE BOOST)
