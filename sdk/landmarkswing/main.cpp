@@ -22,6 +22,8 @@
 #include <alproxies/almotionproxy.h>
 #include <alproxies/alrobotpostureproxy.h>
 
+int vectorOrder (std::vector<float> vec);
+
 // Wrong number of arguments
 void argErr(void)
 {
@@ -178,6 +180,10 @@ int main(int argc, char* argv[])
 	const int landmark1ID = 0;
 	const int landmark2ID = 1;
 
+	// Whether each landmark has been detected this cycle
+	bool landmark1Detected = false;
+	bool landmark2Detected = false;
+
 	// Number of previous widths to smooth over
 	unsigned int landmarkSmoothing = 3;
 
@@ -193,6 +199,11 @@ int main(int argc, char* argv[])
 	// Run for time "timeToRun"
 	while (currentTime.tv_sec - startTime.tv_sec < timeToRun)
 	{
+		// Reset landmark detection flags
+		landmark1Detected = false;
+		landmark2Detected = false;
+
+		// Read memory for landmarks
 		landmarks = camToolsProxy.genericCall("getLandmark", 0);
 		
 		std::cout << std::endl << "*****" << std::endl << std::endl;
@@ -200,8 +211,10 @@ int main(int argc, char* argv[])
 		// Check for landmark detection
 		if (landmarks.isValid() && landmarks.isArray() && landmarks.getSize() >= 2)
 		{
+			// Get widths of desired landmarks, and store them in appropriate vectors
 			for (unsigned int i = 0; i < landmarks[1].getSize(); i++)
 			{
+				// Relevant parameters in landmark vector
 				int   ID     = landmarks [1][i][1][0];
 				float width  = landmarks [1][i][0][3];
 				float height = landmarks [1][i][0][4];
@@ -209,16 +222,77 @@ int main(int argc, char* argv[])
 				switch (ID)
 				{
 					case landmark1ID:
+						landmark1Detected = true;
 						landmark1Widths.push_back(width);
+						if (landmark1Widths.size() > landmarkSmoothing + 1)
+						{
+							landmark1Widths.erase(landmark1Widths.begin());
+						}
 						break;
 					case landmark2ID:
+						landmark2Detected = true;
 						landmark2Widths.push_back(width);
+						if (landmark2Widths.size() > landmarkSmoothing + 1)
+						{
+							landmark2Widths.erase(landmark2Widths.begin());
+						}
 						break;
+					default:
+						std::cout << "Unkown landmark detected" << std::endl;
 				}
 				
 				std::cout << "Mark ID: " << ID << std::endl;
 				std::cout << "Width:   " << width << std::endl;
 				std::cout << "Height:  " << height << std::endl;
+			}
+
+			/* TODO: position code for movement */
+			// Check whether a landmark was detected this interval
+			if (landmark1Detected || landmark2Detected)
+			{
+				// The order of each vector (+1, 0, -1)
+				int order1 = vectorOrder(landmark1Widths);
+				int order2 = vectorOrder(landmark2Widths);
+				// Both landmarks detected
+				if (landmark1Detected && landmark2Detected)
+				{
+					// Both landmarks moving in same direction
+					if (order1 == order2)
+					{
+						if (order1 > 0)
+						{
+							// CODE FOR SOME DIRECTION
+						}
+						else if (order1 < 0)
+						{
+							// CODE FOR OTHER DIRECTION
+						}
+					}
+				}
+				// Only first landmark detected
+				else if (landmark1Detected)
+				{
+					if (order1 > 0)
+					{
+						// CODE FOR SOME DIRECTION
+					}
+					else if (order1 < 0)
+					{
+						// CODE FOR OTHER DIRECTION
+					}
+				}
+				// Only second landmark detected
+				else
+				{
+					if (order2 > 0)
+					{
+						// CODE FOR SOME DIRECTION
+					}
+					else if (order2 < 0)
+					{
+						// CODE FOR OTHER DIRECTION
+					}
+				}
 			}
 		}
 		else
@@ -259,4 +333,31 @@ int main(int argc, char* argv[])
 		std::cout << "Exiting..." << std::endl;
 
 	return 0;
+}
+
+// Order of vector - 1 = ascending, 0 = neither, -1 = descending
+// Non-zero order requires entire vector to follow that order
+// Default to 0 (no order)
+int vectorOrder (std::vector<float> vec)
+{
+	int order = 0;
+	if (vec.size() > 1)
+	{
+		if (vec[1] > vec[0])
+			order = 1;
+		else if (vec[1] < vec[0])
+			order = -1;
+		else
+			order = 0;
+	}
+	for (unsigned int i = 2; i < vec.size(); i++)
+	{
+		if (vec[i] > vec[i-1] && order == 1)
+			continue;
+		else if (vec[i] < vec[i-1] && order == -1)
+			continue;
+		else
+			return 0;
+	}
+	return order;
 }
