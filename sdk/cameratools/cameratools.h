@@ -15,8 +15,6 @@
 #include <alproxies/almemoryproxy.h>
 #include <alvalue/alvalue.h>
 
-#include <qi/os.hpp>
-
 // Forward declaration of ALBroker
 namespace AL
 {

@@ -3,8 +3,6 @@
  */
 
 #include "cameratools.h"
-#include <alproxies/almotionproxy.h>
-#include <alproxies/alrobotpostureproxy.h>
 
 // Constructor
 CameraTools::CameraTools(boost::shared_ptr<AL::ALBroker> broker,

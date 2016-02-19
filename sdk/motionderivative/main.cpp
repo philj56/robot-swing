@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
 	bool init = false;
 
 	// Name of desired library
-	std::string libName = "libbodyinfo.so";
+	std::string libName = "bodyinfo";
 	
 	// Name of desired module in library
 	std::string moduleName = "BodyInfo";

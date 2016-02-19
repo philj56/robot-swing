@@ -1,8 +1,11 @@
 /* main.cpp
- * localcall main file - locally loads a shared library, instantiates a module and calls a function from that module 
+ * landmarkswing main file - use landmark detection to detect changes in swinging direction, and move accordingly 
  */
 
+#include "createmodule.h"
+
 #include <iostream>
+#include <iomanip>
 #include <cstdlib>
 #include <unistd.h>
 #include <getopt.h>
@@ -19,29 +22,11 @@
 #include <alproxies/almotionproxy.h>
 #include <alproxies/alrobotpostureproxy.h>
 
-// Find and open a library, and create an instance of a module in that library
-bool CreateModule(std::string libName, std::string moduleName, boost::shared_ptr<AL::ALBroker> broker, bool verb, bool find);
-
-// Init some modules
-void Init (boost::shared_ptr<AL::ALBroker> broker, bool verb);
-
-// Turn bold text on
-std::ostream& bold_on(std::ostream& os)
-{
-	    return os << "\e[1m";
-}
-
-// Turn bold text off
-std::ostream& bold_off(std::ostream& os)
-{
-	    return os << "\e[0m";
-}
-
 // Wrong number of arguments
 void argErr(void)
 {
 	// Standard usage message
-	std::string usage = "Usage: localcall [--pip robot_ip] [--pport port] [--lib library] [--mod module] [--fun function]";
+	std::string usage = "Usage: landmarkswing [--pip robot_ip] [--pport port]";
 	std::cerr << usage << std::endl;
 	exit(2);
 }
@@ -54,21 +39,17 @@ int main(int argc, char* argv[])
 	// Whether to manually load Libraries - default off
 	bool init = false;
 
-	// Default name of desired library
-	std::string libName = "libcamtest.so";
+	// Name of desired library
+	std::string libName = "cameratools";
 	
-	// Default name of desired module in library
-	std::string moduleName = "CamTest";
+	// Name of desired module in library
+	std::string moduleName = "CameraTools";
 
 	// Explicit library path
 	std::string libPath = "";
 
-	// Resolution and frame delay of camera
-	int res;
-	int rate;
-
 	// Set broker name, ip and port, finding first available port from 54000
-	const std::string brokerName = "CamTestCallBroker";
+	const std::string brokerName = "LandmarkSwingBroker";
 	int brokerPort = qi::os::findAvailablePort(54000);
 	const std::string brokerIp = "0.0.0.0";
 	
@@ -76,6 +57,9 @@ int main(int argc, char* argv[])
 	int pport = 9559;
 	std::string pip = "127.0.0.1";
 	
+	// Default time to run in seconds
+	int timeToRun = 10;
+
 	// Get any arguments
 	while (true)
 	{
@@ -88,19 +72,15 @@ int main(int argc, char* argv[])
 		{
 			{"pip", 	1, 	0, 	'i'},
 			{"pport",	1,	0,	'p'},
-			{"lib",		1,	0,	'l'},
-			{"mod",		1,	0,	'm'},
 			{"path",	1,	0,	'x'},
-			{"res",		0,	0,	'r'},
-			{"period",	0,	0,	'e'},
+			{"time",	0,	0,	't'},
 			{"verb",	0,	0,	'v'},
 			{"help",	0,	0,	'h'},
 			{0,		0,	0,	 0 }
 		};
 
 		// Get next option, and check return value
-		// p:o:l:m:f:vh allow short option specification
-		switch(index = getopt_long(argc, argv, "i:p:l:m:f:r:e:vh", longopts, &index))
+		switch(index = getopt_long(argc, argv, "i:p:t:vh", longopts, &index))
 		{
 			// Print usage and quit
 			case 'h':
@@ -120,35 +100,15 @@ int main(int argc, char* argv[])
 				else
 					argErr();
 				break;
-			// Set library name
-			case 'l':
-				if (optarg)
-					libName = std::string(optarg);
-				else
-					argErr();
-				break;
-			// Set module name
-			case 'm':
-				if (optarg)
-					moduleName = std::string(optarg);
-				else
-					argErr();
-				break;
 			case 'x':
 				if (optarg)
 					libPath = std::string(optarg);
 				else
 					argErr();
 				break;
-			case 'r':
+			case 't':
 				if (optarg)
-					res = atoi(optarg);
-				else
-					argErr();
-				break;
-			case 'e':
-				if (optarg)
-					rate = atoi(optarg);
+					timeToRun = atoi(optarg);
 				else
 					argErr();
 				break;
@@ -165,7 +125,7 @@ int main(int argc, char* argv[])
 
 	// Create a broker
 	if(verb)
-		std::cout << bold_on << "Creating broker..." << bold_off << std::endl;
+		std::cout << "Creating broker..." << std::endl;
 	boost::shared_ptr<AL::ALBroker> broker;
 	try
 	{
@@ -204,136 +164,99 @@ int main(int argc, char* argv[])
 	
 	// Create a proxy to the module	
 	if(verb)
-		std::cout << bold_on << "Creating proxy to module..." << bold_off << std::endl;
-	AL::ALProxy testProxy(moduleName, pip, pport);
+		std::cout << "Creating proxy to module..." << std::endl;
+	AL::ALProxy camToolsProxy(moduleName, pip, pport);
 	
-	int rres = testProxy.genericCall("GetRes", 0);
+	// List of detected landmark info
+	AL::ALValue landmarks;
 
-	std::cout << "Resolution: " << rres << std::endl;
-
-	std::cout << "Setting resolution to " << res << std::endl;
-
-	testProxy.callVoid("SetRes", res);
-
-	rres = testProxy.genericCall("GetRes", 0);
+	// Vectors of last landmark widths
+	std::vector<float> landmark1Widths;
+	std::vector<float> landmark2Widths;
 	
-	std::cout << "Resolution: " << rres << std::endl;
+	// IDs of desired landmarks FIXME -- need correct values
+	const int landmark1ID = 0;
+	const int landmark2ID = 1;
+
+	// Number of previous widths to smooth over
+	unsigned int landmarkSmoothing = 3;
+
+	// Current direction of movement, either +1 or -1
+	int currentDirection;
+
+	// Get start time of simulation and store it
+	qi::os::timeval startTime;
+	qi::os::timeval currentTime;
+	qi::os::gettimeofday(&startTime);
+	qi::os::gettimeofday(&currentTime);
+
+	// Run for time "timeToRun"
+	while (currentTime.tv_sec - startTime.tv_sec < timeToRun)
+	{
+		landmarks = camToolsProxy.genericCall("getLandmark", 0);
+		
+		std::cout << std::endl << "*****" << std::endl << std::endl;
+
+		// Check for landmark detection
+		if (landmarks.isValid() && landmarks.isArray() && landmarks.getSize() >= 2)
+		{
+			for (unsigned int i = 0; i < landmarks[1].getSize(); i++)
+			{
+				int   ID     = landmarks [1][i][1][0];
+				float width  = landmarks [1][i][0][3];
+				float height = landmarks [1][i][0][4];
 	
-
-	int rrate = testProxy.genericCall("GetRate", 0);
-
-	std::cout << "Rate: " << rrate << std::endl;
-
-	std::cout << "Setting rate to " << rate << std::endl;
-
-	testProxy.callVoid("SetRate", rate);
-
-	rrate = testProxy.genericCall("GetRate", 0);
-
-	std::cout << "Rate: " << rrate << std::endl;
+				switch (ID)
+				{
+					case landmark1ID:
+						landmark1Widths.push_back(width);
+						break;
+					case landmark2ID:
+						landmark2Widths.push_back(width);
+						break;
+				}
+				
+				std::cout << "Mark ID: " << ID << std::endl;
+				std::cout << "Width:   " << width << std::endl;
+				std::cout << "Height:  " << height << std::endl;
+			}
+		}
+		else
+		{
+			std::cout << "No landmark detected" << std::endl;
+		}
+		
+		qi::os::sleep(1);
+		qi::os::gettimeofday(&currentTime);
+	}
 
 	// Get a handle to the module and close it
 	{
 		boost::shared_ptr<AL::ALModuleCore> module = broker->getModuleByName(moduleName);
 		if(verb)
-			std::cout << bold_on << "Closing module " << moduleName << "..." << bold_off << std::endl;
+			std::cout << "Closing module " << moduleName << "..." << std::endl;
 		module->exit();
 	}
 
 	// Check module has closed
 	if(verb)
 	{
-		std::cout << bold_on << "Module " << moduleName << " is ";
+		std::cout << "Module " << moduleName << " is ";
 		if (!(broker->isModulePresent(moduleName)))
 		{
 			std::cout << "not ";
 		}
-		std::cout << "present" << bold_off << std::endl;
+		std::cout << "present" << std::endl;
 	}
 	
 	// Close the broker
 	if(verb)
-		std::cout << bold_on << "Closing broker..." << bold_off << std::endl;
+		std::cout << "Closing broker..." << std::endl;
 	broker->shutdown();
 
 	// Exit program
 	if(verb)
-		std::cout << bold_on << "Exiting..." << bold_off << std::endl;
+		std::cout << "Exiting..." << std::endl;
 
 	return 0;
-}
-
-// Find and open a library, and create an instance of a module in that library
-bool CreateModule(std::string libName, std::string moduleName, boost::shared_ptr<AL::ALBroker> broker, bool verb, bool find)
-{
-	std::string library;
-	
-	if (find)
-	{
-		// Find the desired library
-		if (verb)
-			std::cout << bold_on << "Finding " << libName << "..." << bold_off << std::endl;
-		library = qi::path::findLib(libName.c_str());
-
-	}
-	else
-	{
-		// Use libName as library path
-		library = libName;
-	}
-
-	// Open the library
-	if(verb)
-		std::cout << bold_on << "Loading " << library << "..." << bold_off << std::endl;
-	void* handle = qi::os::dlopen(library.c_str());
-	if (!handle)
-	{
-		qiLogWarning(moduleName.c_str()) << "Could not load library:"
-					 	<< qi::os::dlerror()
-					   	<< std::endl;
-		return -1;
-	}
-
-	// Load the create symbol
-	if(verb)
-		std::cout << bold_on << "Loading _createModule symbol..." << bold_off << std::endl;
-	int(*createModule)(boost::shared_ptr<AL::ALBroker>) = (int(*)(boost::shared_ptr<AL::ALBroker>))(qi::os::dlsym(handle, "_createModule"));
-	if (!createModule)
-	{
-		qiLogWarning(moduleName.c_str()) << "Could not load symbol _createModule: "
-					   	<< qi::os::dlerror()
-					   	<< std::endl;
-		return -1;
-	}
-
-	// Check if module is already present
-	if(verb)
-	{
-		std::cout << bold_on << "Module " << moduleName << " is ";
-		if (!(broker->isModulePresent(moduleName)))
-		{
-			std::cout << "not ";
-		}
-		std::cout << "present" << bold_off << std::endl;
-	}
-
-	// Create an instance of the desired module
-	if(verb)
-		std::cout << bold_on << "Creating " << moduleName << " instance..." << bold_off << std::endl;
-	createModule(broker);
-
-	// Check for module creation
-	if(verb)
-	{
-		std::cout << bold_on << "Module " << moduleName.c_str() << " is ";
-		if (!(broker->isModulePresent(moduleName)))
-		{
-			std::cout << "not ";
-		}
-		std::cout << "present" << bold_off << std::endl;
-	}
-	if (broker->isModulePresent(moduleName))
-		return true;
-	else
-		return false;
 }

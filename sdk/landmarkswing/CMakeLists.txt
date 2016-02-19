@@ -4,7 +4,8 @@ project(landmarkswing)
 find_package(qibuild)
 
 set(_srcs
-    main.cpp)
+    main.cpp
+    createmodule.cpp) 
 
 # Create an executable named localcall
 qi_create_bin(landmarkswing ${_srcs})
