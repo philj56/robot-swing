@@ -36,7 +36,7 @@ int main()
 		last_experience.state[1]=state[1];
 		
 		//get experiences at current point
-		std::list<Experience*>& experiences=space[state[0]][state[1]];
+		PriorityQueue<Experience*,double>& experiences=space[state[0]][state[1]];
 		
 		//find rewards//!
 		//choose acion//!
