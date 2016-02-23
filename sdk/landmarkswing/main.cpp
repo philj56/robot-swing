@@ -177,8 +177,8 @@ int main(int argc, char* argv[])
 	std::vector<float> landmark2Widths;
 	
 	// IDs of desired landmarks FIXME -- need correct values
-	const int landmark1ID = 0;
-	const int landmark2ID = 1;
+	const int landmark1ID = 108;
+	const int landmark2ID = 68;
 
 	// Whether each landmark has been detected this cycle
 	bool landmark1Detected = false;
