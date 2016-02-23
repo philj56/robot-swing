@@ -1,5 +1,5 @@
 #include <vector>
-#include <list>
+#include "PriorityQueue.h"
 
 class Experience;
 
@@ -18,9 +18,9 @@ class StateSpace
 		//-----------------------------------------------------------------------------
 		{
 			public:
-				SubscriptProxy(std::vector<std::list<Experience*>>& _vec):vec(_vec){}
+				SubscriptProxy(std::vector<PriorityQueue<Experience*,double>>& _vec):vec(_vec){}
 			
-				std::list<Experience*>& operator[](const double index)
+				PriorityQueue<Experience*,double>& operator[](const double index)
 				{
 					//descretise index
 					int discrete_index=;
@@ -29,7 +29,7 @@ class StateSpace
 				}
 			
 			private:
-				std::vector<std::list<Experience*>>& vec;
+				std::vector<PriorityQueue<Experience*,double>>& vec;
 		};
 		//-----------------------------------------------------------------------------
 		
@@ -41,5 +41,6 @@ class StateSpace
 		const int y_size;
 		
 		//the 2d array that contains the robots previous experiences in each state
-		std::vector<std::vector<std::list<Experience*>>> space;
+		std::vector<std::vector<PriorityQueue<Experience*,double>>> space;
+		//data: assignment, equality
 };
