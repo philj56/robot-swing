@@ -4,7 +4,7 @@
 #include "Action.h"
 
 //utility calculation function
-double q(const std::list<Experience*>& experiences);
+double q();
 
 //reward function based off raw position and velocity
 double state_reward(const double theta, const double theta_dot);
@@ -61,7 +61,7 @@ int main()
 	return 1;
 }
 
-double q(const std::list<Experience*>& experiences)
+double q()
 {
 	return //something competant;
 }
