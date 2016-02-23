@@ -176,7 +176,7 @@ int main(int argc, char* argv[])
 	std::vector<float> landmark1Widths;
 	std::vector<float> landmark2Widths;
 	
-	// IDs of desired landmarks FIXME -- need correct values
+	// IDs of desired landmarks
 	const int landmark1ID = 108;
 	const int landmark2ID = 68;
 
@@ -218,15 +218,17 @@ int main(int argc, char* argv[])
 			for (unsigned int i = 0; i < landmarks[1].getSize(); i++)
 			{
 				// Relevant parameters in landmark vector
-				int   ID     = landmarks [1][i][1][0];
-				float width  = landmarks [1][i][0][3];
-				float height = landmarks [1][i][0][4];
+				int   ID           = landmarks [1][i][1][0];
+				float angleWidth   = landmarks [1][i][0][1];
+				float angleHeight  = landmarks [1][i][0][2];
+				float width        = landmarks [1][i][0][3];
+				float height       = landmarks [1][i][0][4];
 	
 				switch (ID)
 				{
 					case landmark1ID:
 						landmark1Detected = true;
-						landmark1Widths.push_back(width);
+						landmark1Widths.push_back(angleWidth);
 						if (landmark1Widths.size() > landmarkSmoothing + 1)
 						{
 							landmark1Widths.erase(landmark1Widths.begin());
@@ -234,7 +236,7 @@ int main(int argc, char* argv[])
 						break;
 					case landmark2ID:
 						landmark2Detected = true;
-						landmark2Widths.push_back(width);
+						landmark2Widths.push_back(angleWidth);
 						if (landmark2Widths.size() > landmarkSmoothing + 1)
 						{
 							landmark2Widths.erase(landmark2Widths.begin());
@@ -244,9 +246,9 @@ int main(int argc, char* argv[])
 						std::cout << "Unkown landmark detected" << std::endl;
 				}
 				
-				std::cout << "Mark ID: " << ID << std::endl;
-				std::cout << "Width:   " << width << std::endl;
-				std::cout << "Height:  " << height << std::endl;
+			//	std::cout << "Mark ID: " << ID << std::endl;
+			//	std::cout << "Width:   " << width << std::endl;
+			//	std::cout << "Height:  " << height << std::endl;
 			}
 
 			/* TODO: position code for movement */
