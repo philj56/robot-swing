@@ -3,6 +3,9 @@
 #include "SateSpace.h"
 #include "Action.h"
 
+//utility calculation function
+double q(const std::list<Experience*>& experiences);
+
 //reward function based off raw position and velocity
 double state_reward(const double theta, const double theta_dot);
 
@@ -56,6 +59,11 @@ int main()
 	//state space house keeping//!
 	
 	return 1;
+}
+
+double q(const std::list<Experience*>& experiences)
+{
+	return //something competant;
 }
 
 double state_reward(const double theta, const double theta_dot)
