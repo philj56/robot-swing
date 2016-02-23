@@ -246,7 +246,7 @@ int main(int argc, char* argv[])
 						std::cout << "Unkown landmark detected" << std::endl;
 				}
 				
-				std::cout << "Mark ID: " << ID << std::endl;
+			//	std::cout << "Mark ID: " << ID << std::endl;
 			//	std::cout << "Width:   " << width << std::endl;
 			//	std::cout << "Height:  " << height << std::endl;
 			}
