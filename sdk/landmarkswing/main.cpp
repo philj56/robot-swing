@@ -173,8 +173,8 @@ int main(int argc, char* argv[])
 	AL::ALValue landmarks;
 
 	// Vectors of last landmark widths
-	std::vector<float> landmark1Widths;
-	std::vector<float> landmark2Widths;
+	std::vector<float> landmark1Angles;
+	std::vector<float> landmark2Angles;
 	
 	// IDs of desired landmarks
 	const int landmark1ID = 108;
@@ -219,8 +219,8 @@ int main(int argc, char* argv[])
 			{
 				// Relevant parameters in landmark vector
 				int   ID           = landmarks [1][i][1][0];
-				float angleWidth   = landmarks [1][i][0][1];
-				float angleHeight  = landmarks [1][i][0][2];
+				float angleX       = landmarks [1][i][0][1];
+				float angleY       = landmarks [1][i][0][2];
 				float width        = landmarks [1][i][0][3];
 				float height       = landmarks [1][i][0][4];
 	
@@ -228,18 +228,18 @@ int main(int argc, char* argv[])
 				{
 					case landmark1ID:
 						landmark1Detected = true;
-						landmark1Widths.push_back(angleWidth);
-						if (landmark1Widths.size() > landmarkSmoothing + 1)
+						landmark1Angles.push_back(angleY);
+						if (landmark1Angles.size() > landmarkSmoothing + 1)
 						{
-							landmark1Widths.erase(landmark1Widths.begin());
+							landmark1Angles.erase(landmark1Angles.begin());
 						}
 						break;
 					case landmark2ID:
 						landmark2Detected = true;
-						landmark2Widths.push_back(angleWidth);
-						if (landmark2Widths.size() > landmarkSmoothing + 1)
+						landmark2Angles.push_back(angleY);
+						if (landmark2Angles.size() > landmarkSmoothing + 1)
 						{
-							landmark2Widths.erase(landmark2Widths.begin());
+							landmark2Angles.erase(landmark2Angles.begin());
 						}
 						break;
 					default:
@@ -256,20 +256,20 @@ int main(int argc, char* argv[])
 			if (landmark1Detected || landmark2Detected)
 			{
 				// The order of each vector (+1, 0, -1)
-				int order1 = vectorOrder(landmark1Widths);
-				int order2 = vectorOrder(landmark2Widths);
+				int order1 = vectorOrder(landmark1Angles);
+				int order2 = vectorOrder(landmark2Angles);
 				// Both landmarks detected
 				if (landmark1Detected && landmark2Detected)
 				{
 					// Both landmarks moving in same direction
 					if (order1 == order2)
 					{
-						if (order1 > 0)
+						if (order1 < 0)
 						{
 							std::cout << "Moving forwards" << std::endl;
 							// CODE FOR SOME DIRECTION
 						}
-						else if (order1 < 0)
+						else if (order1 > 0)
 						{
 							std::cout << "Moving backwards" << std::endl;
 							// CODE FOR OTHER DIRECTION
@@ -279,12 +279,12 @@ int main(int argc, char* argv[])
 				// Only first landmark detected
 				else if (landmark1Detected)
 				{
-					if (order1 > 0)
+					if (order1 < 0)
 					{
 						std::cout << "Moving forwards" << std::endl;
 						// CODE FOR SOME DIRECTION
 					}
-					else if (order1 < 0)
+					else if (order1 > 0)
 					{
 						std::cout << "Moving backwards" << std::endl;
 						// CODE FOR OTHER DIRECTION
@@ -293,12 +293,12 @@ int main(int argc, char* argv[])
 				// Only second landmark detected
 				else
 				{
-					if (order2 > 0)
+					if (order2 < 0)
 					{
 						std::cout << "Moving forwards" << std::endl;
 						// CODE FOR SOME DIRECTION
 					}
-					else if (order2 < 0)
+					else if (order2 > 0)
 					{
 						std::cout << "Moving backwards" << std::endl;
 						// CODE FOR OTHER DIRECTION
