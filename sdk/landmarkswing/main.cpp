@@ -190,6 +190,9 @@ int main(int argc, char* argv[])
 	// Current direction of movement, either +1 or -1
 	int currentDirection;
 
+	// Start landmark detection
+	camToolsProxy.callVoid("startLandmarkDetection");
+
 	// Get start time of simulation and store it
 	qi::os::timeval startTime;
 	qi::os::timeval currentTime;
@@ -261,10 +264,12 @@ int main(int argc, char* argv[])
 					{
 						if (order1 > 0)
 						{
+							std::cout << "Moving forwards" << std::endl;
 							// CODE FOR SOME DIRECTION
 						}
 						else if (order1 < 0)
 						{
+							std::cout << "Moving backwards" << std::endl;
 							// CODE FOR OTHER DIRECTION
 						}
 					}
@@ -274,10 +279,12 @@ int main(int argc, char* argv[])
 				{
 					if (order1 > 0)
 					{
+						std::cout << "Moving forwards" << std::endl;
 						// CODE FOR SOME DIRECTION
 					}
 					else if (order1 < 0)
 					{
+						std::cout << "Moving backwards" << std::endl;
 						// CODE FOR OTHER DIRECTION
 					}
 				}
@@ -286,10 +293,12 @@ int main(int argc, char* argv[])
 				{
 					if (order2 > 0)
 					{
+						std::cout << "Moving forwards" << std::endl;
 						// CODE FOR SOME DIRECTION
 					}
 					else if (order2 < 0)
 					{
+						std::cout << "Moving backwards" << std::endl;
 						// CODE FOR OTHER DIRECTION
 					}
 				}
@@ -300,9 +309,12 @@ int main(int argc, char* argv[])
 			std::cout << "No landmark detected" << std::endl;
 		}
 		
-		qi::os::sleep(1);
+		qi::os::msleep(100);
 		qi::os::gettimeofday(&currentTime);
 	}
+	
+	// Stop Landmark Detection
+	camToolsProxy.callVoid("stopLandmarkDetection");
 
 	// Get a handle to the module and close it
 	{
