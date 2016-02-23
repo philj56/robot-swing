@@ -209,7 +209,7 @@ int main(int argc, char* argv[])
 		// Read memory for landmarks
 		landmarks = camToolsProxy.genericCall("getLandmark", 0);
 		
-		std::cout << std::endl << "*****" << std::endl << std::endl;
+		//std::cout << std::endl << "*****" << std::endl << std::endl;
 
 		// Check for landmark detection
 		if (landmarks.isValid() && landmarks.isArray() && landmarks.getSize() >= 2)
@@ -308,7 +308,7 @@ int main(int argc, char* argv[])
 		}
 		else
 		{
-			std::cout << "No landmark detected" << std::endl;
+		//	std::cout << "No landmark detected" << std::endl;
 		}
 		
 		qi::os::msleep(100);
