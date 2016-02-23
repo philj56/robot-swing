@@ -6,9 +6,8 @@
 
 struct Experience
 {
-	explicit Experience(const double _utility, const Action* const _action);
+	explicit Experience(const Action* const _action);
 	
 	const Action* const action;
-	const double utility;
 	double state_result[2];
 }
