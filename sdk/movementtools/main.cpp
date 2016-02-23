@@ -1,6 +1,6 @@
 /* main.cpp
- * smoothmove main file - compiles as a library if local,
- * or an executable that calls the SmoothMove::sayHello() function if remote.
+ * movementtools main file - compiles as a library if local,
+ * or an executable that calls the MovementTools::sayHello() function if remote.
  */
 
 #include <iostream>
@@ -8,7 +8,7 @@
 #include <boost/shared_ptr.hpp>
 #include <qi/os.hpp>
 
-#include "smoothmove.h"
+#include "movementtools.h"
 
 #include <alcommon/almodule.h>
 #include <alcommon/albroker.h>
@@ -34,7 +34,7 @@ extern "C"
 		AL::ALBrokerManager::getInstance()->addBroker(broker);
 
 		// Create instance of module
-		AL::ALModule::createModule<SmoothMove>(broker, "SmoothMove");
+		AL::ALModule::createModule<MovementTools>(broker, "MovementTools");
 	}
 
 	ALCALL int _closeModule()

@@ -1,13 +1,13 @@
-/* smoothmove.cpp
+/* movementtools.cpp
  * Smooth motion source file
  */
 
-#include "smoothmove.h"
+#include "movementtools.h"
 #include <alproxies/almotionproxy.h>
 #include <alproxies/alrobotpostureproxy.h>
 
 // Constructor
-SmoothMove::SmoothMove(boost::shared_ptr<AL::ALBroker> broker,
+MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 			 const std::string &name)
 	: AL::ALModule(broker, name)
 {
@@ -15,13 +15,13 @@ SmoothMove::SmoothMove(boost::shared_ptr<AL::ALBroker> broker,
 	setModuleDescription("Smooth movement testing module");
 
 	functionName("harryDance", getName(), "Do a little dance");
-	BIND_METHOD(SmoothMove::harryDance);
+	BIND_METHOD(MovementTools::harryDance);
 	
 	functionName("moveTest", getName(), "Testing movement");
-	BIND_METHOD(SmoothMove::moveTest);
+	BIND_METHOD(MovementTools::moveTest);
 	
 	functionName("moveHead", getName(), "SDK movehead example");
-	BIND_METHOD(SmoothMove::moveHead);
+	BIND_METHOD(MovementTools::moveHead);
 
 	// Set broker parent IP and port
 	pip = broker->getParentIP();
@@ -32,16 +32,16 @@ SmoothMove::SmoothMove(boost::shared_ptr<AL::ALBroker> broker,
 }
 
 // Destructor
-SmoothMove::~SmoothMove()
+MovementTools::~MovementTools()
 {
 }
 
 // init() - called as soon as the module is constructed
-void SmoothMove::init()
+void MovementTools::init()
 {
 }
 
-void SmoothMove::moveTest()
+void MovementTools::moveTest()
 {
 	std::cout<<"MoveTest "<<pip<<":"<<pport<<std::endl;
 	try
@@ -101,7 +101,7 @@ void SmoothMove::moveTest()
   	}
 }
 
-void SmoothMove::harryDance()
+void MovementTools::harryDance()
 {
   	/** The name of the joint to be moved. */
   	const AL::ALValue jointName = "HeadYaw";
@@ -187,7 +187,7 @@ void SmoothMove::harryDance()
   	}
 }
 
-void SmoothMove::moveHead()
+void MovementTools::moveHead()
 {
   std::cout<<"MoveHead "<<pip<<":"<<pport<<std::endl;
   /** The name of the joint to be moved. */

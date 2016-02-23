@@ -1,9 +1,9 @@
-/* smoothmove.h
+/* movementtools.h
  * Generic module header file
  */
 
-#ifndef SMOOTHMOVE_H
-#define SMOOTHMOVE_H
+#ifndef MOVEMENTTOOLS_H
+#define MOVEMENTTOOLS_H
 
 #include <iostream>
 #include <cstdlib>
@@ -21,16 +21,16 @@ namespace AL
 	class ALBroker;
 }
 
-// SmoothMove - generic NAOqi module
-class SmoothMove : public AL::ALModule
+// MovementTools - generic NAOqi module
+class MovementTools : public AL::ALModule
 {
 public:
 	// Constructor
-	SmoothMove(boost::shared_ptr<AL::ALBroker> broker,
+	MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 		 const std::string &name);
 
 	// Destructor
-	virtual ~SmoothMove();
+	virtual ~MovementTools();
 
 	// init() - called just after the constructor
 	virtual void init();
@@ -50,4 +50,4 @@ private:
 	int pport;
 };
 
-#endif /* SMOOTHMOVE_H */
+#endif /* MOVEMENTTOOLS_H */
