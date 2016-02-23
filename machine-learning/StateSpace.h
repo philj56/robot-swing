@@ -12,6 +12,8 @@ class StateSpace
 		explicit StateSpace(const unsigned int _x_size, const unsigned int _y_size);
 		~StateSpace();
 		
+		StateSpace(const StateSpace&)=delete;
+		
 		//this nested class is neccessary so that the [][] operator can be called on this class
 		//the operator should be called with the continuous state variables which it will then discretise
 		class SubscrpitProxy
@@ -19,7 +21,7 @@ class StateSpace
 		{
 			public:
 				SubscriptProxy(std::vector<PriorityQueue<Experience*,double>>& _vec):vec(_vec){}
-			
+				
 				PriorityQueue<Experience*,double>& operator[](const double index)
 				{
 					//descretise index
