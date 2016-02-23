@@ -10,6 +10,7 @@ class StateSpace
 		//@_x_size: the size of the first vector
 		//@_y_size: the size of the second vector
 		explicit StateSpace(const unsigned int _x_size, const unsigned int _y_size);
+		~StateSpace();
 		
 		//this nested class is neccessary so that the [][] operator can be called on this class
 		//the operator should be called with the continuous state variables which it will then discretise
