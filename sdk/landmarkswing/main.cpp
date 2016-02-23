@@ -185,7 +185,7 @@ int main(int argc, char* argv[])
 	bool landmark2Detected = false;
 
 	// Number of previous widths to smooth over
-	unsigned int landmarkSmoothing = 3;
+	unsigned int landmarkSmoothing = 1;
 
 	// Current direction of movement, either +1 or -1
 	int currentDirection;
@@ -246,7 +246,7 @@ int main(int argc, char* argv[])
 						std::cout << "Unkown landmark detected" << std::endl;
 				}
 				
-			//	std::cout << "Mark ID: " << ID << std::endl;
+				std::cout << "Mark ID: " << ID << std::endl;
 			//	std::cout << "Width:   " << width << std::endl;
 			//	std::cout << "Height:  " << height << std::endl;
 			}
