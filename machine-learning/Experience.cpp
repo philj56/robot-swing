@@ -1,6 +1,5 @@
 #include "Experience.h"
 
-Experience::Experience(const double _utility, Action* const _action):
-utility(_utility),
+Experience::Experience(const Action* const _action):
 action(_action)
 {}
