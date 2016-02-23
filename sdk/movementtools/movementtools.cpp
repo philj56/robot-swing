@@ -1,10 +1,8 @@
 /* movementtools.cpp
- * Smooth motion source file
+ * Various movement tools source file
  */
 
 #include "movementtools.h"
-#include <alproxies/almotionproxy.h>
-#include <alproxies/alrobotpostureproxy.h>
 
 // Constructor
 MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
@@ -14,21 +12,90 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	// Set description, and bind each function
 	setModuleDescription("Smooth movement testing module");
 
-	functionName("harryDance", getName(), "Do a little dance");
-	BIND_METHOD(MovementTools::harryDance);
+	functionName("swingForwards", getName(), "Move to forward seated position");
+	BIND_METHOD(MovementTools::swingForwards);
 	
-	functionName("moveTest", getName(), "Testing movement");
-	BIND_METHOD(MovementTools::moveTest);
-	
-	functionName("moveHead", getName(), "SDK movehead example");
-	BIND_METHOD(MovementTools::moveHead);
+	functionName("swingBackwards", getName(), "Move to backward seated position");
+	BIND_METHOD(MovementTools::swingBackwards);
 
 	// Set broker parent IP and port
 	pip = broker->getParentIP();
 	pport = broker->getParentPort();
 
-	std::cout << "ip:   " << pip << std::endl;
-	std::cout << "port: " << pport << std::endl;
+	speed = 0.8;
+
+	std::string angleNamesArray[] = { "LAnklePitch",		
+				    "LAnkleRoll",		
+			    	    "LElbowRoll",		
+			 	    "LElbowYaw",		
+				    "LHipPitch",		
+				    "LHipRoll",		
+				    "LHipYawPitch",	
+				    "LKneePitch",		
+				    "LShoulderPitch",	
+				    "LShoulderRoll",	
+				    "LWristYaw",		
+				    "RAnklePitch",		
+				    "RAnkleRoll",		
+				    "RElbowRoll",		
+				    "RElbowYaw",		
+				    "RHipPitch",		
+				    "RHipRoll",		
+				    "RHipYawPitch",	
+				    "RKneePitch",	
+				    "RShoulderPitch",	
+				    "RShoulderRoll",	
+				    "RWristYaw"};	
+
+	float sitForwardAnglesArray[] = { 0.922581f,
+				    0.00310993f,
+				   -0.90962f,
+				   -0.31758f,
+				   -0.822182f,
+				   -0.0137641f,
+				   -0.0337059f,
+				    1.57384f,
+				    0.636568f,
+				    0.665714f,
+				   -1.76874f,
+				    0.92351f,
+				   -0.00609398f,
+				    1.22878f,
+				    0.697928f,
+			 	   -0.837606f,
+				    0.0337899f,
+				   -0.0337059f,
+				    1.55245f,
+				    0.978734f,
+				   -0.42496f,
+				    0.351244f};
+
+	float sitBackwardAnglesArray[] = { 0.922581f,
+				    0.00609398f,
+				   -0.049046f,
+				   -0.32525f,
+				   -0.41107f,
+				   -0.0168321f,
+				   -0.032172f,
+				   -0.0923279f,
+				    0.765424f,
+				    0.1733f,
+				   -1.73039f,
+				    0.926578f,
+				    0.00157595f,
+				    0.131966f,
+				    0.645772f,
+				   -0.428028f,
+				    0.021518f,
+				   -0.032172f,
+				   -0.0843279f,
+				    0.825334f,
+				    0.078192f,
+				    0.44942f};
+	
+	angleNames = AL::ALValue::array(std::vector<std::string> (angleNamesArray, angleNamesArray + 22));
+	sitForwardAngles = AL::ALValue::array(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 22));
+	sitBackwardAngles = AL::ALValue::array(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + 22));
 }
 
 // Destructor
@@ -39,198 +106,16 @@ MovementTools::~MovementTools()
 // init() - called as soon as the module is constructed
 void MovementTools::init()
 {
+	motion = AL::ALMotionProxy(pip, pport);
+	posture = AL::ALRobotPostureProxy(pip, pport);
 }
 
-void MovementTools::moveTest()
+void MovementTools::swingForwards()
 {
-	std::cout<<"MoveTest "<<pip<<":"<<pport<<std::endl;
-	try
-	{
-		std::cout<<"MotionProxy "<<pip<<":"<<pport<<std::endl;
-		// Get brokers, and go to initial posture
-		AL::ALMotionProxy motion(pip, pport);
-		std::cout<<"Done"<<std::endl;
-		AL::ALRobotPostureProxy posture(pip, pport);
-	
-		posture.goToPosture("StandInit", 0.5f);
-	
-		int space       =  2; // FRAME_ROBOT
-		int axisMask    = 63; // control all the effector's axes
-		bool isAbsolute = false;
-	
-		// Lower the Torso and move to the side
-		std::string torso = "Torso";
-		std::string lArm  = "LArm";
-		std::string rArm  = "RArm";
-		std::vector<float> position(6, 0.0f);
-	
-		position[0] = 0.0f;
-		position[1] = 0.0f;
-		position[2] = 0.3f;
-		position[3] = 0.0f;
-		position[4] = 0.0f;
-		position[5] = 0.0f;
-		
-		// Amplitude of oscillation
-		float amplitude = 0.05f;
-	
-		// Oscillation time in seconds
-		float period 	= 4.0f;
-	
-		// Update time in milliseconds
-		unsigned int update	= 50;
-	
-		// Max speed of robot movement
-		float speed = 1.0f;
-	
-		// Go to initial position
-		motion.setPosition(torso, space, position, speed, axisMask);
-		qi::os::sleep(1.0f);
-	
-		for (float t = 0; t < period * 2.0; t += 0.001 * update)
-		{
-			speed = 0.5 * (1.0 + cos(2.0 * M_PI * t / period));
-			position[0] = amplitude * (sin(2.0 * M_PI * t / period) > 0 ? 1 : -1);
-			motion.setPosition(torso, space, position, speed, axisMask);
-			qi::os::msleep(update);
-		}
-	}	
-  	catch (const AL::ALError& e) 
-	{
-    		std::cerr << "Caught exception: " << e.what() << std::endl;
-  	}
+	motion.setAngles(angleNames, sitForwardAngles, speed);	
 }
 
-void MovementTools::harryDance()
+void MovementTools::swingBackwards()
 {
-  	/** The name of the joint to be moved. */
-  	const AL::ALValue jointName = "HeadYaw";
-
-
-  	try {
-    		/** Create a ALMotionProxy to call the methods to move NAO's head.
-    		* Arguments for the constructor are:
-    		* - IP adress of the robot
-    		* - port on which NAOqi is listening, by default 9559
-    		*/
-    		AL::ALMotionProxy motion(pip, pport);
-
-    		/** Make sure the head is stiff to be able to move it.
-    		* To do so, make the stiffness go to the maximum in one second.
-    		*/
-    		/** Target stiffness. */
-    		AL::ALValue stiffness = 1.0f;
-    		/** Time (in seconds) to reach the target. */
-    		AL::ALValue time = 1.0f;
-
-    		/** Call the stiffness interpolation method. */
-    		motion.stiffnessInterpolation(jointName, stiffness, time);
-
-    		/** Remove the stiffness on the head. */
-    		stiffness = 0.0f;
-    		time = 1.0f;
-    		motion.stiffnessInterpolation(jointName, stiffness, time);
-
-
-    		AL::ALValue result = motion.getWalkArmsEnabled();
-
-   		/*---------Harry's Edits-------*/
-   		AL::ALValue names = "RShoulderPitch"; //String is the limb name
-    		AL::ALValue names2 = "LShoulderPitch";
-    		AL::ALValue angles = 1.0f; //Angle is in robot unit, f
-    		AL::ALValue angles2 = 0.0f;
-    		AL::ALValue times = 1.0f;
-    		bool isAbsolute = true; // Tells robot the angle values are absolute
-    		std::cout << "\nShoulder Pitch:\n";
-
-
-    		for (int i = 0; i < 3; i++)
-		{
-        		//Function calls robot to move
-        		motion.angleInterpolation(names, angles, times, isAbsolute);
-        		motion.angleInterpolation(names2, angles2, times, isAbsolute);
-        		//angles = 0.0f;
-        		motion.angleInterpolation(names, angles2, times, isAbsolute);
-        		motion.angleInterpolation(names2, angles, times, isAbsolute);
-    		}
-
-  		std::cout << "Shoulder Roll";
-    		//Creates arrays of values to send to robot.
-    		AL::ALValue angle_list, time_list;
-    		angle_list = AL::ALValue::array(1.0f);
-    		time_list = AL::ALValue::array(1.0f);
-
-    		angle_list.clear();
-    		time_list.clear();
-
-    		angle_list.arraySetSize(2);
-    		//Array lists angles to move through
-    		angle_list[0] = AL::ALValue::array(-0.5f, 0.5f); //From -0.5 to 0.5
-    		angle_list[1] = AL::ALValue::array(0.5f, -0.5f);
-
-    		time_list.arraySetSize(2);
-    		//Time arrays - unsure of what this does...
-    		time_list[0] = AL::ALValue::array(1.0f, 2.0f);
-    		time_list[1] = AL::ALValue::array(1.0f, 2.0f);
-
-    		motion.angleInterpolation(names, angles, times, isAbsolute);
-    		//Array tells robot what limbs to move
-    		//All array[0] (angle, time) are assigned to the first limb
-    		names = AL::ALValue::array("RShoulderRoll", "LShoulderRoll");
-
-    		motion.angleInterpolation(names, angle_list, time_list, isAbsolute);
-    		/*-------------------*/
-  	}
-  	catch (const AL::ALError& e) 
-	{
-    		std::cerr << "Caught exception: " << e.what() << std::endl;
-  	}
-}
-
-void MovementTools::moveHead()
-{
-  std::cout<<"MoveHead "<<pip<<":"<<pport<<std::endl;
-  /** The name of the joint to be moved. */
-  const AL::ALValue jointName = "HeadYaw";
-
-
-  try {
-    /** Create a ALMotionProxy to call the methods to move NAO's head.
-    * Arguments for the constructor are:
-    * - IP adress of the robot
-    * - port on which NAOqi is listening, by default 9559
-    */
-    AL::ALMotionProxy motion(pip, pport);
-
-    /** Make sure the head is stiff to be able to move it.
-    * To do so, make the stiffness go to the maximum in one second.
-    */
-    /** Target stiffness. */
-    AL::ALValue stiffness = 1.0f;
-    /** Time (in seconds) to reach the target. */
-    AL::ALValue time = 1.0f;
-    /** Call the stiffness interpolation method. */
-    motion.stiffnessInterpolation(jointName, stiffness, time);
-
-    /** Set the target angle list, in radians. */
-    AL::ALValue targetAngles = AL::ALValue::array(-1.5f, 1.5f, 0.0f);
-    /** Set the corresponding time lists, in seconds. */
-    AL::ALValue targetTimes = AL::ALValue::array(3.0f, 6.0f, 9.0f);
-    /** Specify that the desired angles are absolute. */
-    bool isAbsolute = true;
-
-    /** Call the angle interpolation method. The joint will reach the
-    * desired angles at the desired times.
-    */
-    motion.angleInterpolation(jointName, targetAngles, targetTimes, isAbsolute);
-
-    /** Remove the stiffness on the head. */
-    stiffness = 0.0f;
-    time = 1.0f;
-    motion.stiffnessInterpolation(jointName, stiffness, time);
-
-  }
-  catch (const AL::ALError& e) {
-    std::cerr << "Caught exception: " << e.what() << std::endl;
-  }
+	motion.setAngles(angleNames, sitBackwardAngles, speed);	
 }

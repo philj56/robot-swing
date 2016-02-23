@@ -1,5 +1,5 @@
 /* movementtools.h
- * Generic module header file
+ * Various movement tools header file
  */
 
 #ifndef MOVEMENTTOOLS_H
@@ -12,6 +12,7 @@
 #include <alcommon/alproxy.h>
 #include <alproxies/almotionproxy.h>
 #include <alproxies/alrobotpostureproxy.h>
+#include <alvalue/alvalue.h>
 
 #include <qi/os.hpp>
 
@@ -35,19 +36,26 @@ public:
 	// init() - called just after the constructor
 	virtual void init();
 
-	// Testing movement
-	void moveTest();
-	
-	// Do a dance
-	void harryDance();
-
-	// SDK example move head
-	void moveHead();
+	// Seated movement
+	void swingForwards();
+	void swingBackwards();
 
 private:
 	// Broker Parent IP and port
 	std::string pip;
 	int pport;
+
+	// Speed of movement
+	float speed;
+
+	// Proxies to relevant modules
+	AL::ALMotionProxy motion;
+	AL::ALRobotPostureProxy posture;
+
+	// Arrays of names and angles for movement
+	AL::ALValue angleNames; 
+	AL::ALValue sitForwardAngles; 
+	AL::ALValue sitBackwardAngles; 
 };
 
 #endif /* MOVEMENTTOOLS_H */
