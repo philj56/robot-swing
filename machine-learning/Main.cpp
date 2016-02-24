@@ -56,20 +56,54 @@ double state_reward(const double theta, const double theta_dot)
 	return 180+theta_dot*theta/std::abs(theta_dot);
 }
 
-bool selectAction(a, b)
-{	std::vector<double []> action_vec;
-	for(PriorityQueue<T,PT>::constIter iter = queue.begin(); iter < queue.end(); iter++)
+//function is fed with a priority queue of action-values 
+//generates Boltzmann distribution of these action-values
+//and selects an action based on probabilities 
+Experience * selectAction(PriorityQueue<Experience *,double> a_queue, double temp)
+{	
+    typedef PriorityQueue<Experience *,double> PQ;
+    typedef std::vector< std::pair<Experience *, double> > Vec_Pair;
+    typedef std::pair<Experience *, double> Pair;
+    
+    double sum= 0;
+    int i = 0;
+    
+    int size = a_queue.getSize();
+    Vec_Pair action_vec(size);
+    Pair pear;
+    
+    //Calculate partition function by iterating over action-values
+	for(PQ::constIter iter = a_queue.begin(); iter < a_queue.end(); iter++)
 	{
-		sum += std::exp((*iter).second/k)
+		sum += std::exp((iter->second)/temp);
 	}
-	for(std::vector<double []>::iterator it = action_vec.begin(); it < action_vec.end(); iter++)
+	//Calculate boltzmann factors for action-values
+	for(Vec_Pair::iterator it = action_vec.begin(); it < action_vec.end(); it++)
 	{
-		action_vec[iter][]
+	    it->first = a_queue[i].first;
+	    it->second = std::exp(a_queue[i].second / temp) / sum;
+	    i++;
 	}
-	std::sort(action_vec.begin(), action_vec.end(),
-          [](const double a[], const double b[]) {
-        return a[1] < b[1];
-});
+	//calculate cumulative probability distribution    
+    for(std::vector< std::pair<int, double> >::iterator it = action_vec.begin()+1; it < action_vec.end(); it++)
+	{
+	    it->second += (it-1)->second;
+	}
+    //seed random number generator
+	srand(time(NULL));
+	//generate RN between 0 and 1 
+	double rand_num = (double)rand()/ (RAND_MAX);
+	
+	//select action based on probability 
+    for(Vec_Pair::iterator it = action_vec.begin(); it < action_vec.end(); it++)
+    {
+        //if RN falls within cumulative probability bin return the corresponding action
+        if(rand_num < it->second){return it->first};
+    }
+    return -1;
+}
+
+);
 
 	
 }
