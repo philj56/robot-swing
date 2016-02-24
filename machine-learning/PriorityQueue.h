@@ -1,8 +1,10 @@
-#pragma once
+#ifndef PRIORITY_QUEUE_H
+#define PRIORITY_QUEUE_H
 
 #include <vector>
 #include <string>
 #include <stdexcept>
+#include <utility>
 
 /**
 * @enum HeapType
@@ -324,7 +326,7 @@ private:
 
 public:
 
-	typename typedef std::vector< std::pair<T, PT> >::const_iterator const_iterator;
+	typedef typename std::vector< std::pair<T, PT> >::const_iterator const_iterator;
 
 	/************************************************************************/
 	/**********************	CONSTRUCTORS / DESTRUCTORS **********************/
@@ -392,14 +394,23 @@ public:
 	}
 
 	/**
-	* @brief Peeks the top item of the queue without dequeuing it.
+	* @brief Peeks the top pair of the queue without dequeuing it.
 	*
 	* @warning Undefined behaviour if PQ is empty
 	*
-	* @return Item at top of PQ without removing it from the structure
+	* @return Pair at top of PQ without removing it from the structure
 	*/
-	const T& peekFront() const {
-		return dataWithPriorityVec.at(0).first;
+	const std::pair<T, PT> peekFront() const {
+		return dataWithPriorityVec.at(0);
+	}
+
+	/**
+	 * @brief Gets the type of heap structure of the queue
+	 *
+	 * @return Type of heap, either MIN or MAX
+	 */
+	HeapType getHeapType() const {
+		return heapType;
 	}
 
 	/**
@@ -425,19 +436,22 @@ public:
 	*
 	* @remark This method requires that the type T of the priority queue has
 	*		  a defined "overloaded" to_string(const T&) method for ADL to work.
-	* @warning Does not save data in sorted priority order
 	* @return The PQ in a string data format
 	*/
-	std::string toString() const {
+	std::string toString() {
+
+		std::vector< std::pair<T, PT> > saveVector(dataWithPriorityVec);
 
 		std::string retString = "Data\tPriority\n";
 
-		// iterate over queue, appending node data to return string
-		for (PriorityQueue<T, PT>::const_iterator iter = begin(); iter < end(); iter++) {
+		while (getSize()) {
 
-			retString += to_string(iter.operator*().first) + "\t" + to_string(iter.operator*().second) + "\n";
+			std::pair<T, PT> dataPair = dequeue();
+			retString += to_string(dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
 
 		}
+
+		enqueueWithPriority(saveVector);
 
 		return retString;
 
@@ -518,12 +532,12 @@ public:
 	*
 	* @warning Undefined behaviour is PQ is empty
 	*
-	* @return The dequeued item
+	* @return The dequeued item, i.e. the pair containing the data entry and its corresponding priority
 	*/
-	T dequeue() {
+	std::pair<T, PT> dequeue() {
 
 		// save a copy of the item to be dequeued to be returned
-		T dequeuedItem = dataWithPriorityVec.at(0).first;
+		std::pair<T, PT> dequeuedItem = dataWithPriorityVec.at(0);
 
 		// remove the item from the heap
 		removeTopOfHeap();
@@ -574,7 +588,7 @@ public:
 	std::vector< std::pair<T, PT> > searchAll(T& item) {
 
 		// container to store occurrences of data pairs in the queue
-		std::vector<std::pair<T, PT>> occurrencesVec;
+		std::vector< std::pair<T, PT> > occurrencesVec;
 
 		// iterate over queue
 		for (PriorityQueue<T, PT>::const_iterator iter = begin(); iter < end(); iter++) {
@@ -778,14 +792,17 @@ public:
 * @param outStream Reference to output stream
 * @return targetQueue Instance of priority queue to write to output stream
 */
-template<typename Type, typename PriorityType> std::ostream& operator<<(std::ostream& outStream, PriorityQueue<Type, PriorityType> targetQueue) {
+template<typename Type, typename PriorityType> std::ostream& operator<<(std::ostream& outStream, const PriorityQueue<Type, PriorityType>& targetQueue) {
 
-	size_t i = 0;
+	PriorityQueue<Type, PriorityType> streamedQueue(targetQueue);
 
-	for (PriorityQueue<Type, PriorityType>::const_iterator iter = targetQueue.begin(); iter < targetQueue.end(); iter++) {
-		outStream << to_string(iter.operator*().first) << "\t" << iter.operator*().second << "\n";
+	while (streamedQueue.getSize()) {
+		std::pair<Type, PriorityType> dataPair = streamedQueue.dequeue();
+		outStream << to_string(dataPair.first) << "\t" << to_string(dataPair.second) << "\n";
 	}
 
 	return outStream;
 
 }
+
+#endif
