@@ -667,7 +667,7 @@ public:
 		// container to store occurrences of data pairs in the queue
 		std::vector< std::pair<T, PT> > occurrencesVec;
 		
-		// iterate over queue inserting data pairs 
+		// iterate over queue inserting data pairs to the occurrences vector where priority occurs
 		for (PriorityQueue<T, PT>::const_iterator iter = begin(); iter < end(); ++iter) {
 			if (iter.operator*().second == priority)
 				occurrencesVec.push_back(std::make_pair<const T&, const PT&>(iter.operator*().first, iter.operator*().second));
@@ -902,5 +902,25 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
 	return outStream;
 
 }
+
+/**
+ * @brief Overloaded stream insertion operator.
+ *
+ * @param inStream Reference to input stream
+ * @param targetQueue Instance of priority queue to write to input stream
+ */
+template<typename Type, typename PriorityType> std::istream& operator>>(std::istream& inStream, const PriorityQueue<Type, PriorityType>& targetQueue) {
+	
+	PriorityQueue<Type, PriorityType> streamedQueue(targetQueue);
+	
+	while (streamedQueue.getSize()) {
+		std::pair<Type, PriorityType> dataPair = streamedQueue.dequeue();
+		inStream >> to_string(dataPair.first) >> "\t" >> to_string(dataPair.second) >> "\n";
+	}
+	
+	return inStream;
+	
+}
+
 
 #endif
