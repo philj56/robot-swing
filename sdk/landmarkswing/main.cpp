@@ -192,7 +192,7 @@ int main(int argc, char* argv[])
 	bool landmark2Detected = false;
 
 	// Number of previous widths to smooth over
-	unsigned int landmarkSmoothing = 1;
+	unsigned int landmarkSmoothing = 2;
 
 	// Current direction of movement, either +1 or -1
 	int currentDirection;
