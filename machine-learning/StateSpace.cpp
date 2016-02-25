@@ -23,10 +23,9 @@ StateSpace::~StateSpace()
 	}
 }
 
-SateSpace::SubscriptProxy SateSpace::operator[](const double index)
+SateSpace::SubscriptProxy SateSpace::operator[](const unsigned int action)
 {
-	//discretise index
-	int discrete_index=;
+	if(action>1)throw std::domain_error("action index exceeded");
 	//return proxy object to accept second [] operator
-	return SubscriptProxy(space[discrete_index]);
+	return SubscriptProxy( action ? space1 : space2 );
 }
