@@ -188,8 +188,8 @@ int main(int argc, char* argv[])
 	const int landmark2ID = 68;
 
 	// Whether each landmark has been detected this cycle
-	bool landmark1Detected = false;
-	bool landmark2Detected = false;
+	bool landmark1Detected = true;
+	bool landmark2Detected = true;
 
 	// Number of previous widths to smooth over
 	unsigned int landmarkSmoothing = 1;
