@@ -3,9 +3,11 @@
 #include <stdexcept>
 #include "PriorityQueue.h"
 
+//index with state_space_object[robot_state][angle][velocity]
+
 class Action;
 
-//index with state_space_object[action][angle][velocity]
+enum robot_states{TORSO_BACK,TORSO_FORWARDS};
 
 //class to hold the 2d vector of containers of experiences that represents the robot's state and memory
 class StateSpace
@@ -13,7 +15,7 @@ class StateSpace
 	public:
 		//@_x_size: the size of the first vector
 		//@_y_size: the size of the second vector
-		explicit StateSpace(const unsigned int _x_size, const unsigned int _y_size);
+		explicit StateSpace(const unsigned int _angle_max, const unsigned int _velocity_max);
 		~StateSpace();
 		
 		StateSpace(const StateSpace&)=delete;
@@ -31,7 +33,7 @@ class StateSpace
 					//error if angle exceeds bounds
 					if(std::abs(angle)>M_PI/4)throw std::domain_error("angle argument exceeded");
 					//descretise index
-					int discrete_index=std::round(angle*100/x_size)+x_size/2;
+					int discrete_index=std::round(angle*100/angle_max)+angle_max/2;
 					
 					//return appropriate array
 					return SubscriptProxy2(vec[discrete_index]);
@@ -51,7 +53,7 @@ class StateSpace
 					//error if angle exceeds bounds
 					if(std::abs(velocity)>1)throw std::domain_error("velocity argument exceeded");
 					//descretise index
-					int discrete_index=std::round(velocity*100/y_size)+y_size/2;
+					int discrete_index=std::round(velocity*100/velocity_max)+velocity_max/2;
 					
 					//return appropriate array
 					return SubscriptProxy2(vec[discrete_index]);
@@ -62,12 +64,12 @@ class StateSpace
 		};
 		//-----------------------------------------------------------------------------
 		
-		SubscriptProxy1 operator[](const int action);
+		SubscriptProxy1 operator[](const unsigned int robot_state);
 		
 	private:
 		//the sizes of the two arrays
-		const int x_size;
-		const int y_size;
+		const int angle_max;
+		const int velocity_max;
 		
 		//the 2d array that contains the robots previous experiences in each state
 		std::vector<std::vector<PriorityQueue<Action*,double>>> space1;
