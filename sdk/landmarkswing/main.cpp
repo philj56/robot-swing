@@ -163,8 +163,8 @@ int main(int argc, char* argv[])
 //	if (libPath == "")
 //		CreateModule(cameraLibName, cameraModuleName, broker, verb, true);
 //	else
-	CreateModule(cameraLibName, cameraModuleName, broker, verb, false);
-	CreateModule(movementLibName, movementModuleName, broker, verb, false);
+	CreateModule(cameraLibName, cameraModuleName, broker, verb, true);
+	CreateModule(movementLibName, movementModuleName, broker, verb, true);
 
 	
 	// Create a proxy to the module	
@@ -188,8 +188,8 @@ int main(int argc, char* argv[])
 	const int landmark2ID = 68;
 
 	// Whether each landmark has been detected this cycle
-	bool landmark1Detected = true;
-	bool landmark2Detected = true;
+	bool landmark1Detected = false;
+	bool landmark2Detected = false;
 
 	// Number of previous widths to smooth over
 	unsigned int landmarkSmoothing = 1;
