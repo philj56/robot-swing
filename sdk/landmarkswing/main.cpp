@@ -270,12 +270,12 @@ int main(int argc, char* argv[])
 					// Both landmarks moving in same direction
 					if (order1 == order2)
 					{
-						if (order1 < 0)
+						if (order1 > 0)
 						{
 							std::cout << "Moving forwards" << std::endl;
 							moveToolsProxy.callVoid("swingForwards");
 						}
-						else if (order1 > 0)
+						else if (order1 < 0)
 						{
 							std::cout << "Moving backwards" << std::endl;
 							moveToolsProxy.callVoid("swingBackwards");
@@ -285,12 +285,12 @@ int main(int argc, char* argv[])
 				// Only first landmark detected
 				else if (landmark1Detected)
 				{
-					if (order1 < 0)
+					if (order1 > 0)
 					{
 						std::cout << "Moving forwards" << std::endl;
 						moveToolsProxy.callVoid("swingForwards");
 					}
-					else if (order1 > 0)
+					else if (order1 < 0)
 					{
 						std::cout << "Moving backwards" << std::endl;
 						moveToolsProxy.callVoid("swingBackwards");
@@ -299,12 +299,12 @@ int main(int argc, char* argv[])
 				// Only second landmark detected
 				else
 				{
-					if (order2 < 0)
+					if (order2 > 0)
 					{
 						std::cout << "Moving forwards" << std::endl;
 						moveToolsProxy.callVoid("swingForwards");
 					}
-					else if (order2 > 0)
+					else if (order2 < 0)
 					{
 						std::cout << "Moving backwards" << std::endl;
 						moveToolsProxy.callVoid("swingBackwards");
