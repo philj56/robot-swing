@@ -1,6 +1,3 @@
-//enum to identify actions
-enum actions{FORWARDS,BACKWARDS};
-
 //struct to store a basic action
 //currently just stores an integer identifier - more will be added later
 
