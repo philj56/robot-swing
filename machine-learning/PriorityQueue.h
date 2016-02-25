@@ -289,6 +289,8 @@ private:
 
 	}
 
+protected:
+
 	/**
 	* @brief Computes the end priority in the queue.
 	*
@@ -299,7 +301,7 @@ private:
 		PT endPr = dataWithPriorityVec.at(0).second;
 
 		// iterate over queue
-		for (PriorityQueue<T, PT>::const_iterator iter = begin(); iter < end(); iter++) {
+		for (PriorityQueue<T, PT>::const_iterator iter = begin(); iter < end(); ++iter) {
 
 			switch (heapType) {
 
@@ -324,6 +326,16 @@ private:
 
 	}
 
+	/**
+	 * @brief Copies the parameterised queue to this queue
+	 * 
+	 * @param copyTarget Queue to copy
+	 */
+	void copy(const PriorityQueue<T, PT>& copyTarget) {
+		heapType = copyTarget.heapType;
+		dataWithPriorityVec = copyTarget.dataWithPriorityVec;
+	}
+	
 public:
 
 	typedef typename std::vector< std::pair<T, PT> >::const_iterator const_iterator;
@@ -342,7 +354,7 @@ public:
 	}
 
 	/**
-	* @brief Constructor for priority queue to pass data with priorities initially.
+	* @brief Constructor for priority queue to pass data with priorities initially via a vector of pairs.
 	*
 	* @param data Vector of pairs containing data objects and corresponding priorities
 	* @param heap Type of underlying heap structure, can be HeapType::MIN or HeapType::MAX
@@ -355,13 +367,33 @@ public:
 	}
 
 	/**
+	 * @brief Constructor for priority queue to pass data with priorities initially via arrays.
+	 *
+	 * @param data Array of data objects
+	 * @param priorities Arrays of priorities of data objects
+	 * @param size Size of arrays
+	 * @param heap Type of underlying heap structure, can be HeapType::MIN or HeapType::MAX
+	 */
+	PriorityQueue(T* data, PT* priorities, size_t size, HeapType heap} {
+		heapType = heap;
+		// loop over data and priorities arrays inserting the data
+		// with corresponding priority to the dataVector
+		for (size_t i = 0; i < size; ++i) {
+			dataWithPriorityVec.push_back( std::make_pair<T,PT>(data[i], priorities[i]) );
+		}
+		// heapify the priority queue instance to preserve 
+		// the PQ and MBH behaviour of the data structure
+		heapification();
+		
+	}
+	
+	/**
 	* @brief Copy constructor for priority queue.
 	*
 	* @param copyQueue Copy target priority queue instance
 	*/
 	PriorityQueue(const PriorityQueue<T, PT>& copyQueue) {
-		heapType = copyQueue.heapType;
-		dataWithPriorityVec = copyQueue.dataWithPriorityVec;
+		copy(copyQueue);
 	}
 
 	/**
@@ -405,10 +437,10 @@ public:
 	}
 
 	/**
-	 * @brief Gets the type of heap structure of the queue
-	 *
-	 * @return Type of heap, either MIN or MAX
-	 */
+	* @brief Gets the type of heap structure of the queue
+	*
+	* @return Type of heap, either MIN or MAX
+	*/
 	HeapType getHeapType() const {
 		return heapType;
 	}
@@ -440,18 +472,17 @@ public:
 	*/
 	std::string toString() {
 
-		std::vector< std::pair<T, PT> > saveVector(dataWithPriorityVec);
-
+		// copy this queue to a temporary "streamed queue"
+		PriorityQueue<T, PT> streamedQueue(*this);
+		
 		std::string retString = "Data\tPriority\n";
 
+		// loop over streamed queue appending data to return string
 		while (getSize()) {
-
-			std::pair<T, PT> dataPair = dequeue();
+			std::pair<T, PT> dataPair = streamedQueue.dequeue();
 			retString += to_string(dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
 
 		}
-
-		enqueueWithPriority(saveVector);
 
 		return retString;
 
@@ -508,7 +539,7 @@ public:
 	*/
 	void enqueueWithPriority(T* data, PT* priority, size_t arraySize) {
 
-		for (size_t i = 0; i < arraySize; i++) {
+		for (size_t i = 0; i < arraySize; ++i) {
 			enqueueWithPriority(data[i], priority[i]);
 		}
 
@@ -521,7 +552,7 @@ public:
 	*/
 	void enqueueWithPriority(std::vector< std::pair<T, PT> >& data) {
 
-		for (std::vector< std::pair<T, PT> >::iterator iter = data.begin(); iter < data.end(); iter++) {
+		for (std::vector< std::pair<T, PT> >::iterator iter = data.begin(); iter < data.end(); ++iter) {
 			enqueueWithPriority(iter.operator*().first, iter.operator*().second);
 		}
 
@@ -563,7 +594,7 @@ public:
 	std::pair<T, PT> search(T& item) {
 
 		// iterate over queue
-		for (PriorityQueue<T, PT>::const_iterator iter = begin(); iter < end(); iter++) {
+		for (PriorityQueue<T, PT>::const_iterator iter = begin(); iter < end(); ++iter) {
 
 			// data at current node equals search item, return current node
 			if (iter.operator*().first == item) {
@@ -576,7 +607,7 @@ public:
 		throw std::invalid_argument("Item does not exist within priority queue.");
 
 	}
-
+	
 	/**
 	* @brief Searches for an item in the PQ and returns a vector of all occurrences of the item
 	*		  with their corresponding priorities.
@@ -591,7 +622,7 @@ public:
 		std::vector< std::pair<T, PT> > occurrencesVec;
 
 		// iterate over queue
-		for (PriorityQueue<T, PT>::const_iterator iter = begin(); iter < end(); iter++) {
+		for (PriorityQueue<T, PT>::const_iterator iter = begin(); iter < end(); ++iter) {
 
 			// data at current node equals search item, push current node to occurrences vector
 			if (iter.operator*().first == item) {
@@ -605,12 +636,54 @@ public:
 	}
 
 	/**
+	 * @brief Searches for a priority in the PQ and returns a pair with the first instance of an item
+	 *		  in the queue with the given priority.
+	 *
+	 * @param priority Priority to search for in the queue
+	 * @return A std::pair of data and associated priority containing the first instance where priority occurs
+	 */
+	std::pair<T, PT> searchByPriority(PT priority) {
+		
+		// iterate over queue
+		for (PriorityQueue<T,PT>::const_iterator iter = begin(); iter < end(); ++iter) {
+			if (iter.operator*().second == priority)
+				return std::make_pair<const T&, const PT&>(iter.operator*().first, iter.operator*().second);
+		}
+		
+		// if priority was not found in queue, throw invalid argument exception
+		throw std::invalid_argument("There is no item with the given priority in the queue.");
+		
+	}
+	
+	/**
+	 * @brief Searches for a priority in the PQ and returns a vector containing all pairs of data 
+	 *		  where the priority occurred.
+	 *
+	 * @param priority Priority to search for in the queue
+	 * @return A std::vector of std::pair's containing all instances of data where the priority occurs
+	 */
+	std::vector< std::pair<T, PT> > searchByPriorityAll(PT priority) {
+		
+		// container to store occurrences of data pairs in the queue
+		std::vector< std::pair<T, PT> > occurrencesVec;
+		
+		// iterate over queue inserting data pairs 
+		for (PriorityQueue<T, PT>::const_iterator iter = begin(); iter < end(); ++iter) {
+			if (iter.operator*().second == priority)
+				occurrencesVec.push_back(std::make_pair<const T&, const PT&>(iter.operator*().first, iter.operator*().second));
+		}
+		
+		return occurrencesVec;
+		
+	}
+	
+	/**
 	* @brief Changes the priority of the first occurrence of an item in the PQ
 	*
 	* @param item Data item to change priority of
 	* @param priority Updated priority of item
 	*/
-	void changePriority(T& item, PT priority) {
+	void changePriority(T& item, PT updatedPriority) {
 
 		size_t i = 0;
 		bool itemFound = false;
@@ -621,7 +694,7 @@ public:
 			// if data at PQ position [i] equals parameterised item
 			// update its priority and break from loop
 			if (dataWithPriorityVec.at(i).first == item) {
-				dataWithPriorityVec.at(i).second = priority;
+				dataWithPriorityVec.at(i).second = updatedPriority;
 				itemFound = true;
 				break;
 			}
@@ -642,7 +715,7 @@ public:
 	* @param item Data item to change priority of
 	* @param priority Updated priority of item
 	*/
-	void changePriorityAll(T& item, PT priority) {
+	void changePriorityAll(T& item, PT updatedPriority) {
 
 		size_t i = 0;
 
@@ -657,7 +730,7 @@ public:
 			// update its priority and push its position to the
 			// changedPositions container ready for bubbling up
 			if (dataWithPriorityVec.at(i).first == item) {
-				dataWithPriorityVec.at(i).second = priority;
+				dataWithPriorityVec.at(i).second = updatedPriority;
 				changedPositions.push_back(i);
 			}
 
@@ -673,7 +746,19 @@ public:
 		}
 
 	}
-
+		
+	/****************************************************************************/
+	/**********************	PUBLIC STATIC MEMBER FUNCTIONS **********************/
+	/****************************************************************************/
+	
+	static void enqueueWithPriority(const PriorityQueue<T, PT>& priorityQueue, T& data, PT priority) {
+		priorityQueue.enqueueWithPriority(data, priority);
+	}
+	
+	static std::pair<T,PT> dequeue(const PriorityQueue<T, PT>& priorityQueue) {
+		return priorityQueue.dequeue();
+	}
+	
 	/******************************************************************/
 	/**********************	OVERLOADED OPERATORS **********************/
 	/******************************************************************/
@@ -749,7 +834,7 @@ public:
 		}
 
 		// iterate over queue
-		for (PriorityQueue<T, PT>::const_iterator iter = begin(), iterChkPQ = chkPQ.begin(); iter < end(); iter++, iterChkPQ++) {
+		for (PriorityQueue<T, PT>::const_iterator iter = begin(), iterChkPQ = chkPQ.begin(); iter < end(); ++iter, ++iterChkPQ) {
 
 			// if any nodes of the two queues differ, return false
 			if (iter.operator*().first != iterChkPQ.operator*().first || iter.operator*().second != iter.operator*().second) {
@@ -760,6 +845,18 @@ public:
 
 		return true;
 
+	}
+	
+	/**
+	 * @brief Overloaded not-equiavalent operator.
+	 *
+	 * @param chkPQ Check target queue
+	 * @return true if the queues are not equal, false otherwise
+	 */
+	bool operator!=(PriorityQueue<T, PT>& chkPQ) {
+		
+		return !(*this == chkPQ);
+		
 	}
 
 	/*****************************************************************/
@@ -796,6 +893,7 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
 
 	PriorityQueue<Type, PriorityType> streamedQueue(targetQueue);
 
+	// loop over queue sending queue data to output stream
 	while (streamedQueue.getSize()) {
 		std::pair<Type, PriorityType> dataPair = streamedQueue.dequeue();
 		outStream << to_string(dataPair.first) << "\t" << to_string(dataPair.second) << "\n";
