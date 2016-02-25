@@ -41,14 +41,16 @@ int main(int argc, char* argv[])
 	// Whether to manually load Libraries - default off
 	bool init = false;
 
-	// Name of desired library
-	std::string libName = "cameratools";
+	// Libraries to load
+	std::string cameraLibName   = "cameratools";
+	std::string movementLibName = "movementtools";
 	
-	// Name of desired module in library
-	std::string moduleName = "CameraTools";
+	// Name of camera module in library
+	std::string cameraModuleName   = "CameraTools";
+	std::string movementModuleName = "MovementTools";
 
 	// Explicit library path
-	std::string libPath = "";
+//	std::string libPath = "";
 
 	// Set broker name, ip and port, finding first available port from 54000
 	const std::string brokerName = "LandmarkSwingBroker";
@@ -74,7 +76,7 @@ int main(int argc, char* argv[])
 		{
 			{"pip", 	1, 	0, 	'i'},
 			{"pport",	1,	0,	'p'},
-			{"path",	1,	0,	'x'},
+//			{"path",	1,	0,	'x'},
 			{"time",	0,	0,	't'},
 			{"verb",	0,	0,	'v'},
 			{"help",	0,	0,	'h'},
@@ -102,12 +104,12 @@ int main(int argc, char* argv[])
 				else
 					argErr();
 				break;
-			case 'x':
-				if (optarg)
-					libPath = std::string(optarg);
-				else
-					argErr();
-				break;
+//			case 'x':
+//				if (optarg)
+//					libPath = std::string(optarg);
+//				else
+//					argErr();
+//				break;
 			case 't':
 				if (optarg)
 					timeToRun = atoi(optarg);
@@ -158,16 +160,21 @@ int main(int argc, char* argv[])
 	AL::ALBrokerManager::getInstance()->addBroker(broker);
 
 	// Create an instance of the desired module
-	if (libPath == "")
-		CreateModule(libName, moduleName, broker, verb, true);
-	else
-		CreateModule(libPath, moduleName, broker, verb, false);
+//	if (libPath == "")
+//		CreateModule(cameraLibName, cameraModuleName, broker, verb, true);
+//	else
+	CreateModule(cameraLibName, cameraModuleName, broker, verb, false);
+	CreateModule(movementLibName, movementModuleName, broker, verb, false);
 
 	
 	// Create a proxy to the module	
 	if(verb)
-		std::cout << "Creating proxy to module..." << std::endl;
-	AL::ALProxy camToolsProxy(moduleName, pip, pport);
+		std::cout << "Creating proxy to " << cameraModuleName << "..." << std::endl;
+	AL::ALProxy camToolsProxy(cameraModuleName, pip, pport);
+	
+	if(verb)
+		std::cout << "Creating proxy to " << movementModuleName << "..." << std::endl;
+	AL::ALProxy moveToolsProxy(movementModuleName, pip, pport);
 	
 	// List of detected landmark info
 	AL::ALValue landmarks;
@@ -251,7 +258,6 @@ int main(int argc, char* argv[])
 			//	std::cout << "Height:  " << height << std::endl;
 			}
 
-			/* TODO: position code for movement */
 			// Check whether a landmark was detected this interval
 			if (landmark1Detected || landmark2Detected)
 			{
@@ -267,12 +273,12 @@ int main(int argc, char* argv[])
 						if (order1 < 0)
 						{
 							std::cout << "Moving forwards" << std::endl;
-							// CODE FOR SOME DIRECTION
+							moveToolsProxy.callVoid("swingForwards");
 						}
 						else if (order1 > 0)
 						{
 							std::cout << "Moving backwards" << std::endl;
-							// CODE FOR OTHER DIRECTION
+							moveToolsProxy.callVoid("swingBackwards");
 						}
 					}
 				}
@@ -282,12 +288,12 @@ int main(int argc, char* argv[])
 					if (order1 < 0)
 					{
 						std::cout << "Moving forwards" << std::endl;
-						// CODE FOR SOME DIRECTION
+						moveToolsProxy.callVoid("swingForwards");
 					}
 					else if (order1 > 0)
 					{
 						std::cout << "Moving backwards" << std::endl;
-						// CODE FOR OTHER DIRECTION
+						moveToolsProxy.callVoid("swingBackwards");
 					}
 				}
 				// Only second landmark detected
@@ -296,12 +302,12 @@ int main(int argc, char* argv[])
 					if (order2 < 0)
 					{
 						std::cout << "Moving forwards" << std::endl;
-						// CODE FOR SOME DIRECTION
+						moveToolsProxy.callVoid("swingForwards");
 					}
 					else if (order2 > 0)
 					{
 						std::cout << "Moving backwards" << std::endl;
-						// CODE FOR OTHER DIRECTION
+						moveToolsProxy.callVoid("swingBackwards");
 					}
 				}
 			}
@@ -320,17 +326,17 @@ int main(int argc, char* argv[])
 
 	// Get a handle to the module and close it
 	{
-		boost::shared_ptr<AL::ALModuleCore> module = broker->getModuleByName(moduleName);
+		boost::shared_ptr<AL::ALModuleCore> module = broker->getModuleByName(cameraModuleName);
 		if(verb)
-			std::cout << "Closing module " << moduleName << "..." << std::endl;
+			std::cout << "Closing module " << cameraModuleName << "..." << std::endl;
 		module->exit();
 	}
 
 	// Check module has closed
 	if(verb)
 	{
-		std::cout << "Module " << moduleName << " is ";
-		if (!(broker->isModulePresent(moduleName)))
+		std::cout << "Module " << cameraModuleName << " is ";
+		if (!(broker->isModulePresent(cameraModuleName)))
 		{
 			std::cout << "not ";
 		}

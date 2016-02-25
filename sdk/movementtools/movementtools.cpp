@@ -22,7 +22,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	pip = broker->getParentIP();
 	pport = broker->getParentPort();
 
-	speed = 0.8;
+	speed = 0.6;
 
 	std::string angleNamesArray[] = { "LAnklePitch",		
 				    "LAnkleRoll",		
@@ -114,7 +114,7 @@ void MovementTools::swingForwards()
 {
 	motion.setStiffnesses("Body", 1.0f);
 	motion.setAngles(angleNames, sitForwardAngles, speed);	
-	qi::os::msleep(500);
+	qi::os::msleep(700);
 	motion.setStiffnesses("Body", 0.0f);
 }
 
