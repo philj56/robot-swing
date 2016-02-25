@@ -56,6 +56,23 @@ double state_reward(const double theta, const double theta_dot)
 {
 	return 180+theta_dot*theta/std::abs(theta_dot);
 }
+//updates Q value for a state-action 
+void updateQ(StateSpace * space, Action * action, State * current_state,
+                 State * old_state, double alpha, double gamma)
+{
+    //oldQ value 
+    double oldQ = (*space).StateSearch(old_state).search(action).second;
+    //reward given to current state 
+    double R = new_state->getReward();
+    //optimal Q value for new state i.e. first element 
+    double maxQ = (*space).StateSearch(current_state)[0].second;
+    
+    //new Q value determined by Q learning algorithm
+    double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ;
+    
+    //updates Q value
+    (*space).StateSearch(old_state).search(action).second = newQ;
+}
 
 //function is fed with a priority queue of action-values 
 //generates Boltzmann distribution of these action-values
