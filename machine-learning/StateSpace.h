@@ -65,7 +65,7 @@ class StateSpace
 		//-----------------------------------------------------------------------------
 		
 		SubscriptProxy1 operator[](const unsigned int robot_state);
-		
+		PriorityQueue<Action *, double> StateSearch(State * state);
 	private:
 		//the sizes of the two arrays
 		const int angle_max;
