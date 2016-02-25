@@ -1,21 +1,27 @@
 #include "StateSpace.h"
 
-StateSpace::StateSpace(const int _x_size, const int _y_size):
-	x_size(_x_size),
-	y_size(_y_size),
-	space(x_size, std::vector< PriorityQueue<Action*,double> > (y_size, PriorityQueue<Action*,double> (HeapType::MAX)))
+StateSpace::StateSpace(const unsigned int _angle_max, const unsigned int _velocity_max):
+	angle_max(_angle_max),
+	velocity_max(_velocity_max),
+	space(_angle_max, std::vector< PriorityQueue<Action*,double> > (_velocity_max, PriorityQueue<Action*,double> (HeapType::MAX)))
 {}
 
 StateSpace::~StateSpace()
 {
 	//ridiculously extensive clean-up
-	for(unsigned int i=0 ; i<x_size ; ++i)
+	for(unsigned int i=0 ; i<angle_max ; ++i)
 	{
-		for(unsigned int j=0 ; j<x_size ; ++j)
+		for(unsigned int j=0 ; j<velocity_max ; ++j)
 		{
-			PriorityQueue<Action*,double>& queue=space[i][j];
+			PriorityQueue<Action*,double>& queue1=space1[i][j];
+			PriorityQueue<Action*,double>& queue2=space2[i][j];
 			
-			for(auto iter=queue.begin(),queue=list.end() ; iter!=end ; ++iter)
+			for(auto iter=queue1.begin(),queue1=list.end() ; iter!=end ; ++iter)
+			{
+				delete *iter;
+			}
+			
+			for(auto iter=queue2.begin(),queue2=list.end() ; iter!=end ; ++iter)
 			{
 				delete *iter;
 			}
@@ -23,9 +29,9 @@ StateSpace::~StateSpace()
 	}
 }
 
-SateSpace::SubscriptProxy SateSpace::operator[](const unsigned int action)
+SateSpace::SubscriptProxy SateSpace::operator[](const unsigned int robot_state)
 {
-	if(action>1)throw std::domain_error("action index exceeded");
+	if(robot_state>1)throw std::domain_error("action index exceeded");
 	//return proxy object to accept second [] operator
-	return SubscriptProxy( action ? space1 : space2 );
+	return SubscriptProxy( robot_state ? space1 : space2 );
 }
