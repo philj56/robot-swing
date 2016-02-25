@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include "PriorityQueue.h"
 
-class Experience;
+class Action;
 
 //index with state_space_object[action][angle][velocity]
 
@@ -24,7 +24,7 @@ class StateSpace
 		class SubscrpitProxy1
 		{
 			public:
-				SubscriptProxy1(std::vector<std::vector<PriorityQueue<Experience*,double>>>& _vec):vec(_vec){}
+				SubscriptProxy1(std::vector<std::vector<PriorityQueue<Action*,double>>>& _vec):vec(_vec){}
 				
 				SubscriptProxy2 operator[](const double angle)
 				{
@@ -38,15 +38,15 @@ class StateSpace
 				}
 			
 			private:
-				std::vector<std::vector<PriorityQueue<Experience*,double>>>& vec;
+				std::vector<std::vector<PriorityQueue<Action*,double>>>& vec;
 		};
 		
 		class SubscrpitProxy2
 		{
 			public:
-				SubscriptProxy2(std::vector<PriorityQueue<Experience*,double>>& _vec):vec(_vec){}
+				SubscriptProxy2(std::vector<PriorityQueue<Action*,double>>& _vec):vec(_vec){}
 				
-				PriorityQueue<Experience*,double>& operator[](const double velocity)
+				PriorityQueue<Action*,double>& operator[](const double velocity)
 				{
 					//error if angle exceeds bounds
 					if(std::abs(velocity)>1)throw std::domain_error("velocity argument exceeded");
@@ -58,7 +58,7 @@ class StateSpace
 				}
 			
 			private:
-				std::vector<PriorityQueue<Experience*,double>>& vec;
+				std::vector<PriorityQueue<Action*,double>>& vec;
 		};
 		//-----------------------------------------------------------------------------
 		
@@ -70,6 +70,6 @@ class StateSpace
 		const int y_size;
 		
 		//the 2d array that contains the robots previous experiences in each state
-		std::vector<std::vector<PriorityQueue<Experience*,double>>> space1;
-		std::vector<std::vector<PriorityQueue<Experience*,double>>> space2;
+		std::vector<std::vector<PriorityQueue<Action*,double>>> space1;
+		std::vector<std::vector<PriorityQueue<Action*,double>>> space2;
 };
