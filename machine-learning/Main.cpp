@@ -59,11 +59,11 @@ double state_reward(const double theta, const double theta_dot)
 //function is fed with a priority queue of action-values 
 //generates Boltzmann distribution of these action-values
 //and selects an action based on probabilities 
-Experience * selectAction(PriorityQueue<Experience *,double> a_queue, double temp)
+Action * selectAction(PriorityQueue<Action *,double> a_queue, double temp)
 {	
-    typedef PriorityQueue<Experience *,double> PQ;
-    typedef std::vector< std::pair<Experience *, double> > Vec_Pair;
-    typedef std::pair<Experience *, double> Pair;
+    typedef PriorityQueue<Action *,double> PQ;
+    typedef std::vector< std::pair<Action *, double> > Vec_Pair;
+    typedef std::pair<Action *, double> Pair;
     
     double sum= 0;
     int i = 0;
