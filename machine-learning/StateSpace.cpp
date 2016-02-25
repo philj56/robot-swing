@@ -28,8 +28,10 @@ StateSpace::~StateSpace()
 		}
 	}
 }
+//searches state space by state object
+StateSpace::StateSearch(State * state){return (*this)[state->RobotState][state->theta][state->theta_dot];}
 
-SateSpace::SubscriptProxy SateSpace::operator[](const unsigned int robot_state)
+StateSpace::SubscriptProxy StateSpace::operator[](const unsigned int robot_state)
 {
 	if(robot_state>1)throw std::domain_error("action index exceeded");
 	//return proxy object to accept second [] operator
