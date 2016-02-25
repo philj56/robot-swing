@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "Experience.h"
-#include "SateSpace.h"
+#include "StateSpace.h"
 #include "Action.h"
 
 //utility calculation function
