@@ -6,7 +6,7 @@
 #include "Action.h"
 
 //utility calculation function
-double q(int action, int x, int y);
+double q();
 
 //reward function based off raw position and velocity
 double state_reward(const double theta, const double theta_dot);
@@ -33,11 +33,12 @@ int main()
 	
 	while(true)
 	{
-		double p=rand();
+		//evaluate q of last action
+		//current_state>>old_state
 		
-		if( p < std::exp( q(current_state, action0)/k(time) ) )
+		chosen_action=selectAction(/*...*/);
 		
-		
+		//>>current_state
 	}
 	
 	delete actions[0];
@@ -60,7 +61,7 @@ double state_reward(const double theta, const double theta_dot)
 //generates Boltzmann distribution of these action-values
 //and selects an action based on probabilities 
 Action * selectAction(PriorityQueue<Action *,double> a_queue, double temp)
-{	
+{
     typedef PriorityQueue<Action *,double> PQ;
     typedef std::vector< std::pair<Action *, double> > Vec_Pair;
     typedef std::pair<Action *, double> Pair;
@@ -102,9 +103,3 @@ Action * selectAction(PriorityQueue<Action *,double> a_queue, double temp)
     }
     return -1;
 }
-
-);
-
-	
-}
-
