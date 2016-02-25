@@ -48,7 +48,7 @@ int main()
 
 double q()
 {
-	return //something competant;
+	return //StateSpace[originalstate[0],originalstate[1]].GetExperience().GetUtility(action) + learningrate(state_reward(newstate[0], newstate[1]) + gamma(StateSpace[newstate[0],newstate[1]].GetExperience().GetHighestUtility()) - StateSpace[originalstate[0],originalstate[1]].GetExperience().GetUtility(action); // Utility calculation pseudocode
 }
 
 double state_reward(const double theta, const double theta_dot)
