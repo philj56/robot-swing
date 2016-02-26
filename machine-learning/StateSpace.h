@@ -23,7 +23,7 @@ class StateSpace
 		
 		StateSpace(const StateSpace&)=delete;
 		
-		PriorityQueue<Action *, double> StateSearch(State * state);
+		PriorityQueue<Action *, double> StateSearch(State & state);
 		
 		//these nested classes are necessary so that the [][][] operator can be called on this class
 		//the operator should be called with the continuous state variables which it will then discretise
