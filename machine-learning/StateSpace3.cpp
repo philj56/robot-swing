@@ -1,10 +1,10 @@
 #include "StateSpace.h"
 
-StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, const unsigned int _torque_bins):
+StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, const unsigned int _torque_bins, PriorityQueue<Action*,double> queue):
 	angle_bins(_angle_bins),
 	velocity_bins(_velocity_bins),
 	torque_bins(_torque_bins),
-	space( _angle_bins, std::vector<std::vector<PriorityQueue<Action*,double>>> ( _velocity_bins, std::vector<PriorityQueue<Action*,double>> ( _torque_bins, PriorityQueue<Action*,double> (HeapType::MAX) ) ) )
+	space( _angle_bins, std::vector<std::vector<PriorityQueue<Action*,double>>> ( _velocity_bins, std::vector<PriorityQueue<Action*,double>> ( _torque_bins, PriorityQueue<Action*,double> (queue) ) ) )
 	
 {}
 
@@ -38,3 +38,10 @@ StateSpace::SubscriptProxy1 StateSpace::operator[](const double angle)
 	//return appropriate object
 	return SubscriptProxy1(space[discrete_index]);
 }
+
+//searches state space by state object
+PriorityQueue<Action *, double> StateSpace::StateSearch(State & state)
+{
+	return (*this)[state->RobotState][state->theta][state->theta_dot];
+}
+
