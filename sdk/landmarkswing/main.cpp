@@ -49,9 +49,6 @@ int main(int argc, char* argv[])
 	std::string cameraModuleName   = "CameraTools";
 	std::string movementModuleName = "MovementTools";
 
-	// Explicit library path
-//	std::string libPath = "";
-
 	// Set broker name, ip and port, finding first available port from 54000
 	const std::string brokerName = "LandmarkSwingBroker";
 	int brokerPort = qi::os::findAvailablePort(54000);
@@ -63,6 +60,9 @@ int main(int argc, char* argv[])
 	
 	// Default time to run in seconds
 	int timeToRun = 10;
+
+	// Default number of previous widths to smooth over
+	unsigned int landmarkSmoothing = 2;
 
 	// Get any arguments
 	while (true)
@@ -76,7 +76,7 @@ int main(int argc, char* argv[])
 		{
 			{"pip", 	1, 	0, 	'i'},
 			{"pport",	1,	0,	'p'},
-//			{"path",	1,	0,	'x'},
+			{"smooth",	1,	0,	's'},
 			{"time",	0,	0,	't'},
 			{"verb",	0,	0,	'v'},
 			{"help",	0,	0,	'h'},
@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
 		};
 
 		// Get next option, and check return value
-		switch(index = getopt_long(argc, argv, "i:p:t:vh", longopts, &index))
+		switch(index = getopt_long(argc, argv, "i:p:t:s:vh", longopts, &index))
 		{
 			// Print usage and quit
 			case 'h':
@@ -104,18 +104,21 @@ int main(int argc, char* argv[])
 				else
 					argErr();
 				break;
-//			case 'x':
-//				if (optarg)
-//					libPath = std::string(optarg);
-//				else
-//					argErr();
-//				break;
+			// Set smoothing
+			case 's':
+				if (optarg)
+					landmarkSmoothing = atoi(optarg);
+				else
+					argErr();
+				break;
+			// Set time to run
 			case 't':
 				if (optarg)
 					timeToRun = atoi(optarg);
 				else
 					argErr();
 				break;
+			// Set verbose output
 			case 'v':
 				verb = true;
 				break;
@@ -190,9 +193,6 @@ int main(int argc, char* argv[])
 	// Whether each landmark has been detected this cycle
 	bool landmark1Detected = false;
 	bool landmark2Detected = false;
-
-	// Number of previous widths to smooth over
-	unsigned int landmarkSmoothing = 2;
 
 	// Current direction of movement, either +1 or -1
 	int currentDirection;
