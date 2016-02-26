@@ -4,7 +4,8 @@ StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _veloc
 	angle_bins(_angle_bins),
 	velocity_bins(_velocity_bins),
 	torque_bins(_torque_bins),
-	space( std::array< std::array< PriorityQueue<Action*,double>(HeapType::MAX),_torque_bins>, _velocity_bins )
+	space( _angle_bins, std::vector<std::vector<PriorityQueue<Action*,double>>> ( _velocity_bins, std::vector<PriorityQueue<Action*,double>> ( _torque_bins, PriorityQueue<Action*,double> (HeapType::MAX) ) ) )
+	
 {}
 
 StateSpace::~StateSpace()
@@ -16,8 +17,7 @@ StateSpace::~StateSpace()
 		{
 			for(unsigned int k=0 ; k<torque_max ; ++k)
 			{
-				PriorityQueue<Action*,double>& queue1=space1[i][j][k];
-				PriorityQueue<Action*,double>& queue2=space2[i][j][k];
+				PriorityQueue<Action*,double>& queue1=space[i][j][k];
 				
 				for(auto iter=queue1.begin(),queue1=list.end() ; iter!=end ; ++iter)
 				{
