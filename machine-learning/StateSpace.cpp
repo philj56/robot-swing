@@ -29,7 +29,7 @@ StateSpace::~StateSpace()
 	}
 }
 
-StateSpace::SubscriptProxy StateSpace::operator[](const unsigned int robot_state)
+StateSpace::SubscriptProxy1 StateSpace::operator[](const unsigned int robot_state)
 {
 	if(robot_state>1)throw std::domain_error("action index exceeded");
 	//return proxy object to accept second [] operator
