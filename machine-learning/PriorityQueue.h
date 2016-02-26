@@ -60,10 +60,9 @@ Clear = O(1) if type T has trivial destructor
 *
 * <strong>To-Do List for Priority Queue class</strong>
 *
-* @todo [HIGH PRIORITY] Alter for/while loops to use the iterators for the priority queue
+* @todo [POTENTIALLY HIGH PRIORITY] Make class compatible with C++98.
 *
-* @todo [MEDIUM PRIORITY] Alter dequeue method (and others which attempt removal or deletion) to handle erroneous cases (dequeueing
-*		from empty queue) defensively, rather than non-defensively.
+* @todo [MEDIUM PRIORITY] Go through and revise passing by reference/pointer, returning references/pointers etc... (code cleaning)
 *
 * @todo [LOW PRIORITY] Implement a fixed size priority queue, will require a separate constructor, max capacity field variable
 *		and extra condition in enqueueWithPriority method.
@@ -297,7 +296,7 @@ private:
 		heapType = copyTarget.heapType;
 		dataWithPriorityVec = copyTarget.dataWithPriorityVec;
 	}
-	
+
 protected:
 
 	/**
@@ -408,21 +407,21 @@ public:
 	/**************************************************************************/
 
 	/**
-	 * @brief Gets the pair at a given index in the underlying vector
-	 *        structure in the queue NOT IN TERMS OF HEAP STORAGE ORDER!
-	 * 
-	 * This method should only be used in routines to randomly access elements
-	 * in the priority queue (i.e. an algorithm where order is not important).
-	 * 
-	 * @remark Rather than using this operator to iterate over a priority queue use
-	 * 	   the PriorityQueue::const_iterator and begin(), end() methods
-	 * @warning THIS OPERATOR DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
-	 * @return Pair of queue at given index of underlying vector
-	 */
-	std::pair<T, PT>& at(size_t index) const {
+	* @brief Gets the pair at a given index in the underlying vector
+	*        structure in the queue NOT IN TERMS OF HEAP STORAGE ORDER!
+	*
+	* This method should only be used in routines to randomly access elements
+	* in the priority queue (i.e. an algorithm where order is not important).
+	*
+	* @remark Rather than using this operator to iterate over a priority queue use
+	* 	   the PriorityQueue::const_iterator and begin(), end() methods
+	* @warning THIS OPERATOR DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
+	* @return Pair of queue at given index of underlying vector
+	*/
+	const std::pair<const T, const PT>& at(size_t index) {
 		return dataWithPriorityVec.at(index);
 	}
-	
+
 	/**
 	* @brief Getter for the size of the priority queue
 	*
@@ -497,9 +496,30 @@ public:
 		while (streamedQueue.getSize()) {
 			std::pair<T, PT> dataPair = streamedQueue.dequeue();
 			retString += to_string(dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
+
 		}
 
 		return retString;
+
+	}
+
+	/**
+	 * @brief Saves a vector of pairs representation of the priority queue
+	 *
+	 * @warning Potentially slow if used often for large queues
+	 * @return std::vector of std::pair's containing ordered queue data
+	 */
+	std::vector< std::pair<T&, PT> > saveOrderedQueueAsVector() {
+
+		PriorityQueue<T, PT> savedQueue(*this);
+
+		std::vector< std::pair<T, PT> > vectorStore;
+
+		while (savedQueue.getSize()) {
+			vectorStore.push_back(savedQueue.dequeue());
+		}
+
+		return vectorStore;
 
 	}
 
@@ -579,6 +599,7 @@ public:
 	* @warning Undefined behaviour is PQ is empty
 	*
 	* @return The dequeued item, i.e. the pair containing the data entry and its corresponding priority
+	* @throw Throws out_of_range exception if queue is empty
 	*/
 	std::pair<T, PT> dequeue() {
 
@@ -659,6 +680,7 @@ public:
 	*
 	* @param priority Priority to search for in the queue
 	* @return A std::pair of data and associated priority containing the first instance where priority occurs
+	* @throw Throws invalid_argument exception if priority does not exist in the queue
 	*/
 	std::pair<T, PT> searchByPriority(PT priority) {
 
@@ -699,7 +721,7 @@ public:
 	* @brief Changes the priority of the first occurrence of an item in the PQ
 	*
 	* @param item Data item to change priority of
-	* @param priority Updated priority of item
+	* @param updatedPriority Updated priority of item
 	*/
 	void changePriority(T& item, PT updatedPriority) {
 
@@ -731,7 +753,7 @@ public:
 	* @brief Changes the priorities of all occurrences of an item in the PQ
 	*
 	* @param item Data item to change priority of
-	* @param priority Updated priority of item
+	* @param updatedPriority Updated priority of item
 	*/
 	void changePriorityAll(T& item, PT updatedPriority) {
 
@@ -770,26 +792,27 @@ public:
 	/******************************************************************/
 
 	/**
-	 * @brief Gets the pair at a given index in the underlying vector
-	 *        structure in the queue NOT IN TERMS OF HEAP STORAGE ORDER!
-	 * 
-	 * This method should only be used in routines to randomly access elements
-	 * in the priority queue (i.e. an algorithm where order is not important).
-	 * 
-	 * @remark Rather than using this operator to iterate over a priority queue use
-	 * 	   the PriorityQueue::const_iterator and begin(), end() methods
-	 * @warning THIS OPERATOR DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
-	 * @return Pair of queue at given index of underlying vector
-	 */
-	std::pair<T, PT>& operator[](size_t index) {
+	* @brief Gets the pair at a given index in the underlying vector
+	*        structure in the queue NOT IN TERMS OF HEAP STORAGE ORDER!
+	*
+	* This method should only be used in routines to randomly access elements
+	* in the priority queue (i.e. an algorithm where order is not important).
+	*
+	* @remark Rather than using this operator to iterate over a priority queue use
+	* 	   the PriorityQueue::const_iterator and begin(), end() methods
+	* @warning THIS OPERATOR DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
+	* @return Pair of queue at given index of underlying vector
+	*/
+	const std::pair<const T, const PT>& operator[](size_t index) {
 		return dataWithPriorityVec.at(index);
 	}
-	
+
 	/**
 	* @brief Overloaded addition operator.
 	*
 	* @param addPQ Addition target queue
 	* @return Instance of priority queue as this queue plus addPQ
+	* @throw Throws invalid_argument exception if this queue and addPQ are of different heapType
 	*/
 	PriorityQueue<T, PT>& operator+(PriorityQueue<T, PT>& addPQ) {
 
@@ -824,6 +847,8 @@ public:
 	* @brief Overloaded addition-assignment operator.
 	*
 	* @param addPQ Addition target queue
+	* @return Instance of priority queue added and assigned to this queue
+	* @throw Throws invalid_argument exception if this queue and addPQ are of different heapType
 	*/
 	PriorityQueue<T, PT>& operator+=(PriorityQueue<T, PT>& addPQ) {
 
