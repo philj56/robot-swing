@@ -10,8 +10,6 @@
 
 class Action;
 
-enum robot_states{TORSO_BACK,TORSO_FORWARDS};
-
 //class to hold the 2d vector of containers of experiences that represents the robot's state and memory
 class StateSpace
 {
