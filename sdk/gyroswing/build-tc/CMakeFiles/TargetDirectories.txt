@@ -1,0 +1,1 @@
+/gs/naoqi/doc/examples/gyroswing/build-tc/CMakeFiles/landmarkswing.dir
