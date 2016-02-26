@@ -10,9 +10,6 @@ double q();
 
 Action * selectAction(PriorityQueue<Action *,double>& a_queue, double temp);
 
-//reward function based off raw position and velocity
-double state_reward(const double theta, const double theta_dot);
-
 int main()
 {
 	std::srand(std::time(NULL));
@@ -53,11 +50,6 @@ int main()
 double q()
 {
 	return 1;//StateSpace[originalstate[0],originalstate[1]].GetExperience().GetUtility(action) + learningrate(state_reward(newstate[0], newstate[1]) + gamma(StateSpace[newstate[0],newstate[1]].GetExperience().GetHighestUtility()) - StateSpace[originalstate[0],originalstate[1]].GetExperience().GetUtility(action); // Utility calculation pseudocode
-}
-
-double state_reward(const double theta, const double theta_dot)
-{
-	return 180+theta_dot*theta/std::abs(theta_dot);
 }
 
 //function is fed with a priority queue of action-values 
