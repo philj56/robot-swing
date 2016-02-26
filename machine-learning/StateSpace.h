@@ -20,30 +20,12 @@ class StateSpace
 		
 		StateSpace(const StateSpace&)=delete;
 		
-		//these nested classes are neccessary so that the [][][] operator can be called on this class
+		PriorityQueue<Action *, double> StateSearch(State * state);
+		
+		//these nested classes are necessary so that the [][][] operator can be called on this class
 		//the operator should be called with the continuous state variables which it will then discretise
 		//-----------------------------------------------------------------------------
-		class SubscrpitProxy1
-		{
-			public:
-				SubscriptProxy1(std::vector<std::vector<PriorityQueue<Action*,double>>>& _vec):vec(_vec){}
-				
-				SubscriptProxy2 operator[](const double angle)
-				{
-					//error if angle exceeds bounds
-					if(std::abs(angle)>M_PI/4)throw std::domain_error("angle argument exceeded");
-					//descretise index
-					int discrete_index=std::round(angle*100/angle_max)+angle_max/2;
-					
-					//return appropriate array
-					return SubscriptProxy2(vec[discrete_index]);
-				}
-			
-			private:
-				std::vector<std::vector<PriorityQueue<Action*,double>>>& vec;
-		};
-		
-		class SubscrpitProxy2
+		class SubscriptProxy2
 		{
 			public:
 				SubscriptProxy2(std::vector<PriorityQueue<Action*,double>>& _vec):vec(_vec){}
@@ -56,20 +38,39 @@ class StateSpace
 					int discrete_index=std::round(velocity*100/velocity_max)+velocity_max/2;
 					
 					//return appropriate array
+					return vec[discrete_index];
+				}
+			private:
+				std::vector<PriorityQueue<Action*,double>>& vec;
+		};
+		
+		class SubscriptProxy1
+		{
+			public:
+				SubscriptProxy1(std::vector<std::vector<PriorityQueue<Action*,double>>>& _vec):vec(_vec){}
+				
+				SubscriptProxy2 operator[](const double angle)
+				{
+					//error if angle exceeds bounds
+					if(std::abs(angle)>M_PI/4)throw std::domain_error("angle argument exceeded");
+					//descretise index
+					int discrete_index=std::round(angle*100/angle_max)+angle_max/2;
+					
+					//return appropriate object
 					return SubscriptProxy2(vec[discrete_index]);
 				}
 			
 			private:
-				std::vector<PriorityQueue<Action*,double>>& vec;
+				std::vector<std::vector<PriorityQueue<Action*,double>>>& vec;
 		};
 		//-----------------------------------------------------------------------------
 		
 		SubscriptProxy1 operator[](const unsigned int robot_state);
-		PriorityQueue<Action *, double> StateSearch(State * state);
+		
 	private:
 		//the sizes of the two arrays
-		const int angle_max;
-		const int velocity_max;
+		static const int angle_max;
+		static const int velocity_max;
 		
 		//the 2d array that contains the robots previous experiences in each state
 		std::vector<std::vector<PriorityQueue<Action*,double>>> space1;
