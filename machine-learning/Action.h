@@ -1,3 +1,6 @@
+#ifndef ACTION_H
+#define ACTION_H
+
 //struct to store a basic action
 //currently just stores an integer identifier - more will be added later
 
@@ -11,4 +14,6 @@ struct Action
 	void exectute();
 	
 	//needs function pointer to actual action
-}
+};
+
+#endif
