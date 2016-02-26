@@ -71,7 +71,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 				    0.351244f};
 
 	float sitBackwardAnglesArray[] = { 0.922581f,
-				    0.00609398f,
+				   -0.00609398f,
 				   -0.049046f,
 				   -0.32525f,
 				   -0.41107f,
@@ -122,6 +122,6 @@ void MovementTools::swingBackwards()
 {
 	motion.setStiffnesses("Body", 1.0f);
 	motion.setAngles(angleNames, sitBackwardAngles, speed);	
-	qi::os::msleep(500);
+	qi::os::msleep(700);
 	//motion.setStiffnesses("Body", 0.0f);
 }
