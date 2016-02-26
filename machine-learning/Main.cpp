@@ -99,3 +99,20 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue, double temp)
  	
 	return NULL; //note that this line should never be reached
 }
+
+void updateQ(StateSpace * space, Action * action, State * current_state,
+                 State * old_state, double alpha, double gamma)
+{
+    //oldQ value 
+    double oldQ = (*space).StateSearch(old_state).search(action).second;
+    //reward given to current state 
+    double R = new_state->getReward();
+    //optimal Q value for new state i.e. first element 
+    double maxQ = (*space).StateSearch(current_state)[0].second;
+    
+    //new Q value determined by Q learning algorithm
+    double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ;
+    
+    //updates Q value
+    (*space).StateSearch(old_state).search(action).second = newQ;
+}
