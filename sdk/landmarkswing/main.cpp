@@ -268,7 +268,7 @@ int main(int argc, char* argv[])
 				if (landmark1Detected && landmark2Detected)
 				{
 					// Both landmarks moving in same direction
-					if (order1 == order2)
+					//if (order1 == order2)
 					{
 						if (order1 > 0)
 						{
