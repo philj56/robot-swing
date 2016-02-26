@@ -411,7 +411,12 @@ public:
 	 * @brief Gets the pair at a given index in the underlying vector
 	 *        structure in the queue NOT IN TERMS OF HEAP STORAGE ORDER!
 	 * 
-	 * @warning THIS METHOD DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
+	 * This method should only be used in routines to randomly access elements
+	 * in the priority queue (i.e. an algorithm where order is not important).
+	 * 
+	 * @remark Rather than using this operator to iterate over a priority queue use
+	 * 	   the PriorityQueue::const_iterator and begin(), end() methods
+	 * @warning THIS OPERATOR DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
 	 * @return Pair of queue at given index of underlying vector
 	 */
 	std::pair<T, PT>& at(size_t index) const {
@@ -768,6 +773,11 @@ public:
 	 * @brief Gets the pair at a given index in the underlying vector
 	 *        structure in the queue NOT IN TERMS OF HEAP STORAGE ORDER!
 	 * 
+	 * This method should only be used in routines to randomly access elements
+	 * in the priority queue (i.e. an algorithm where order is not important).
+	 * 
+	 * @remark Rather than using this operator to iterate over a priority queue use
+	 * 	   the PriorityQueue::const_iterator and begin(), end() methods
 	 * @warning THIS OPERATOR DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
 	 * @return Pair of queue at given index of underlying vector
 	 */
