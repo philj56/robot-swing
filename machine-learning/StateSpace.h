@@ -18,7 +18,7 @@ class StateSpace
 	public:
 		//@_x_size: the size of the first vector
 		//@_y_size: the size of the second vector
-		explicit StateSpace(const unsigned int _angle_max, const unsigned int _velocity_max);
+		explicit StateSpace(const unsigned int _angle_max, const unsigned int _velocity_max, PriorityQueue<Action*,double> queue);
 		~StateSpace();
 		
 		StateSpace(const StateSpace&)=delete;
