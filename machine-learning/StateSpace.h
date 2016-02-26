@@ -1,3 +1,6 @@
+#ifndef STATESPACE_H
+#define STATESPACE_H
+
 #include <vector>
 #include <cmath>
 #include <stdexcept>
@@ -76,3 +79,5 @@ class StateSpace
 		std::vector<std::vector<PriorityQueue<Action*,double>>> space1;
 		std::vector<std::vector<PriorityQueue<Action*,double>>> space2;
 };
+
+#endif
