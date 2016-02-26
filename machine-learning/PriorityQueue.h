@@ -288,6 +288,16 @@ private:
 
 	}
 
+	/**
+	* @brief Copies the parameterised queue to this queue
+	*
+	* @param copyTarget Queue to copy
+	*/
+	void copy(const PriorityQueue<T, PT>& copyTarget) {
+		heapType = copyTarget.heapType;
+		dataWithPriorityVec = copyTarget.dataWithPriorityVec;
+	}
+	
 protected:
 
 	/**
@@ -323,16 +333,6 @@ protected:
 
 		return endPr;
 
-	}
-
-	/**
-	* @brief Copies the parameterised queue to this queue
-	*
-	* @param copyTarget Queue to copy
-	*/
-	void copy(const PriorityQueue<T, PT>& copyTarget) {
-		heapType = copyTarget.heapType;
-		dataWithPriorityVec = copyTarget.dataWithPriorityVec;
 	}
 
 public:
@@ -408,6 +408,17 @@ public:
 	/**************************************************************************/
 
 	/**
+	 * @brief Gets the pair at a given index in the underlying vector
+	 *        structure in the queue NOT IN TERMS OF HEAP STORAGE ORDER!
+	 * 
+	 * @warning THIS METHOD DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
+	 * @return Pair of queue at given index of underlying vector
+	 */
+	std::pair<T, PT>& at(size_t index) const {
+		return dataWithPriorityVec.at(index);
+	}
+	
+	/**
 	* @brief Getter for the size of the priority queue
 	*
 	* @return The current filled size of the priority queue
@@ -481,7 +492,6 @@ public:
 		while (streamedQueue.getSize()) {
 			std::pair<T, PT> dataPair = streamedQueue.dequeue();
 			retString += to_string(dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
-
 		}
 
 		return retString;
@@ -566,6 +576,9 @@ public:
 	* @return The dequeued item, i.e. the pair containing the data entry and its corresponding priority
 	*/
 	std::pair<T, PT> dequeue() {
+
+		if (isEmpty())
+			throw std::out_of_range("Priority queue is already empty, cannot dequeue.");
 
 		// save a copy of the item to be dequeued to be returned
 		std::pair<T, PT> dequeuedItem = dataWithPriorityVec.at(0);
@@ -752,6 +765,17 @@ public:
 	/******************************************************************/
 
 	/**
+	 * @brief Gets the pair at a given index in the underlying vector
+	 *        structure in the queue NOT IN TERMS OF HEAP STORAGE ORDER!
+	 * 
+	 * @warning THIS OPERATOR DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
+	 * @return Pair of queue at given index of underlying vector
+	 */
+	std::pair<T, PT>& operator[](size_t index) {
+		return dataWithPriorityVec.at(index);
+	}
+	
+	/**
 	* @brief Overloaded addition operator.
 	*
 	* @param addPQ Addition target queue
@@ -910,6 +934,5 @@ template<typename Type, typename PriorityType> std::istream& operator>>(std::ist
 	return inStream;
 
 }
-
 
 #endif
