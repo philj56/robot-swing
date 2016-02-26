@@ -10,4 +10,4 @@ set(_srcs
 # Create an executable named localcall
 qi_create_bin(landmarkswing ${_srcs})
 
-qi_use_lib(landmarkswing QI ALCOMMON ALERROR ALVALUE BOOST)
+qi_use_lib(landmarkswing ALCOMMON ALERROR ALVALUE BOOST)
