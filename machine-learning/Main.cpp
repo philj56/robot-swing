@@ -4,11 +4,14 @@
 #include "StateSpace.h"
 #include "Action.h"
 #include "PriorityQueue.h"
+#include ""
 
 //utility calculation function
 double q();
 
 Action * selectAction(PriorityQueue<Action *,double>& a_queue, double temp);
+
+void updateQ(StateSpace & space, Action & action, State & new_state, State & old_state, double alpha, double gamma);
 
 int main()
 {
@@ -17,33 +20,30 @@ int main()
 	//create the state space
 	StateSpace space(100,50);
 	
-	//array to hold the current state of the robot
-//	double current_state[2]={0,0};
-//	double last_state[2]={0,0};
-	
 	//create pointers to the possible actions as well as pointers to hold the chosen action and the previous action
 //	Action* chosen_action;
 	Action* actions[2];
-	actions[0]=new Action(TORSO_FORWARDS);
-	actions[1]=new Action(TORSO_BACK);
-	
-	//evaluate state
-//	current_state[0]=getPosition();
-//	current_state[1]=getVelocity();
+	actions[0]=new Action(FORWARD);
+	actions[1]=new Action(BACKWARD);
 
 	//state objects
-	State current_state;
-	State old_state;
+	State current_state(0,0,FORWARD);
+	State old_state(0,0,FORWARD);
 	State new_state;
 	
 	while(true)
 	{
-		//evaluate q of last action
-		//current_state>>old_state
+		updateQ();
 		
-		//chosen_action=selectAction(/*...*/);
+		old_state=current_state;
 		
-		//>>current_state
+		chosen_action=selectAction(space.stateSearch(current_state));
+		
+		chosen_action.execute();
+		
+		current_state.theta=getAngle();
+		current_state.theta_dot=getVelocity();
+		current_state.robot_state=chosen_action.action;
 	}
 	
 	delete actions[0];
@@ -100,13 +100,13 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue, double temp)
 	return NULL; //note that this line should never be reached
 }
 
-void updateQ(StateSpace & space, Action & action, State & current_state,
+void updateQ(StateSpace & space, Action & action, State & new_state,
                  State & old_state, double alpha, double gamma)
 {
     //oldQ value 
     double oldQ = space.StateSearch(old_state).search(action).second;
     //reward given to current state 
-    double R = new_state->getReward();
+    double R = new_state.getReward();
     //optimal Q value for new state i.e. first element 
     double maxQ = space.StateSearch(current_state)[0].second;
     
