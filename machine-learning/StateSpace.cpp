@@ -37,4 +37,7 @@ StateSpace::SubscriptProxy StateSpace::operator[](const unsigned int robot_state
 }
 
 //searches state space by state object
-StateSpace::StateSearch(State * state){return (*this)[state->RobotState][state->theta][state->theta_dot];}
+PriorityQueue<Action *, double> StateSpace::StateSearch(State * state)
+{
+	return (*this)[state->RobotState][state->theta][state->theta_dot];
+}
