@@ -28,8 +28,6 @@ StateSpace::~StateSpace()
 		}
 	}
 }
-//searches state space by state object
-StateSpace::StateSearch(State * state){return (*this)[state->RobotState][state->theta][state->theta_dot];}
 
 StateSpace::SubscriptProxy StateSpace::operator[](const unsigned int robot_state)
 {
@@ -37,3 +35,6 @@ StateSpace::SubscriptProxy StateSpace::operator[](const unsigned int robot_state
 	//return proxy object to accept second [] operator
 	return SubscriptProxy( robot_state ? space1 : space2 );
 }
+
+//searches state space by state object
+StateSpace::StateSearch(State * state){return (*this)[state->RobotState][state->theta][state->theta_dot];}
