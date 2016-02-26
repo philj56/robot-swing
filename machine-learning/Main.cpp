@@ -8,6 +8,8 @@
 //utility calculation function
 double q();
 
+Action * selectAction(PriorityQueue<Action *,double>& a_queue, double temp);
+
 //reward function based off raw position and velocity
 double state_reward(const double theta, const double theta_dot);
 
@@ -86,10 +88,11 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue, double temp)
 	    it->second = std::exp(a_queue[i].second / temp) / sum;
 	    ++i;
 	}
+	
 	//calculate cumulative probability distribution    
-	for(std::vector< std::pair<int, double> >::iterator it = action_vec.begin()+1,end=action_vec.end(); it < end; ++it)
+	for(std::vector< std::pair<int, double> >::iterator it1 = action_vec.begin()++,it2 = action_vec.begin(),end=action_vec.end(); it < end; ++it1,++it2)
 	{
-	    it->second += (it-1)->second;
+	    it1->second += it2->second;
 	}
 	
 	//generate RN between 0 and 1
@@ -101,6 +104,6 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue, double temp)
 		//if RN falls within cumulative probability bin return the corresponding action
 		if(rand_num < it->second)return it->first;
 	}
- 
-	return nullptr; //note that this line should never be reached
+ 	
+	return NULL; //note that this line should never be reached
 }
