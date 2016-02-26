@@ -1,9 +1,9 @@
 #include "State.h"
 
-State::State(double _theta, double _theta_dot, enum _RobotState):
+State::State(double _theta, double _theta_dot, ROBOT_STATE _robot_state):
   theta(_theta),
   theta_dot(_theta_dot),
-  RobotState(_RobotState)
+  robot_state(_robot_state)
 {}
 
 double State::getReward(){
