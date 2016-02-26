@@ -1,7 +1,7 @@
 #ifndef STATESPACE_H
 #define STATESPACE_H
 
-#include <array>
+#include <vector>
 #include <cmath>
 #include <stdexcept>
 #include "PriorityQueue.h"
@@ -14,8 +14,9 @@ class Action;
 class StateSpace
 {
 	public:
-		//@_x_size: the size of the first vector
-		//@_y_size: the size of the second vector
+		//@_angle_bins: the size of the first vector
+		//@_velocity_bins: the size of the second vector
+		//@_torque_bins: the size of the third vector
 		explicit StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, const unsigned int _torque_bins);
 		~StateSpace();
 		
@@ -28,7 +29,7 @@ class StateSpace
 		class SubscriptProxy2
 		{
 			public:
-				SubscriptProxy2(std::array<PriorityQueue<Action*,double>,torque_bins>& _vec):vec(_vec){}
+				SubscriptProxy2(std::vector<PriorityQueue<Action*,double>>& _vec):vec(_vec){}
 				
 				PriorityQueue<Action*,double>& operator[](const double torque)
 				{
@@ -37,17 +38,17 @@ class StateSpace
 					//descretise index
 					int discrete_index=std::round(torque*100/torque_bins)+torque_bins/2;
 					
-					//return appropriate array
+					//return appropriate vector
 					return vec[discrete_index];
 				}
 			private:
-				std::array<PriorityQueue<Action*,double>,torque_bins>& vec;
+				std::vector<PriorityQueue<Action*,double>>& vec;
 		};
 		
 		class SubscriptProxy1
 		{
 			public:
-				SubscriptProxy1(std::array<std::array<PriorityQueue<Action*,double>,torque_bins>,velocity_bins>& _vec):vec(_vec){}
+				SubscriptProxy1(std::vector<std::vector<PriorityQueue<Action*,double>>>& _vec):vec(_vec){}
 				
 				SubscriptProxy2 operator[](const double velocity)
 				{
@@ -61,7 +62,7 @@ class StateSpace
 				}
 			
 			private:
-				std::array<std::array<PriorityQueue<Action*,double>,torque_bins>,velocity_bins>& vec;
+				std::vector<std::vector<PriorityQueue<Action*,double>>>& vec;
 		};
 		//-----------------------------------------------------------------------------
 		
@@ -73,8 +74,8 @@ class StateSpace
 		static const int velocity_bins;
 		static const int torque_bins;
 		
-		//the 2d array that contains the robots previous experiences in each state
-		std::array<std::array<std::array<PriorityQueue<Action*,double>,torque_bins>,velocity_bins>,angle_bins> space;
+		//the 3d vector that contains the robots previous experiences in each state
+		std::vector< std::vector< std::vector< PriorityQueue<Action*,double> > > > space;
 };
 
 #endif
