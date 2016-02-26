@@ -30,6 +30,11 @@ int main()
 	//evaluate state
 //	current_state[0]=getPosition();
 //	current_state[1]=getVelocity();
+
+	//state objects
+	State current_state;
+	State old_state;
+	State new_state;
 	
 	while(true)
 	{
@@ -45,11 +50,6 @@ int main()
 	delete actions[1];
 	
 	return 1;
-}
-
-double q()
-{
-	return 1;//StateSpace[originalstate[0],originalstate[1]].GetExperience().GetUtility(action) + learningrate(state_reward(newstate[0], newstate[1]) + gamma(StateSpace[newstate[0],newstate[1]].GetExperience().GetHighestUtility()) - StateSpace[originalstate[0],originalstate[1]].GetExperience().GetUtility(action); // Utility calculation pseudocode
 }
 
 //function is fed with a priority queue of action-values 
@@ -100,19 +100,19 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue, double temp)
 	return NULL; //note that this line should never be reached
 }
 
-void updateQ(StateSpace * space, Action * action, State * current_state,
-                 State * old_state, double alpha, double gamma)
+void updateQ(StateSpace & space, Action & action, State & current_state,
+                 State & old_state, double alpha, double gamma)
 {
     //oldQ value 
-    double oldQ = (*space).StateSearch(old_state).search(action).second;
+    double oldQ = space.StateSearch(old_state).search(action).second;
     //reward given to current state 
     double R = new_state->getReward();
     //optimal Q value for new state i.e. first element 
-    double maxQ = (*space).StateSearch(current_state)[0].second;
+    double maxQ = space.StateSearch(current_state)[0].second;
     
     //new Q value determined by Q learning algorithm
     double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ;
     
     //updates Q value
-    (*space).StateSearch(old_state).search(action).second = newQ;
+    space.StateSearch(old_state).search(action).second = newQ;
 }
