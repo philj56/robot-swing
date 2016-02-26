@@ -12,15 +12,9 @@ struct State
     enum ROBOT_STATE {FORWARD, BACKWARD};
     static const double g = 9.81;
     
-    State(double _theta, double _theta_dot, enum _RobotState):
-        theta(_theta),
-        theta_dot(_theta_dot),
-        RobotState(_RobotState)
-    {}
+    State(double _theta, double _theta_dot, enum _RobotState);
         
-    double getReward(){
-        g * std::cos(theta) + 0.5 * theta_dot * theta_dot;
-    }
+    double getReward();
 };
 
 #endif
