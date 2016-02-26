@@ -17,11 +17,13 @@ class StateSpace
 		//@_angle_bins: the size of the first vector
 		//@_velocity_bins: the size of the second vector
 		//@_torque_bins: the size of the third vector
-		explicit StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, const unsigned int _torque_bins);
+		explicit StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, const unsigned int _torque_bins, PriorityQueue<Action*,double> queue);
 		~StateSpace();
 		
 		//deny copy construction
 		StateSpace(const StateSpace&)=delete;
+		
+		PriorityQueue<Action *, double> StateSearch(State & state);
 		
 		//these nested classes are necessary so that the [][][] operator can be called on this class
 		//the operator should be called with the continuous state variables which it will then discretise
