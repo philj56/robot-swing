@@ -3,16 +3,19 @@
 
 #include <cmath>
 
+ enum ROBOT_STATE {FORWARD, BACKWARD};
+
 //class defines state object that holds angular position and velocity, and 
 //robot state. Has functions to calculate reward for a state
 struct State
 {
     double theta;
     double theta_dot;
-    enum ROBOT_STATE {FORWARD, BACKWARD};
+    ROBOT_STATE robot_state;
+    
     static const double g = 9.81;
     
-    State(double _theta, double _theta_dot, enum _RobotState);
+    State(double _theta, double _theta_dot, ROBOT_STATE _robot_state);
         
     double getReward();
 };
