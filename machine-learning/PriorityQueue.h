@@ -33,6 +33,7 @@ enum HeapType {
 *
 * Due to this underlying structure, the priority queue has efficient operation times, below is a list of worst case
 * time complexities for operations in this queue (where n is the number of entries in the priority queue):
+*
 * <strong>Time Complexities of Operations</strong>
 * \verbatim
 Enqueue [single] = O(log n)
@@ -49,7 +50,7 @@ Clear = O(1) if type T has trivial destructor
 * less than and equality operators are supported (though generally not recommended).
 *
 * The type T that a priority queue is instantiated with MUST have overloaded assignment and equality operators as well as a defined toString() method.
-* Additionally, the instantiated type T must have an "overloaded" definition of to_string(const T&) - this is required for Argument-Dependent-Lookup
+* Additionally, the instantiated type T must have an "overloaded" definition of to_string(const T&) - this is required for Argument-Dependent-Lookup (ADL)
 * to work; to do this, in the namespace where class T is defined one must define the following:
 *
 * \code{.cpp}
@@ -58,25 +59,35 @@ Clear = O(1) if type T has trivial destructor
 *	}
 * \endcode
 *
+* Note that if one is using priority queues with only primitive data types as the template typename arguments, then the following function should
+* be defined in the namespace where the priority queues are instantiated (do NOT do this if you are also using queues with non-primitive types
+* as well, in which case you should have to_string methods defined for any classes you use as mentioned above):
+*
+* \code{.cpp}
+*	template<typename T> std::string to_string(T x) {
+*		return static_cast<std::ostringstream&>((std::ostringstream() << std::dec << x)).str();
+*	}
+* \endcode
+*
 * <strong>To-Do List for Priority Queue class</strong>
 *
-* @todo [MEDIUM PRIORITY] Go through and revise passing by reference/pointer, returning references/pointers etc... (code cleaning)
+* @todo [MEDIUM PRIORITY] Generic code cleaning - avoid any warnings and make sure pass-by types and return types are consistent and make sense.
 *
-* @todo [LOW PRIORITY] Implement a fixed size priority queue, will require a separate constructor, max capacity field variable
-*		and extra condition in enqueueWithPriority method.
+* @todo [LOW PRIORITY] Implement a fixed size priority queue, would require a separate constructor, max capacity field variable,
+*		isFixedCapacity field variable flag and extra conditions in enqueuing methods.
 *
 * <strong>Example Instantiations of Priority Queue</strong>
 *
 * Declare an empty priority queue of integers and integer priority with minimum heap structure:
 *
 * \code{.cpp}
-*	PriorityQueue<int, int> priorityQueue(HeapType::MIN);
+*	PriorityQueue<int, int> priorityQueue(MIN);
 * \endcode
 *
 * Declare an empty priority queue of doubles with unsigned int priorities with maximum heap structure using pointers:
 *
 * \code{.cpp}
-*	PriorityQueue<double, unsigned int>* priorityQueue = new PriorityQueue<double, unsigned int>(HeapType::MAX);
+*	PriorityQueue<double, unsigned int>* priorityQueue = new PriorityQueue<double, unsigned int>(MAX);
 * \endcode
 *
 * Declare a priority queue of integers and double priorities with maximum heap structure from a vector of pairs:
@@ -85,13 +96,13 @@ Clear = O(1) if type T has trivial destructor
 *	std::vector< std::pair<int, double> > dataVector;
 *	dataVector.push_back(std::make_pair<int,double>(1,1.0));
 *	// ...
-*	PriorityQueue<int, double> priorityQueue(dataVector, HeapType::MAX);
+*	PriorityQueue<int, double> priorityQueue(dataVector, MAX);
 * \endcode
 *
 * Declare a priority queue from an already existing priority queue (copy constructing):
 *
 * \code{.cpp}
-*	PriorityQueue<int, int> priorityQueueOne(HeapType::MIN);
+*	PriorityQueue<int, int> priorityQueueOne(MIN);
 *	PriorityQueue<int, int> priorityQueueTwo(priorityQueueOne);
 * \endcode
 *
@@ -116,8 +127,6 @@ private:
 	/**
 	* @brief Bubble down the MBH, performing swaps if any priorities are out of order.
 	*
-	* @todo Alter method to remove recursion and instead use iteration, avoiding potential stack overflow exceptions.
-	*
 	* @param position Position in MBH to perform bubbling down from
 	*/
 	void bubbleDownHeap(size_t position) {
@@ -141,14 +150,12 @@ private:
 
 			// if type of heap is MIN, check child node priorities for smaller values than current node priority
 		case MIN:
-			// set minimum position to left node position of heap if priority of current node is greater than
-			// priority of left child node priority
+			// set minimum position in heap to left child node
 			if (dataWithPriorityVec.at(position).second > dataWithPriorityVec.at(leftNodePos).second) {
 				minPos = leftNodePos;
 			}
 
-			// set minimum position to right node position of heap if priority of minimum position node is greater
-			// than right node position priority, and right node position is less than size of data vector
+			// set minimum position in heap to right child node
 			if (rightNodePos < sizeVec && dataWithPriorityVec.at(minPos).second > dataWithPriorityVec.at(rightNodePos).second) {
 				minPos = rightNodePos;
 			}
@@ -156,14 +163,12 @@ private:
 
 			// if type of heap is MAX, check child node priorities for greater values than current node priority
 		case MAX:
-			// set minimum position to left node position of heap if priority of current node is less than
-			// priority of left child node priority
+			// set minimum position in heap to left child node
 			if (dataWithPriorityVec.at(position).second < dataWithPriorityVec.at(leftNodePos).second) {
 				minPos = leftNodePos;
 			}
 
-			// set minimum position to right node position of heap if priority of minimum position node is less
-			// than right node position priority, and right node position is less than size of vector
+			// set minimum position in heap to right child node
 			if (rightNodePos < sizeVec && dataWithPriorityVec.at(minPos).second < dataWithPriorityVec.at(rightNodePos).second) {
 				minPos = rightNodePos;
 			}
@@ -191,8 +196,6 @@ private:
 
 	/**
 	* @brief Bubble up the MBH, performing swaps if any priorities are out of order.
-	*
-	* @todo Alter method to remove recursion and instead use iteration, avoiding potential stack overflow exceptions.
 	*
 	* @param position Position in MBH to perform bubbling up from
 	*/
@@ -245,11 +248,10 @@ private:
 	}
 
 	/**
-	* @brief Removes the top item of the heap.
+	* @brief Removes the top item of the heap, i.e. elements with highest/lowest priority for MAX/MIN queue.
 	*/
 	void removeTopOfHeap() {
 
-		// get the size of the data vector
 		size_t sizeVec = dataWithPriorityVec.size();
 
 		// if vector is empty, do nothing
@@ -300,7 +302,10 @@ protected:
 	/**
 	* @brief Computes the end priority in the queue.
 	*
-	* @return Final/End value of field priority in this queue
+	* Gives the largest value of priority for a MAX heap queue and the smallest
+	* value of priority for a MIN heap queue.
+	*
+	* @return Final/End value of priority in this queue
 	*/
 	PT lastPriority() const {
 
@@ -355,8 +360,7 @@ public:
 	* @param _dataWithPriorityVec Vector of pairs containing data objects and corresponding priorities
 	* @param _heapType Type of underlying heap structure, can be HeapType::MIN or HeapType::MAX
 	*/
-	PriorityQueue(const std::vector< std::pair<T, PT> >& _dataWithPriorityVec, HeapType _heapType) : dataWithPriorityVec(_dataWithPriorityVec) {
-		heapType = _heapType;
+	PriorityQueue(const std::vector< std::pair<T, PT> >& _dataWithPriorityVec, HeapType _heapType) : dataWithPriorityVec(_dataWithPriorityVec), heapType(_heapType) {
 		// heapify the priority queue instance to preserve 
 		// the PQ and MBH behaviour of the data structure
 		heapification();
@@ -370,13 +374,13 @@ public:
 	* @param size Size of arrays
 	* @param _heapType Type of underlying heap structure, can be HeapType::MIN or HeapType::MAX
 	*/
-	PriorityQueue(T* dataArr, PT* priorityArr, size_t size, HeapType _heapType) {
-		heapType = _heapType;
+	PriorityQueue(T* dataArr, PT* priorityArr, size_t size, HeapType _heapType) : heapType(_heapType) {
 		// loop over data and priorities arrays inserting the data
 		// with corresponding priority to the dataVector
 		for (size_t i = 0; i < size; ++i) {
 			dataWithPriorityVec.push_back(std::make_pair(dataArr[i], priorityArr[i]));
 		}
+
 		// heapify the priority queue instance to preserve 
 		// the PQ and MBH behaviour of the data structure
 		heapification();
@@ -442,7 +446,6 @@ public:
 	* @brief Peeks the top pair of the queue without dequeuing it.
 	*
 	* @warning Undefined behaviour if PQ is empty
-	*
 	* @return Pair at top of PQ without removing it from the structure
 	*/
 	const std::pair<T, PT>& peekFront() const {
@@ -477,7 +480,7 @@ public:
 	}
 
 	/**
-	* @brief Gives a string representation of the PQ.
+	* @brief Gives a string representation of the PQ, printed in order of priority based on heap type.
 	*
 	* @remark This method requires that the type T of the priority queue has
 	*		  a defined "overloaded" to_string(const T&) method for ADL to work.
@@ -504,15 +507,20 @@ public:
 	/**
 	* @brief Saves a vector of pairs representation of the priority queue
 	*
+	* Returns a const reference to a vector of pairs representing the priority queue in 
+	* order of priorities based upon the underlying heap type of the structure.
+	*
 	* @warning Potentially slow if used often for large queues
 	* @return std::vector of std::pair's containing ordered queue data
 	*/
 	const std::vector< std::pair<T, PT> >& saveOrderedQueueAsVector() {
 
+		// copy this queue to a temporary queue
 		PriorityQueue<T, PT> savedQueue(*this);
 
 		std::vector< std::pair<T, PT> > vectorStore;
 
+		// loop over queue pushing dequeued pairs back to vectorStore
 		while (savedQueue.getSize()) {
 			vectorStore.push_back(savedQueue.dequeue());
 		}
@@ -531,6 +539,7 @@ public:
 	* Inserts an item of data into the queue at end of queue (highest value of priority
 	* for MIN heap queue, lowest value of priority for MAX heap queue)
 	*
+	* @remark If the priority queue is empty this method does nothing.
 	* @param data Data item to insert into PQ
 	*/
 	void enqueue(const T& data) {
@@ -592,9 +601,7 @@ public:
 	}
 
 	/**
-	* @brief Dequeues the data item with 'highest' priority.
-	*
-	* @warning Undefined behaviour is PQ is empty
+	* @brief Dequeues the data item with highest priority for a MAX queue and lowest priority for a MIN queue.
 	*
 	* @return The dequeued item, i.e. the pair containing the data entry and its corresponding priority
 	* @throw Throws out_of_range exception if queue is empty
@@ -624,6 +631,7 @@ public:
 	/**
 	* @brief Searches for an item in the PQ and returns the item with corresponding priority
 	*
+	* @todo Consider implementing a concurrent data structure with PQ (such as a set) to improve search time complexity.
 	* @param item Object to search for in the priority queue
 	* @return A std::pair containing the object and its corresponding priority
 	* @throw Throws invalid_argument exception if item does not exist within queue
@@ -788,12 +796,17 @@ public:
 	/**
 	* @brief Exchanges the content of this container by the content of the parameterised container.
 	*
+	* Swaps the contents of each container - this queue becomes a "copy" of parameterised queue and
+	* the parameterised queue becomes a "copy" of this queue before the swap was completed.
+	*
 	* @param priorityQueue A priority queue container of the same type as this queue.
 	*/
 	void swap(PriorityQueue<T, PT>& priorityQueue) {
 
+		// swap underlying vector containers
 		dataWithPriorityVec.swap(priorityQueue.dataWithPriorityVec);
 
+		// swap heap types
 		HeapType tempHeapType = heapType;
 		setHeapType(priorityQueue.heapType);
 		priorityQueue.setHeapType(tempHeapType);
@@ -888,12 +901,12 @@ public:
 	*/
 	bool operator==(PriorityQueue<T, PT>& chkPQ) const {
 
-		// if queue sizes are different, return false
+		// if queue sizes or heap types are different, return false
 		if (getSize() != chkPQ.getSize() || heapType != chkPQ.heapType) {
 			return false;
 		}
 
-		// iterate over queue
+		// iterate over queues
 		for (const_iterator iter = begin(), iterChkPQ = chkPQ.begin(); iter < end(); ++iter, ++iterChkPQ) {
 
 			// if any nodes of the two queues differ, return false
@@ -908,7 +921,7 @@ public:
 	}
 
 	/**
-	* @brief Overloaded not-equiavalent operator.
+	* @brief Overloaded not-equivalent operator.
 	*
 	* @param chkPQ Check target queue
 	* @return true if the queues are not equal, false otherwise
@@ -947,7 +960,8 @@ public:
 * @brief Overloaded stream extraction operator.
 *
 * @param outStream Reference to output stream
-* @return targetQueue Instance of priority queue to write to output stream
+* @param targetQueue Instance of priority queue to write to output stream
+* @return Reference to output stream containing target queue data
 */
 template<typename Type, typename PriorityType> std::ostream& operator<<(std::ostream& outStream, const PriorityQueue<Type, PriorityType>& targetQueue) {
 
@@ -968,7 +982,8 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
 *
 * @warning Untested, use at your own risk!
 * @param inStream Reference to input stream
-* @param targetQueue Instance of priority queue to write to input stream
+* @param targetQueue Instance of priority queue to insert to input stream
+* @return Reference to input stream containing target queue data
 */
 template<typename Type, typename PriorityType> std::istream& operator>>(std::istream& inStream, const PriorityQueue<Type, PriorityType>& targetQueue) {
 
