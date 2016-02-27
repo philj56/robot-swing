@@ -10,22 +10,7 @@ StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _veloc
 
 StateSpace::~StateSpace()
 {
-	//ridiculously extensive clean-up
-	for(unsigned int i=0 ; i<angle_max ; ++i)
-	{
-		for(unsigned int j=0 ; j<velocity_max ; ++j)
-		{
-			for(unsigned int k=0 ; k<torque_max ; ++k)
-			{
-				PriorityQueue<Action*,double>& queue1=space[i][j][k];
-				
-				for(auto iter=queue1.begin(),queue1=list.end() ; iter!=end ; ++iter)
-				{
-					delete *iter;
-				}
-			}
-		}
-	}
+	//currently no cleanup required
 }
 
 StateSpace::SubscriptProxy1 StateSpace::operator[](const double angle)
