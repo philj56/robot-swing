@@ -6,24 +6,35 @@
 #include "PriorityQueue.h"
 #include "State.h"
 
-//utility calculation function
-double q();
+//function to calculate a temperature for the select action function as a function of time
+double temperature();
 
-Action * selectAction(PriorityQueue<Action *,double>& a_queue, double temp);
+//function to select next action
+Action * selectAction(PriorityQueue<Action *,double>& a_queue);
 
+//function to update a q value
 void updateQ(StateSpace & space, Action & action, State & new_state, State & old_state, double alpha, double gamma);
 
 int main()
 {
+	//learning factor
+	const double alpha=0.5;
+	//discount factor
+	const double gamma=0.5;
+	
+	//seed rng
 	std::srand(std::time(NULL));
 	
-	//create pointers to the possible actions as well as pointers to hold the chosen action and the previous action
+	//create pointers to the possible actions as well as a pointer to hold the chosen action
 	Action* chosen_action;
 	Action* actions[2];
 	actions[0]=new Action(FORWARD);
 	actions[1]=new Action(BACKWARD);
 	
-	PriorityQueue<Action,double> initiator_queue(actions,HeapType::MAX);
+	//create a priority queue to copy to all the state space priority queues
+	PriorityQueue<Action,double> initiator_queue(HeapType::MAX);
+	ititiator_queue.push_back(actions[0],0);
+	ititiator_queue.push_back(actions[1],0);
 	
 	//create the state space
 	StateSpace space(100,50,initiator_queue);
@@ -32,19 +43,25 @@ int main()
 	State current_state(0,0,FORWARD);
 	State old_state(0,0,FORWARD);
 	
+	//timing variables
+	double loop_start_time;
 	while(true)
 	{
-		updateQ(space, chosen_action, );
+		loop_start_time=std::time(NULL);
+		
+		current_state.theta=getAngle();
+		current_state.theta_dot=getVelocity();
+		current_state.robot_state=chosen_action.action;
+		
+		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
 		
 		old_state=current_state;
 		
 		chosen_action=selectAction(space[current_state]);
 		
-		chosen_action.execute();
+		chosen_action.execute(std::time(NULL)-loop_start_time>250); //wait for set time
 		
-		current_state.theta=getAngle();
-		current_state.theta_dot=getVelocity();
-		current_state.robot_state=chosen_action.action;
+		if()
 	}
 	
 	delete actions[0];
@@ -53,10 +70,15 @@ int main()
 	return 1;
 }
 
+double temperature()
+{
+	return std::time(NULL);
+}
+
 //function is fed with a priority queue of action-values 
 //generates Boltzmann distribution of these action-values
 //and selects an action based on probabilities 
-Action * selectAction(PriorityQueue<Action *,double>& a_queue, double temp)
+Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 {	
 	typedef PriorityQueue<Action *,double> PQ;
 	typedef std::vector< std::pair<Action *, double> > Vec_Pair;
@@ -72,13 +94,13 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue, double temp)
 	//Calculate partition function by iterating over action-values
 	for(auto iter = a_queue.begin(),end=a_queue.end(); iter < end; ++iter)
 	{
-		sum += std::exp((iter->second)/temp);
+		sum += std::exp((iter->second)/temperature());
 	}
 	//Calculate boltzmann factors for action-values
 	for(Vec_Pair::iterator it = action_vec.begin(),end=action_vec.end(); it < end; ++it)
 	{
 	    it->first = a_queue[i].first;
-	    it->second = std::exp(a_queue[i].second / temp) / sum;
+	    it->second = std::exp(a_queue[i].second /temperature()) / sum;
 	    ++i;
 	}
 	
