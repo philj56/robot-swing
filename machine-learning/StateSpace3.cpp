@@ -40,8 +40,7 @@ StateSpace::SubscriptProxy1 StateSpace::operator[](const double angle)
 }
 
 //searches state space by state object
-PriorityQueue<Action *, double> StateSpace::StateSearch(State & state)
+PriorityQueue<Action *, double>& StateSpace::operator[](State & state)
 {
-	return (*this)[state->RobotState][state->theta][state->theta_dot];
+	return (*this)[state.RobotState][state.theta][state.theta_dot];
 }
-
