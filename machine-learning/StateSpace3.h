@@ -23,8 +23,6 @@ class StateSpace
 		//deny copy construction
 		StateSpace(const StateSpace&)=delete;
 		
-		PriorityQueue<Action *, double> StateSearch(State & state);
-		
 		//these nested classes are necessary so that the [][][] operator can be called on this class
 		//the operator should be called with the continuous state variables which it will then discretise
 		//-----------------------------------------------------------------------------
@@ -69,6 +67,8 @@ class StateSpace
 		//-----------------------------------------------------------------------------
 		
 		SubscriptProxy1 operator[](const double angle);
+		
+		PriorityQueue<Action *, double>& operator[](State & state);
 		
 	private:
 		//the sizes of the three arrays
