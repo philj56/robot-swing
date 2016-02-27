@@ -8,25 +8,7 @@ StateSpace::StateSpace(const unsigned int _angle_max, const unsigned int _veloci
 
 StateSpace::~StateSpace()
 {
-	//ridiculously extensive clean-up
-	for(unsigned int i=0 ; i<angle_max ; ++i)
-	{
-		for(unsigned int j=0 ; j<velocity_max ; ++j)
-		{
-			PriorityQueue<Action*,double>& queue1=space1[i][j];
-			PriorityQueue<Action*,double>& queue2=space2[i][j];
-			
-			for(auto iter=queue1.begin(),queue1=list.end() ; iter!=end ; ++iter)
-			{
-				delete *iter;
-			}
-			
-			for(auto iter=queue2.begin(),queue2=list.end() ; iter!=end ; ++iter)
-			{
-				delete *iter;
-			}
-		}
-	}
+	//currently no cleanup required
 }
 
 StateSpace::SubscriptProxy1 StateSpace::operator[](const unsigned int robot_state)
