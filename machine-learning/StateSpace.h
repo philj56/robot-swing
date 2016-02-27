@@ -9,6 +9,7 @@
 //index with state_space_object[robot_state][angle][velocity]
 
 class Action;
+class State;
 
 //class to hold the 2d vector of containers of experiences that represents the robot's state and memory
 class StateSpace
@@ -20,8 +21,6 @@ class StateSpace
 		~StateSpace();
 		
 		StateSpace(const StateSpace&)=delete;
-		
-		PriorityQueue<Action *, double> StateSearch(State & state);
 		
 		//these nested classes are necessary so that the [][][] operator can be called on this class
 		//the operator should be called with the continuous state variables which it will then discretise
@@ -67,6 +66,9 @@ class StateSpace
 		//-----------------------------------------------------------------------------
 		
 		SubscriptProxy1 operator[](const unsigned int robot_state);
+		
+		//allow subscript to be used with this state objects
+		PriorityQueue<Action*, double>& operator[](State & state);
 		
 	private:
 		//the sizes of the two arrays
