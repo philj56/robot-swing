@@ -33,8 +33,8 @@ int main()
 	
 	//create a priority queue to copy to all the state space priority queues
 	PriorityQueue<Action,double> initiator_queue(HeapType::MAX);
-	ititiator_queue.push_back(actions[0],0);
-	ititiator_queue.push_back(actions[1],0);
+	ititiator_queue.enqueueWithPriority(actions[0],0);
+	ititiator_queue.enqueueWithPriority(actions[1],0);
 	
 	//create the state space
 	StateSpace space(100,50,initiator_queue);
@@ -89,10 +89,9 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 	
 	int size = a_queue.getSize();
 	Vec_Pair action_vec(size);
-	Pair pear;
 	
 	//Calculate partition function by iterating over action-values
-	for(auto iter = a_queue.begin(),end=a_queue.end(); iter < end; ++iter)
+	for(PQ::const_iterator iter = a_queue.begin(),end=a_queue.end(); iter < end; ++iter)
 	{
 		sum += std::exp((iter->second)/temperature());
 	}
@@ -131,7 +130,7 @@ void updateQ(StateSpace & space, Action & action, State & new_state,
     //reward given to current state 
     double R = new_state.getReward();
     //optimal Q value for new state i.e. first element 
-    double maxQ = space[current_state][0].second;
+    double maxQ = space[current_state].peekFront().second;
     
     //new Q value determined by Q learning algorithm
     double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ;
