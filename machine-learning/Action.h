@@ -14,6 +14,8 @@ struct Action
 	void exectute();
 	
 	//needs function pointer to actual action
+	
+	bool operator==(const Action& target) const;
 };
 
 #endif
