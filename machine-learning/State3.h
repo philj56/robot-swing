@@ -5,7 +5,7 @@
 
 //class defines state object that holds angular position and velocity, and 
 //torque. Has functions to calculate reward for a state
-struct State3
+struct State
 {
     double theta;
     double theta_dot;
