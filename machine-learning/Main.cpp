@@ -59,9 +59,9 @@ int main()
 		
 		chosen_action=selectAction(space[current_state]);
 		
-		chosen_action.execute(std::time(NULL)-loop_start_time>250); //wait for set time
+		chosen_action.execute();
 		
-		if()
+		if(std::time(NULL)-loop_start_time>250); //wait for set time
 	}
 	
 	delete actions[0];
@@ -122,19 +122,17 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 	return NULL; //note that this line should never be reached
 }
 
-void updateQ(StateSpace & space, Action & action, State & new_state,
-                 State & old_state, double alpha, double gamma)
+void updateQ(StateSpace & space, Action & action, State & new_state, State & old_state, double alpha, double gamma)
 {
-    //oldQ value 
-    double oldQ = space[old_state].search(action).second;
+    //oldQ value reference
+    double& oldQ = space[old_state].search(action).second;
+    
     //reward given to current state 
     double R = new_state.getReward();
+    
     //optimal Q value for new state i.e. first element 
     double maxQ = space[current_state].peekFront().second;
     
     //new Q value determined by Q learning algorithm
-    double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ;
-    
-    //updates Q value
-    space[old_state].search(action).second = newQ;
+    double oldQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ;
 }
