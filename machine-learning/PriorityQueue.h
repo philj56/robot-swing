@@ -513,7 +513,7 @@ public:
 	* @warning Potentially slow if used often for large queues
 	* @return std::vector of std::pair's containing ordered queue data
 	*/
-	const std::vector< std::pair<T, PT> >& saveOrderedQueueAsVector() {
+	std::vector< std::pair<T, PT> > saveOrderedQueueAsVector() {
 
 		// copy this queue to a temporary queue
 		PriorityQueue<T, PT> savedQueue(*this);
