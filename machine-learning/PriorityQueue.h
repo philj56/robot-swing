@@ -420,7 +420,7 @@ public:
 	* @warning THIS OPERATOR DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
 	* @return Pair of queue at given index of underlying vector
 	*/
-	const std::pair<T, PT>& at(size_t index) const {
+	const std::pair<T, PT>& at(const size_t index) const {
 		return dataWithPriorityVec.at(index);
 	}
 
@@ -507,7 +507,7 @@ public:
 	/**
 	* @brief Saves a vector of pairs representation of the priority queue
 	*
-	* Returns a const reference to a vector of pairs representing the priority queue in 
+	* Returns a const reference to a vector of pairs representing the priority queue in
 	* order of priorities based upon the underlying heap type of the structure.
 	*
 	* @warning Potentially slow if used often for large queues
@@ -594,7 +594,7 @@ public:
 	*/
 	void enqueueWithPriority(const std::vector< std::pair<T, PT> >& data) {
 
-		for (typename std::vector< std::pair<T, PT> >::iterator iter = data.begin(); iter < data.end(); ++iter) {
+		for (typename std::vector< std::pair<T, PT> >::const_iterator iter = data.begin(); iter < data.end(); ++iter) {
 			enqueueWithPriority(iter.operator*().first, iter.operator*().second);
 		}
 
@@ -636,7 +636,7 @@ public:
 	* @return A std::pair containing the object and its corresponding priority
 	* @throw Throws invalid_argument exception if item does not exist within queue
 	*/
-	std::pair<T, PT> search(const T& item) {
+	const std::pair<T, PT>& search(const T& item) {
 
 		// iterate over queue
 		for (const_iterator iter = begin(); iter < end(); ++iter) {
@@ -688,7 +688,7 @@ public:
 	* @return A std::pair of data and associated priority containing the first instance where priority occurs
 	* @throw Throws invalid_argument exception if priority does not exist in the queue
 	*/
-	std::pair<T, PT> searchByPriority(const PT priority) {
+	const std::pair<T, PT>& searchByPriority(const PT priority) {
 
 		// iterate over queue
 		for (const_iterator iter = begin(); iter < end(); ++iter) {
@@ -813,6 +813,27 @@ public:
 
 	}
 
+	/**
+	* @brief Merges the content of this container with the content of parameterised container
+	*		  returning the resulting merged priority queue container.
+	*
+	* @param thatQueue A priority queue container to merge with this queue
+	* @return The merged queue of this queue and thatQueue containers
+	* @throw Throws invalid_argument exception if this queue and thatQueue are of different heapType
+	*/
+	PriorityQueue<T, PT> merge(const PriorityQueue<T, PT>& thatQueue) {
+
+		if (heapType != thatQueue.heapType)
+			throw std::invalid_argument("Cannot merge queues of different heap types.");
+
+		PriorityQueue<T, PT> mergedQueue(*this);
+
+		mergedQueue.enqueueWithPriority(thatQueue.dataWithPriorityVec);
+
+		return mergedQueue;
+
+	}
+
 	/******************************************************************/
 	/**********************	OVERLOADED OPERATORS **********************/
 	/******************************************************************/
@@ -829,7 +850,7 @@ public:
 	* @warning THIS OPERATOR DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
 	* @return Pair of queue at given index of underlying vector
 	*/
-	const std::pair<T, PT>& operator[](size_t index) const {
+	const std::pair<T, PT>& operator[](const size_t index) const {
 		return dataWithPriorityVec.at(index);
 	}
 
@@ -840,20 +861,17 @@ public:
 	* @return Instance of priority queue as this queue plus addPQ
 	* @throw Throws invalid_argument exception if this queue and addPQ are of different heapType
 	*/
-	PriorityQueue<T, PT>& operator+(PriorityQueue<T, PT>& addPQ) {
+	PriorityQueue<T, PT> operator+(const PriorityQueue<T, PT>& addPQ) const {
 
 		if (heapType != addPQ.heapType) {
 			throw std::invalid_argument("Cannot add queues of different heap types.");
 		}
 
-		// create priority queue object instantiated with this data vector
-		PriorityQueue<T, PT> sumQueue(dataWithPriorityVec, heapType);
+		// create priority queue object instantiated with this queue
+		PriorityQueue<T, PT> sumQueue(*this);
 
 		// enqueue data vector of addPQ into sumQueue
 		sumQueue.enqueueWithPriority(addPQ.dataWithPriorityVec);
-
-		// heapify the sumQueue, preserving priority queue and MBH behaviour
-		sumQueue.heapification();
 
 		return sumQueue;
 
@@ -865,8 +883,11 @@ public:
 	* @param assignPQ Assigment target queue
 	* @return Instance of priority queue which is a copy of pQ
 	*/
-	const PriorityQueue<T, PT>& operator=(PriorityQueue<T, PT>& assignPQ) {
-		return PriorityQueue<T, PT>(assignPQ);
+	const PriorityQueue<T, PT>& operator=(const PriorityQueue<T, PT>& assignPQ) {
+		if (this != &assignPQ)
+			copy(assignPQ);
+
+		return *this;
 	}
 
 	/**
@@ -876,7 +897,7 @@ public:
 	* @return Instance of priority queue added and assigned to this queue
 	* @throw Throws invalid_argument exception if this queue and addPQ are of different heapType
 	*/
-	PriorityQueue<T, PT>& operator+=(PriorityQueue<T, PT>& addPQ) {
+	PriorityQueue<T, PT>& operator+=(const PriorityQueue<T, PT>& addPQ) {
 
 		if (heapType != addPQ.heapType) {
 			throw std::invalid_argument("Cannot add queues of different heap types.");
@@ -885,9 +906,6 @@ public:
 		// enqueue all elements of the dataVec of parameterised
 		// addPQ into this priority queue 
 		enqueueWithPriority(addPQ.dataWithPriorityVec);
-
-		// heapify the resulting data structure to preserve PQ behaviour
-		heapification();
 
 		return *this;
 
@@ -898,8 +916,14 @@ public:
 	*
 	* @param chkPQ Check target queue
 	* @return true if this queue and chkPQ are equivalent, false otherwise
+	* @bug Differing queues sometimes give true equivalency evaluation - seems to occur when neighbouring nodes are different
+	*	   but not when nodes several positions away from each other are different.
 	*/
-	bool operator==(PriorityQueue<T, PT>& chkPQ) const {
+	bool operator==(const PriorityQueue<T, PT>& chkPQ) const {
+
+		// pointer to same queue, return true
+		if (this == &chkPQ)
+			return true;
 
 		// if queue sizes or heap types are different, return false
 		if (getSize() != chkPQ.getSize() || heapType != chkPQ.heapType) {
@@ -926,7 +950,7 @@ public:
 	* @param chkPQ Check target queue
 	* @return true if the queues are not equal, false otherwise
 	*/
-	bool operator!=(PriorityQueue<T, PT>& chkPQ) const {
+	bool operator!=(const PriorityQueue<T, PT>& chkPQ) const {
 
 		return !(*this == chkPQ);
 
