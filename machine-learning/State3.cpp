@@ -1,0 +1,11 @@
+#include "State3.h"
+
+State3::State3(double _theta, double _theta_dot, double _torque):
+  theta(_theta),
+  theta_dot(_theta_dot),
+  torque(_robot_state)
+{}
+
+double Stat3e::getReward(){
+  return theta;
+}
