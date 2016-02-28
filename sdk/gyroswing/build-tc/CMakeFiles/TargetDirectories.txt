@@ -1,1 +1,1 @@
-/gs/naoqi/doc/examples/gyroswing/build-tc/CMakeFiles/landmarkswing.dir
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-tc/CMakeFiles/landmarkswing.dir

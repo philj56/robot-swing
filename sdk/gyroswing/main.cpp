@@ -3,6 +3,7 @@
  */
 
 #include "createmodule.h"
+#include "average.h"
 
 #include <iostream>
 #include <iomanip>
@@ -257,6 +258,36 @@ int main(int argc, char* argv[])
         v1 = val1;
         v2 = val1;
         
+        SMA gyro(20);
+        
+        AL::ALValue gyrodata [20];
+        double gyrodouble [20];
+        double old, current;
+        current = 0;
+        old = current;
+        
+        std::cout << "Average: ";
+        while ((t2.tv_sec - t1.tv_sec) < 60){
+            
+            
+            for (int i = 0; i < 20; i++){
+                gyrodata[i] = memproxy.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value");
+                gyrodouble[i] = gyrodata[i];
+            }
+            for(double * itr = gyrodouble; itr < gyrodouble + 20; itr++){
+                gyro.add(*itr);
+                std::cout << gyro.avg();                
+            }
+            
+            current = gyro.avg();
+            old = current;
+              
+            std::cout << "\nOverall Average: " << gyro.avg();
+            
+        }
+        
+        
+        /*
         std::cout << "Moving onto gyroscope" << std::endl;
         while ((t2.tv_sec - t1.tv_sec) < 60){
            if (v1 > v2){
@@ -275,7 +306,7 @@ int main(int argc, char* argv[])
            std::cout << "GyroscopeY " << v1 << std::endl;
            gettimeofday(&t2, NULL);
         }
-    
+        */
     
     
     //----------------------------------

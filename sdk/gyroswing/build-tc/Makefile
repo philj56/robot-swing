@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /gs/naoqi/doc/examples/gyroswing
+CMAKE_SOURCE_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/gyroswing/build-tc
+CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-tc
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -107,9 +107,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/gyroswing/build-tc/CMakeFiles /gs/naoqi/doc/examples/gyroswing/build-tc/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-tc/CMakeFiles /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-tc/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/gyroswing/build-tc/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-tc/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

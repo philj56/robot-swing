@@ -703,6 +703,7 @@ CMakeFiles/landmarkswing.dir/createmodule.cpp.o: /gs/naoqi/include/qi/macro.hpp
 CMakeFiles/landmarkswing.dir/createmodule.cpp.o: /gs/naoqi/include/qi/os.hpp
 CMakeFiles/landmarkswing.dir/createmodule.cpp.o: /gs/naoqi/include/qi/path.hpp
 
+CMakeFiles/landmarkswing.dir/main.cpp.o: ../average.h
 CMakeFiles/landmarkswing.dir/main.cpp.o: ../createmodule.h
 CMakeFiles/landmarkswing.dir/main.cpp.o: ../main.cpp
 CMakeFiles/landmarkswing.dir/main.cpp.o: /gs/naoqi/include/alcommon/albroker.h
