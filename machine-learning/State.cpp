@@ -7,5 +7,5 @@ State::State(double _theta, double _theta_dot, ROBOT_STATE _robot_state):
 {}
 
 double State::getReward(){
-        g * std::cos(theta) + 0.5 * theta_dot * theta_dot;
-    }
+  return g * std::cos(theta) + 0.5 * theta_dot * theta_dot;
+}
