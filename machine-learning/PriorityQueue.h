@@ -815,20 +815,41 @@ public:
 
 	/**
 	* @brief Merges the content of this container with the content of parameterised container
-	*		  returning the resulting merged priority queue container.
+	*		 such that the new state of this container is the sum of the original state and parameter.
 	*
 	* @param thatQueue A priority queue container to merge with this queue
-	* @return The merged queue of this queue and thatQueue containers
-	* @throw Throws invalid_argument exception if this queue and thatQueue are of different heapType
+	* @throw Throws std::invalid_argument exception if this queue and thatQueue are of different heapType
 	*/
-	PriorityQueue<T, PT> merge(const PriorityQueue<T, PT>& thatQueue) {
+	void merge(const PriorityQueue<T, PT>& thatQueue) {
 
 		if (heapType != thatQueue.heapType)
 			throw std::invalid_argument("Cannot merge queues of different heap types.");
 
-		PriorityQueue<T, PT> mergedQueue(*this);
+		enqueueWithPriority(thatQueue.dataWithPriorityVec);
 
-		mergedQueue.enqueueWithPriority(thatQueue.dataWithPriorityVec);
+	}
+
+	/****************************************************************************/
+	/**********************	PUBLIC STATIC MEMBER FUNCTIONS **********************/
+	/****************************************************************************/
+
+	/**
+	 * @brief Merges the content of the first parameterised container with the content of
+	 *        of the second parameterised container and returns the merged container.
+	 *
+	 * @param firstQueue A priority queue container instance
+	 * @param secondQueue A priority queue container instance of same type as firstQueue
+	 * @return Merged priority queue containers
+	 * @throw Throws std::invalid_argument exception if firstQueue and secondQueue have different heap types
+	 */
+	static PriorityQueue<T, PT> merge(const PriorityQueue<T, PT>& firstQueue, const PriorityQueue<T, PT>& secondQueue) {
+
+		if (firstQueue.heapType != secondQueue.heapType)
+			throw std::invalid_argument("Cannot merge queues of different heap types.");
+
+		PriorityQueue<T, PT> mergedQueue(firstQueue);
+
+		mergedQueue.enqueueWithPriority(secondQueue.dataWithPriorityVec);
 
 		return mergedQueue;
 
