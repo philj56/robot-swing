@@ -825,7 +825,18 @@ public:
 		if (heapType != thatQueue.heapType)
 			throw std::invalid_argument("Cannot merge queues of different heap types.");
 
-		enqueueWithPriority(thatQueue.dataWithPriorityVec);
+		// merging the same queue onto itself
+		if (this == &thatQueue) {
+			// save instanced copy of addPQ vec container to avoid non-incrementable
+			// iterator compiler error when enqueueing contents onto this
+			std::vector< std::pair<T, PT> > instancedVecCopy = thatQueue.dataWithPriorityVec;
+			enqueueWithPriority(instancedVecCopy);
+		}
+
+		// else merge directly using thatQueue vec container
+		else {
+			enqueueWithPriority(thatQueue.dataWithPriorityVec);
+		}
 
 	}
 
@@ -834,14 +845,14 @@ public:
 	/****************************************************************************/
 
 	/**
-	 * @brief Merges the content of the first parameterised container with the content of
-	 *        of the second parameterised container and returns the merged container.
-	 *
-	 * @param firstQueue A priority queue container instance
-	 * @param secondQueue A priority queue container instance of same type as firstQueue
-	 * @return Merged priority queue containers
-	 * @throw Throws std::invalid_argument exception if firstQueue and secondQueue have different heap types
-	 */
+	* @brief Merges the content of the first parameterised container with the content of
+	*        of the second parameterised container and returns the merged container.
+	*
+	* @param firstQueue A priority queue container instance
+	* @param secondQueue A priority queue container instance of same type as firstQueue
+	* @return Merged priority queue containers
+	* @throw Throws std::invalid_argument exception if firstQueue and secondQueue have different heap types
+	*/
 	static PriorityQueue<T, PT> merge(const PriorityQueue<T, PT>& firstQueue, const PriorityQueue<T, PT>& secondQueue) {
 
 		if (firstQueue.heapType != secondQueue.heapType)
@@ -924,9 +935,18 @@ public:
 			throw std::invalid_argument("Cannot add queues of different heap types.");
 		}
 
-		// enqueue all elements of the dataVec of parameterised
-		// addPQ into this priority queue 
-		enqueueWithPriority(addPQ.dataWithPriorityVec);
+		// merging the same queue onto this queue
+		if (this == &addPQ) {
+			// save instanced copy of addPQ vec container to avoid non-incrementable
+			// iterator compiler error when enqueueing contents onto this
+			std::vector< std::pair<T, PT> > instancedVecCopy = addPQ.dataWithPriorityVec;
+			enqueueWithPriority(instancedVecCopy);
+		}
+
+		// else merge directly using addPQ container
+		else {
+			enqueueWithPriority(addPQ.dataWithPriorityVec);
+		}
 
 		return *this;
 
