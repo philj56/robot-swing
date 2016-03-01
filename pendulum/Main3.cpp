@@ -126,7 +126,7 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 	return NULL; //note that this line should never be reached
 }
 
-void updateQ(StateSpace & space, Action & action, State & new_state, State & old_state, double alpha, double gamma)
+void updateQ(StateSpace & space, Action * action, State & new_state, State & old_state, double alpha, double gamma)
 {
     //oldQ value reference
     double oldQ = space[old_state].search(action).second;
