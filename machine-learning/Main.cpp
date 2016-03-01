@@ -32,9 +32,9 @@ int main()
 	actions[1]=new Action(BACKWARD);
 	
 	//create a priority queue to copy to all the state space priority queues
-	PriorityQueue<Action,double> initiator_queue(MAX);
-	ititiator_queue.enqueueWithPriority(actions[0],0);
-	ititiator_queue.enqueueWithPriority(actions[1],0);
+	PriorityQueue<Action*,double> initiator_queue(MAX);
+	initiator_queue.enqueueWithPriority(actions[0],0);
+	initiator_queue.enqueueWithPriority(actions[1],0);
 	
 	//create the state space
 	StateSpace space(100,50,initiator_queue);
@@ -110,7 +110,7 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 	}
 	
 	//generate RN between 0 and 1
-	double rand_num = (double)rand()/ (RAND_MAX);
+	double rand_num = static_cast<double>(rand()/ (RAND_MAX));
 	
 	//select action based on probability 
 	for(Vec_Pair::iterator it = action_vec.begin(),end=action_vec.end(); it < end; ++it)
@@ -136,5 +136,6 @@ void updateQ(StateSpace & space, Action & action, State & new_state, State & old
     //new Q value determined by Q learning algorithm
     double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ);
     
+    // change priority of action to new Q value
     space[old_state].changePriority(action, newQ);
 }
