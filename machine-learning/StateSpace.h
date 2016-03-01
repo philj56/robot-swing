@@ -16,9 +16,9 @@ class State;
 class StateSpace
 {
 	public:
-		//@_var_max: the maximum absolute size of the corresponding variable
+		//@_var_bins: the number of bin in the array of the corresponding variable
 		//@queue: the PriorityQueue to initialise the StateSpace with (this should normally contain just one of every action all with 0 priority)
-		explicit StateSpace(const unsigned int _angle_max, const unsigned int _velocity_max, PriorityQueue<Action*,double> queue);
+		explicit StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, PriorityQueue<Action*,double> queue);
 		
 		//this object should NEVER be copied
 		StateSpace(const StateSpace&)=delete;
@@ -36,7 +36,7 @@ class StateSpace
 					//error if angle exceeds bounds
 					if(std::abs(velocity)>1)throw std::domain_error("velocity argument exceeded");
 					//descretise index
-					int discrete_index=std::round(velocity*100/velocity_max)+velocity_max/2;
+					int discrete_index=std::round(velocity*100/velocity_bins)+velocity_bins/2;
 					
 					//return appropriate array
 					return vec[discrete_index];
@@ -55,7 +55,7 @@ class StateSpace
 					//error if angle exceeds bounds
 					if(std::abs(angle)>M_PI/4)throw std::domain_error("angle argument exceeded");
 					//descretise index
-					int discrete_index=std::round(angle*100/angle_max)+angle_max/2;
+					int discrete_index=std::round(angle*100/angle_bins)+angle_bins/2;
 					
 					//return appropriate object
 					return SubscriptProxy2(vec[discrete_index]);
@@ -76,8 +76,8 @@ class StateSpace
 		
 	private:
 		//the sizes of the two arrays
-		static const int angle_max;
-		static const int velocity_max;
+		static const int angle_bins;
+		static const int velocity_bins;
 		
 		//the 2d array that contains the robots previous experiences in each state
 		std::vector<std::vector<PriorityQueue<Action*,double>>> space1;
