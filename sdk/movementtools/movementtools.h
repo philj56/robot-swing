@@ -42,6 +42,8 @@ public:
 	void swingForwards();
 	void swingBackwards();
 
+	void setSpeed(const float &newSpeed);
+
 private:
 	// Broker Parent IP and port
 	std::string pip;
