@@ -32,7 +32,7 @@ int main()
 	actions[1]=new Action(BACKWARD);
 	
 	//create a priority queue to copy to all the state space priority queues
-	PriorityQueue<Action,double> initiator_queue(HeapType::MAX);
+	PriorityQueue<Action,double> initiator_queue(MAX);
 	ititiator_queue.enqueueWithPriority(actions[0],0);
 	ititiator_queue.enqueueWithPriority(actions[1],0);
 	
@@ -125,7 +125,7 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 void updateQ(StateSpace & space, Action & action, State & new_state, State & old_state, double alpha, double gamma)
 {
     //oldQ value reference
-    double& oldQ = space[old_state].search(action).second;
+    double oldQ = space[old_state].search(action).second;
     
     //reward given to current state 
     double R = new_state.getReward();
@@ -134,5 +134,7 @@ void updateQ(StateSpace & space, Action & action, State & new_state, State & old
     double maxQ = space[current_state].peekFront().second;
     
     //new Q value determined by Q learning algorithm
-    double oldQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ);
+    double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ);
+    
+    space[old_state].changePriority(action, newQ);
 }
