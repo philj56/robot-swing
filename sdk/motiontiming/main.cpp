@@ -120,8 +120,8 @@ int main(int argc, char* argv[])
 	{
 		gettimeofday(&currentTime);
 		sensorAngles = motion.getAngles("Body", true);
-		std::cout << "Hip angle: " << bodyInfoProxy.genericCall("getHipPitch", 0)
-		          << "\t" << currentTime.tv_sec - startTime.tv_sec << "s  " << currentTime.tv_usec - startTime.tv_usec << "ms" << std::endl;
+		//std::cout << "Hip angle: " << bodyInfoProxy.genericCall("getHipPitch", 0)
+	//	          << "\t" << currentTime.tv_sec - startTime.tv_sec << "s  " << currentTime.tv_usec - startTime.tv_usec << "ms" << std::endl;
 		for (unsigned int i = 0; i < commandAngles.size(); i++)
 		{
 			if (commandAngles[i] == sensorAngles[i])
@@ -133,7 +133,7 @@ int main(int argc, char* argv[])
 	}
 	gettimeofday(&endTime);
 	
-	std::cout << endTime.tv_sec - startTime.tv_sec << "s  " << endTime.tv_usec - startTime.tv_usec << "ms" << std::endl;
+	std::cout << static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec) << "s  " << static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec) << "ms" << std::endl;
 	
 	gettimeofday(&startTime);
 
@@ -157,7 +157,7 @@ int main(int argc, char* argv[])
 	}
 	gettimeofday(&endTime);
 	
-	std::cout << endTime.tv_sec - startTime.tv_sec << "s  " << endTime.tv_usec - startTime.tv_usec << "ms" << std::endl;
+	std::cout << static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec) << "s  " << static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec) << "ms" << std::endl;
 }
 
 // Find and open a library, and create an instance of a module in that library
