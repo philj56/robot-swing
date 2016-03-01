@@ -14,13 +14,19 @@ struct Action
 	//function to call execute the associated action
 	void (*)() execute;
 	
-	//comparison operator for use by priority queue
+	/**
+	 * @brief Overloaded equivalent operator
+	 * 
+	 * @param target action object to compare
+	 * @return true if target is equivalent to this 
+	 */
 	bool operator==(const Action& target) const;
 	
 	/**
 	 * @brief Overloaded inequivalent operator
 	 * 
 	 * @param target action object to compare
+	 * @return true is target is not-equivalent to this
 	 */
 	bool operator!=(const Action& target) const;
 	
@@ -28,6 +34,7 @@ struct Action
 	 * @brief Overloaded assignment operator
 	 * 
 	 * @param target action object to assign to this
+	 * @return const reference to assigned action object
 	 */
 	const Action& operator=(const Action& target);
 };
