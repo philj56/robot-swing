@@ -12,6 +12,9 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	// Set description, and bind each function
 	setModuleDescription("Smooth movement testing module");
 
+	functionName("goLimp", getName(), "Set all joints to 0 stiffness");
+	BIND_METHOD(MovementTools::goLimp);
+	
 	functionName("swingForwards", getName(), "Move to forward seated position");
 	BIND_METHOD(MovementTools::swingForwards);
 	
@@ -108,6 +111,11 @@ void MovementTools::init()
 {
 	motion = AL::ALMotionProxy(pip, pport);
 	posture = AL::ALRobotPostureProxy(pip, pport);
+}
+
+void MovementTools::goLimp()
+{
+	motion.setStiffnesses("Body", 0.0f);
 }
 
 void MovementTools::swingForwards()
