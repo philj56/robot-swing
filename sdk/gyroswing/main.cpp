@@ -8,6 +8,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
+#include <fstream>
 #include <unistd.h>
 #include <getopt.h>
 #include <boost/shared_ptr.hpp>
@@ -32,10 +33,26 @@ int vectorOrder (std::vector<float> vec);
 
 AL::ALMotionProxy motproxy;
 
-bool grad(double v1, double v2){
-	double diff = (v1 - v2);
-	
-	if (abs(diff) < 0.1){
+double timediff(double t1, double t2){
+
+	return t1-t2;
+
+}
+
+bool grad(double v1, double v2, double timeDiff){
+	double lowlimit = 0.01;
+	double highlimit = 1.0;
+	double diff;
+	if(timeDiff>0.){
+		diff = abs((v1 - v2)/timeDiff);
+	}
+	else{
+		diff = abs((v1-v2)/0.01);
+	}
+	if(diff == 0){
+		return false;
+	}
+	else if (diff > lowlimit && diff < highlimit){
 		return true;
 	}
 	else return false;
@@ -154,7 +171,7 @@ int main(int argc, char* argv[])
 	   AL::ALValue sitForwardAngles; 
 	   AL::ALValue sitBackwardAngles; 
        
-       float speed = 0.8;
+       float speed = 0.6;
 
 	   std::string angleNamesArray[] = { "LAnklePitch",		
 				    "LAnkleRoll",		
@@ -314,18 +331,24 @@ int main(int argc, char* argv[])
             
         }*/
         
-        
-        
+        std::ofstream outfile;
+	outfile.open("gyroOutputUsingAngVell0.01h1.0.txt");
+        outfile << "Time \t GyroX \t v1-v2" << std::endl;
         std::cout << "Moving onto gyroscope" << std::endl;
-        while ((t2.tv_sec - t1.tv_sec) < 60){
-           if (v1 > v2){
+	double currentTime = t2.tv_sec;
+	double lastTime = t2.tv_sec-0.01;
+	
+        while ((t2.tv_sec - t1.tv_sec) < 180){
+           double deltat = timediff(currentTime,lastTime);
+	   bool deltav = grad(v1,v2,deltat);
+	   if ( (v1 > v2) && deltav){
               motproxy.setAngles(angleNames, sitBackwardAngles, speed);
-              qi::os::sleep(0.3);
+              qi::os::msleep(700);
            }
            
-           if (v1 < v2){
+           if ( (v1 < v2) && deltav){
               motproxy.setAngles(angleNames, sitForwardAngles, speed);
-              qi::os::sleep(0.3);
+              qi::os::msleep(700);
            }
            
            v2 = v1;
@@ -333,6 +356,9 @@ int main(int argc, char* argv[])
            v1 = val1;
            std::cout << "GyroscopeY " << v1 << std::endl;
            gettimeofday(&t2, NULL);
+	   lastTime = currentTime;
+	   currentTime = t2.tv_sec;
+	   outfile << currentTime << "\t" << v1 << "\t" << (v1-v2)/deltat<<std::endl;
         }
         
     
