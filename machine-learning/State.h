@@ -21,6 +21,8 @@ struct State
     
     //function to get the reward of the stored state based on energy
     double getReward();
+    //function to get the reward of the stored state based on height
+    double getHeightReward();
 };
 
 #endif
