@@ -6,18 +6,37 @@
 
 struct Action
 {
-	explicit Action(const int _action);
+	explicit Action(const int _action, void (*)() _execute);
 	
-	//numerical identifier for the action
-	const int action;
+	//numerical identifier for the action - PLZ DONT CHANGE
+	int action;
 	
 	//function to call execute the associated action
-	void exectute();
+	void (*)() execute;
 	
-	//needs function pointer to actual action
-	
-	//comparison operator for use by priority queue
+	/**
+	 * @brief Overloaded equivalent operator
+	 * 
+	 * @param target action object to compare
+	 * @return true if target is equivalent to this 
+	 */
 	bool operator==(const Action& target) const;
+	
+	/**
+	 * @brief Overloaded inequivalent operator
+	 * 
+	 * @param target action object to compare
+	 * @return true is target is not-equivalent to this
+	 */
+	bool operator!=(const Action& target) const;
+	
+	/**
+	 * @brief Overloaded assignment operator
+	 * 
+	 * @param target action object to assign to this
+	 * @return const reference to assigned action object
+	 */
+	const Action& operator=(const Action& target);
 };
 
 #endif
