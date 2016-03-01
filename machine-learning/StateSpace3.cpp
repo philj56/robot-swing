@@ -4,7 +4,7 @@ StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _veloc
 	angle_bins(_angle_bins),
 	velocity_bins(_velocity_bins),
 	torque_bins(_torque_bins),
-	space( _angle_bins, std::vector<std::vector<PriorityQueue<Action*,double>>> ( _velocity_bins, std::vector<PriorityQueue<Action*,double>> ( _torque_bins, PriorityQueue<Action*,double> (queue) ) ) )
+	space( _angle_bins, std::vector< std::vector< PriorityQueue<Action*,double> > > ( _velocity_bins, std::vector< PriorityQueue<Action*,double> > ( _torque_bins, PriorityQueue<Action*,double> (queue) ) ) )
 	
 {}
 
