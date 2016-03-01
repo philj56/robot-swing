@@ -102,6 +102,7 @@ int main(int argc, char* argv[])
 	AL::ALProxy movementToolsProxy(movementModuleName, pip, pport);
 	AL::ALMotionProxy motion(pip, pport);
 
+	float moveTime = 0;
 	qi::os::timeval startTime;
 	qi::os::timeval currentTime;
 	qi::os::timeval endTime;
@@ -120,8 +121,10 @@ int main(int argc, char* argv[])
 	{
 		gettimeofday(&currentTime);
 		sensorAngles = motion.getAngles("Body", true);
-		//std::cout << "Hip angle: " << bodyInfoProxy.genericCall("getHipPitch", 0)
-	//	          << "\t" << currentTime.tv_sec - startTime.tv_sec << "s  " << currentTime.tv_usec - startTime.tv_usec << "ms" << std::endl;
+		moveTime = 1000 * (static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
+		         + 0.001 * static_cast<float>(static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec));
+		std::cout << "Hip angle: " << bodyInfoProxy.genericCall("getHipPitch", 0)
+		          << "\t" << moveTime << "ms" << std::endl;
 		for (unsigned int i = 0; i < commandAngles.size(); i++)
 		{
 			if (commandAngles[i] == sensorAngles[i])
@@ -133,7 +136,7 @@ int main(int argc, char* argv[])
 	}
 	gettimeofday(&endTime);
 
-	float moveTime = 1000 * (static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
+	moveTime = 1000 * (static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
 		       + 0.001 * static_cast<float>(static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec));
 
 	std::cout << "Swing Forwards Time:" << moveTime << " ms" << std::endl;
@@ -149,6 +152,10 @@ int main(int argc, char* argv[])
 	while (!equal)
 	{
 		sensorAngles = motion.getAngles("Body", true);
+		moveTime = 1000 * (static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
+		         + 0.001 * static_cast<float>(static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec));
+		std::cout << "Hip angle: " << bodyInfoProxy.genericCall("getHipPitch", 0)
+		          << "\t" << moveTime << "ms" << std::endl;
 		for (unsigned int i = 0; i < commandAngles.size(); i++)
 		{
 			if (commandAngles[i] == sensorAngles[i])
