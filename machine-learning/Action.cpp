@@ -11,5 +11,6 @@ Action::Execute()
 
 bool operator==(const Action& a1) const
 {
+  //two actions must be equal if their identifiers are equal
   return action==target.action;
 }
