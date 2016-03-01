@@ -109,7 +109,6 @@ int main(int argc, char* argv[])
 	std::vector<float> sensorAngles;
 //	std::cout << "Hip angle: " << bodyInfoProxy.genericCall("getHipPitch", 0) << std::endl; 
 	gettimeofday(&startTime);
-	std::cout << "Start Time: " << startTime.tv_sec << "s  " << startTime.tv_usec << "msec" << std::endl;
 
 	movementToolsProxy.callVoid("swingForwards");
 	qi::os::msleep(40);
@@ -133,12 +132,13 @@ int main(int argc, char* argv[])
 		}
 	}
 	gettimeofday(&endTime);
-	std::cout << "End Time: " << endTime.tv_sec << "s  " << endTime.tv_usec << "msec" << std::endl;
-	
-	std::cout << static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec) << "s  " << static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec) << "ms" << std::endl;
-	
+
+	float moveTime = 1000 * (static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
+		       + 0.001 * static_cast<float>(static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec));
+
+	std::cout << "Swing Forwards Time:" << moveTime << " ms" << std::endl;
+
 	gettimeofday(&startTime);
-	std::cout << "Start Time: " << startTime.tv_sec << "s  " << startTime.tv_usec << "msec" << std::endl;
 
 	movementToolsProxy.callVoid("swingBackwards");
 	qi::os::msleep(40);
@@ -159,7 +159,11 @@ int main(int argc, char* argv[])
 		}
 	}
 	gettimeofday(&endTime);
-	std::cout << "End Time: " << endTime.tv_sec << "s  " << endTime.tv_usec << "msec" << std::endl;
+	
+	moveTime = 1000 * (static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
+		 + 0.001 * static_cast<float>(static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec));
+
+	std::cout << "Swing Backwards Time:" << moveTime << " ms" << std::endl;
 	
 	std::cout << static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec) << "s  " << static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec) << "ms" << std::endl;
 }
