@@ -102,79 +102,74 @@ int main(int argc, char* argv[])
 	AL::ALProxy movementToolsProxy(movementModuleName, pip, pport);
 	AL::ALMotionProxy motion(pip, pport);
 
-	float moveTime = 0;
-	qi::os::timeval startTime;
-	qi::os::timeval currentTime;
-	qi::os::timeval endTime;
-	std::vector<float> commandAngles;
-	std::vector<float> sensorAngles;
-//	std::cout << "Hip angle: " << bodyInfoProxy.genericCall("getHipPitch", 0) << std::endl; 
-	gettimeofday(&startTime);
-
-	movementToolsProxy.callVoid("swingForwards");
-	qi::os::msleep(40);
-
-	commandAngles = motion.getAngles("Body", false);
-	
-	bool equal = false;
-	while (!equal)
+	for (int i = 1; i <= 10; i++)
 	{
-		gettimeofday(&currentTime);
-		sensorAngles = motion.getAngles("Body", true);
-		moveTime = 1000 * (static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
-		         + 0.001 * static_cast<float>(static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec));
-		std::cout << "Hip angle: " << bodyInfoProxy.genericCall("getHipPitch", 0)
-		          << "\t" << moveTime << "ms" << std::endl;
-		for (unsigned int i = 0; i < commandAngles.size(); i++)
+		std::cout << "Speed: " << i * 0.1 << std::endl;
+		movementToolsProxy.callVoid("setSpeed", i*0.1);
+		float moveTime = 0;
+		qi::os::timeval startTime;
+		qi::os::timeval currentTime;
+		qi::os::timeval endTime;
+		std::vector<float> commandAngles;
+		std::vector<float> sensorAngles;
+	//	std::cout << "Hip angle: " << bodyInfoProxy.genericCall("getHipPitch", 0) << std::endl; 
+		gettimeofday(&startTime);
+	
+		movementToolsProxy.callVoid("swingForwards");
+		qi::os::msleep(40);
+	
+		commandAngles = motion.getAngles("Body", false);
+		
+		bool equal = false;
+		while (!equal)
 		{
-			if (commandAngles[i] == sensorAngles[i])
-				if (i = commandAngles.size() - 1)
-					equal = true;
-			else 
-				break;
+			gettimeofday(&currentTime);
+			sensorAngles = motion.getAngles("Body", true);
+			for (unsigned int i = 0; i < commandAngles.size(); i++)
+				{
+				if (commandAngles[i] == sensorAngles[i])
+					if (i = commandAngles.size() - 1)
+						equal = true;
+				else 
+					break;
+			}
 		}
-	}
-	gettimeofday(&endTime);
-
-	moveTime = 1000 * (static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
-		       + 0.001 * static_cast<float>(static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec));
-
-	std::cout << "Swing Forwards Time:" << moveTime << " ms" << std::endl;
-
-	gettimeofday(&startTime);
-
-	movementToolsProxy.callVoid("swingBackwards");
-	qi::os::msleep(40);
-
-	commandAngles = motion.getAngles("Body", false);
+		gettimeofday(&endTime);
 	
-	equal = false;
-	while (!equal)
-	{
-		sensorAngles = motion.getAngles("Body", true);
 		moveTime = 1000 * (static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
-		         + 0.001 * static_cast<float>(static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec));
-		std::cout << "Hip angle: " << bodyInfoProxy.genericCall("getHipPitch", 0)
-		          << "\t" << moveTime << "ms" << std::endl;
-		for (unsigned int i = 0; i < commandAngles.size(); i++)
+			       + 0.001 * static_cast<float>(static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec));
+		
+		std::cout << "Swing Forwards Time:" << moveTime << " ms" << std::endl;	
+	
+		gettimeofday(&startTime);
+	
+		movementToolsProxy.callVoid("swingBackwards");
+		qi::os::msleep(40);
+	
+		commandAngles = motion.getAngles("Body", false);
+			
+		equal = false;
+		while (!equal)
 		{
-			if (commandAngles[i] == sensorAngles[i])
-				if (i = commandAngles.size() - 1)
-					equal = true;
-			else 
-				break;
-		}
+			sensorAngles = motion.getAngles("Body", true);
+			for (unsigned int i = 0; i < commandAngles.size(); i++)
+			{
+					if (commandAngles[i] == sensorAngles[i])
+					if (i = commandAngles.size() - 1)
+						equal = true;
+				else 
+					break;
+			}
+		}		
+		gettimeofday(&endTime);
+		
+		moveTime = 1000 * (static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
+			 + 0.001 * static_cast<float>(static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec));
+	
+		std::cout << "Swing Backwards Time:" << moveTime << " ms" << std::endl;
 	}
-	gettimeofday(&endTime);
-	
-	moveTime = 1000 * (static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
-		 + 0.001 * static_cast<float>(static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec));
-
-	std::cout << "Swing Backwards Time:" << moveTime << " ms" << std::endl;
-	
-	std::cout << static_cast<int>(endTime.tv_sec) - static_cast<int>(startTime.tv_sec) << "s  " << static_cast<int>(endTime.tv_usec) - static_cast<int>(startTime.tv_usec) << "ms" << std::endl;
 }
-
+	
 // Find and open a library, and create an instance of a module in that library
 bool createModule(std::string libName, std::string moduleName, boost::shared_ptr<AL::ALBroker> broker, bool verb, bool find)
 {
