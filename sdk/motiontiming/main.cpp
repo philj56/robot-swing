@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
 	for (int i = 1; i <= 10; i++)
 	{
 		std::cout << "Speed: " << i * 0.1 << std::endl;
-		movementToolsProxy.callVoid("setSpeed", i*0.1);
+		movementToolsProxy.callVoid("setSpeed", static_cast<float>(i*0.1));
 		float moveTime = 0;
 		qi::os::timeval startTime;
 		qi::os::timeval currentTime;
