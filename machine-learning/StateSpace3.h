@@ -32,7 +32,7 @@ class StateSpace
 		class SubscriptProxy2
 		{
 			public:
-				SubscriptProxy2(std::vector<PriorityQueue<Action*,double>>& _vec):vec(_vec){}
+				SubscriptProxy2(std::vector< PriorityQueue<Action*,double> >& _vec):vec(_vec){}
 				
 				PriorityQueue<Action*,double>& operator[](const double torque)
 				{
@@ -45,13 +45,13 @@ class StateSpace
 					return vec[discrete_index];
 				}
 			private:
-				std::vector<PriorityQueue<Action*,double>>& vec;
+				std::vector< PriorityQueue<Action*,double> >& vec;
 		};
 		
 		class SubscriptProxy1
 		{
 			public:
-				SubscriptProxy1(std::vector<std::vector<PriorityQueue<Action*,double>>>& _vec):vec(_vec){}
+				SubscriptProxy1(std::vector< std::vector< PriorityQueue<Action*,double> > >& _vec):vec(_vec){}
 				
 				SubscriptProxy2 operator[](const double velocity)
 				{
@@ -65,7 +65,7 @@ class StateSpace
 				}
 			
 			private:
-				std::vector<std::vector<PriorityQueue<Action*,double>>>& vec;
+				std::vector< std::vector< PriorityQueue<Action*,double> > >& vec;
 		};
 		//-----------------------------------------------------------------------------
 		
