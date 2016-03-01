@@ -1,13 +1,8 @@
 #include "Action.h"
 
-Action::Action(const int _action):
-action(_action)
+Action::Action(const int _action, void (*)() _execute):
+action(_action), execute(_execute)
 {}
-
-void Action::execute()
-{
-  //call stored function
-}
 
 bool operator==(const Action& target) const
 {
@@ -18,4 +13,9 @@ bool operator==(const Action& target) const
 bool operator!=(const Action& target) const 
 {
   return !(*this == target);
+}
+
+const Action& operator=(const Action& target)
+{
+  action = target.action;
 }
