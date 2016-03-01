@@ -43,12 +43,8 @@ int main()
 	State current_state(0,0,FORWARD);
 	State old_state(0,0,FORWARD);
 	
-	//timing variables
-	double loop_start_time;
 	while(true)
 	{
-		loop_start_time=std::time(NULL);
-		
 		current_state.theta=getAngle();
 		current_state.theta_dot=getVelocity();
 		current_state.robot_state=chosen_action.action;
@@ -60,8 +56,6 @@ int main()
 		chosen_action=selectAction(space[current_state]);
 		
 		chosen_action.execute();
-		
-		if(std::time(NULL)-loop_start_time>250); //wait for set time
 	}
 	
 	delete actions[0];
