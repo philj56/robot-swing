@@ -17,5 +17,5 @@ bool operator!=(const Action& target) const
 
 const Action& operator=(const Action& target)
 {
-  action = target.action;
+  return Action(target.action, target.execute);
 }
