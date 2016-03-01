@@ -7,6 +7,7 @@
 //torque. Has functions to calculate reward for a state
 struct State
 {
+    //state variables
     double theta;
     double theta_dot;
     double torque;
@@ -14,7 +15,8 @@ struct State
     static const double g = 9.81;
     
     State(double _theta, double _theta_dot, double _torque);
-        
+    
+    //reward function of current state
     double getReward();
 };
 
