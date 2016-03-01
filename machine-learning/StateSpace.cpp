@@ -1,8 +1,8 @@
 #include "StateSpace.h"
 
-StateSpace::StateSpace(const unsigned int _angle_max, const unsigned int _velocity_max, PriorityQueue<Action*,double> queue ):
-	angle_max(_angle_max),
-	velocity_max(_velocity_max),
+StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, PriorityQueue<Action*,double> queue ):
+	angle_bins(_angle_bins),
+	velocity_bins(_velocity_bins),
 	space(_angle_max, std::vector< PriorityQueue<Action*,double> > (_velocity_max, PriorityQueue<Action*,double> (queue)))
 {}
 
