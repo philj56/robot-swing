@@ -134,5 +134,5 @@ void updateQ(StateSpace & space, Action & action, State & new_state, State & old
     double maxQ = space[current_state].peekFront().second;
     
     //new Q value determined by Q learning algorithm
-    double oldQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ;
+    double oldQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ);
 }
