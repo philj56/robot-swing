@@ -3,6 +3,8 @@
 
 #include <cmath>
 
+const double g = 9.81;
+
 //class defines state object that holds angular position and velocity, and 
 //torque. Has functions to calculate reward for a state
 struct State
@@ -12,7 +14,7 @@ struct State
     double theta_dot;
     double torque;
     
-    static const double g = 9.81;
+   // static const double g = 9.81;
     
     State(double _theta, double _theta_dot, double _torque);
     
