@@ -975,7 +975,7 @@ public:
 		for (const_iterator iter = begin(), iterChkPQ = chkPQ.begin(); iter < end(); ++iter, ++iterChkPQ) {
 
 			// if any nodes of the two queues differ, return false
-			if (iter.operator*().first != iterChkPQ.operator*().first || iter.operator*().second != iter.operator*().second) {
+			if (iter.operator*().first != iterChkPQ.operator*().first || iter.operator*().second != iterChkPQ.operator*().second) {
 				return false;
 			}
 
