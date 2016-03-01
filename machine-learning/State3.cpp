@@ -7,5 +7,6 @@ State::State(double _theta, double _theta_dot, double _torque):
 {}
 
 double State::getReward(){
+  //reward proportional to theta
   return theta;
 }
