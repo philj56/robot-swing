@@ -6,13 +6,9 @@ StateSpace::StateSpace(const unsigned int _angle_max, const unsigned int _veloci
 	space(_angle_max, std::vector< PriorityQueue<Action*,double> > (_velocity_max, PriorityQueue<Action*,double> (queue)))
 {}
 
-StateSpace::~StateSpace()
-{
-	//currently no cleanup required
-}
-
 StateSpace::SubscriptProxy1 StateSpace::operator[](const unsigned int robot_state)
 {
+	//throw if the the index is out of bounds
 	if(robot_state>1)throw std::domain_error("action index exceeded");
 	//return proxy object to accept second [] operator
 	return SubscriptProxy1( robot_state ? space1 : space2 );
@@ -21,5 +17,6 @@ StateSpace::SubscriptProxy1 StateSpace::operator[](const unsigned int robot_stat
 //searches state space by state object
 PriorityQueue<Action *, double>& StateSpace::operator[](State & state)
 {
+	//call the subscript operators with the members of the state object
 	return (*this)[state.robot_state][state.theta][state.theta_dot];
 }
