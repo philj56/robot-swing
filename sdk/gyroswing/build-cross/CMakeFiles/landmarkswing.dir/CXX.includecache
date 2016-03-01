@@ -8030,11 +8030,19 @@ xlocale.h
 
 /gs/cross/sysroot/usr/include/xlocale.h
 
-/gs/naoqi/doc/examples/gyroswing/createmodule.cpp
-createmodule.h
-/gs/naoqi/doc/examples/gyroswing/createmodule.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/average.h
+iostream
+-
+stddef.h
+-
+assert.h
+-
 
-/gs/naoqi/doc/examples/gyroswing/createmodule.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/createmodule.cpp
+createmodule.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/createmodule.h
+
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/createmodule.h
 iostream
 -
 iomanip
@@ -8066,9 +8074,11 @@ alproxies/almotionproxy.h
 alproxies/alrobotpostureproxy.h
 -
 
-/gs/naoqi/doc/examples/gyroswing/main.cpp
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/main.cpp
 createmodule.h
-/gs/naoqi/doc/examples/gyroswing/createmodule.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/createmodule.h
+average.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/average.h
 iostream
 -
 iomanip

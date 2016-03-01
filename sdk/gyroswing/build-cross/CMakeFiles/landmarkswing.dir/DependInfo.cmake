@@ -4,8 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/gs/naoqi/doc/examples/gyroswing/createmodule.cpp" "/gs/naoqi/doc/examples/gyroswing/build-cross/CMakeFiles/landmarkswing.dir/createmodule.cpp.o"
-  "/gs/naoqi/doc/examples/gyroswing/main.cpp" "/gs/naoqi/doc/examples/gyroswing/build-cross/CMakeFiles/landmarkswing.dir/main.cpp.o"
+  "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/createmodule.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross/CMakeFiles/landmarkswing.dir/createmodule.cpp.o"
+  "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/main.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross/CMakeFiles/landmarkswing.dir/main.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

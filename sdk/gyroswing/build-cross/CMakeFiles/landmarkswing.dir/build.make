@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /gs/naoqi/doc/examples/gyroswing
+CMAKE_SOURCE_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/gyroswing/build-cross
+CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross
 
 # Include any dependencies generated for this target.
 include CMakeFiles/landmarkswing.dir/depend.make
@@ -48,17 +48,17 @@ include CMakeFiles/landmarkswing.dir/flags.make
 
 CMakeFiles/landmarkswing.dir/main.cpp.o: CMakeFiles/landmarkswing.dir/flags.make
 CMakeFiles/landmarkswing.dir/main.cpp.o: ../main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/gyroswing/build-cross/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/landmarkswing.dir/main.cpp.o"
-	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/landmarkswing.dir/main.cpp.o -c /gs/naoqi/doc/examples/gyroswing/main.cpp
+	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/landmarkswing.dir/main.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/main.cpp
 
 CMakeFiles/landmarkswing.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/landmarkswing.dir/main.cpp.i"
-	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /gs/naoqi/doc/examples/gyroswing/main.cpp > CMakeFiles/landmarkswing.dir/main.cpp.i
+	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/main.cpp > CMakeFiles/landmarkswing.dir/main.cpp.i
 
 CMakeFiles/landmarkswing.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/landmarkswing.dir/main.cpp.s"
-	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /gs/naoqi/doc/examples/gyroswing/main.cpp -o CMakeFiles/landmarkswing.dir/main.cpp.s
+	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/main.cpp -o CMakeFiles/landmarkswing.dir/main.cpp.s
 
 CMakeFiles/landmarkswing.dir/main.cpp.o.requires:
 .PHONY : CMakeFiles/landmarkswing.dir/main.cpp.o.requires
@@ -71,17 +71,17 @@ CMakeFiles/landmarkswing.dir/main.cpp.o.provides.build: CMakeFiles/landmarkswing
 
 CMakeFiles/landmarkswing.dir/createmodule.cpp.o: CMakeFiles/landmarkswing.dir/flags.make
 CMakeFiles/landmarkswing.dir/createmodule.cpp.o: ../createmodule.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/gyroswing/build-cross/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/landmarkswing.dir/createmodule.cpp.o"
-	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/landmarkswing.dir/createmodule.cpp.o -c /gs/naoqi/doc/examples/gyroswing/createmodule.cpp
+	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/landmarkswing.dir/createmodule.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/createmodule.cpp
 
 CMakeFiles/landmarkswing.dir/createmodule.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/landmarkswing.dir/createmodule.cpp.i"
-	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /gs/naoqi/doc/examples/gyroswing/createmodule.cpp > CMakeFiles/landmarkswing.dir/createmodule.cpp.i
+	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/createmodule.cpp > CMakeFiles/landmarkswing.dir/createmodule.cpp.i
 
 CMakeFiles/landmarkswing.dir/createmodule.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/landmarkswing.dir/createmodule.cpp.s"
-	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /gs/naoqi/doc/examples/gyroswing/createmodule.cpp -o CMakeFiles/landmarkswing.dir/createmodule.cpp.s
+	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/createmodule.cpp -o CMakeFiles/landmarkswing.dir/createmodule.cpp.s
 
 CMakeFiles/landmarkswing.dir/createmodule.cpp.o.requires:
 .PHONY : CMakeFiles/landmarkswing.dir/createmodule.cpp.o.requires
@@ -169,6 +169,6 @@ CMakeFiles/landmarkswing.dir/clean:
 .PHONY : CMakeFiles/landmarkswing.dir/clean
 
 CMakeFiles/landmarkswing.dir/depend:
-	cd /gs/naoqi/doc/examples/gyroswing/build-cross && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /gs/naoqi/doc/examples/gyroswing /gs/naoqi/doc/examples/gyroswing /gs/naoqi/doc/examples/gyroswing/build-cross /gs/naoqi/doc/examples/gyroswing/build-cross /gs/naoqi/doc/examples/gyroswing/build-cross/CMakeFiles/landmarkswing.dir/DependInfo.cmake --color=$(COLOR)
+	cd /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross/CMakeFiles/landmarkswing.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/landmarkswing.dir/depend
 

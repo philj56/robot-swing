@@ -1,4 +1,4 @@
-# Install script for directory: /gs/naoqi/doc/examples/gyroswing
+# Install script for directory: /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,7 +33,7 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "binary")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/gs/naoqi/doc/examples/gyroswing/build-cross/CMakeFiles/CMakeRelink.dir/landmarkswing")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross/CMakeFiles/CMakeRelink.dir/landmarkswing")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/landmarkswing" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/landmarkswing")
     IF(CMAKE_INSTALL_DO_STRIP)
@@ -48,7 +48,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/gs/naoqi/doc/examples/gyroswing/build-cross/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/gs/naoqi/doc/examples/gyroswing/build-cross/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-cross/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

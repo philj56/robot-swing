@@ -1510,6 +1510,7 @@ CMakeFiles/landmarkswing.dir/main.cpp.o: /gs/cross/sysroot/usr/include/unistd.h
 CMakeFiles/landmarkswing.dir/main.cpp.o: /gs/cross/sysroot/usr/include/wchar.h
 CMakeFiles/landmarkswing.dir/main.cpp.o: /gs/cross/sysroot/usr/include/wctype.h
 CMakeFiles/landmarkswing.dir/main.cpp.o: /gs/cross/sysroot/usr/include/xlocale.h
+CMakeFiles/landmarkswing.dir/main.cpp.o: ../average.h
 CMakeFiles/landmarkswing.dir/main.cpp.o: ../createmodule.h
 CMakeFiles/landmarkswing.dir/main.cpp.o: ../main.cpp
 

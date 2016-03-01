@@ -30,6 +30,18 @@
 
 int vectorOrder (std::vector<float> vec);
 
+AL::ALMotionProxy motproxy;
+
+bool grad(double v1, double v2){
+	double diff = (v1 - v2);
+	
+	if (abs(diff) < 0.1){
+		return true;
+	}
+	else return false;
+}
+
+
 // Wrong number of arguments
 void argErr(void)
 {
@@ -213,13 +225,14 @@ int main(int argc, char* argv[])
 				    0.078192f,
 				    0.44942f};
 	
-	   angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + 22));
-	   sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 22));
-	   sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + 22));
+		angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + 22));
+		sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 22));
+		sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + 22));
     
         AL::ALMemoryProxy memproxy(pip, pport);
-        AL::ALMotionProxy motproxy(pip, pport);
-        
+       // AL::ALMotionProxy motproxy(pip, pport);
+        AL::ALMotionProxy motion(pip, pport);
+	motproxy = motion;
         AL::ALValue val1;
         AL::ALValue val2;
         double v1;
@@ -245,11 +258,12 @@ int main(int argc, char* argv[])
         
         motproxy.setStiffnesses("Body", 1.0f);
         
-        while ((t2.tv_sec - t1.tv_sec) < 120){
+        while ((t2.tv_sec - t1.tv_sec) < 60){
+            std::cout << (t2.tv_sec - t1.tv_sec);
             motproxy.setAngles(angleNames, sitForwardAngles, speed);
-            sleep(1.3);
+            qi::os::sleep(1.3);
             motproxy.setAngles(angleNames, sitBackwardAngles, speed);
-            sleep(1.3);
+            qi::os::sleep(1.3);
             gettimeofday(&t2, NULL);
             std::cout << "Looped" << std::endl;
         }
@@ -265,39 +279,53 @@ int main(int argc, char* argv[])
         double old, current;
         current = 0;
         old = current;
-        
+        bool eq = false;
+		
         std::cout << "Average: ";
-        while ((t2.tv_sec - t1.tv_sec) < 60){
-            
-            
+        /*while ((t2.tv_sec - t1.tv_sec) < 180){
+			
+			//Gets the moving average
             for (int i = 0; i < 20; i++){
                 gyrodata[i] = memproxy.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value");
                 gyrodouble[i] = gyrodata[i];
+				if (floor(gyrodouble[i]) == 0){
+					eq = true;
+				}
             }
             for(double * itr = gyrodouble; itr < gyrodouble + 20; itr++){
                 gyro.add(*itr);
                 std::cout << gyro.avg();                
             }
+			current = gyro.avg(); 
+			
+			if (current < abs(old) && eq == true){
+				if (current < 0){
+					motproxy.setAngles(angleNames, sitBackwardAngles, speed);
+				}
+				else if(current > 0){
+					motproxy.setAngles(angleNames, sitForwardAngles, speed);
+				}
+				eq = false;
+			}
             
-            current = gyro.avg();
             old = current;
               
             std::cout << "\nOverall Average: " << gyro.avg();
             
-        }
+        }*/
         
         
-        /*
+        
         std::cout << "Moving onto gyroscope" << std::endl;
         while ((t2.tv_sec - t1.tv_sec) < 60){
            if (v1 > v2){
               motproxy.setAngles(angleNames, sitBackwardAngles, speed);
-              sleep(0.3);
+              qi::os::sleep(0.3);
            }
            
            if (v1 < v2){
               motproxy.setAngles(angleNames, sitForwardAngles, speed);
-              sleep(0.3);
+              qi::os::sleep(0.3);
            }
            
            v2 = v1;
@@ -306,7 +334,7 @@ int main(int argc, char* argv[])
            std::cout << "GyroscopeY " << v1 << std::endl;
            gettimeofday(&t2, NULL);
         }
-        */
+        
     
     
     //----------------------------------
