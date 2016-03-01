@@ -7,16 +7,19 @@
 #include "PriorityQueue.h"
 
 //index with state_space_object[angle][velocity][torque]
+//   or with state_space_object[state_object]
 
 class Action;
+class State;
 
-//class to hold the 2d vector of containers of experiences that represents the robot's state and memory
+//class to hold the 3d vector of priority queues that represents the robot's state and memory
 class StateSpace
 {
 	public:
 		//@_angle_bins: the size of the first vector
 		//@_velocity_bins: the size of the second vector
 		//@_torque_bins: the size of the third vector
+		//@queue: the PriorityQueue to initialise the StateSpace with (this should normally contain just one of every action all with 0 priority)
 		explicit StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, const unsigned int _torque_bins, PriorityQueue<Action*,double> queue);
 		~StateSpace();
 		
@@ -66,8 +69,11 @@ class StateSpace
 		};
 		//-----------------------------------------------------------------------------
 		
+		//subscript operator for accessing states
+		//MUST be called with two additional subscripts
 		SubscriptProxy1 operator[](const double angle);
 		
+		//subscript to get state queue from a state object
 		PriorityQueue<Action *, double>& operator[](State & state);
 		
 	private:
