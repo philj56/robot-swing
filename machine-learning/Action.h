@@ -8,6 +8,7 @@ struct Action
 {
 	explicit Action(const int _action);
 	
+	//numerical identifier for the action
 	const int action;
 	
 	//function to call execute the associated action
@@ -15,6 +16,7 @@ struct Action
 	
 	//needs function pointer to actual action
 	
+	//comparison operator for use by priority queue
 	bool operator==(const Action& target) const;
 };
 
