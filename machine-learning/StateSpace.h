@@ -7,6 +7,7 @@
 #include "PriorityQueue.h"
 
 //index with state_space_object[robot_state][angle][velocity]
+//   or with state_space_object[state_object]
 
 class Action;
 class State;
@@ -15,16 +16,16 @@ class State;
 class StateSpace
 {
 	public:
-		//@_x_size: the size of the first vector
-		//@_y_size: the size of the second vector
+		//@_var_max: the maximum absolute size of the corresponding variable
+		//@queue: the PriorityQueue to initialise the StateSpace with (this should normally contain just one of every action all with 0 priority)
 		explicit StateSpace(const unsigned int _angle_max, const unsigned int _velocity_max, PriorityQueue<Action*,double> queue);
-		~StateSpace();
 		
+		//this object should NEVER be copied
 		StateSpace(const StateSpace&)=delete;
 		
 		//these nested classes are necessary so that the [][][] operator can be called on this class
 		//the operator should be called with the continuous state variables which it will then discretise
-		//-----------------------------------------------------------------------------
+		//---------------------------------------------------------------------------------------------------------
 		class SubscriptProxy2
 		{
 			public:
@@ -63,12 +64,15 @@ class StateSpace
 			private:
 				std::vector<std::vector<PriorityQueue<Action*,double>>>& vec;
 		};
-		//-----------------------------------------------------------------------------
+		//---------------------------------------------------------------------------------------------------------
 		
+		//subscript operator to access state queues
+		//MUST be called with two other subscripts as described at top of document
 		SubscriptProxy1 operator[](const unsigned int robot_state);
 		
 		//allow subscript to be used with this state objects
-		PriorityQueue<Action*, double>& operator[](State & state);
+		//only one subscript is required to get a state queue in this fashion
+		PriorityQueue<Action*, double>& operator[](const State & state);
 		
 	private:
 		//the sizes of the two arrays
