@@ -1,4 +1,4 @@
-#include "StateSpace.h"
+#include "StateSpace3.h"
 
 StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, const unsigned int _torque_bins, PriorityQueue<Action*,double> queue):
 	angle_bins(_angle_bins),
@@ -7,11 +7,6 @@ StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _veloc
 	space( _angle_bins, std::vector<std::vector<PriorityQueue<Action*,double>>> ( _velocity_bins, std::vector<PriorityQueue<Action*,double>> ( _torque_bins, PriorityQueue<Action*,double> (queue) ) ) )
 	
 {}
-
-StateSpace::~StateSpace()
-{
-	//currently no cleanup required
-}
 
 StateSpace::SubscriptProxy1 StateSpace::operator[](const double angle)
 {
@@ -25,7 +20,8 @@ StateSpace::SubscriptProxy1 StateSpace::operator[](const double angle)
 }
 
 //searches state space by state object
-PriorityQueue<Action *, double>& StateSpace::operator[](State & state)
+PriorityQueue<Action *, double>& StateSpace::operator[](const State & state)
 {
+	//call the subscripts with the members of the state object
 	return (*this)[state.theta][state.theta_dot][state.torque];
 }
