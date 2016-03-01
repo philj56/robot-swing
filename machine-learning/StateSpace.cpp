@@ -1,4 +1,4 @@
-#include "StateSpace3.h"
+#include "StateSpace.h"
 
 StateSpace::StateSpace(const unsigned int _angle_max, const unsigned int _velocity_max, PriorityQueue<Action*,double> queue ):
 	angle_max(_angle_max),
