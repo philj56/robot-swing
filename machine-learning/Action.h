@@ -6,15 +6,13 @@
 
 struct Action
 {
-	explicit Action(const int _action);
+	explicit Action(const int _action, void (*)() _execute);
 	
-	//numerical identifier for the action
-	const int action;
+	//numerical identifier for the action - PLZ DONT CHANGE
+	int action;
 	
 	//function to call execute the associated action
-	void execute();
-	
-	//needs function pointer to actual action
+	void (*)() execute;
 	
 	//comparison operator for use by priority queue
 	bool operator==(const Action& target) const;
