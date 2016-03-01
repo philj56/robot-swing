@@ -28,8 +28,8 @@ int main()
 	//create pointers to the possible actions as well as a pointer to hold the chosen action
 	Action* chosen_action;
 	Action* actions[2];
-	actions[0]=new Action(FORWARD);
-	actions[1]=new Action(BACKWARD);
+	actions[0]=new Action(FORWARD,/*function pointer here*/);
+	actions[1]=new Action(BACKWARD,/*function pointer here*/);
 	
 	//create a priority queue to copy to all the state space priority queues
 	PriorityQueue<Action*,double> initiator_queue(MAX);
