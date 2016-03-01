@@ -15,7 +15,7 @@ StateSpace::SubscriptProxy1 StateSpace::operator[](const unsigned int robot_stat
 }
 
 //searches state space by state object
-PriorityQueue<Action *, double>& StateSpace::operator[](State & state)
+PriorityQueue<Action *, double>& StateSpace::operator[](const State & state)
 {
 	//call the subscript operators with the members of the state object
 	return (*this)[state.robot_state][state.theta][state.theta_dot];
