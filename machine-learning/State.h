@@ -9,6 +9,7 @@
 //robot state. Has functions to calculate reward for a state
 struct State
 {
+    //state variables
     double theta;
     double theta_dot;
     ROBOT_STATE robot_state;
@@ -16,7 +17,8 @@ struct State
     static const double g = 9.81;
     
     State(double _theta, double _theta_dot, ROBOT_STATE _robot_state);
-        
+    
+    //function to get the reward of the stored state based on energy
     double getReward();
 };
 
