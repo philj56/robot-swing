@@ -5272,3 +5272,44 @@ Linking C executable cmTryCompileExec
 make[1]: Leaving directory `/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-tc/CMakeFiles/CMakeTmp'
 
 
+The system is: Linux - 3.13.0-71-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/gcc 
+Build flags: 
+Id flags: -c
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+
+The C compiler identification is GNU, found in "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-tc/CMakeFiles/CompilerIdC/CMakeCCompilerId.o"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: -c
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+
+The CXX compiler identification is GNU, found in "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-tc/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.o"
+
+The system is: Linux - 3.13.0-71-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/gcc 
+Build flags: 
+Id flags: -c
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+
+The C compiler identification is GNU, found in "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroswing/build-tc/CMakeFiles/CompilerIdC/CMakeCCompilerId.o"
+
