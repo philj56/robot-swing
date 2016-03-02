@@ -5,12 +5,13 @@
 #include <cmath>
 #include <stdexcept>
 #include "PriorityQueue.h"
+#include "State.h"
 
 //index with state_space_object[robot_state][angle][velocity]
 //   or with state_space_object[state_object]
 
 class Action;
-class State;
+class State;	// don't need this if including State.h
 
 //class to hold the 2d vector of containers of experiences that represents the robot's state and memory
 class StateSpace
@@ -76,6 +77,8 @@ class StateSpace
 		
 	private:
 		//the sizes of the two arrays
+		// NOTE: these need to be initialised in-class or changed to non-static
+		// as they cannot be initialised in a constructor due to static access
 		static const int angle_bins;
 		static const int velocity_bins;
 		
