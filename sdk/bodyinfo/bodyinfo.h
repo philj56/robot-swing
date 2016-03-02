@@ -6,6 +6,7 @@
 #define BODYINFO_H
 
 #include <iostream>
+#include <iomanip>
 #include <cstdlib>
 #include <alcommon/almodule.h>
 #include <alcommon/albroker.h>
@@ -40,6 +41,10 @@ public:
 
 	std::vector<float> getSittingCOMAngles();
 
+	std::vector<float> getInitAngles();
+	
+	void printAngles();
+
 private:
 	// Broker Parent IP and port
 	std::string pip;
@@ -55,6 +60,8 @@ private:
 	float rLegMass;
 	
 	float hipOffset;
+
+	std::vector<float> initAngles;
 };
 
 #endif /* BODYINFO_H */

@@ -1,3 +1,5 @@
+//for pendulum
+
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
@@ -27,24 +29,30 @@ int main()
 	
 	//create pointers to the possible actions as well as a pointer to hold the chosen action
 	Action* chosen_action;
-	Action* actions[2];
-	actions[0]=new Action(FORWARD,/*function pointer here*/);
-	actions[1]=new Action(BACKWARD,/*function pointer here*/);
-	
+	Action* actions[3];
+	actions[0]=new Action(INCREASE);
+	actions[1]=new Action(DECREASE);
+	actions[2]=new Action(SAME);
+
 	//create a priority queue to copy to all the state space priority queues
-	PriorityQueue<Action*,double> initiator_queue(MAX);
-	initiator_queue.enqueueWithPriority(actions[0],0);
-	initiator_queue.enqueueWithPriority(actions[1],0);
+	PriorityQueue<Action,double> initiator_queue(MAX);
+	ititiator_queue.enqueueWithPriority(actions[0],0);
+	ititiator_queue.enqueueWithPriority(actions[1],0);
+	ititiator_queue.enqueueWithPriority(actions[2],0);
 	
 	//create the state space
-	StateSpace space(100,50,initiator_queue);
+	StateSpace space(100,50,torque,initiator_queue);
 	
 	//state objects
-	State current_state(0,0,FORWARD);
-	State old_state(0,0,FORWARD);
+	State current_state(0,0,INCREASE);
+	State old_state(0,0,INCREASE);
 	
+	//timing variables
+	double loop_start_time;
 	while(true)
 	{
+		loop_start_time=std::time(NULL);
+		
 		current_state.theta=getAngle();
 		current_state.theta_dot=getVelocity();
 		current_state.robot_state=chosen_action.action;
@@ -56,6 +64,8 @@ int main()
 		chosen_action=selectAction(space[current_state]);
 		
 		chosen_action.execute();
+		
+		if(std::time(NULL)-loop_start_time>250); //wait for set time
 	}
 	
 	delete actions[0];
@@ -104,7 +114,7 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 	}
 	
 	//generate RN between 0 and 1
-	double rand_num = static_cast<double>(rand()/ (RAND_MAX));
+	double rand_num = (double)rand()/ (RAND_MAX);
 	
 	//select action based on probability 
 	for(Vec_Pair::iterator it = action_vec.begin(),end=action_vec.end(); it < end; ++it)
@@ -130,6 +140,5 @@ void updateQ(StateSpace & space, Action * action, State & new_state, State & old
     //new Q value determined by Q learning algorithm
     double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ);
     
-    // change priority of action to new Q value
     space[old_state].changePriority(action, newQ);
 }

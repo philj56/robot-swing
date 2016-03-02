@@ -1,3 +1,4 @@
+
 #include "Action.h"
 
 Action::Action(const int _action, void (*)() _execute):
@@ -17,5 +18,5 @@ bool operator!=(const Action& target) const
 
 const Action& operator=(const Action& target)
 {
-  return Action(target.action, target.execute);
+  action = target.action;
 }

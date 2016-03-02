@@ -41,6 +41,9 @@ BodyInfo::BodyInfo(boost::shared_ptr<AL::ALBroker> broker,
 
 	functionName("getSittingCOMAngles", getName(), "Get COM angles from seat for sitting position");
 	BIND_METHOD(BodyInfo::getSittingCOMAngles);
+
+	functionName("printAngles", getName(), "Print joint angles relative to some initial set");
+	BIND_METHOD(BodyInfo::printAngles);
 	
 	// Set broker parent IP and port
 	pip = broker->getParentIP();
@@ -85,6 +88,28 @@ float BodyInfo::getHipPitch()
 	{
     		std::cerr << "Caught exception: " << e.what() << std::endl;
   	}
+}
+
+std::vector<float> BodyInfo::getInitAngles()
+{
+	initAngles = motion.getAngles("Body", true);	
+}
+
+void BodyInfo::printAngles()
+{
+	std::vector<float> angles = motion.getAngles("Body", true);
+	std::vector<std::string> names = motion.getJointNames("Body");
+
+	if (initAngles.size() != angles.size())
+		initAngles = getInitAngles();
+	
+	for (unsigned int i = 0; i < angles.size(); i++)
+	{
+		std::cout << std::setprecision(6)
+			  << std::setw(10) << names[i]
+			  << std::setw(10) << angles[i] - initAngles[i]
+			  << std::endl;
+	}
 }
 
 // Return vector of [Torso COM angle, lower body COM angle] when robot is sitting

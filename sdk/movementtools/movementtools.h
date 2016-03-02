@@ -36,9 +36,13 @@ public:
 	// init() - called just after the constructor
 	virtual void init();
 
+	void goLimp();
+
 	// Seated movement
 	void swingForwards();
 	void swingBackwards();
+
+	void setSpeed(const float &newSpeed);
 
 private:
 	// Broker Parent IP and port

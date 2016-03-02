@@ -1,3 +1,5 @@
+//for pendulum
+
 #include "StateSpace3.h"
 
 StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, const unsigned int _torque_bins, PriorityQueue<Action*,double> queue):
