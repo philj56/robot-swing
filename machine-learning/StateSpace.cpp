@@ -1,5 +1,7 @@
 #include "StateSpace.h"
 
+// NOTE: cannot initialise angle_bins or velocity_bins here as they are static. Also space is not a field of StateSpace and
+// _angle_max and _velocity_max are not declared.
 StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, PriorityQueue<Action*,double> queue ):
 	angle_bins(_angle_bins),
 	velocity_bins(_velocity_bins),
