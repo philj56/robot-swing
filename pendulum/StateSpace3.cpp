@@ -2,13 +2,25 @@
 
 #include "StateSpace3.h"
 
-StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, const unsigned int _torque_bins, PriorityQueue<Action*,double> queue):
-	angle_bins(_angle_bins),
-	velocity_bins(_velocity_bins),
-	torque_bins(_torque_bins),
+StateSpace::StateSpace(PriorityQueue<Action*,double> queue):
 	space( _angle_bins, std::vector<std::vector<PriorityQueue<Action*,double>>> ( _velocity_bins, std::vector<PriorityQueue<Action*,double>> ( _torque_bins, PriorityQueue<Action*,double> (queue) ) ) )
 	
 {}
+
+void setAngleBins(const double val)
+{
+	angle_bins=val;
+}
+
+void setVelocityBins(const double val)
+{
+	velocity_bins=val;
+}
+
+void setTorqueBins(const double val)
+{
+	torque_bins=val;
+}
 
 StateSpace::SubscriptProxy1 StateSpace::operator[](const double angle)
 {
