@@ -5,6 +5,7 @@
 #include "Action.h"
 #include "PriorityQueue.h"
 #include "State.h"
+#include "encoder.h"
 
 //function to calculate a temperature for the select action function as a function of time
 double temperature();
@@ -36,6 +37,10 @@ int main()
 	initiator_queue.enqueueWithPriority(actions[0],0);
 	initiator_queue.enqueueWithPriority(actions[1],0);
 	
+	//create encoder
+	Encoder encoder();
+	encoder.calibrate();
+	
 	//create the state space
 	StateSpace space(initiator_queue);
 	space.setAngle(100);
@@ -47,8 +52,8 @@ int main()
 	
 	while(true)
 	{
-		current_state.theta=getAngle();
-		current_state.theta_dot=getVelocity();
+		current_state.theta=encoder.GetAngle();
+		current_state.theta_dot=(current_state.theta - old_state.theta)/TIME;
 		current_state.robot_state=chosen_action.action;
 		
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
