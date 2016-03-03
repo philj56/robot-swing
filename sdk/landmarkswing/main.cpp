@@ -23,6 +23,8 @@
 #include <alproxies/alrobotpostureproxy.h>
 
 int vectorOrder (std::vector<float> vec);
+bool vectorAll (std::vector<bool> vec);
+bool vectorAny (std::vector<bool> vec);
 
 // Wrong number of arguments
 void argErr(void)
@@ -183,16 +185,17 @@ int main(int argc, char* argv[])
 	AL::ALValue landmarks;
 
 	// Vectors of last landmark widths
-	std::vector<float> landmark1Angles;
-	std::vector<float> landmark2Angles;
+	std::vector<std::vector<float> > landmarkAngles;
 	
 	// IDs of desired landmarks
-	const int landmark1ID = 108;
-	const int landmark2ID = 68;
+	std::vector<int> landmarkIDs;
+	landmarkIDs.push_back(108);
+	landmarkIDs.push_back(68);
+
+	unsigned int nLandmarks = landmarkIDs.size();
 
 	// Whether each landmark has been detected this cycle
-	bool landmark1Detected = false;
-	bool landmark2Detected = false;
+	std::vector<bool> landmarksDetected(nLandmarks, false);
 
 	// Current direction of movement, either +1 or -1
 	int currentDirection;
@@ -210,13 +213,13 @@ int main(int argc, char* argv[])
 	while (currentTime.tv_sec - startTime.tv_sec < timeToRun)
 	{
 		// Reset landmark detection flags
-		landmark1Detected = false;
-		landmark2Detected = false;
+		for (unsigned int i = 0; i < nLandmarks; i++)
+		{
+			landmarksDetected(i) = false;
+		}
 
 		// Read memory for landmarks
 		landmarks = camToolsProxy.genericCall("getLandmark", 0);
-		
-		//std::cout << std::endl << "*****" << std::endl << std::endl;
 
 		// Check for landmark detection
 		if (landmarks.isValid() && landmarks.isArray() && landmarks.getSize() >= 2)
@@ -226,89 +229,52 @@ int main(int argc, char* argv[])
 			{
 				// Relevant parameters in landmark vector
 				int   ID           = landmarks [1][i][1][0];
-				float angleX       = landmarks [1][i][0][1];
+			//	float angleX       = landmarks [1][i][0][1];
 				float angleY       = landmarks [1][i][0][2];
-				float width        = landmarks [1][i][0][3];
-				float height       = landmarks [1][i][0][4];
+			//	float width        = landmarks [1][i][0][3];
+			//	float height       = landmarks [1][i][0][4];
 	
-				switch (ID)
+				for (unsigned int j = 0; j < nLandmarks; j++)
 				{
-					case landmark1ID:
-						landmark1Detected = true;
-						landmark1Angles.push_back(angleY);
-						if (landmark1Angles.size() > landmarkSmoothing + 1)
+					if (ID = landmarkIDs[j])
+					{
+						landmarksDetected[j] = true;
+						
+						landmarkAngles[j].push_back(angleY);
+						if (landmarkAngles[j].size() > landmarkSmoothing + 1)
 						{
-							landmark1Angles.erase(landmark1Angles.begin());
+							landmarkAngles[j].erase(landmarkAngles[j].begin());
 						}
-						break;
-					case landmark2ID:
-						landmark2Detected = true;
-						landmark2Angles.push_back(angleY);
-						if (landmark2Angles.size() > landmarkSmoothing + 1)
-						{
-							landmark2Angles.erase(landmark2Angles.begin());
-						}
-						break;
-					default:
-						std::cout << "Unkown landmark detected" << std::endl;
+					}
 				}
-				
-			//	std::cout << "Mark ID: " << ID << std::endl;
-			//	std::cout << "Width:   " << width << std::endl;
-			//	std::cout << "Height:  " << height << std::endl;
 			}
 
 			// Check whether a landmark was detected this interval
-			if (landmark1Detected || landmark2Detected)
+			if (vectorAny(landmarksDetected))
 			{
 				// The order of each vector (+1, 0, -1)
-				int order1 = vectorOrder(landmark1Angles);
-				int order2 = vectorOrder(landmark2Angles);
-				// Both landmarks detected
-				if (landmark1Detected && landmark2Detected)
+				std::vector<int> orders;
+				for (unsigned int i = 0; i < nLandmarks; i++)
 				{
-					// Both landmarks moving in same direction
-					//if (order1 == order2)
-					{
-						if (order1 > 0)
-						{
-							std::cout << "Moving forwards" << std::endl;
-							moveToolsProxy.callVoid("swingForwards");
-						}
-						else if (order1 < 0)
-						{
-							std::cout << "Moving backwards" << std::endl;
-							moveToolsProxy.callVoid("swingBackwards");
-						}
-					}
+					orders.push_back(vectorOrder(landmarkAngles[j]));
 				}
-				// Only first landmark detected
-				else if (landmark1Detected)
+						
+				double sum;
+				for (unsigned int i = 0; i < nLandmarks; i++)
 				{
-					if (order1 > 0)
-					{
-						std::cout << "Moving forwards" << std::endl;
-						moveToolsProxy.callVoid("swingForwards");
-					}
-					else if (order1 < 0)
-					{
-						std::cout << "Moving backwards" << std::endl;
-						moveToolsProxy.callVoid("swingBackwards");
-					}
+					sum += vec[i];
 				}
-				// Only second landmark detected
-				else
+				return static_cast<int>(sum / static_cast<double>(vec.size()));
+				
+				if (order1 > 0)
 				{
-					if (order2 > 0)
-					{
-						std::cout << "Moving forwards" << std::endl;
-						moveToolsProxy.callVoid("swingForwards");
-					}
-					else if (order2 < 0)
-					{
-						std::cout << "Moving backwards" << std::endl;
-						moveToolsProxy.callVoid("swingBackwards");
-					}
+					std::cout << "Moving forwards" << std::endl;
+					moveToolsProxy.callVoid("swingForwards");
+				}
+				else if (order1 < 0)
+				{
+					std::cout << "Moving backwards" << std::endl;
+					moveToolsProxy.callVoid("swingBackwards");
 				}
 			}
 		}
@@ -317,7 +283,7 @@ int main(int argc, char* argv[])
 		//	std::cout << "No landmark detected" << std::endl;
 		}
 		
-		qi::os::msleep(100);
+		qi::os::msleep(50);
 		qi::os::gettimeofday(&currentTime);
 	}
 	
@@ -380,4 +346,30 @@ int vectorOrder (std::vector<float> vec)
 			return 0;
 	}
 	return order;
+}
+
+// Check if all bools in vector are true
+bool vectorAll (std::vector<bool> vec)
+{
+	for (unsigned int i = 0; i < vec.size(); i++)
+	{
+		if (!vec[i])
+			return false;
+	}
+	return true;
+}
+
+// Check if any bools in vector are true
+bool vectorAny (std::vector<bool> vec)
+{
+	for (unsigned int i = 0; i < vec.size(); i++)
+	{
+		if (vec[i])
+			return true;
+	}
+	return false;
+}
+
+int vectorAverage (std::vector<int> vec)
+{
 }
