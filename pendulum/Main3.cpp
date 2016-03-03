@@ -1,5 +1,3 @@
-//for pendulum
-
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
@@ -23,53 +21,63 @@ int main()
 	const double alpha=0.5;
 	//discount factor
 	const double gamma=0.5;
+	const int torque_bins=9;
+	
+
+	for (int i=0, i++, i<torque_bins){
+		const int t_i=-4+i
+	}
+
 	
 	//seed rng
 	std::srand(std::time(NULL));
 	
 	//create pointers to the possible actions as well as a pointer to hold the chosen action
 	Action* chosen_action;
-	Action* actions[3];
-	actions[0]=new Action(INCREASE);
-	actions[1]=new Action(DECREASE);
-	actions[2]=new Action(SAME);
+	Action* actions[torque_bins];
+	for (int i=0, i++, i<torque_bins){
+		actions[i]=new Action(t_i);
+	}
 
 	//create a priority queue to copy to all the state space priority queues
 	PriorityQueue<Action,double> initiator_queue(MAX);
-	ititiator_queue.enqueueWithPriority(actions[0],0);
-	ititiator_queue.enqueueWithPriority(actions[1],0);
-	ititiator_queue.enqueueWithPriority(actions[2],0);
+	for (int i=0, i++, i<torque_bins){
+		ititiator_queue.enqueueWithPriority(actions[i],0);
+	}
 	
 	//create the state space
-	StateSpace space(100,50,torque,initiator_queue);
+	StateSpace space(100,50,torque_bins,max values,,,initiator_queue);
 	
 	//state objects
-	State current_state(0,0,INCREASE);
-	State old_state(0,0,INCREASE);
+	State current_state(0,0,t_6);
+	State old_state(0,0,t_6);
 	
 	//timing variables
 	double loop_start_time;
+
 	while(true)
 	{
-		loop_start_time=std::time(NULL);
-		
 		current_state.theta=getAngle();
 		current_state.theta_dot=getVelocity();
+		current_state.torque=getTorque();
 		current_state.robot_state=chosen_action.action;
-		
+
+		if(current_state.theta>2*M_PI & current_state.theta_dot>2*M_PI & environment.getTime()>=10){
+			environment.resetPendulum();
+			std::domain_error("unsuccessful trial")
+		}
+
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
-		
-		old_state=current_state;
-		
+
+		old_state=current_state;+
 		chosen_action=selectAction(space[current_state]);
-		
 		chosen_action.execute();
-		
-		if(std::time(NULL)-loop_start_time>250); //wait for set time
-	}
-	
+
+
+	}	
 	delete actions[0];
 	delete actions[1];
+	
 	
 	return 1;
 }
@@ -126,7 +134,7 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 	return NULL; //note that this line should never be reached
 }
 
-void updateQ(StateSpace & space, Action * action, State & new_state, State & old_state, double alpha, double gamma)
+void updateQ(StateSpace & space, Action & action, State & new_state, State & old_state, double alpha, double gamma)
 {
     //oldQ value reference
     double oldQ = space[old_state].search(action).second;
