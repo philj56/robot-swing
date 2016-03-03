@@ -116,7 +116,7 @@ int main()
 	while(true)
 	{
 		current_state.theta= M_PI * encoder.GetAngle()/180;
-		current_state.theta_dot=(current_state.theta - old_state.theta)/TIME; //Needs actual time
+		current_state.theta_dot=(current_state.theta - old_state.theta)/700; //Needs actual time
 		current_state.robot_state=(str_comp(*chosen_action,"swingForwards"))?FORWARD:BACKWARD;
 		
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
