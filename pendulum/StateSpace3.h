@@ -28,9 +28,9 @@ class StateSpace
 		//deny copy construction
 		StateSpace(const StateSpace&)=delete;
 		
-		void setAngleBin(const double val);
-		void setVelocityBin(const double val);
-		void setTorqueBin(const double val);
+		void setAngleBins(const double val);
+		void setVelocityBins(const double val);
+		void setTorqueBins(const double val);
 		
 		//these nested classes are necessary so that the [][][] operator can be called on this class
 		//the operator should be called with the continuous state variables which it will then discretise
