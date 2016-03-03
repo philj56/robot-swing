@@ -1,12 +1,13 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
+#include <string>
 #include "StateSpace.h"
-#include "Action.h"
 #include "PriorityQueue.h"
 #include "State.h"
 #include "encoder.h"
 #include "CreateModule.h"
+
 
 //function to calculate a temperature for the select action function as a function of time
 double temperature();
