@@ -19,10 +19,13 @@ class StateSpace
 	public:
 		//@_var_bins: the number of bin in the array of the corresponding variable
 		//@queue: the PriorityQueue to initialise the StateSpace with (this should normally contain just one of every action all with 0 priority)
-		explicit StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, PriorityQueue<Action*,double> queue);
+		explicit StateSpace(PriorityQueue<Action*,double> queue);
 		
 		//this object should NEVER be copied
 		StateSpace(const StateSpace&)=delete;
+		
+		void setAngleBins(const double val);
+		void setVelocityBins(const double val);
 		
 		//these nested classes are necessary so that the [][][] operator can be called on this class
 		//the operator should be called with the continuous state variables which it will then discretise
@@ -77,8 +80,8 @@ class StateSpace
 		
 	private:
 		//the sizes of the two arrays
-		const int angle_bins;
-		const int velocity_bins;
+		static int angle_bins;
+		static int velocity_bins;
 		
 		//the 2d array that contains the robots previous experiences in each state
 		std::vector< std::vector< PriorityQueue<Action*,double> > > space1;
