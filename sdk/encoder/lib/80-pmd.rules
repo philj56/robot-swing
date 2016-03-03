@@ -1,0 +1,2 @@
+# Measurement Computing USB-1208FS / PMD1208FS data acquisition device
+ACTION=="add", ATTRS{idVendor}=="09db", ATTRS{idProduct}=="0082", MODE="0666"

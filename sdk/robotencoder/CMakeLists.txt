@@ -18,3 +18,4 @@ qi_create_test(test_robotencoder "test.cpp")
 #qi_use_lib(robotencoder libpmd1208fs.so.2.2)
 
 target_link_libraries(robotencoder lpmd1208fs)
+

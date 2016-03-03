@@ -20,7 +20,7 @@
 #include <errno.h>
 #include <pthread.h>
 #include "pmd1208fs.h"
-//#include "version.h"
+#include "version.h"
 
 #define PMD_VID 0x09db
 #define PMD_PID 0x0082
@@ -335,7 +335,7 @@ int pmd_ainscan(libusb_device_handle* pmdhandle,
         xfers[i] = NULL; /* not yet allocated */
     }
     for (i = 0; i < NUM_XFERS; i++) {
-        unsigned char *databuf = (unsigned char *)(malloc(IN_PKT_SIZE));
+        unsigned char *databuf = malloc(IN_PKT_SIZE);
         if (!databuf) {
             err("no memory for data buffer\n");
             returncode = -ENOMEM;
@@ -662,9 +662,7 @@ unsigned long pmd_cin(libusb_device_handle* pmdhandle) {
     return count;
 }
 
-
-/* Return the version of this library 
+/* Return the version of this library */
 char* pmd_version(void) {
-
     return VERSION;
-}*/
+}
