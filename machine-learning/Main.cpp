@@ -13,10 +13,10 @@
 double temperature();
 
 //function to select next action
-Action * selectAction(PriorityQueue<Action *,double>& a_queue);
+std::string * selectAction(PriorityQueue<std::string *,double>& a_queue);
 
 //function to update a q value
-void updateQ(StateSpace & space, Action & action, State & new_state, State & old_state, double alpha, double gamma);
+void updateQ(StateSpace & space, std::string * action, State & new_state, State & old_state, double alpha, double gamma);
 
 int main()
 {	
@@ -141,11 +141,11 @@ double temperature()
 //function is fed with a priority queue of action-values 
 //generates Boltzmann distribution of these action-values
 //and selects an action based on probabilities 
-Action * selectAction(PriorityQueue<Action *,double>& a_queue)
+std::string * selectAction(PriorityQueue<std::string *,double>& a_queue)
 {	
-	typedef PriorityQueue<Action *,double> PQ;
-	typedef std::vector< std::pair<Action *, double> > Vec_Pair;
-	typedef std::pair<Action *, double> Pair;
+	typedef PriorityQueue<std::string *,double> PQ;
+	typedef std::vector< std::pair<std::string *, double> > Vec_Pair;
+	typedef std::pair<std::string *, double> Pair;
 	
 	double sum= 0;
 	int i = 0;
@@ -185,7 +185,7 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 	return NULL; //note that this line should never be reached
 }
 
-void updateQ(StateSpace & space, Action * action, State & new_state, State & old_state, double alpha, double gamma)
+void updateQ(StateSpace & space, std::string * action, State & new_state, State & old_state, double alpha, double gamma)
 {
     //oldQ value reference
     double oldQ = space[old_state].search(action).second;
