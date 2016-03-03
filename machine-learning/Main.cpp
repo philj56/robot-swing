@@ -6,6 +6,7 @@
 #include "PriorityQueue.h"
 #include "State.h"
 #include "encoder.h"
+#include "CreateModule.h"
 
 //function to calculate a temperature for the select action function as a function of time
 double temperature();
@@ -77,10 +78,10 @@ int main()
 	AL::ALProxy bodyInfoProxy(bodyModuleName, pip, pport);
 	AL::ALProxy movementToolsProxy(movementModuleName, pip, pport);
 	AL::ALMotionProxy motion(pip, pport);
-
+	//__________________________________________________________________________________________
+	//__________________________________________________________________________________________
+	//END OF STUFF WE DONT UNDERSTAND, BREATHE NOW
 	
-	//__________________________________________________________________________________________
-	//__________________________________________________________________________________________
 	//learning factor
 	const double alpha=0.5;
 	//discount factor
