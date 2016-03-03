@@ -93,6 +93,7 @@ int main()
 	
 	std::string action_forwards = "swingForwards";
 	std::string action_backwards = "swingBackwards";
+	std::string* chosen_action = &action_forwards;
 	
 	//create a priority queue to copy to all the state space priority queues
 	PriorityQueue<std::string *,double> initiator_queue(MAX);
@@ -116,7 +117,7 @@ int main()
 	{
 		current_state.theta= M_PI * encoder.GetAngle()/180;
 		current_state.theta_dot=(current_state.theta - old_state.theta)/TIME; //Needs actual time
-		current_state.robot_state=chosen_action.action;
+		current_state.robot_state=(str_comp(*chosen_action,"swingForwards"))?FORWARD:BACKWARD;
 		
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
 		
@@ -124,11 +125,8 @@ int main()
 		
 		chosen_action=selectAction(space[current_state]);
 		
-		chosen_action.execute();
+		movementToolsProxy.callVoid((*chosen_action).c_str());
 	}
-	
-	delete actions[0];
-	delete actions[1];
 	
 	return 1;
 }
