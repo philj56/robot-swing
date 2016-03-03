@@ -190,3 +190,75 @@ make[1]: *** [cmTryCompileExec] Error 1
 make: *** [cmTryCompileExec/fast] Error 2
 
 
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: CMAKE_CXX_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: 
+
+The output was:
+No such file or directory
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: CMAKE_CXX_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -c
+
+The output was:
+No such file or directory
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: CMAKE_CXX_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: 
+
+The output was:
+No such file or directory
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: CMAKE_CXX_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -c
+
+The output was:
+No such file or directory
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: CMAKE_CXX_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: 
+
+The output was:
+No such file or directory
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: CMAKE_CXX_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -c
+
+The output was:
+No such file or directory
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: CMAKE_CXX_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: 
+
+The output was:
+No such file or directory
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: CMAKE_CXX_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -c
+
+The output was:
+No such file or directory
+
+

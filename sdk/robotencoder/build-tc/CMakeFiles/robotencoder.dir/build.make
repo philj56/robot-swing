@@ -46,38 +46,40 @@ include CMakeFiles/robotencoder.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/robotencoder.dir/flags.make
 
-CMakeFiles/robotencoder.dir/main.cpp.o: CMakeFiles/robotencoder.dir/flags.make
-CMakeFiles/robotencoder.dir/main.cpp.o: ../main.cpp
+CMakeFiles/robotencoder.dir/main.o: CMakeFiles/robotencoder.dir/flags.make
+CMakeFiles/robotencoder.dir/main.o: ../main.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-tc/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/robotencoder.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/robotencoder.dir/main.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/robotencoder.dir/main.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/robotencoder.dir/main.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/main.cpp
 
-CMakeFiles/robotencoder.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robotencoder.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/main.cpp > CMakeFiles/robotencoder.dir/main.cpp.i
+CMakeFiles/robotencoder.dir/main.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robotencoder.dir/main.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/main.cpp > CMakeFiles/robotencoder.dir/main.i
 
-CMakeFiles/robotencoder.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robotencoder.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/main.cpp -o CMakeFiles/robotencoder.dir/main.cpp.s
+CMakeFiles/robotencoder.dir/main.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robotencoder.dir/main.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/main.cpp -o CMakeFiles/robotencoder.dir/main.s
 
-CMakeFiles/robotencoder.dir/main.cpp.o.requires:
-.PHONY : CMakeFiles/robotencoder.dir/main.cpp.o.requires
+CMakeFiles/robotencoder.dir/main.o.requires:
+.PHONY : CMakeFiles/robotencoder.dir/main.o.requires
 
-CMakeFiles/robotencoder.dir/main.cpp.o.provides: CMakeFiles/robotencoder.dir/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/main.cpp.o.provides.build
-.PHONY : CMakeFiles/robotencoder.dir/main.cpp.o.provides
+CMakeFiles/robotencoder.dir/main.o.provides: CMakeFiles/robotencoder.dir/main.o.requires
+	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/main.o.provides.build
+.PHONY : CMakeFiles/robotencoder.dir/main.o.provides
 
-CMakeFiles/robotencoder.dir/main.cpp.o.provides.build: CMakeFiles/robotencoder.dir/main.cpp.o
+CMakeFiles/robotencoder.dir/main.o.provides.build: CMakeFiles/robotencoder.dir/main.o
 
 # Object files for target robotencoder
 robotencoder_OBJECTS = \
-"CMakeFiles/robotencoder.dir/main.cpp.o"
+"CMakeFiles/robotencoder.dir/main.o"
 
 # External object files for target robotencoder
-robotencoder_EXTERNAL_OBJECTS =
+robotencoder_EXTERNAL_OBJECTS = \
+"/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/libpmd1208fs.o"
 
-sdk/bin/robotencoder: CMakeFiles/robotencoder.dir/main.cpp.o
+sdk/bin/robotencoder: CMakeFiles/robotencoder.dir/main.o
 sdk/bin/robotencoder: CMakeFiles/robotencoder.dir/build.make
+sdk/bin/robotencoder: ../libpmd1208fs.o
 sdk/bin/robotencoder: CMakeFiles/robotencoder.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable sdk/bin/robotencoder"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robotencoder.dir/link.txt --verbose=$(VERBOSE)
@@ -86,7 +88,7 @@ sdk/bin/robotencoder: CMakeFiles/robotencoder.dir/link.txt
 CMakeFiles/robotencoder.dir/build: sdk/bin/robotencoder
 .PHONY : CMakeFiles/robotencoder.dir/build
 
-CMakeFiles/robotencoder.dir/requires: CMakeFiles/robotencoder.dir/main.cpp.o.requires
+CMakeFiles/robotencoder.dir/requires: CMakeFiles/robotencoder.dir/main.o.requires
 .PHONY : CMakeFiles/robotencoder.dir/requires
 
 CMakeFiles/robotencoder.dir/clean:

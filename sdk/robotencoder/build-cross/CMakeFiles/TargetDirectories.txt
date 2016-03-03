@@ -1,0 +1,2 @@
+/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-cross/CMakeFiles/robotencoder.dir
+/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-cross/CMakeFiles/test_robotencoder.dir

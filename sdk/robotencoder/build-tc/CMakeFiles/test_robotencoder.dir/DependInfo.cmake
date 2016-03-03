@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/test.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-tc/CMakeFiles/test_robotencoder.dir/test.cpp.o"
+  "/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/test.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-tc/CMakeFiles/test_robotencoder.dir/test.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

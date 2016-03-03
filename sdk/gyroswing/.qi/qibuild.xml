@@ -1,4 +1,4 @@
 <qibuild version="1">
-  <defaults/>
-  <build/>
+  <defaults config="tc" />
+  <build />
 </qibuild>

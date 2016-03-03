@@ -172,53 +172,35 @@ test_robotencoder/fast:
 	$(MAKE) -f CMakeFiles/test_robotencoder.dir/build.make CMakeFiles/test_robotencoder.dir/build
 .PHONY : test_robotencoder/fast
 
-main.o: main.cpp.o
+# target to build an object file
+main.o:
+	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/main.o
 .PHONY : main.o
 
-# target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
+# target to preprocess a source file
+main.i:
+	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/main.i
 .PHONY : main.i
 
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
+# target to generate assembly for a file
+main.s:
+	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/main.s
 .PHONY : main.s
 
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/main.cpp.s
-.PHONY : main.cpp.s
-
-test.o: test.cpp.o
+# target to build an object file
+test.o:
+	$(MAKE) -f CMakeFiles/test_robotencoder.dir/build.make CMakeFiles/test_robotencoder.dir/test.o
 .PHONY : test.o
 
-# target to build an object file
-test.cpp.o:
-	$(MAKE) -f CMakeFiles/test_robotencoder.dir/build.make CMakeFiles/test_robotencoder.dir/test.cpp.o
-.PHONY : test.cpp.o
-
-test.i: test.cpp.i
+# target to preprocess a source file
+test.i:
+	$(MAKE) -f CMakeFiles/test_robotencoder.dir/build.make CMakeFiles/test_robotencoder.dir/test.i
 .PHONY : test.i
 
-# target to preprocess a source file
-test.cpp.i:
-	$(MAKE) -f CMakeFiles/test_robotencoder.dir/build.make CMakeFiles/test_robotencoder.dir/test.cpp.i
-.PHONY : test.cpp.i
-
-test.s: test.cpp.s
-.PHONY : test.s
-
 # target to generate assembly for a file
-test.cpp.s:
-	$(MAKE) -f CMakeFiles/test_robotencoder.dir/build.make CMakeFiles/test_robotencoder.dir/test.cpp.s
-.PHONY : test.cpp.s
+test.s:
+	$(MAKE) -f CMakeFiles/test_robotencoder.dir/build.make CMakeFiles/test_robotencoder.dir/test.s
+.PHONY : test.s
 
 # Help Target
 help:
