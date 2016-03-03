@@ -2,9 +2,7 @@
 
 // NOTE: cannot initialise angle_bins or velocity_bins here as they are static. Also space is not a field of StateSpace and
 // _angle_max and _velocity_max are not declared.
-StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, PriorityQueue<Action*,double> queue ):
-	angle_bins(_angle_bins),
-	velocity_bins(_velocity_bins),
+StateSpace::StateSpace(PriorityQueue<Action*,double> queue ):
 	space1(_angle_max, std::vector< PriorityQueue<Action*,double> > (_velocity_max, PriorityQueue<Action*,double> (queue)))
 	space2(_angle_max, std::vector< PriorityQueue<Action*,double> > (_velocity_max, PriorityQueue<Action*,double> (queue)))
 {}
@@ -22,4 +20,15 @@ PriorityQueue<Action *, double>& StateSpace::operator[](const State & state)
 {
 	//call the subscript operators with the members of the state object
 	return (*this)[state.robot_state][state.theta][state.theta_dot];
+}
+
+void setAngleBins(const double val)
+{
+	angle_bins=val;
+}
+
+void setVelocityBins(const double val)
+{
+	velocity_bins=val;
+}
 }
