@@ -7,6 +7,24 @@
 #include <utility>
 
 /**
+ * @struct isPointer
+ * @brief One of two structs to check if a type is a pointer
+ * @see isPointer<_T*>
+ */
+template<typename _T> struct isPointer {
+	static const bool isPointerFlag = false;	
+};
+
+/**
+ * @struct isPointer<_T*>
+ * @brief One of two structs to check if a type is a pointer
+ * @see isPointer
+ */
+template<typename _T> struct isPointer<_T*> {
+	static const bool isPointerFlag = true;	
+};
+
+/**
 * @enum HeapType
 *
 * @brief Type of binary heap structure for a PriorityQueue implementation, contains the
@@ -496,7 +514,10 @@ public:
 		// loop over streamed queue appending data to return string
 		while (streamedQueue.getSize()) {
 			std::pair<T, PT> dataPair = streamedQueue.dequeue();
-			retString += to_string(dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
+			if (isPointer<T>::isPointerFlag)
+				retString += to_string(*dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
+			else
+				retString += to_string(dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
 
 		}
 
@@ -1035,7 +1056,10 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
 	// loop over queue sending queue data to output stream
 	while (streamedQueue.getSize()) {
 		std::pair<Type, PriorityType> dataPair = streamedQueue.dequeue();
-		outStream << to_string(dataPair.first) << "\t" << to_string(dataPair.second) << "\n";
+		if (isPointer<Type>::isPointerFlag)
+			outStream << to_string(*dataPair.first) << "\t" << to_string(dataPair.second) << "\n";
+		else 
+			outStream << to_string(dataPair.first) << "\t" << to_string(dataPair.second) << "\n";
 	}
 
 	return outStream;
