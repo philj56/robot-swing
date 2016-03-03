@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    -lusb-1.0 -L/lib/i386-linux-gnu/ CMakeFiles/test_robotencoder.dir/test.o  -o sdk/bin/test_robotencoder -rdynamic 

@@ -1,0 +1,34 @@
+Can call pmd_serial or ain many times within one find_first -- close
+cycle, but if doem an odd number of times on one such cycle, the first
+operation on the next run (find_first -- close cycle) times out in the 
+get_data step.
+
+This is not fixed by the lightweight reset implied by a set_configuration,
+but does seem to be fixed by a reset_device as soon as it is opened.
+
+Exactly what is being left undone by the close - open cycle is unknown,
+so I hope this odd/even nonsense doen't brak anything else.
+
+============================================================
+// Do I need a timeout on blocking read??  The libusb_handle_events blocks for 2s at a time
+// and will not be repeated if a handles transfer yields an error.  Perhaps
+// should also not repeat it if a long time has expired with no activity at all
+// from transfer completions.  Does this happen in practice?
+// debug saying: handle_events returned -7  (LIBUSB_ERROR_TIMEOUT) would tell
+// us I suppose.
+===========================================================
+
+
+shared lib notes
+================
+
+REALLIB = libpmd1208fs.so.2.1   contains the actual shared library, which has a 
+soname of libpmd1208fs.so.2.
+
+The symlink SONAME = libpmd1208fs.so.2 -> REALLIB is used by the dynamic linker at
+run time to resolve the requirement for the soname.  This link can be made by ldconfig.
+
+The symlink LINKERNAME = libpmd1208fs.so is used by the linkeditor at build time
+to satisfy -lpmd1208fs (a .la file may change this).  This link is not created by ldconfig.
+
+To see dynamic links and soname:   objdump -p libpmd1208fs.so.2.1

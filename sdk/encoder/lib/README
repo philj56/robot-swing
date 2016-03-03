@@ -1,0 +1,130 @@
+PMD1208FS  Version 2
+====================
+
+This is a library to access the the USB-1208FS data acquisition
+device made by Measurement Computing Inc.  The device was formerly known as
+the PMD-1208FS, hence the (more useful) PMD prefix in much of this code.
+The device can be identified by its USB VID:PID of 0x09db:0x0082.
+
+This version uses the new libusb-1.0 instead of a custom kernel module.  This
+is now possible because libusb now provides asynchronous access, which is
+necessary to get good data rates.  See version requirement, below.
+
+The 1208FS does 12-bit, 50ksps conversion on up to 4 multiplexed differential
+input channels, with full scale from 1 volt to 20 volts.  There are two
+8-bit digital I/O ports, a 32-bit event counter (to 10 MHz), and two 12-bit
+0-4 volt analogue outputs.  This driver can run the ADC in burst mode at rates
+up to the full hardware speed.  Alternatively, "Software paced" I/O (one
+measurement per call) can be used; this initiates a USB1 transaction for each
+event, so runs at or below 1ksps.
+
+The analogue output scan mode which was present in version 1.x of this library
+has been omitted, as it was never terribly reliable, and was not obviously
+useful anyway.  
+
+
+Version 2.2 Update
+==================
+
+* Update to more generic build system
+
+* Additional function digin16 to provide all 16 bits of digital input at once
+
+* Better docstrings in Python module
+
+* New Python demo
+
+
+
+What you get
+============
+
+A shared library to link against.  The functions are pretty straightforward,
+and are documented in the header file.
+
+A demo program that exercises all the library functions
+
+A python class that provides a python binding to the library
+
+
+Requirements
+============
+
+Libusb 1.0  - must be newer than 
+http://downloads.sourceforge.net/libusb/libusb-1.0.0.tar.bz2
+
+The following is known to work:
+http://projects.reactivated.net/cgi-bin/gitweb.cgi?
+    p=libusb.git;a=snapshot;h=e0365a6f22e0e7f330ac931df031cf6f17f453d1;sf=tgz
+which I am calling e036
+
+There must not be a USB2 hub between the device and the computer.  This is
+because the PMD is a USB1 device, and the hub transaction translator is not
+fast enough.  Version 1.x of this library provided a kernel parameter to
+set interval=2 (2ms between interrupt transfers), giving reasonable
+performance, but that would need a modification to libusb -- easy, but I have
+no reason to bother.
+
+There is no firmware to load or udev rules to worry about.  Just so long as
+libusb can see the bus.
+
+
+Implementation notes
+====================
+
+* Differential inputs only (4 channel) [design decision]
+
+* External sync implies not gated (i.e. expects an unsynchronised source
+  and so drops the first pulse to ensure setup time) [design decision]
+
+* Analogue input scans work at full 50 ksps speed [maximum for the ADC].
+
+* There are probably some unwarranted assumptions about endianness in the
+  library.
+
+
+Build instructions
+==================
+
+make
+sudo make install
+
+
+Interesting files
+=================
+
+Makefile         makes library and test prog.
+README           this file
+libpmd1208fs.c   library 
+pmd1208fs.h      library header
+pmd.py           Python binding
+demo.c           silly test program for library
+demo.py          simple example of use of the Python module
+
+
+General complaints
+==================
+
+The 1208FS is a nice cheap (~£100) hardware with a  good range of functions.
+
+Its firmware is distinctly cranky, as it force-fits this high data rate device
+to the USB HID model, presumably for Windows driver reasons.
+HID = Human interface device.  Yes, the high speed ADC really does pretend to
+be three keyboards typing really fast.
+
+Measurement Computing Inc provided no help in writing the driver.  Their
+web site sounds helpful, but the only reponse I ever got from them was a
+reference to their UK salesman at Adept Scientific, who was not that
+interested.  The driver was developed by observing the USB traffic generated
+by Windows test programs.  The hardware is great, but it needs close
+integration with the driver in order to work well.  It is therefore a shame
+that Measurement Computing (or their agents) can't be bothered with driver
+developers.
+
+
+:Author:  | Mark Colclough
+          | m.s.colclough
+          | bham.ac.uk
+          | Copyright 2005 - 2015
+
+:Licence: | GPL version 2.

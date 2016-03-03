@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/encoder.cpp
+encoder.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/encoder.h
+
+/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/encoder.h
+pmd1208fs.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/pmd1208fs.h
+iostream
+-
+
+/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/main.cpp
+iostream
+-
+encoder.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/encoder.h
+
+/gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/pmd1208fs.h
+libusb-1.0/libusb.h
+-
+

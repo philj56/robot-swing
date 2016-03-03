@@ -1,0 +1,12 @@
+         |-----handy-ruler------------------------------------------------------|
+pmd1208fs: pmd1208fs (PMD-1208FS and USB-1208FS data acquisition device)
+pmd1208fs:
+pmd1208fs: This is a library to access the the USB-1208FS data acquisition
+pmd1208fs: device made by Measurement Computing Inc.  The device was formerly
+pmd1208fs: known as the PMD-1208FS, hence the PMD prefix.
+pmd1208fs:
+pmd1208fs: The 1208FS does 12-bit, 50ksps conversion, has two simple analogue
+pmd1208fs: outputs, 16 I/O bits, and a counter.
+pmd1208fs:
+pmd1208fs:
+pmd1208fs:
