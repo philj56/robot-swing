@@ -37,6 +37,7 @@ public:
 	virtual void init();
 
 	void goLimp();
+	void goStiff();
 
 	// Seated movement
 	void swingForwards();
