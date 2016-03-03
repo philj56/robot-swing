@@ -114,8 +114,8 @@ int main()
 	
 	while(true)
 	{
-		current_state.theta=encoder.GetAngle();
-		current_state.theta_dot=(current_state.theta - old_state.theta)/TIME;
+		current_state.theta= M_PI * encoder.GetAngle()/180;
+		current_state.theta_dot=(current_state.theta - old_state.theta)/TIME; //Needs actual time
 		current_state.robot_state=chosen_action.action;
 		
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
