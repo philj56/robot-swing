@@ -39,6 +39,9 @@ BodyInfo::BodyInfo(boost::shared_ptr<AL::ALBroker> broker,
 	functionName("getHipPitch", getName(), "Read hip pitch angles");
 	BIND_METHOD(BodyInfo::getHipPitch);
 
+	functionName("getInitAngles", getName(), "Calibrate body angles to current position");
+	BIND_METHOD(BodyInfo::getInitAngles);
+
 	functionName("getSittingCOMAngles", getName(), "Get COM angles from seat for sitting position");
 	BIND_METHOD(BodyInfo::getSittingCOMAngles);
 
