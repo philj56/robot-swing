@@ -37,7 +37,9 @@ int main()
 	initiator_queue.enqueueWithPriority(actions[1],0);
 	
 	//create the state space
-	StateSpace space(100,50,initiator_queue);
+	StateSpace space(initiator_queue);
+	space.setAngle(100);
+	space.setVelocity(50);
 	
 	//state objects
 	State current_state(0,0,FORWARD);
