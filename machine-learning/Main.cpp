@@ -205,16 +205,3 @@ void updateQ(StateSpace & space, Action * action, State & new_state, State & old
     space[old_state].changePriority(action, newQ);
 }
 
-movement()
-{
-	
-	// Add the broker to NAOqi
-	AL::ALBrokerManager::setInstance(broker->fBrokerManager.lock());
-	AL::ALBrokerManager::getInstance()->addBroker(broker);
-	
-	createModule(movementLibName, movementModuleName, broker, false, true);
-	
-	AL::ALProxy movementToolsProxy(movementModuleName, pip, pport);
-	
-	movementToolsProxy.callVoid("swingForwards");
-}
