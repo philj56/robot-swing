@@ -84,9 +84,9 @@ class StateSpace
 		
 	private:
 		//the sizes of the three arrays
-		static const int angle_bins;
-		static const int velocity_bins;
-		static const int torque_bins;
+		static int angle_bins;
+		static int velocity_bins;
+		static int torque_bins;
 		
 		//the 3d vector that contains the robots previous experiences in each state
 		std::vector< std::vector< std::vector< PriorityQueue<Action*,double> > > > space;
