@@ -1,6 +1,6 @@
 #include "Action.h"
 
-Action::Action(const int _action, void (*)() _execute):
+Action::Action(const int _action, void (*_execute)()):
 action(_action), execute(_execute)
 {}
 
