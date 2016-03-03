@@ -90,16 +90,13 @@ int main()
 	//seed rng
 	std::srand(std::time(NULL));
 	
-	//create pointers to the possible actions as well as a pointer to hold the chosen action
-	Action* chosen_action;
-	Action* actions[2];
-	actions[0]=new Action(FORWARD,/*function pointer here*/);
-	actions[1]=new Action(BACKWARD,/*function pointer here*/);
+	std::string action_forwards = "swingForwards";
+	std::string action_backwards = "swingBackwards";
 	
 	//create a priority queue to copy to all the state space priority queues
-	PriorityQueue<Action*,double> initiator_queue(MAX);
-	initiator_queue.enqueueWithPriority(actions[0],0);
-	initiator_queue.enqueueWithPriority(actions[1],0);
+	PriorityQueue<std::string *,double> initiator_queue(MAX);
+	initiator_queue.enqueueWithPriority(&action_forwards,0);
+	initiator_queue.enqueueWithPriority(&action_backwards,0);
 	
 	//create encoder
 	Encoder encoder();
