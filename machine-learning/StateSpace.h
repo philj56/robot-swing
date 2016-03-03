@@ -77,10 +77,8 @@ class StateSpace
 		
 	private:
 		//the sizes of the two arrays
-		// NOTE: these need to be initialised in-class or changed to non-static
-		// as they cannot be initialised in a constructor due to static access
-		static const int angle_bins;
-		static const int velocity_bins;
+		const int angle_bins;
+		const int velocity_bins;
 		
 		//the 2d array that contains the robots previous experiences in each state
 		std::vector< std::vector< PriorityQueue<Action*,double> > > space1;
