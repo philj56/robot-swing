@@ -1,22 +1,88 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
+#include <string>
 #include "StateSpace.h"
-#include "Action.h"
 #include "PriorityQueue.h"
 #include "State.h"
+#include "encoder.h"
+#include "CreateModule.h"
+
 
 //function to calculate a temperature for the select action function as a function of time
 double temperature();
 
 //function to select next action
-Action * selectAction(PriorityQueue<Action *,double>& a_queue);
+std::string * selectAction(PriorityQueue<std::string *,double>& a_queue);
 
 //function to update a q value
-void updateQ(StateSpace & space, Action & action, State & new_state, State & old_state, double alpha, double gamma);
+void updateQ(StateSpace & space, std::string * action, State & new_state, State & old_state, double alpha, double gamma);
 
 int main()
-{
+{	
+	// STUFF WE DONT UNDERSTAND, AND DONT NEED TO
+	//__________________________________________________________________________________________
+	//__________________________________________________________________________________________
+	// Libraries to load
+	std::string bodyLibName = "bodyinfo";
+	std::string movementLibName = "movementtools";
+	
+	// Name of camera module in library
+	std::string bodyModuleName = "BodyInfo";
+	std::string movementModuleName = "MovementTools";
+
+	// Set broker name, ip and port, finding first available port from 54000
+	const std::string brokerName = "MotionTimingBroker";
+	int brokerPort = qi::os::findAvailablePort(54000);
+	const std::string brokerIp = "0.0.0.0";
+	
+	// Default parent port and ip
+	int pport = 9559;
+	std::string pip = "127.0.0.1";
+	
+	// Need this for SOAP serialisation of floats to work
+	setlocale(LC_NUMERIC, "C");
+
+	// Create a broker
+	boost::shared_ptr<AL::ALBroker> broker;
+	try
+	{
+		broker = AL::ALBroker::createBroker(
+				brokerName,
+				brokerIp,
+				brokerPort,
+				pip,
+				pport,
+				0);
+	}
+	// Throw error and quit if a broker could not be created
+	catch(...)
+	{
+		std::cerr << "Failed to connect broker to: "
+			  << pip
+			  << ":"
+			  << pport
+			  << std::endl;
+		AL::ALBrokerManager::getInstance()->killAllBroker();
+		AL::ALBrokerManager::kill();
+
+		return 1;
+	}
+
+	// Add the broker to NAOqi
+	AL::ALBrokerManager::setInstance(broker->fBrokerManager.lock());
+	AL::ALBrokerManager::getInstance()->addBroker(broker);
+
+	CreateModule(movementLibName, movementModuleName, broker, false, true);
+	CreateModule(bodyLibName, bodyModuleName, broker, false, true);
+	
+	AL::ALProxy bodyInfoProxy(bodyModuleName, pip, pport);
+	AL::ALProxy movementToolsProxy(movementModuleName, pip, pport);
+	AL::ALMotionProxy motion(pip, pport);
+	//__________________________________________________________________________________________
+	//__________________________________________________________________________________________
+	//END OF STUFF WE DONT UNDERSTAND, BREATHE NOW
+	
 	//learning factor
 	const double alpha=0.5;
 	//discount factor
@@ -25,16 +91,18 @@ int main()
 	//seed rng
 	std::srand(std::time(NULL));
 	
-	//create pointers to the possible actions as well as a pointer to hold the chosen action
-	Action* chosen_action;
-	Action* actions[2];
-	actions[0]=new Action(FORWARD,/*function pointer here*/);
-	actions[1]=new Action(BACKWARD,/*function pointer here*/);
+	std::string action_forwards = "swingForwards";
+	std::string action_backwards = "swingBackwards";
+	std::string* chosen_action = &action_forwards;
 	
 	//create a priority queue to copy to all the state space priority queues
-	PriorityQueue<Action*,double> initiator_queue(MAX);
-	initiator_queue.enqueueWithPriority(actions[0],0);
-	initiator_queue.enqueueWithPriority(actions[1],0);
+	PriorityQueue<std::string *,double> initiator_queue(MAX);
+	initiator_queue.enqueueWithPriority(&action_forwards,0);
+	initiator_queue.enqueueWithPriority(&action_backwards,0);
+	
+	//create encoder
+	Encoder encoder();
+	encoder.calibrate();
 	
 	//create the state space
 	StateSpace space(initiator_queue);
@@ -47,9 +115,9 @@ int main()
 	
 	while(true)
 	{
-		current_state.theta=getAngle();
-		current_state.theta_dot=getVelocity();
-		current_state.robot_state=chosen_action.action;
+		current_state.theta= M_PI * encoder.GetAngle()/180;
+		current_state.theta_dot=(current_state.theta - old_state.theta)/700; //Needs actual time
+		current_state.robot_state=(str_comp(*chosen_action,"swingForwards"))?FORWARD:BACKWARD;
 		
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
 		
@@ -57,11 +125,8 @@ int main()
 		
 		chosen_action=selectAction(space[current_state]);
 		
-		chosen_action.execute();
+		movementToolsProxy.callVoid((*chosen_action).c_str());
 	}
-	
-	delete actions[0];
-	delete actions[1];
 	
 	return 1;
 }
@@ -74,11 +139,11 @@ double temperature()
 //function is fed with a priority queue of action-values 
 //generates Boltzmann distribution of these action-values
 //and selects an action based on probabilities 
-Action * selectAction(PriorityQueue<Action *,double>& a_queue)
+std::string * selectAction(PriorityQueue<std::string *,double>& a_queue)
 {	
-	typedef PriorityQueue<Action *,double> PQ;
-	typedef std::vector< std::pair<Action *, double> > Vec_Pair;
-	typedef std::pair<Action *, double> Pair;
+	typedef PriorityQueue<std::string *,double> PQ;
+	typedef std::vector< std::pair<std::string *, double> > Vec_Pair;
+	typedef std::pair<std::string *, double> Pair;
 	
 	double sum= 0;
 	int i = 0;
@@ -100,7 +165,7 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 	}
 	
 	//calculate cumulative probability distribution    
-	for(std::vector< std::pair<int, double> >::iterator it1 = action_vec.begin()++,it2 = action_vec.begin(),end=action_vec.end(); it < end; ++it1,++it2)
+	for(Vec_Pair::iterator it1 = action_vec.begin()++,it2 = action_vec.begin(),end=action_vec.end(); it < end; ++it1,++it2)
 	{
 	    it1->second += it2->second;
 	}
@@ -118,7 +183,7 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 	return NULL; //note that this line should never be reached
 }
 
-void updateQ(StateSpace & space, Action * action, State & new_state, State & old_state, double alpha, double gamma)
+void updateQ(StateSpace & space, std::string * action, State & new_state, State & old_state, double alpha, double gamma)
 {
     //oldQ value reference
     double oldQ = space[old_state].search(action).second;
@@ -136,16 +201,3 @@ void updateQ(StateSpace & space, Action * action, State & new_state, State & old
     space[old_state].changePriority(action, newQ);
 }
 
-movement()
-{
-	
-	// Add the broker to NAOqi
-	AL::ALBrokerManager::setInstance(broker->fBrokerManager.lock());
-	AL::ALBrokerManager::getInstance()->addBroker(broker);
-	
-	createModule(movementLibName, movementModuleName, broker, false, true);
-	
-	AL::ALProxy movementToolsProxy(movementModuleName, pip, pport);
-	
-	movementToolsProxy.callVoid("swingForwards");
-}
