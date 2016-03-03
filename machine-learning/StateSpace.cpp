@@ -5,7 +5,8 @@
 StateSpace::StateSpace(const unsigned int _angle_bins, const unsigned int _velocity_bins, PriorityQueue<Action*,double> queue ):
 	angle_bins(_angle_bins),
 	velocity_bins(_velocity_bins),
-	space(_angle_max, std::vector< PriorityQueue<Action*,double> > (_velocity_max, PriorityQueue<Action*,double> (queue)))
+	space1(_angle_max, std::vector< PriorityQueue<Action*,double> > (_velocity_max, PriorityQueue<Action*,double> (queue)))
+	space2(_angle_max, std::vector< PriorityQueue<Action*,double> > (_velocity_max, PriorityQueue<Action*,double> (queue)))
 {}
 
 StateSpace::SubscriptProxy1 StateSpace::operator[](const unsigned int robot_state)
