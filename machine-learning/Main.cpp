@@ -165,7 +165,7 @@ std::string * selectAction(PriorityQueue<std::string *,double>& a_queue)
 	}
 	
 	//calculate cumulative probability distribution    
-	for(std::vector< std::pair<int, double> >::iterator it1 = action_vec.begin()++,it2 = action_vec.begin(),end=action_vec.end(); it < end; ++it1,++it2)
+	for(Vec_Pair::iterator it1 = action_vec.begin()++,it2 = action_vec.begin(),end=action_vec.end(); it < end; ++it1,++it2)
 	{
 	    it1->second += it2->second;
 	}
