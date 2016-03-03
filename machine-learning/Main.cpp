@@ -73,8 +73,8 @@ int main()
 	AL::ALBrokerManager::setInstance(broker->fBrokerManager.lock());
 	AL::ALBrokerManager::getInstance()->addBroker(broker);
 
-	createModule(movementLibName, movementModuleName, broker, false, true);
-	createModule(bodyLibName, bodyModuleName, broker, false, true);
+	CreateModule(movementLibName, movementModuleName, broker, false, true);
+	CreateModule(bodyLibName, bodyModuleName, broker, false, true);
 	
 	AL::ALProxy bodyInfoProxy(bodyModuleName, pip, pport);
 	AL::ALProxy movementToolsProxy(movementModuleName, pip, pport);
