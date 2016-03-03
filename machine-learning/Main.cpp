@@ -17,7 +17,70 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue);
 void updateQ(StateSpace & space, Action & action, State & new_state, State & old_state, double alpha, double gamma);
 
 int main()
-{
+{	
+	// STUFF WE DONT UNDERSTAND, AND DONT NEED TO
+	//__________________________________________________________________________________________
+	//__________________________________________________________________________________________
+	// Libraries to load
+	std::string bodyLibName = "bodyinfo";
+	std::string movementLibName = "movementtools";
+	
+	// Name of camera module in library
+	std::string bodyModuleName = "BodyInfo";
+	std::string movementModuleName = "MovementTools";
+
+	// Set broker name, ip and port, finding first available port from 54000
+	const std::string brokerName = "MotionTimingBroker";
+	int brokerPort = qi::os::findAvailablePort(54000);
+	const std::string brokerIp = "0.0.0.0";
+	
+	// Default parent port and ip
+	int pport = 9559;
+	std::string pip = "127.0.0.1";
+	
+	// Need this for SOAP serialisation of floats to work
+	setlocale(LC_NUMERIC, "C");
+
+	// Create a broker
+	boost::shared_ptr<AL::ALBroker> broker;
+	try
+	{
+		broker = AL::ALBroker::createBroker(
+				brokerName,
+				brokerIp,
+				brokerPort,
+				pip,
+				pport,
+				0);
+	}
+	// Throw error and quit if a broker could not be created
+	catch(...)
+	{
+		std::cerr << "Failed to connect broker to: "
+			  << pip
+			  << ":"
+			  << pport
+			  << std::endl;
+		AL::ALBrokerManager::getInstance()->killAllBroker();
+		AL::ALBrokerManager::kill();
+
+		return 1;
+	}
+
+	// Add the broker to NAOqi
+	AL::ALBrokerManager::setInstance(broker->fBrokerManager.lock());
+	AL::ALBrokerManager::getInstance()->addBroker(broker);
+
+	createModule(movementLibName, movementModuleName, broker, false, true);
+	createModule(bodyLibName, bodyModuleName, broker, false, true);
+	
+	AL::ALProxy bodyInfoProxy(bodyModuleName, pip, pport);
+	AL::ALProxy movementToolsProxy(movementModuleName, pip, pport);
+	AL::ALMotionProxy motion(pip, pport);
+
+	
+	//__________________________________________________________________________________________
+	//__________________________________________________________________________________________
 	//learning factor
 	const double alpha=0.5;
 	//discount factor
