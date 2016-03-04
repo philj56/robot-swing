@@ -19,7 +19,7 @@ class StateSpace
 	public:
 		//@_var_bins: the number of bin in the array of the corresponding variable
 		//@queue: the PriorityQueue to initialise the StateSpace with (this should normally contain just one of every action all with 0 priority)
-		explicit StateSpace(PriorityQueue<int,double> queue);
+		explicit StateSpace(int _angle_bins, int _velocity_bins, const PriorityQueue<int,double>& queue);
 		
 		void setAngleBins(const double val);
 		void setVelocityBins(const double val);
