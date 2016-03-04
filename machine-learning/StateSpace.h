@@ -40,7 +40,7 @@ class StateSpace
 					//error if angle exceeds bounds
 					if(std::abs(velocity)>1)throw std::domain_error("velocity argument exceeded");
 					//descretise index
-					int discrete_index=std::round(velocity*100/velocity_bins)+velocity_bins/2;
+					int discrete_index=round(velocity*100/velocity_bins)+velocity_bins/2;
 					
 					//return appropriate array
 					return vec[discrete_index];
@@ -59,7 +59,7 @@ class StateSpace
 					//error if angle exceeds bounds
 					if(std::abs(angle)>M_PI/4)throw std::domain_error("angle argument exceeded");
 					//descretise index
-					int discrete_index=std::round(angle*100/angle_bins)+angle_bins/2;
+					int discrete_index=round(angle*100/angle_bins)+angle_bins/2;
 					
 					//return appropriate object
 					return SubscriptProxy2(vec[discrete_index]);
