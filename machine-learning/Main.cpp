@@ -102,13 +102,15 @@ int main()
 	std::srand(std::time(NULL));
 	
 	int action_forwards = FORWARD;
+	int* p_action_forwards = &action_forwards;
 	int action_backwards = BACKWARD;
+	int* p_action_backwards = &action_backwards;
 	int* chosen_action = &action_forwards;
 	
 	//create a priority queue to copy to all the state space priority queues
-	PriorityQueue<int,double> initiator_queue(MAX);
-	initiator_queue.enqueueWithPriority(action_forwards,0);
-	initiator_queue.enqueueWithPriority(action_backwards,0);
+	PriorityQueue<int*,double> initiator_queue(MAX);
+	initiator_queue.enqueueWithPriority(p_action_forwards,0);
+	initiator_queue.enqueueWithPriority(p_action_backwards,0);
 	
 	//create encoder
 	Encoder encoder();
@@ -135,7 +137,7 @@ int main()
 		
 		chosen_action=selectAction(space[current_state]);
 		
-		(*chosen_action)?movementToolsProxy.callVoid("moveForwards"):movementToolsProxy.callVoid("moveBackwards");
+		(*chosen_action)?movementToolsProxy.callVoid("swingForwards"):movementToolsProxy.callVoid("swingBackwards");
 	}
 	
 	return 1;
