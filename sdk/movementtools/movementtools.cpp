@@ -47,15 +47,16 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 				    "LWristYaw",		
 				    "RAnklePitch",		
 				    "RAnkleRoll",		
-				    "RElbowRoll",		
-				    "RElbowYaw",		
+	//			    "RElbowRoll",		
+	//			    "RElbowYaw",		
 				    "RHipPitch",		
 				    "RHipRoll",		
 				    "RHipYawPitch",	
 				    "RKneePitch",	
-				    "RShoulderPitch",	
-				    "RShoulderRoll",	
-				    "RWristYaw"};	
+	//			    "RShoulderPitch",	
+	//			    "RShoulderRoll",	
+	//			    "RWristYaw"
+				    };	
 
 	float sitForwardAnglesArray[] = { 0.921892f,
 				    0.04146f,
@@ -70,15 +71,16 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 				   -1.39905f,
 				    0.921976f,
 				   -0.0168321f,
-				    1.53864f,
-				    0.22699f,
+	//			    1.53864f,
+	//			    0.22699f,
 				   -1.07231f,
 				    0.0506639f,
 				   -0.0183661f,
 				    1.52637f,
-				    0.219404f,
-				   -0.83147f,
-				    1.45419f};
+	//			    0.219404f,
+	//			   -0.83147f,
+	//			    1.45419f
+				    };
 
 	float sitBackwardAnglesArray[] = { 0.820648f,
 				    0.023052f,
@@ -93,19 +95,20 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 				   -1.7488f,
 				    0.921976f,
 				   -0.0168321f,
-				    0.0583339f,
-				    0.20398f,
+	//			    0.0583339f,
+	//			    0.20398f,
 			 	   -0.615176f,
 				    0.0368581f,
 				   -0.02757f,
 				   -0.0923279f,
-				    0.420358f,
-				    0.0152981f,
-				    1.38516f};
+	//			    0.420358f,
+	//			    0.0152981f,
+	//			    1.38516f
+				    };
 	
-	angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + 22));
-	sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 22));
-	sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + 22));
+	angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + 17));
+	sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 17));
+	sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + 17));
 }
 
 // Destructor
