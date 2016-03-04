@@ -2,7 +2,7 @@
 
 // NOTE: cannot initialise angle_bins or velocity_bins here as they are static. Also space is not a field of StateSpace and
 // _angle_max and _velocity_max are not declared.
-StateSpace::StateSpace(int _angle_bins, int _velocity_bins, PriorityQueue<int,double>& queue ):
+StateSpace::StateSpace(int _angle_bins, int _velocity_bins, const PriorityQueue<int,double>& queue ):
 	space1(_angle_bins, std::vector< PriorityQueue<int,double> > (_velocity_bins, PriorityQueue<int,double> (queue)))
 	space2(_angle_bins, std::vector< PriorityQueue<int,double> > (_velocity_bins, PriorityQueue<int,double> (queue)))
 {}
