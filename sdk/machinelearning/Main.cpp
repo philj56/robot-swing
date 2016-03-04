@@ -202,7 +202,7 @@ void updateQ(StateSpace & space, int action, State & new_state, State & old_stat
     double R = new_state.getReward();
     
     //optimal Q value for new state i.e. first element 
-    double maxQ = space[current_state].peekFront().second;
+    double maxQ = space[old_state].peekFront().second;
     
     //new Q value determined by Q learning algorithm
     double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ);
