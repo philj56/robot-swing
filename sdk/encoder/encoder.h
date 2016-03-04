@@ -38,11 +38,11 @@ float Encoder::GetAngle(){
 
     actual_angle = raw_angle * (360.0/2048.0) - cal;
 */
-    return actual_angle;
+    return actual_angle -cal;
 }
 
 void Encoder::Calibrate(){
-    unsigned int a, b, c;
+/*    unsigned int a, b, c;
     a = pmd_digin(handle, 0);
     b = pmd_digin(handle, 1);
 
@@ -51,8 +51,9 @@ void Encoder::Calibrate(){
     raw_angle = (a | c) & (2047);
 
     actual_angle = raw_angle * (360.0/2048.0) - cal;
-
-    cal = actual_angle;
+*/
+    cal = 0;
+    cal =  GetAngle();//actual_angle;
 
 }
 

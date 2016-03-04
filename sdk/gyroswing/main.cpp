@@ -32,11 +32,17 @@
 int vectorOrder (std::vector<float> vec);
 
 AL::ALMotionProxy motproxy;
+AL::ALMemoryProxy memproxy;
 
 double timediff(double t1, double t2){
 
 	return t1-t2;
 
+}
+
+double gyro(){
+	return memproxy.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value");
+ 
 }
 
 bool grad(double v1, double v2, double timeDiff){
@@ -171,7 +177,7 @@ int main(int argc, char* argv[])
 	   AL::ALValue sitForwardAngles; 
 	   AL::ALValue sitBackwardAngles; 
        
-       float speed = 0.6;
+       float speed = 0.4;
 
 	   std::string angleNamesArray[] = { "LAnklePitch",		
 				    "LAnkleRoll",		
@@ -246,10 +252,11 @@ int main(int argc, char* argv[])
 		sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 22));
 		sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + 22));
     
-        AL::ALMemoryProxy memproxy(pip, pport);
+        AL::ALMemoryProxy memory(pip, pport);
        // AL::ALMotionProxy motproxy(pip, pport);
         AL::ALMotionProxy motion(pip, pport);
 	motproxy = motion;
+	memproxy = memory;
         AL::ALValue val1;
         AL::ALValue val2;
         double v1;
@@ -289,7 +296,7 @@ int main(int argc, char* argv[])
         v1 = val1;
         v2 = val1;
         
-        SMA gyro(20);
+//        SMA gyro(20);
         
         AL::ALValue gyrodata [20];
         double gyrodouble [20];
@@ -298,7 +305,7 @@ int main(int argc, char* argv[])
         old = current;
         bool eq = false;
 		
-        std::cout << "Average: ";
+  //      std::cout << "Average: ";
         /*while ((t2.tv_sec - t1.tv_sec) < 180){
 			
 			//Gets the moving average
@@ -335,8 +342,8 @@ int main(int argc, char* argv[])
 	outfile.open("gyroOutputUsingAngVell0.01h1.0.txt");
         outfile << "Time \t GyroX \t v1-v2" << std::endl;
         std::cout << "Moving onto gyroscope" << std::endl;
-	double currentTime = t2.tv_sec;
-	double lastTime = t2.tv_sec-0.01;
+	double currentTime = t2.tv_msec;
+	double lastTime = t2.tv_msec-0.01;
 	
         while ((t2.tv_sec - t1.tv_sec) < 180){
            double deltat = timediff(currentTime,lastTime);
@@ -352,12 +359,13 @@ int main(int argc, char* argv[])
            }
            
            v2 = v1;
-           val1 = memproxy.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value");
+//           val1 = memproxy.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value");
+	   val1 = gyro();
            v1 = val1;
            std::cout << "GyroscopeY " << v1 << std::endl;
            gettimeofday(&t2, NULL);
 	   lastTime = currentTime;
-	   currentTime = t2.tv_sec;
+	   currentTime = t2.tv_msec;
 	   outfile << currentTime << "\t" << v1 << "\t" << (v1-v2)/deltat<<std::endl;
         }
         
