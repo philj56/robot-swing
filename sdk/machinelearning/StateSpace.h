@@ -10,9 +10,6 @@
 //index with state_space_object[robot_state][angle][velocity]
 //   or with state_space_object[state_object]
 
-class Action;
-class State;	// don't need this if including State.h
-
 //class to hold the 2d vector of containers of experiences that represents the robot's state and memory
 class StateSpace
 {
