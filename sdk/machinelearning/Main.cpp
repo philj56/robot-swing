@@ -23,10 +23,10 @@ template<typename T> std::string to_string(T x) {
 double temperature();
 
 //function to select next action
-int * selectAction(PriorityQueue<int,double>& a_queue);
+int selectAction(PriorityQueue<int,double>& a_queue);
 
 //function to update a q value
-void updateQ(StateSpace & space, int * action, State & new_state, State & old_state, double alpha, double gamma);
+void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma);
 
 int main()
 {	
@@ -102,15 +102,13 @@ int main()
 	std::srand(std::time(NULL));
 	
 	int action_forwards = FORWARD;
-	int* p_action_forwards = &action_forwards;
 	int action_backwards = BACKWARD;
-	int* p_action_backwards = &action_backwards;
-	int* chosen_action = &action_forwards;
+	int chosen_action = &action_forwards;
 	
 	//create a priority queue to copy to all the state space priority queues
-	PriorityQueue<int*,double> initiator_queue(MAX);
-	initiator_queue.enqueueWithPriority(p_action_forwards,0);
-	initiator_queue.enqueueWithPriority(p_action_backwards,0);
+	PriorityQueue<int,double> initiator_queue(MAX);
+	initiator_queue.enqueueWithPriority(action_forwards,0);
+	initiator_queue.enqueueWithPriority(action_backwards,0);
 	
 	//create encoder
 	Encoder encoder();
@@ -129,7 +127,7 @@ int main()
 	{
 		current_state.theta= M_PI * encoder.GetAngle()/180;
 		current_state.theta_dot=(current_state.theta - old_state.theta)/700; //Needs actual time
-		current_state.robot_state=*chosen_action;
+		current_state.robot_state=chosen_action;
 		
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
 		
@@ -137,7 +135,7 @@ int main()
 		
 		chosen_action=selectAction(space[current_state]);
 		
-		(*chosen_action)?movementToolsProxy.callVoid("swingForwards"):movementToolsProxy.callVoid("swingBackwards");
+		(chosen_action)?movementToolsProxy.callVoid("swingForwards"):movementToolsProxy.callVoid("swingBackwards");
 	}
 	
 	return 1;
@@ -151,11 +149,11 @@ double temperature()
 //function is fed with a priority queue of action-values 
 //generates Boltzmann distribution of these action-values
 //and selects an action based on probabilities 
-int * selectAction(PriorityQueue<int *,double>& a_queue)
+int selectAction(PriorityQueue<int,double>& a_queue)
 {	
-	typedef PriorityQueue<int *,double> PQ;
-	typedef std::vector< std::pair<int *, double> > Vec_Pair;
-	typedef std::pair<int *, double> Pair;
+	typedef PriorityQueue<int,double> PQ;
+	typedef std::vector< std::pair<int, double> > Vec_Pair;
+	typedef std::pair<int, double> Pair;
 	
 	double sum= 0;
 	int i = 0;
@@ -195,7 +193,7 @@ int * selectAction(PriorityQueue<int *,double>& a_queue)
 	return NULL; //note that this line should never be reached
 }
 
-void updateQ(StateSpace & space, int * action, State & new_state, State & old_state, double alpha, double gamma)
+void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma)
 {
     //oldQ value reference
     double oldQ = space[old_state].search(action).second;
