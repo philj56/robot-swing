@@ -2,12 +2,22 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <sstream>
 #include "StateSpace.h"
 #include "PriorityQueue.h"
 #include "State.h"
 #include "encoder.h"
 #include "CreateModule.h"
 
+/**
+ * @brief Gives a std::string representation of a primitive type
+ * 
+ * @param x Primitive type such as int, double, long
+ * @return std::string conversion of param x
+ */
+template<typename T> std::string to_string(T x) {
+	return static_cast<std::ostringstream&>((std::ostringstream() << std::dec << x)).str();
+}
 
 //function to calculate a temperature for the select action function as a function of time
 double temperature();
