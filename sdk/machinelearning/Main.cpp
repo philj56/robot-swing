@@ -118,8 +118,8 @@ int main()
 	
 	//create the state space
 	StateSpace space(initiator_queue);
-	space.setAngle(100);
-	space.setVelocity(50);
+	space.setAngleBins(100);
+	space.setVelocityBins(50);
 	
 	//state objects
 	State current_state(0,0,FORWARD);
