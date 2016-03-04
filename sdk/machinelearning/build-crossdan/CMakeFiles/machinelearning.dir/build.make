@@ -35,7 +35,7 @@ RM = /usr/bin/cmake -E remove -f
 CMAKE_SOURCE_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml
+CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-crossdan
 
 # Include any dependencies generated for this target.
 include CMakeFiles/machinelearning.dir/depend.make
@@ -48,7 +48,7 @@ include CMakeFiles/machinelearning.dir/flags.make
 
 CMakeFiles/machinelearning.dir/Main.cpp.o: CMakeFiles/machinelearning.dir/flags.make
 CMakeFiles/machinelearning.dir/Main.cpp.o: ../Main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-crossdan/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/machinelearning.dir/Main.cpp.o"
 	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/machinelearning.dir/Main.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/Main.cpp
 
@@ -71,7 +71,7 @@ CMakeFiles/machinelearning.dir/Main.cpp.o.provides.build: CMakeFiles/machinelear
 
 CMakeFiles/machinelearning.dir/CreateModule.cpp.o: CMakeFiles/machinelearning.dir/flags.make
 CMakeFiles/machinelearning.dir/CreateModule.cpp.o: ../CreateModule.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-crossdan/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/machinelearning.dir/CreateModule.cpp.o"
 	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/machinelearning.dir/CreateModule.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/CreateModule.cpp
 
@@ -94,7 +94,7 @@ CMakeFiles/machinelearning.dir/CreateModule.cpp.o.provides.build: CMakeFiles/mac
 
 CMakeFiles/machinelearning.dir/State.cpp.o: CMakeFiles/machinelearning.dir/flags.make
 CMakeFiles/machinelearning.dir/State.cpp.o: ../State.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-crossdan/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/machinelearning.dir/State.cpp.o"
 	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/machinelearning.dir/State.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/State.cpp
 
@@ -117,7 +117,7 @@ CMakeFiles/machinelearning.dir/State.cpp.o.provides.build: CMakeFiles/machinelea
 
 CMakeFiles/machinelearning.dir/StateSpace.cpp.o: CMakeFiles/machinelearning.dir/flags.make
 CMakeFiles/machinelearning.dir/StateSpace.cpp.o: ../StateSpace.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-crossdan/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/machinelearning.dir/StateSpace.cpp.o"
 	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/machinelearning.dir/StateSpace.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/StateSpace.cpp
 
@@ -140,7 +140,7 @@ CMakeFiles/machinelearning.dir/StateSpace.cpp.o.provides.build: CMakeFiles/machi
 
 CMakeFiles/machinelearning.dir/encoder.cpp.o: CMakeFiles/machinelearning.dir/flags.make
 CMakeFiles/machinelearning.dir/encoder.cpp.o: ../encoder.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-crossdan/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/machinelearning.dir/encoder.cpp.o"
 	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/machinelearning.dir/encoder.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/encoder.cpp
 
@@ -257,6 +257,6 @@ CMakeFiles/machinelearning.dir/clean:
 .PHONY : CMakeFiles/machinelearning.dir/clean
 
 CMakeFiles/machinelearning.dir/depend:
-	cd /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles/machinelearning.dir/DependInfo.cmake --color=$(COLOR)
+	cd /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-crossdan && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-crossdan /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-crossdan /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-crossdan/CMakeFiles/machinelearning.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/machinelearning.dir/depend
 

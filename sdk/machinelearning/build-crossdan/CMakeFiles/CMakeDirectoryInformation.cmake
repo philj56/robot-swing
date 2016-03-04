@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 SET(CMAKE_RELATIVE_PATH_TOP_SOURCE "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning")
-SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml")
+SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-crossdan")
 
 # Force unix paths in dependencies.
 SET(CMAKE_FORCE_UNIX_PATHS 1)
