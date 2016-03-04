@@ -103,7 +103,7 @@ int main()
 	
 	int action_forwards = FORWARD;
 	int action_backwards = BACKWARD;
-	int chosen_action = &action_forwards;
+	int chosen_action = action_forwards;
 	
 	//create a priority queue to copy to all the state space priority queues
 	PriorityQueue<int,double> initiator_queue(MAX);
@@ -187,7 +187,7 @@ int selectAction(PriorityQueue<int,double>& a_queue)
 	for(Vec_Pair::iterator it = action_vec.begin(),end=action_vec.end(); it < end; ++it)
 	{
 		//if RN falls within cumulative probability bin return the corresponding action
-		if(rand_num < it->second)return &(it->first);
+		if(rand_num < it->second)return it->first;
 	}
  	
 	return NULL; //note that this line should never be reached
