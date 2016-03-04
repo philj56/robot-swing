@@ -13,11 +13,11 @@ struct State
     //state variables
     double theta;
     double theta_dot;
-    ROBOT_STATE robot_state;
+    int robot_state;
     
     //static const double g = 9.81;
     
-    State(double _theta, double _theta_dot, ROBOT_STATE _robot_state);
+    State(double _theta, double _theta_dot, int _robot_state);
     
     //function to get the reward of the stored state based on energy
     double getReward();
