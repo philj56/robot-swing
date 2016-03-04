@@ -111,7 +111,7 @@ int main()
 	initiator_queue.enqueueWithPriority(action_backwards,0);
 	
 	//create encoder
-	Encoder encoder();
+	Encoder encoder;
 	encoder.Calibrate();
 	
 	//create the state space
@@ -175,7 +175,7 @@ int selectAction(PriorityQueue<int,double>& a_queue)
 	}
 	
 	//calculate cumulative probability distribution    
-	for(Vec_Pair::iterator it1 = action_vec.begin()++,it2 = action_vec.begin(),end=action_vec.end(); it < end; ++it1,++it2)
+	for(Vec_Pair::iterator it1 = action_vec.begin()++,it2 = action_vec.begin(),end=action_vec.end(); it1 < end; ++it1,++it2)
 	{
 	    it1->second += it2->second;
 	}
