@@ -21,9 +21,6 @@ class StateSpace
 		//@queue: the PriorityQueue to initialise the StateSpace with (this should normally contain just one of every action all with 0 priority)
 		explicit StateSpace(PriorityQueue<int,double> queue);
 		
-		//this object should NEVER be copied
-		StateSpace(const StateSpace&)=delete;
-		
 		void setAngleBins(const double val);
 		void setVelocityBins(const double val);
 		
@@ -66,6 +63,9 @@ class StateSpace
 				}
 			
 			private:
+				//this object should NEVER be copied
+				StateSpace(const StateSpace&);
+				
 				std::vector< std::vector< PriorityQueue<int,double> > >& vec;
 		};
 		//---------------------------------------------------------------------------------------------------------
