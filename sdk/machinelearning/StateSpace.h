@@ -4,6 +4,7 @@
 #include <vector>
 #include <cmath>
 #include <stdexcept>
+#include <iostream>
 #include "PriorityQueue.h"
 #include "State.h"
 
@@ -51,6 +52,7 @@ class StateSpace
 				SubscriptProxy2 operator[](const double angle)
 				{
 					//error if angle exceeds bounds
+					std::cout << angle << std::endl;
 					if(std::abs(angle)>M_PI/4)throw std::domain_error("angle argument exceeded");
 					//descretise index
 					int discrete_index=round(angle*100/angle_bins)+angle_bins/2;
