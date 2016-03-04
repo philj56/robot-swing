@@ -115,7 +115,7 @@ int main()
 	encoder.Calibrate();
 	
 	//create the state space
-	StateSpace space(initiator_queue);
+	StateSpace space(100,50,initiator_queue);
 	space.setAngleBins(100);
 	space.setVelocityBins(50);
 	
