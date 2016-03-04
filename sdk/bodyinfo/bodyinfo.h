@@ -41,7 +41,7 @@ public:
 
 	std::vector<float> getSittingCOMAngles();
 
-	std::vector<float> getInitAngles();
+	void calibrateAngles();
 	
 	void printAngles();
 

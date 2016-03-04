@@ -39,8 +39,8 @@ BodyInfo::BodyInfo(boost::shared_ptr<AL::ALBroker> broker,
 	functionName("getHipPitch", getName(), "Read hip pitch angles");
 	BIND_METHOD(BodyInfo::getHipPitch);
 
-	functionName("getInitAngles", getName(), "Calibrate body angles to current position");
-	BIND_METHOD(BodyInfo::getInitAngles);
+	functionName("calibrateAngles", getName(), "Calibrate body angles to current position");
+	BIND_METHOD(BodyInfo::calibrateAngles);
 
 	functionName("getSittingCOMAngles", getName(), "Get COM angles from seat for sitting position");
 	BIND_METHOD(BodyInfo::getSittingCOMAngles);
@@ -93,23 +93,23 @@ float BodyInfo::getHipPitch()
   	}
 }
 
-std::vector<float> BodyInfo::getInitAngles()
+void BodyInfo::calibrateAngles()
 {
 	initAngles = motion.getAngles("Body", true);	
 }
 
 void BodyInfo::printAngles()
 {
-	std::vector<float> angles = motion.getAngles("Body", true);
-	std::vector<std::string> names = motion.getJointNames("Body");
+	std::vector<float> angles = static_cast<std::vector<float> >(motion.getAngles("Body", true));
+	std::vector<std::string> names = static_cast<std::vector<std::string> >(motion.getJointNames("Body"));
 
 	if (initAngles.size() != angles.size())
-		initAngles = getInitAngles();
+		calibrateAngles();
 	
 	for (unsigned int i = 0; i < angles.size(); i++)
 	{
 		std::cout << std::setprecision(6)
-			  << std::setw(10) << names[i]
+			  << std::setw(20) << names[i]
 			  << std::setw(10) << angles[i] - initAngles[i]
 			  << std::endl;
 	}

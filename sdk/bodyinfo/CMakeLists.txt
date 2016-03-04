@@ -8,6 +8,7 @@ set(_srcs
     bodyinfo.h
     main.cpp)
 
+SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -g" )
 # Create a executable named bodyinfo
 # with the source file: main.cpp
 qi_create_lib(bodyinfo SHARED ${_srcs} SUBFOLDER naoqi)
