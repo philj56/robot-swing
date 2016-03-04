@@ -19,7 +19,7 @@ class StateSpace
 	public:
 		//@_var_bins: the number of bin in the array of the corresponding variable
 		//@queue: the PriorityQueue to initialise the StateSpace with (this should normally contain just one of every action all with 0 priority)
-		explicit StateSpace(PriorityQueue<Action*,double> queue);
+		explicit StateSpace(PriorityQueue<int *,double> queue);
 		
 		//this object should NEVER be copied
 		StateSpace(const StateSpace&)=delete;
@@ -33,9 +33,9 @@ class StateSpace
 		class SubscriptProxy2
 		{
 			public:
-				SubscriptProxy2(std::vector< PriorityQueue<Action*,double> >& _vec):vec(_vec){}
+				SubscriptProxy2(std::vector< PriorityQueue<int *,double> >& _vec):vec(_vec){}
 				
-				PriorityQueue<Action*,double>& operator[](const double velocity)
+				PriorityQueue<int *,double>& operator[](const double velocity)
 				{
 					//error if angle exceeds bounds
 					if(std::abs(velocity)>1)throw std::domain_error("velocity argument exceeded");
@@ -46,13 +46,13 @@ class StateSpace
 					return vec[discrete_index];
 				}
 			private:
-				std::vector< PriorityQueue<Action*,double> >& vec;
+				std::vector< PriorityQueue<int *,double> >& vec;
 		};
 		
 		class SubscriptProxy1
 		{
 			public:
-				SubscriptProxy1(std::vector< std::vector< PriorityQueue<Action*,double> > >& _vec):vec(_vec){}
+				SubscriptProxy1(std::vector< std::vector< PriorityQueue<int *,double> > >& _vec):vec(_vec){}
 				
 				SubscriptProxy2 operator[](const double angle)
 				{
@@ -66,7 +66,7 @@ class StateSpace
 				}
 			
 			private:
-				std::vector< std::vector< PriorityQueue<Action*,double> > >& vec;
+				std::vector< std::vector< PriorityQueue<int *,double> > >& vec;
 		};
 		//---------------------------------------------------------------------------------------------------------
 		
@@ -76,7 +76,7 @@ class StateSpace
 		
 		//allow subscript to be used with this state objects
 		//only one subscript is required to get a state queue in this fashion
-		PriorityQueue<Action*, double>& operator[](const State & state);
+		PriorityQueue<int *, double>& operator[](const State & state);
 		
 	private:
 		//the sizes of the two arrays
@@ -84,8 +84,8 @@ class StateSpace
 		static int velocity_bins;
 		
 		//the 2d array that contains the robots previous experiences in each state
-		std::vector< std::vector< PriorityQueue<Action*,double> > > space1;
-		std::vector< std::vector< PriorityQueue<Action*,double> > > space2;
+		std::vector< std::vector< PriorityQueue<int *,double> > > space1;
+		std::vector< std::vector< PriorityQueue<int *,double> > > space2;
 };
 
 #endif
