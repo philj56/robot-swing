@@ -32,7 +32,7 @@ class StateSpace
 			public:
 				SubscriptProxy2(std::vector< PriorityQueue<int,double> >& _vec):vec(_vec){}
 				
-				PriorityQueue<int *,double>& operator[](const double velocity)
+				PriorityQueue<int,double>& operator[](const double velocity)
 				{
 					//error if angle exceeds bounds
 					if(std::abs(velocity)>1)throw std::domain_error("velocity argument exceeded");
