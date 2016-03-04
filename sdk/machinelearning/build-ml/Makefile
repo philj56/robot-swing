@@ -105,16 +105,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles/progress.marks
@@ -164,66 +154,125 @@ machinelearning/preinstall:
 	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/preinstall
 .PHONY : machinelearning/preinstall
 
-#=============================================================================
-# Target rules for targets named test_machinelearning
-
-# Build rule for target.
-test_machinelearning: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_machinelearning
-.PHONY : test_machinelearning
-
-# fast build rule for target.
-test_machinelearning/fast:
-	$(MAKE) -f CMakeFiles/test_machinelearning.dir/build.make CMakeFiles/test_machinelearning.dir/build
-.PHONY : test_machinelearning/fast
-
-main.o: main.cpp.o
-.PHONY : main.o
+CreateModule.o: CreateModule.cpp.o
+.PHONY : CreateModule.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/main.cpp.o
-.PHONY : main.cpp.o
+CreateModule.cpp.o:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/CreateModule.cpp.o
+.PHONY : CreateModule.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+CreateModule.i: CreateModule.cpp.i
+.PHONY : CreateModule.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/main.cpp.i
-.PHONY : main.cpp.i
+CreateModule.cpp.i:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/CreateModule.cpp.i
+.PHONY : CreateModule.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+CreateModule.s: CreateModule.cpp.s
+.PHONY : CreateModule.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/main.cpp.s
-.PHONY : main.cpp.s
+CreateModule.cpp.s:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/CreateModule.cpp.s
+.PHONY : CreateModule.cpp.s
 
-test.o: test.cpp.o
-.PHONY : test.o
+Main.o: Main.cpp.o
+.PHONY : Main.o
 
 # target to build an object file
-test.cpp.o:
-	$(MAKE) -f CMakeFiles/test_machinelearning.dir/build.make CMakeFiles/test_machinelearning.dir/test.cpp.o
-.PHONY : test.cpp.o
+Main.cpp.o:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/Main.cpp.o
+.PHONY : Main.cpp.o
 
-test.i: test.cpp.i
-.PHONY : test.i
+Main.i: Main.cpp.i
+.PHONY : Main.i
 
 # target to preprocess a source file
-test.cpp.i:
-	$(MAKE) -f CMakeFiles/test_machinelearning.dir/build.make CMakeFiles/test_machinelearning.dir/test.cpp.i
-.PHONY : test.cpp.i
+Main.cpp.i:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/Main.cpp.i
+.PHONY : Main.cpp.i
 
-test.s: test.cpp.s
-.PHONY : test.s
+Main.s: Main.cpp.s
+.PHONY : Main.s
 
 # target to generate assembly for a file
-test.cpp.s:
-	$(MAKE) -f CMakeFiles/test_machinelearning.dir/build.make CMakeFiles/test_machinelearning.dir/test.cpp.s
-.PHONY : test.cpp.s
+Main.cpp.s:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/Main.cpp.s
+.PHONY : Main.cpp.s
+
+State.o: State.cpp.o
+.PHONY : State.o
+
+# target to build an object file
+State.cpp.o:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/State.cpp.o
+.PHONY : State.cpp.o
+
+State.i: State.cpp.i
+.PHONY : State.i
+
+# target to preprocess a source file
+State.cpp.i:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/State.cpp.i
+.PHONY : State.cpp.i
+
+State.s: State.cpp.s
+.PHONY : State.s
+
+# target to generate assembly for a file
+State.cpp.s:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/State.cpp.s
+.PHONY : State.cpp.s
+
+StateSpace.o: StateSpace.cpp.o
+.PHONY : StateSpace.o
+
+# target to build an object file
+StateSpace.cpp.o:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/StateSpace.cpp.o
+.PHONY : StateSpace.cpp.o
+
+StateSpace.i: StateSpace.cpp.i
+.PHONY : StateSpace.i
+
+# target to preprocess a source file
+StateSpace.cpp.i:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/StateSpace.cpp.i
+.PHONY : StateSpace.cpp.i
+
+StateSpace.s: StateSpace.cpp.s
+.PHONY : StateSpace.s
+
+# target to generate assembly for a file
+StateSpace.cpp.s:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/StateSpace.cpp.s
+.PHONY : StateSpace.cpp.s
+
+encoder.o: encoder.cpp.o
+.PHONY : encoder.o
+
+# target to build an object file
+encoder.cpp.o:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/encoder.cpp.o
+.PHONY : encoder.cpp.o
+
+encoder.i: encoder.cpp.i
+.PHONY : encoder.i
+
+# target to preprocess a source file
+encoder.cpp.i:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/encoder.cpp.i
+.PHONY : encoder.cpp.i
+
+encoder.s: encoder.cpp.s
+.PHONY : encoder.s
+
+# target to generate assembly for a file
+encoder.cpp.s:
+	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/encoder.cpp.s
+.PHONY : encoder.cpp.s
 
 # Help Target
 help:
@@ -238,14 +287,21 @@ help:
 	@echo "... list_install_components"
 	@echo "... machinelearning"
 	@echo "... rebuild_cache"
-	@echo "... test"
-	@echo "... test_machinelearning"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
+	@echo "... CreateModule.o"
+	@echo "... CreateModule.i"
+	@echo "... CreateModule.s"
+	@echo "... Main.o"
+	@echo "... Main.i"
+	@echo "... Main.s"
+	@echo "... State.o"
+	@echo "... State.i"
+	@echo "... State.s"
+	@echo "... StateSpace.o"
+	@echo "... StateSpace.i"
+	@echo "... StateSpace.s"
+	@echo "... encoder.o"
+	@echo "... encoder.i"
+	@echo "... encoder.s"
 .PHONY : help
 
 

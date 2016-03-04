@@ -156,11 +156,7 @@ MACHINELEARNING_DEPENDS:STRING=
 //DEPRECATED please use I_AM_A_ROBOT
 OE_CROSS_BUILD:BOOL=ON
 
-TEST_MACHINELEARNING_DEPENDS:STRING=
-
 _QI_USE_LIB_MACHINELEARNING:STRING=
-
-_QI_USE_LIB_TEST_MACHINELEARNING:STRING=
 
 //Value Computed by CMake
 machinelearning_BINARY_DIR:STATIC=/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml
@@ -322,17 +318,11 @@ QT_MOC_EXECUTABLE:INTERNAL=/gs/cross//cross/bin/i686-aldebaran-linux-gnu-moc
 QT_RCC_EXECUTABLE:INTERNAL=/gs/cross//cross/bin/i686-aldebaran-linux-gnu-rcc
 QT_UIC_EXECUTABLE:INTERNAL=/gs/cross//cross/bin/i686-aldebaran-linux-gnu-uic
 QT_USE_QMAKE:INTERNAL=FALSE
-//ADVANCED property for variable: TEST_MACHINELEARNING_DEPENDS
-TEST_MACHINELEARNING_DEPENDS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: _QI_USE_LIB_MACHINELEARNING
 _QI_USE_LIB_MACHINELEARNING-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: _QI_USE_LIB_TEST_MACHINELEARNING
-_QI_USE_LIB_TEST_MACHINELEARNING-ADVANCED:INTERNAL=1
 _TESTS_RESULTS_FOLDER:INTERNAL=/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-tests/results
 _dpkg_architecture:INTERNAL=_dpkg_architecture-NOTFOUND
 machinelearning_NO_INSTALL:INTERNAL=FALSE
 machinelearning_SUBFOLDER:INTERNAL=
 qibuild_DIR:INTERNAL=/gs/qibuild/cmake/qibuild
-test_machinelearning_NO_INSTALL:INTERNAL=TRUE
-test_machinelearning_SUBFOLDER:INTERNAL=
 

@@ -56,7 +56,7 @@ CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/bu
 CMakeFiles/machinelearning.dir/all:
 	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/depend
 	$(MAKE) -f CMakeFiles/machinelearning.dir/build.make CMakeFiles/machinelearning.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles  1 2 3 4 5
 	@echo "Built target machinelearning"
 .PHONY : CMakeFiles/machinelearning.dir/all
 
@@ -66,7 +66,7 @@ all: CMakeFiles/machinelearning.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/machinelearning.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/machinelearning.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles 0
 .PHONY : CMakeFiles/machinelearning.dir/rule
@@ -91,41 +91,6 @@ CMakeFiles/machinelearning.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/machinelearning.dir/clean
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/test_machinelearning.dir
-
-# All Build rule for target.
-CMakeFiles/test_machinelearning.dir/all:
-	$(MAKE) -f CMakeFiles/test_machinelearning.dir/build.make CMakeFiles/test_machinelearning.dir/depend
-	$(MAKE) -f CMakeFiles/test_machinelearning.dir/build.make CMakeFiles/test_machinelearning.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles  2
-	@echo "Built target test_machinelearning"
-.PHONY : CMakeFiles/test_machinelearning.dir/all
-
-# Include target in all.
-all: CMakeFiles/test_machinelearning.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/test_machinelearning.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_machinelearning.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles 0
-.PHONY : CMakeFiles/test_machinelearning.dir/rule
-
-# Convenience name for target.
-test_machinelearning: CMakeFiles/test_machinelearning.dir/rule
-.PHONY : test_machinelearning
-
-# clean rule for target.
-CMakeFiles/test_machinelearning.dir/clean:
-	$(MAKE) -f CMakeFiles/test_machinelearning.dir/build.make CMakeFiles/test_machinelearning.dir/clean
-.PHONY : CMakeFiles/test_machinelearning.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/test_machinelearning.dir/clean
 .PHONY : clean
 
 #=============================================================================

@@ -4,7 +4,11 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/main.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles/machinelearning.dir/main.cpp.o"
+  "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/CreateModule.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles/machinelearning.dir/CreateModule.cpp.o"
+  "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/Main.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles/machinelearning.dir/Main.cpp.o"
+  "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/State.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles/machinelearning.dir/State.cpp.o"
+  "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/StateSpace.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles/machinelearning.dir/StateSpace.cpp.o"
+  "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/encoder.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/build-ml/CMakeFiles/machinelearning.dir/encoder.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

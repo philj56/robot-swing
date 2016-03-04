@@ -1,5 +1,9 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/machinelearning.dir/main.cpp.o"
+  "CMakeFiles/machinelearning.dir/Main.cpp.o"
+  "CMakeFiles/machinelearning.dir/CreateModule.cpp.o"
+  "CMakeFiles/machinelearning.dir/State.cpp.o"
+  "CMakeFiles/machinelearning.dir/StateSpace.cpp.o"
+  "CMakeFiles/machinelearning.dir/encoder.cpp.o"
   "sdk/bin/machinelearning.pdb"
   "sdk/bin/machinelearning"
   "CMakeFiles/CMakeRelink.dir/machinelearning.pdb"
