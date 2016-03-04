@@ -1,7 +1,7 @@
 #include "StateSpace.h"
 
-int StateSpace::angle_bins=0;
-int StateSpace::velocity_bins=0;
+int StateSpace::angle_bins;
+int StateSpace::velocity_bins;
 
 // _angle_max and _velocity_max are not declared.
 StateSpace::StateSpace(int _angle_bins, int _velocity_bins, const PriorityQueue<int,double>& queue):
