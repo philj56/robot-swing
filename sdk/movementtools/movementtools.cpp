@@ -141,15 +141,19 @@ void MovementTools::goStiff()
 void MovementTools::swingForwards()
 {
 	motion.setStiffnesses("Body", 1.0f);
+	motion.setStiffnesses("Rarm", 0.0f);
 	motion.setAngles(angleNames, sitForwardAngles, speed);	
 	qi::os::msleep(700);
 	motion.setStiffnesses("Body", 0.2f);
+	motion.setStiffnesses("Rarm", 0.0f);
 }
 
 void MovementTools::swingBackwards()
 {
 	motion.setStiffnesses("Body", 1.0f);
+	motion.setStiffnesses("Rarm", 0.0f);
 	motion.setAngles(angleNames, sitBackwardAngles, speed);	
 	qi::os::msleep(700);
 	motion.setStiffnesses("Body", 0.2f);
+	motion.setStiffnesses("Rarm", 0.0f);
 }
