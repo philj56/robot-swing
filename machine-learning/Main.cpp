@@ -152,7 +152,7 @@ double temperature()
 int selectAction(PriorityQueue<int,double>& a_queue)
 {	
 	typedef PriorityQueue<int,double> PQ;
-	typedef std::vector< std::pair<int *, double> > Vec_Pair;
+	typedef std::vector< std::pair<int, double> > Vec_Pair;
 	typedef std::pair<int, double> Pair;
 	
 	double sum= 0;
