@@ -22,12 +22,12 @@ PriorityQueue<int, double>& StateSpace::operator[](const State & state)
 	return (*this)[state.robot_state][state.theta][state.theta_dot];
 }
 
-void setAngleBins(const double val)
+void StateSpace::setAngleBins(const double val)
 {
-	StateSpace::angle_bins=val;
+	angle_bins=val;
 }
 
-void setVelocityBins(const double val)
+void StateSpace::setVelocityBins(const double val)
 {
-	StateSpace::velocity_bins=val;
+	velocity_bins=val;
 }
