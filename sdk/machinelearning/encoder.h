@@ -26,6 +26,8 @@ class Encoder
         bool end_thread;
         
         libusb_device_handle * handle;
+        
+        //Thread thread_var
 };
 
 #endif // ENCODER_H
