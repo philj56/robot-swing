@@ -23,7 +23,7 @@ class Encoder
         float old_angle;
         float velocity;
         
-        bool end_thread=false;
+        bool end_thread;
         
         libusb_device_handle * handle;
 };
