@@ -39,7 +39,7 @@ RM = /usr/bin/cmake -E remove -f
 CMAKE_SOURCE_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-tc
+CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-cross
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -107,9 +107,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-tc/CMakeFiles /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-tc/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-cross/CMakeFiles /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-cross/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-tc/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-cross/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -148,6 +148,11 @@ gyroevents: cmake_check_build_system
 gyroevents/fast:
 	$(MAKE) -f CMakeFiles/gyroevents.dir/build.make CMakeFiles/gyroevents.dir/build
 .PHONY : gyroevents/fast
+
+# Manual pre-install relink rule for target.
+gyroevents/preinstall:
+	$(MAKE) -f CMakeFiles/gyroevents.dir/build.make CMakeFiles/gyroevents.dir/preinstall
+.PHONY : gyroevents/preinstall
 
 events.o: events.cpp.o
 .PHONY : events.o

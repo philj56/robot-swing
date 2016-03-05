@@ -33,19 +33,11 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "lib")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/naoqi" TYPE SHARED_LIBRARY FILES "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-cross/CMakeFiles/CMakeRelink.dir/libgyroevents.so")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/naoqi/libgyroevents.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/naoqi/libgyroevents.so")
-    FILE(RPATH_CHECK
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/naoqi/libgyroevents.so"
-         RPATH "")
-  ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/naoqi" TYPE SHARED_LIBRARY FILES "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-tc/sdk/lib/naoqi/libgyroevents.so")
-  IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/naoqi/libgyroevents.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/naoqi/libgyroevents.so")
-    FILE(RPATH_REMOVE
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/naoqi/libgyroevents.so")
     IF(CMAKE_INSTALL_DO_STRIP)
-      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/naoqi/libgyroevents.so")
+      EXECUTE_PROCESS(COMMAND "/gs/cross/cross/bin/i686-aldebaran-linux-gnu-strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/naoqi/libgyroevents.so")
     ENDIF(CMAKE_INSTALL_DO_STRIP)
   ENDIF()
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "lib")
@@ -56,7 +48,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-tc/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-cross/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-tc/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-cross/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

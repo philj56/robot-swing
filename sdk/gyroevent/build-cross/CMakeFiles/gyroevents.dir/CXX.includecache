@@ -6,55 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.cpp
-events.h
-/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h
-alvalue/alvalue.h
+/gs/cross/sysroot/usr/include/_G_config.h
+bits/types.h
 -
-alcommon/alproxy.h
+stddef.h
 -
-alcommon/albroker.h
+wchar.h
 -
-vector
--
-cmath
--
-qi/os.hpp
--
-qi/log.hpp
+gconv.h
 -
 
-/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h
-boost/shared_ptr.hpp
--
-alcommon/almodule.h
--
-string
--
-vector
--
-qi/os.hpp
--
-alproxies/almemoryproxy.h
--
-
-/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/main.cpp
-signal.h
--
-boost/shared_ptr.hpp
--
-alcommon/albroker.h
--
-alcommon/almodule.h
--
-alcommon/albrokermanager.h
--
-alcommon/altoolsmain.h
--
-events.h
-/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h
-
-/gs/naoqi/include/alcommon/albroker.h
+/gs/cross/sysroot/usr/include/alcommon/albroker.h
 list
 -
 map
@@ -72,13 +34,13 @@ boost/noncopyable.hpp
 qi/macro.hpp
 -
 
-/gs/naoqi/include/alcommon/albrokermanager.h
+/gs/cross/sysroot/usr/include/alcommon/albrokermanager.h
 vector
 -
 boost/shared_ptr.hpp
 -
 
-/gs/naoqi/include/alcommon/alfunctor.h
+/gs/cross/sysroot/usr/include/alcommon/alfunctor.h
 alvalue/alvalue.h
 -
 boost/shared_ptr.hpp
@@ -90,13 +52,13 @@ alcommon/detail/alfunctorwithreturn.h
 alcommon/detail/alfunctorwithoutreturn.h
 -
 
-/gs/naoqi/include/alcommon/almethodinfo.h
+/gs/cross/sysroot/usr/include/alcommon/almethodinfo.h
 alcommon/alparamtype.h
 -
 boost/shared_ptr.hpp
 -
 
-/gs/naoqi/include/alcommon/almodule.h
+/gs/cross/sysroot/usr/include/alcommon/almodule.h
 qi/macro.hpp
 -
 alcommon/almodulecore.h
@@ -104,7 +66,7 @@ alcommon/almodulecore.h
 boost/signal.hpp
 -
 
-/gs/naoqi/include/alcommon/almodulecore.h
+/gs/cross/sysroot/usr/include/alcommon/almodulecore.h
 boost/enable_shared_from_this.hpp
 -
 boost/shared_ptr.hpp
@@ -124,13 +86,13 @@ alcommon/alfunctor.h
 map
 -
 
-/gs/naoqi/include/alcommon/almoduleinfo.h
+/gs/cross/sysroot/usr/include/alcommon/almoduleinfo.h
 string
 -
 vector
 -
 
-/gs/naoqi/include/alcommon/alparamtype.h
+/gs/cross/sysroot/usr/include/alcommon/alparamtype.h
 typeinfo
 -
 alcommon/detail/gettype.h
@@ -140,7 +102,7 @@ cstdlib
 cxxabi.h
 -
 
-/gs/naoqi/include/alcommon/alproxy.h
+/gs/cross/sysroot/usr/include/alcommon/alproxy.h
 alcommon/almoduleinfo.h
 -
 alcommon/almodule.h
@@ -158,25 +120,25 @@ boost/smart_ptr/enable_shared_from_this.hpp
 alcommon/alproxy.hxx
 -
 
-/gs/naoqi/include/alcommon/alproxy.hxx
+/gs/cross/sysroot/usr/include/alcommon/alproxy.hxx
 alcommon/detail/alpcall.h
 -
 
-/gs/naoqi/include/alcommon/altoolsmain.h
+/gs/cross/sysroot/usr/include/alcommon/altoolsmain.h
 boost/shared_ptr.hpp
 -
 boost/function/function_fwd.hpp
 -
 
-/gs/naoqi/include/alcommon/detail/alfunctorwithoutreturn.h
+/gs/cross/sysroot/usr/include/alcommon/detail/alfunctorwithoutreturn.h
 alvalue/detail/alfunctorconvert.h
 -
 
-/gs/naoqi/include/alcommon/detail/alfunctorwithreturn.h
+/gs/cross/sysroot/usr/include/alcommon/detail/alfunctorwithreturn.h
 alvalue/detail/alfunctorconvert.h
 -
 
-/gs/naoqi/include/alcommon/detail/alpcall.h
+/gs/cross/sysroot/usr/include/alcommon/detail/alpcall.h
 alcommon/alparamtype.h
 -
 alcommon/detail/altaskinfo.h
@@ -184,23 +146,23 @@ alcommon/detail/altaskinfo.h
 alcommon/detail/alpcallbase.h
 -
 
-/gs/naoqi/include/alcommon/detail/alpcallbase.h
+/gs/cross/sysroot/usr/include/alcommon/detail/alpcallbase.h
 boost/shared_ptr.hpp
 -
 
-/gs/naoqi/include/alcommon/detail/altaskinfo.h
+/gs/cross/sysroot/usr/include/alcommon/detail/altaskinfo.h
 string
 -
 pthread.h
 -
 
-/gs/naoqi/include/alcommon/detail/gettype.h
+/gs/cross/sysroot/usr/include/alcommon/detail/gettype.h
 cxxabi.h
 -
 alvalue/alvalue.h
 -
 
-/gs/naoqi/include/alerror/alerror.h
+/gs/cross/sysroot/usr/include/alerror/alerror.h
 alerror/config.h
 -
 stdexcept
@@ -208,15 +170,15 @@ stdexcept
 string
 -
 
-/gs/naoqi/include/alerror/config.h
+/gs/cross/sysroot/usr/include/alerror/config.h
 
-/gs/naoqi/include/alproxies/almemoryproxy.h
+/gs/cross/sysroot/usr/include/alproxies/almemoryproxy.h
 alproxies/almemoryproxyposthandler.h
 -
 alproxies/api.h
 -
 
-/gs/naoqi/include/alproxies/almemoryproxyposthandler.h
+/gs/cross/sysroot/usr/include/alproxies/almemoryproxyposthandler.h
 boost/shared_ptr.hpp
 -
 alvalue/alvalue.h
@@ -226,11 +188,11 @@ string
 vector
 -
 
-/gs/naoqi/include/alproxies/api.h
+/gs/cross/sysroot/usr/include/alproxies/api.h
 qi/macro.hpp
 -
 
-/gs/naoqi/include/alvalue/alvalue.h
+/gs/cross/sysroot/usr/include/alvalue/alvalue.h
 cstdio
 -
 string
@@ -240,9 +202,9 @@ vector
 alvalue/config.h
 -
 
-/gs/naoqi/include/alvalue/config.h
+/gs/cross/sysroot/usr/include/alvalue/config.h
 
-/gs/naoqi/include/alvalue/detail/alfunctorconvert.h
+/gs/cross/sysroot/usr/include/alvalue/detail/alfunctorconvert.h
 alvalue/alvalue.h
 -
 alerror/alerror.h
@@ -252,35 +214,179 @@ cassert
 alvalue/config.h
 -
 
-/gs/naoqi/include/boost/aligned_storage.hpp
+/gs/cross/sysroot/usr/include/asm-generic/bitsperlong.h
+
+/gs/cross/sysroot/usr/include/asm-generic/int-ll64.h
+asm/bitsperlong.h
+-
+
+/gs/cross/sysroot/usr/include/asm-generic/types.h
+asm-generic/int-ll64.h
+-
+
+/gs/cross/sysroot/usr/include/asm/bitsperlong.h
+asm-generic/bitsperlong.h
+-
+
+/gs/cross/sysroot/usr/include/asm/posix_types.h
+posix_types_32.h
+/gs/cross/sysroot/usr/include/asm/posix_types_32.h
+posix_types_64.h
+/gs/cross/sysroot/usr/include/asm/posix_types_64.h
+
+/gs/cross/sysroot/usr/include/asm/posix_types_32.h
+
+/gs/cross/sysroot/usr/include/asm/posix_types_64.h
+
+/gs/cross/sysroot/usr/include/asm/sigcontext.h
+linux/types.h
+-
+
+/gs/cross/sysroot/usr/include/asm/types.h
+asm-generic/types.h
+-
+
+/gs/cross/sysroot/usr/include/assert.h
+features.h
+-
+
+/gs/cross/sysroot/usr/include/bits/byteswap.h
+
+/gs/cross/sysroot/usr/include/bits/confname.h
+
+/gs/cross/sysroot/usr/include/bits/endian.h
+
+/gs/cross/sysroot/usr/include/bits/environments.h
+
+/gs/cross/sysroot/usr/include/bits/libc-lock.h
+pthread.h
+-
+stddef.h
+-
+lowlevellock.h
+-
+tls.h
+-
+pthread-functions.h
+-
+bp-sym.h
+-
+
+/gs/cross/sysroot/usr/include/bits/libio-ldbl.h
+
+/gs/cross/sysroot/usr/include/bits/local_lim.h
+linux/limits.h
+-
+
+/gs/cross/sysroot/usr/include/bits/posix1_lim.h
+bits/local_lim.h
+-
+
+/gs/cross/sysroot/usr/include/bits/posix2_lim.h
+
+/gs/cross/sysroot/usr/include/bits/posix_opt.h
+
+/gs/cross/sysroot/usr/include/bits/pthreadtypes.h
+
+/gs/cross/sysroot/usr/include/bits/sched.h
+
+/gs/cross/sysroot/usr/include/bits/setjmp.h
+
+/gs/cross/sysroot/usr/include/bits/sigaction.h
+
+/gs/cross/sysroot/usr/include/bits/sigcontext.h
+asm/sigcontext.h
+-
+
+/gs/cross/sysroot/usr/include/bits/siginfo.h
+bits/wordsize.h
+-
+
+/gs/cross/sysroot/usr/include/bits/signum.h
+
+/gs/cross/sysroot/usr/include/bits/sigset.h
+
+/gs/cross/sysroot/usr/include/bits/sigstack.h
+
+/gs/cross/sysroot/usr/include/bits/sigthread.h
+
+/gs/cross/sysroot/usr/include/bits/stdio-ldbl.h
+
+/gs/cross/sysroot/usr/include/bits/stdio-lock.h
+bits/libc-lock.h
+-
+lowlevellock.h
+-
+
+/gs/cross/sysroot/usr/include/bits/stdio.h
+
+/gs/cross/sysroot/usr/include/bits/stdio2.h
+
+/gs/cross/sysroot/usr/include/bits/stdio_lim.h
+
+/gs/cross/sysroot/usr/include/bits/sys_errlist.h
+
+/gs/cross/sysroot/usr/include/bits/time.h
+bits/types.h
+-
+bits/types.h
+-
+
+/gs/cross/sysroot/usr/include/bits/types.h
+features.h
+-
+bits/wordsize.h
+-
+bits/typesizes.h
+-
+
+/gs/cross/sysroot/usr/include/bits/typesizes.h
+
+/gs/cross/sysroot/usr/include/bits/unistd.h
+
+/gs/cross/sysroot/usr/include/bits/wchar-ldbl.h
+
+/gs/cross/sysroot/usr/include/bits/wchar.h
+
+/gs/cross/sysroot/usr/include/bits/wchar2.h
+
+/gs/cross/sysroot/usr/include/bits/wordsize.h
+
+/gs/cross/sysroot/usr/include/bits/xopen_lim.h
+bits/stdio_lim.h
+-
+bits/wordsize.h
+-
+
+/gs/cross/sysroot/usr/include/boost/aligned_storage.hpp
 cstddef
 -
 boost/config.hpp
-/gs/naoqi/include/boost/boost/config.hpp
+/gs/cross/sysroot/usr/include/boost/boost/config.hpp
 boost/detail/workaround.hpp
-/gs/naoqi/include/boost/boost/detail/workaround.hpp
+/gs/cross/sysroot/usr/include/boost/boost/detail/workaround.hpp
 boost/type_traits/alignment_of.hpp
-/gs/naoqi/include/boost/boost/type_traits/alignment_of.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/alignment_of.hpp
 boost/type_traits/type_with_alignment.hpp
-/gs/naoqi/include/boost/boost/type_traits/type_with_alignment.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/type_with_alignment.hpp
 boost/type_traits/is_pod.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_pod.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_pod.hpp
 boost/mpl/eval_if.hpp
-/gs/naoqi/include/boost/boost/mpl/eval_if.hpp
+/gs/cross/sysroot/usr/include/boost/boost/mpl/eval_if.hpp
 boost/mpl/identity.hpp
-/gs/naoqi/include/boost/boost/mpl/identity.hpp
+/gs/cross/sysroot/usr/include/boost/boost/mpl/identity.hpp
 boost/type_traits/detail/bool_trait_def.hpp
-/gs/naoqi/include/boost/boost/type_traits/detail/bool_trait_def.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
-/gs/naoqi/include/boost/boost/type_traits/detail/bool_trait_undef.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/detail/bool_trait_undef.hpp
 
-/gs/naoqi/include/boost/any.hpp
+/gs/cross/sysroot/usr/include/boost/any.hpp
 algorithm
 -
 typeinfo
 -
 boost/config.hpp
-/gs/naoqi/include/boost/boost/config.hpp
+/gs/cross/sysroot/usr/include/boost/boost/config.hpp
 boost/type_traits/remove_reference.hpp
 -
 boost/type_traits/is_reference.hpp
@@ -292,7 +398,7 @@ boost/static_assert.hpp
 cstring
 -
 
-/gs/naoqi/include/boost/assert.hpp
+/gs/cross/sysroot/usr/include/boost/assert.hpp
 boost/current_function.hpp
 -
 assert.h
@@ -306,7 +412,7 @@ iostream
 boost/current_function.hpp
 -
 
-/gs/naoqi/include/boost/bind/mem_fn.hpp
+/gs/cross/sysroot/usr/include/boost/bind/mem_fn.hpp
 boost/config.hpp
 -
 boost/get_pointer.hpp
@@ -354,15 +460,15 @@ boost/bind/mem_fn_cc.hpp
 boost/bind/mem_fn_cc.hpp
 -
 
-/gs/naoqi/include/boost/bind/mem_fn_cc.hpp
+/gs/cross/sysroot/usr/include/boost/bind/mem_fn_cc.hpp
 
-/gs/naoqi/include/boost/bind/mem_fn_template.hpp
+/gs/cross/sysroot/usr/include/boost/bind/mem_fn_template.hpp
 
-/gs/naoqi/include/boost/bind/mem_fn_vw.hpp
+/gs/cross/sysroot/usr/include/boost/bind/mem_fn_vw.hpp
 
-/gs/naoqi/include/boost/checked_delete.hpp
+/gs/cross/sysroot/usr/include/boost/checked_delete.hpp
 
-/gs/naoqi/include/boost/config.hpp
+/gs/cross/sysroot/usr/include/boost/config.hpp
 boost/config/select_compiler_config.hpp
 -
 boost/config/select_stdlib_config.hpp
@@ -372,35 +478,35 @@ boost/config/select_platform_config.hpp
 boost/config/suffix.hpp
 -
 
-/gs/naoqi/include/boost/config/auto_link.hpp
+/gs/cross/sysroot/usr/include/boost/config/auto_link.hpp
 boost/config.hpp
 -
 boost/version.hpp
 -
 
-/gs/naoqi/include/boost/config/no_tr1/functional.hpp
+/gs/cross/sysroot/usr/include/boost/config/no_tr1/functional.hpp
 functional
 -
 
-/gs/naoqi/include/boost/config/no_tr1/memory.hpp
+/gs/cross/sysroot/usr/include/boost/config/no_tr1/memory.hpp
 memory
 -
 
-/gs/naoqi/include/boost/config/no_tr1/utility.hpp
+/gs/cross/sysroot/usr/include/boost/config/no_tr1/utility.hpp
 utility
 -
 
-/gs/naoqi/include/boost/config/posix_features.hpp
+/gs/cross/sysroot/usr/include/boost/config/posix_features.hpp
 unistd.h
 -
 
-/gs/naoqi/include/boost/config/select_compiler_config.hpp
+/gs/cross/sysroot/usr/include/boost/config/select_compiler_config.hpp
 
-/gs/naoqi/include/boost/config/select_platform_config.hpp
+/gs/cross/sysroot/usr/include/boost/config/select_platform_config.hpp
 boost/config/posix_features.hpp
 -
 
-/gs/naoqi/include/boost/config/select_stdlib_config.hpp
+/gs/cross/sysroot/usr/include/boost/config/select_stdlib_config.hpp
 cstddef
 -
 stddef.h
@@ -408,19 +514,19 @@ stddef.h
 boost/config/no_tr1/utility.hpp
 -
 
-/gs/naoqi/include/boost/config/suffix.hpp
+/gs/cross/sysroot/usr/include/boost/config/suffix.hpp
 limits.h
 -
 cstddef
 -
 boost/type.hpp
-/gs/naoqi/include/boost/config/boost/type.hpp
+/gs/cross/sysroot/usr/include/boost/config/boost/type.hpp
 boost/non_type.hpp
-/gs/naoqi/include/boost/config/boost/non_type.hpp
+/gs/cross/sysroot/usr/include/boost/config/boost/non_type.hpp
 typeinfo
 -
 
-/gs/naoqi/include/boost/cstdint.hpp
+/gs/cross/sysroot/usr/include/boost/cstdint.hpp
 boost/config.hpp
 -
 inttypes.h
@@ -438,13 +544,13 @@ limits.h
 limits.h
 -
 
-/gs/naoqi/include/boost/current_function.hpp
+/gs/cross/sysroot/usr/include/boost/current_function.hpp
 
-/gs/naoqi/include/boost/detail/endian.hpp
+/gs/cross/sysroot/usr/include/boost/detail/endian.hpp
 endian.h
 -
 
-/gs/naoqi/include/boost/detail/indirect_traits.hpp
+/gs/cross/sysroot/usr/include/boost/detail/indirect_traits.hpp
 boost/type_traits/is_function.hpp
 -
 boost/type_traits/is_reference.hpp
@@ -486,25 +592,25 @@ boost/mpl/aux_/lambda_support.hpp
 boost/detail/is_function_ref_tester.hpp
 -
 
-/gs/naoqi/include/boost/detail/interlocked.hpp
+/gs/cross/sysroot/usr/include/boost/detail/interlocked.hpp
 boost/config.hpp
 -
 windows.h
 -
 
-/gs/naoqi/include/boost/detail/is_function_ref_tester.hpp
+/gs/cross/sysroot/usr/include/boost/detail/is_function_ref_tester.hpp
 boost/type_traits/detail/yes_no_type.hpp
-/gs/naoqi/include/boost/detail/boost/type_traits/detail/yes_no_type.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/type_traits/detail/yes_no_type.hpp
 boost/type_traits/config.hpp
-/gs/naoqi/include/boost/detail/boost/type_traits/config.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/type_traits/config.hpp
 boost/preprocessor/iterate.hpp
-/gs/naoqi/include/boost/detail/boost/preprocessor/iterate.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/preprocessor/iterate.hpp
 boost/preprocessor/enum_params.hpp
-/gs/naoqi/include/boost/detail/boost/preprocessor/enum_params.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/preprocessor/enum_params.hpp
 boost/preprocessor/comma_if.hpp
-/gs/naoqi/include/boost/detail/boost/preprocessor/comma_if.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/preprocessor/comma_if.hpp
 
-/gs/naoqi/include/boost/detail/iterator.hpp
+/gs/cross/sysroot/usr/include/boost/detail/iterator.hpp
 boost/config.hpp
 -
 iterator
@@ -528,9 +634,9 @@ boost/mpl/has_xxx.hpp
 cstddef
 -
 boost/type_traits/detail/bool_trait_def.hpp
-/gs/naoqi/include/boost/detail/boost/type_traits/detail/bool_trait_def.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/type_traits/detail/bool_trait_def.hpp
 
-/gs/naoqi/include/boost/detail/limits.hpp
+/gs/cross/sysroot/usr/include/boost/detail/limits.hpp
 climits
 -
 cfloat
@@ -542,27 +648,27 @@ boost/detail/endian.hpp
 cwchar
 -
 
-/gs/naoqi/include/boost/detail/no_exceptions_support.hpp
+/gs/cross/sysroot/usr/include/boost/detail/no_exceptions_support.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
 -
 
-/gs/naoqi/include/boost/detail/reference_content.hpp
+/gs/cross/sysroot/usr/include/boost/detail/reference_content.hpp
 boost/config.hpp
-/gs/naoqi/include/boost/detail/boost/config.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/config.hpp
 boost/mpl/bool.hpp
-/gs/naoqi/include/boost/detail/boost/mpl/bool.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/mpl/bool.hpp
 boost/type_traits/has_nothrow_copy.hpp
-/gs/naoqi/include/boost/detail/boost/type_traits/has_nothrow_copy.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/type_traits/has_nothrow_copy.hpp
 boost/mpl/if.hpp
-/gs/naoqi/include/boost/detail/boost/mpl/if.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/mpl/if.hpp
 boost/type_traits/is_reference.hpp
-/gs/naoqi/include/boost/detail/boost/type_traits/is_reference.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/type_traits/is_reference.hpp
 boost/mpl/void.hpp
-/gs/naoqi/include/boost/detail/boost/mpl/void.hpp
+/gs/cross/sysroot/usr/include/boost/detail/boost/mpl/void.hpp
 
-/gs/naoqi/include/boost/detail/sp_typeinfo.hpp
+/gs/cross/sysroot/usr/include/boost/detail/sp_typeinfo.hpp
 boost/config.hpp
 -
 boost/current_function.hpp
@@ -572,19 +678,19 @@ functional
 typeinfo
 -
 
-/gs/naoqi/include/boost/detail/workaround.hpp
+/gs/cross/sysroot/usr/include/boost/detail/workaround.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/enable_shared_from_this.hpp
+/gs/cross/sysroot/usr/include/boost/enable_shared_from_this.hpp
 boost/smart_ptr/enable_shared_from_this.hpp
 -
 
-/gs/naoqi/include/boost/exception/detail/attribute_noreturn.hpp
+/gs/cross/sysroot/usr/include/boost/exception/detail/attribute_noreturn.hpp
 
-/gs/naoqi/include/boost/exception/exception.hpp
+/gs/cross/sysroot/usr/include/boost/exception/exception.hpp
 
-/gs/naoqi/include/boost/function.hpp
+/gs/cross/sysroot/usr/include/boost/function.hpp
 functional
 -
 boost/preprocessor/iterate.hpp
@@ -616,7 +722,7 @@ boost/function/function9.hpp
 boost/function/function10.hpp
 -
 
-/gs/naoqi/include/boost/function/detail/maybe_include.hpp
+/gs/cross/sysroot/usr/include/boost/function/detail/maybe_include.hpp
 boost/function/function_template.hpp
 -
 boost/function/function_template.hpp
@@ -720,7 +826,7 @@ boost/function/function_template.hpp
 boost/function/function_template.hpp
 -
 
-/gs/naoqi/include/boost/function/detail/prologue.hpp
+/gs/cross/sysroot/usr/include/boost/function/detail/prologue.hpp
 cassert
 -
 algorithm
@@ -750,51 +856,51 @@ boost/preprocessor/inc.hpp
 boost/type_traits/is_void.hpp
 -
 
-/gs/naoqi/include/boost/function/function0.hpp
+/gs/cross/sysroot/usr/include/boost/function/function0.hpp
 boost/function/detail/maybe_include.hpp
 -
 
-/gs/naoqi/include/boost/function/function1.hpp
+/gs/cross/sysroot/usr/include/boost/function/function1.hpp
 boost/function/detail/maybe_include.hpp
 -
 
-/gs/naoqi/include/boost/function/function10.hpp
+/gs/cross/sysroot/usr/include/boost/function/function10.hpp
 boost/function/detail/maybe_include.hpp
 -
 
-/gs/naoqi/include/boost/function/function2.hpp
+/gs/cross/sysroot/usr/include/boost/function/function2.hpp
 boost/function/detail/maybe_include.hpp
 -
 
-/gs/naoqi/include/boost/function/function3.hpp
+/gs/cross/sysroot/usr/include/boost/function/function3.hpp
 boost/function/detail/maybe_include.hpp
 -
 
-/gs/naoqi/include/boost/function/function4.hpp
+/gs/cross/sysroot/usr/include/boost/function/function4.hpp
 boost/function/detail/maybe_include.hpp
 -
 
-/gs/naoqi/include/boost/function/function5.hpp
+/gs/cross/sysroot/usr/include/boost/function/function5.hpp
 boost/function/detail/maybe_include.hpp
 -
 
-/gs/naoqi/include/boost/function/function6.hpp
+/gs/cross/sysroot/usr/include/boost/function/function6.hpp
 boost/function/detail/maybe_include.hpp
 -
 
-/gs/naoqi/include/boost/function/function7.hpp
+/gs/cross/sysroot/usr/include/boost/function/function7.hpp
 boost/function/detail/maybe_include.hpp
 -
 
-/gs/naoqi/include/boost/function/function8.hpp
+/gs/cross/sysroot/usr/include/boost/function/function8.hpp
 boost/function/detail/maybe_include.hpp
 -
 
-/gs/naoqi/include/boost/function/function9.hpp
+/gs/cross/sysroot/usr/include/boost/function/function9.hpp
 boost/function/detail/maybe_include.hpp
 -
 
-/gs/naoqi/include/boost/function/function_base.hpp
+/gs/cross/sysroot/usr/include/boost/function/function_base.hpp
 stdexcept
 -
 string
@@ -834,9 +940,9 @@ boost/detail/workaround.hpp
 boost/type_traits/alignment_of.hpp
 -
 boost/utility/enable_if.hpp
-/gs/naoqi/include/boost/function/boost/utility/enable_if.hpp
+/gs/cross/sysroot/usr/include/boost/function/boost/utility/enable_if.hpp
 boost/mpl/bool.hpp
-/gs/naoqi/include/boost/function/boost/mpl/bool.hpp
+/gs/cross/sysroot/usr/include/boost/function/boost/mpl/bool.hpp
 boost/function_equal.hpp
 -
 boost/function/function_fwd.hpp
@@ -844,27 +950,27 @@ boost/function/function_fwd.hpp
 cstring
 -
 
-/gs/naoqi/include/boost/function/function_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/function/function_fwd.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/function/function_template.hpp
+/gs/cross/sysroot/usr/include/boost/function/function_template.hpp
 boost/function/detail/prologue.hpp
 -
 boost/detail/no_exceptions_support.hpp
 -
 
-/gs/naoqi/include/boost/function_equal.hpp
+/gs/cross/sysroot/usr/include/boost/function_equal.hpp
 
-/gs/naoqi/include/boost/get_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/get_pointer.hpp
 boost/config/no_tr1/memory.hpp
 -
 
-/gs/naoqi/include/boost/implicit_cast.hpp
+/gs/cross/sysroot/usr/include/boost/implicit_cast.hpp
 boost/mpl/identity.hpp
 -
 
-/gs/naoqi/include/boost/integer.hpp
+/gs/cross/sysroot/usr/include/boost/integer.hpp
 boost/integer_fwd.hpp
 -
 boost/integer_traits.hpp
@@ -874,7 +980,7 @@ boost/limits.hpp
 boost/cstdint.hpp
 -
 
-/gs/naoqi/include/boost/integer_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/integer_fwd.hpp
 climits
 -
 cstddef
@@ -886,7 +992,7 @@ boost/limits.hpp
 boost/cstdint.hpp
 -
 
-/gs/naoqi/include/boost/integer_traits.hpp
+/gs/cross/sysroot/usr/include/boost/integer_traits.hpp
 boost/config.hpp
 -
 boost/limits.hpp
@@ -896,11 +1002,11 @@ limits.h
 wchar.h
 -
 
-/gs/naoqi/include/boost/intrusive_ptr.hpp
+/gs/cross/sysroot/usr/include/boost/intrusive_ptr.hpp
 boost/smart_ptr/intrusive_ptr.hpp
 -
 
-/gs/naoqi/include/boost/iterator.hpp
+/gs/cross/sysroot/usr/include/boost/iterator.hpp
 iterator
 -
 cstddef
@@ -908,7 +1014,7 @@ cstddef
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/iterator/detail/config_def.hpp
+/gs/cross/sysroot/usr/include/boost/iterator/detail/config_def.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
@@ -916,9 +1022,9 @@ boost/detail/workaround.hpp
 boost/type_traits/is_convertible.hpp
 -
 
-/gs/naoqi/include/boost/iterator/detail/config_undef.hpp
+/gs/cross/sysroot/usr/include/boost/iterator/detail/config_undef.hpp
 
-/gs/naoqi/include/boost/iterator/detail/enable_if.hpp
+/gs/cross/sysroot/usr/include/boost/iterator/detail/enable_if.hpp
 boost/detail/workaround.hpp
 -
 boost/mpl/identity.hpp
@@ -928,7 +1034,7 @@ boost/iterator/detail/config_def.hpp
 boost/iterator/detail/config_undef.hpp
 -
 
-/gs/naoqi/include/boost/iterator/detail/facade_iterator_category.hpp
+/gs/cross/sysroot/usr/include/boost/iterator/detail/facade_iterator_category.hpp
 boost/iterator/iterator_categories.hpp
 -
 boost/mpl/or.hpp
@@ -960,7 +1066,7 @@ boost/detail/indirect_traits.hpp
 boost/iterator/detail/config_undef.hpp
 -
 
-/gs/naoqi/include/boost/iterator/interoperable.hpp
+/gs/cross/sysroot/usr/include/boost/iterator/interoperable.hpp
 boost/mpl/bool.hpp
 -
 boost/mpl/or.hpp
@@ -972,7 +1078,7 @@ boost/iterator/detail/config_def.hpp
 boost/iterator/detail/config_undef.hpp
 -
 
-/gs/naoqi/include/boost/iterator/iterator_categories.hpp
+/gs/cross/sysroot/usr/include/boost/iterator/iterator_categories.hpp
 boost/config.hpp
 -
 boost/detail/iterator.hpp
@@ -996,7 +1102,7 @@ boost/static_assert.hpp
 boost/iterator/detail/config_undef.hpp
 -
 
-/gs/naoqi/include/boost/iterator/iterator_facade.hpp
+/gs/cross/sysroot/usr/include/boost/iterator/iterator_facade.hpp
 boost/iterator.hpp
 -
 boost/iterator/interoperable.hpp
@@ -1046,19 +1152,19 @@ boost/iterator/detail/config_def.hpp
 boost/iterator/detail/config_undef.hpp
 -
 
-/gs/naoqi/include/boost/iterator/iterator_traits.hpp
+/gs/cross/sysroot/usr/include/boost/iterator/iterator_traits.hpp
 boost/detail/iterator.hpp
 -
 boost/detail/workaround.hpp
 -
 
-/gs/naoqi/include/boost/last_value.hpp
+/gs/cross/sysroot/usr/include/boost/last_value.hpp
 cassert
 -
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/limits.hpp
+/gs/cross/sysroot/usr/include/boost/limits.hpp
 boost/config.hpp
 -
 boost/detail/limits.hpp
@@ -1068,17 +1174,17 @@ limits
 climits
 -
 
-/gs/naoqi/include/boost/make_shared.hpp
+/gs/cross/sysroot/usr/include/boost/make_shared.hpp
 boost/smart_ptr/make_shared.hpp
 -
 
-/gs/naoqi/include/boost/mem_fn.hpp
+/gs/cross/sysroot/usr/include/boost/mem_fn.hpp
 boost/bind/mem_fn.hpp
 -
 
-/gs/naoqi/include/boost/memory_order.hpp
+/gs/cross/sysroot/usr/include/boost/memory_order.hpp
 
-/gs/naoqi/include/boost/mpl/O1_size.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/O1_size.hpp
 boost/mpl/O1_size_fwd.hpp
 -
 boost/mpl/sequence_tag.hpp
@@ -1090,9 +1196,9 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/O1_size_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/O1_size_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/advance.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/advance.hpp
 boost/mpl/advance_fwd.hpp
 -
 boost/mpl/less.hpp
@@ -1118,11 +1224,11 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/nttp_decl.hpp
 -
 
-/gs/naoqi/include/boost/mpl/advance_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/advance_fwd.hpp
 boost/mpl/aux_/common_name_wknd.hpp
 -
 
-/gs/naoqi/include/boost/mpl/always.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/always.hpp
 boost/mpl/aux_/preprocessor/def_params_tail.hpp
 -
 boost/mpl/aux_/na.hpp
@@ -1130,7 +1236,7 @@ boost/mpl/aux_/na.hpp
 boost/mpl/aux_/arity_spec.hpp
 -
 
-/gs/naoqi/include/boost/mpl/and.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/and.hpp
 boost/mpl/aux_/config/use_preprocessed.hpp
 -
 boost/mpl/bool.hpp
@@ -1146,7 +1252,7 @@ boost/mpl/aux_/include_preprocessed.hpp
 boost/mpl/aux_/logical_op.hpp
 -
 
-/gs/naoqi/include/boost/mpl/apply.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/apply.hpp
 boost/mpl/apply_fwd.hpp
 -
 boost/mpl/apply_wrap.hpp
@@ -1196,7 +1302,7 @@ boost/preprocessor/cat.hpp
 boost/mpl/aux_/count_args.hpp
 -
 
-/gs/naoqi/include/boost/mpl/apply_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/apply_fwd.hpp
 boost/mpl/aux_/na.hpp
 -
 boost/mpl/aux_/config/use_preprocessed.hpp
@@ -1220,7 +1326,7 @@ boost/preprocessor/iterate.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/apply_wrap.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/apply_wrap.hpp
 boost/mpl/aux_/arity.hpp
 -
 boost/mpl/aux_/has_apply.hpp
@@ -1264,7 +1370,7 @@ boost/preprocessor/iterate.hpp
 boost/mpl/aux_/msvc_dtw.hpp
 -
 
-/gs/naoqi/include/boost/mpl/arg.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/arg.hpp
 boost/mpl/arg_fwd.hpp
 -
 boost/mpl/aux_/na.hpp
@@ -1300,13 +1406,13 @@ boost/preprocessor/inc.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/arg_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/arg_fwd.hpp
 boost/mpl/aux_/adl_barrier.hpp
 -
 boost/mpl/aux_/nttp_decl.hpp
 -
 
-/gs/naoqi/include/boost/mpl/assert.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/assert.hpp
 boost/mpl/not.hpp
 -
 boost/mpl/aux_/value_wknd.hpp
@@ -1340,7 +1446,7 @@ boost/config.hpp
 cstddef
 -
 
-/gs/naoqi/include/boost/mpl/at.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/at.hpp
 boost/mpl/at_fwd.hpp
 -
 boost/mpl/aux_/at_impl.hpp
@@ -1356,9 +1462,9 @@ boost/mpl/aux_/lambda_support.hpp
 boost/mpl/aux_/nttp_decl.hpp
 -
 
-/gs/naoqi/include/boost/mpl/at_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/at_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/aux_/O1_size_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/O1_size_impl.hpp
 boost/mpl/O1_size_fwd.hpp
 -
 boost/mpl/long.hpp
@@ -1376,7 +1482,7 @@ boost/mpl/aux_/config/msvc.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/adl_barrier.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/adl_barrier.hpp
 boost/mpl/aux_/config/adl.hpp
 -
 boost/mpl/aux_/config/gcc.hpp
@@ -1384,7 +1490,7 @@ boost/mpl/aux_/config/gcc.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/advance_backward.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/advance_backward.hpp
 boost/mpl/prior.hpp
 -
 boost/mpl/apply_wrap.hpp
@@ -1406,7 +1512,7 @@ boost/preprocessor/cat.hpp
 boost/preprocessor/inc.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/advance_forward.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/advance_forward.hpp
 boost/mpl/next.hpp
 -
 boost/mpl/apply_wrap.hpp
@@ -1428,13 +1534,13 @@ boost/preprocessor/cat.hpp
 boost/preprocessor/inc.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/arg_typedef.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/arg_typedef.hpp
 boost/mpl/aux_/config/lambda.hpp
 -
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/arithmetic_op.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/arithmetic_op.hpp
 boost/mpl/integral_c.hpp
 -
 boost/mpl/aux_/largest_int.hpp
@@ -1454,7 +1560,7 @@ boost/mpl/aux_/config/workaround.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/arity.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/arity.hpp
 boost/mpl/aux_/config/dtp.hpp
 -
 boost/mpl/aux_/nttp_decl.hpp
@@ -1462,7 +1568,7 @@ boost/mpl/aux_/nttp_decl.hpp
 boost/mpl/aux_/config/static_constant.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/arity_spec.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/arity_spec.hpp
 boost/mpl/int.hpp
 -
 boost/mpl/limits/arity.hpp
@@ -1482,7 +1588,7 @@ boost/mpl/aux_/config/lambda.hpp
 boost/mpl/aux_/config/static_constant.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/at_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/at_impl.hpp
 boost/mpl/begin_end.hpp
 -
 boost/mpl/advance.hpp
@@ -1492,7 +1598,7 @@ boost/mpl/deref.hpp
 boost/mpl/aux_/traits_lambda_spec.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/begin_end_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/begin_end_impl.hpp
 boost/mpl/begin_end_fwd.hpp
 -
 boost/mpl/sequence_tag_fwd.hpp
@@ -1510,7 +1616,7 @@ boost/mpl/aux_/traits_lambda_spec.hpp
 boost/mpl/aux_/config/eti.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/clear_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/clear_impl.hpp
 boost/mpl/clear_fwd.hpp
 -
 boost/mpl/aux_/traits_lambda_spec.hpp
@@ -1518,11 +1624,11 @@ boost/mpl/aux_/traits_lambda_spec.hpp
 boost/mpl/aux_/config/eti.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/common_name_wknd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/common_name_wknd.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/comparison_op.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/comparison_op.hpp
 boost/mpl/bool.hpp
 -
 boost/mpl/aux_/value_wknd.hpp
@@ -1540,7 +1646,7 @@ boost/mpl/aux_/config/integral.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/adl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/adl.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 boost/mpl/aux_/config/intel.hpp
@@ -1550,23 +1656,23 @@ boost/mpl/aux_/config/gcc.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/arrays.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/arrays.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/bcc.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/bcc.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/bind.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/bind.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/compiler.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/compiler.hpp
 boost/mpl/aux_/config/dtp.hpp
 -
 boost/mpl/aux_/config/ttp.hpp
@@ -1580,33 +1686,33 @@ boost/mpl/aux_/config/gcc.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/ctps.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/ctps.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/dmc_ambiguous_ctps.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/dmc_ambiguous_ctps.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/dtp.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/dtp.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/eti.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/eti.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/forwarding.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/forwarding.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/gcc.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/gcc.hpp
 
-/gs/naoqi/include/boost/mpl/aux_/config/has_apply.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/has_apply.hpp
 boost/mpl/aux_/config/has_xxx.hpp
 -
 boost/mpl/aux_/config/msvc.hpp
@@ -1614,61 +1720,61 @@ boost/mpl/aux_/config/msvc.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/has_xxx.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/has_xxx.hpp
 boost/mpl/aux_/config/overload_resolution.hpp
 -
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/integral.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/integral.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/intel.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/intel.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/lambda.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/lambda.hpp
 boost/mpl/aux_/config/ttp.hpp
 -
 boost/mpl/aux_/config/ctps.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/msvc.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/msvc.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/msvc_typename.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/msvc_typename.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/nttp.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/nttp.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/overload_resolution.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/overload_resolution.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/pp_counter.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/pp_counter.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/preprocessor.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/preprocessor.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/static_constant.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/static_constant.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/ttp.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/ttp.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 boost/mpl/aux_/config/gcc.hpp
@@ -1676,17 +1782,17 @@ boost/mpl/aux_/config/gcc.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/typeof.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/typeof.hpp
 boost/mpl/aux_/config/gcc.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/config/use_preprocessed.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/use_preprocessed.hpp
 
-/gs/naoqi/include/boost/mpl/aux_/config/workaround.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/config/workaround.hpp
 boost/detail/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/contains_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/contains_impl.hpp
 boost/mpl/contains_fwd.hpp
 -
 boost/mpl/begin_end.hpp
@@ -1704,7 +1810,7 @@ boost/mpl/aux_/config/static_constant.hpp
 boost/type_traits/is_same.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/count_args.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/count_args.hpp
 boost/preprocessor/expr_if.hpp
 -
 boost/preprocessor/inc.hpp
@@ -1722,13 +1828,13 @@ boost/preprocessor/repeat.hpp
 boost/preprocessor/inc.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/find_if_pred.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/find_if_pred.hpp
 boost/mpl/aux_/iter_apply.hpp
 -
 boost/mpl/not.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/fold_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/fold_impl.hpp
 boost/mpl/next_prior.hpp
 -
 boost/mpl/apply.hpp
@@ -1748,7 +1854,7 @@ boost/mpl/aux_/include_preprocessed.hpp
 boost/mpl/aux_/fold_impl_body.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/fold_impl_body.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/fold_impl_body.hpp
 boost/mpl/limits/unrolling.hpp
 -
 boost/mpl/aux_/preprocessor/repeat.hpp
@@ -1768,7 +1874,7 @@ boost/preprocessor/dec.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/full_lambda.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/full_lambda.hpp
 boost/mpl/lambda_fwd.hpp
 -
 boost/mpl/bind_fwd.hpp
@@ -1818,17 +1924,17 @@ boost/preprocessor/inc.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/has_apply.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/has_apply.hpp
 boost/mpl/has_xxx.hpp
 -
 boost/mpl/aux_/config/has_apply.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/has_begin.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/has_begin.hpp
 boost/mpl/has_xxx.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/has_rebind.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/has_rebind.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 boost/mpl/aux_/config/intel.hpp
@@ -1862,19 +1968,19 @@ boost/mpl/aux_/yes_no.hpp
 boost/mpl/aux_/config/static_constant.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/has_size.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/has_size.hpp
 boost/mpl/has_xxx.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/has_tag.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/has_tag.hpp
 boost/mpl/has_xxx.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/has_type.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/has_type.hpp
 boost/mpl/has_xxx.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/include_preprocessed.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/include_preprocessed.hpp
 boost/mpl/aux_/config/compiler.hpp
 -
 boost/mpl/aux_/config/preprocessor.hpp
@@ -1886,7 +1992,7 @@ boost/preprocessor/cat.hpp
 boost/preprocessor/stringize.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/inserter_algorithm.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/inserter_algorithm.hpp
 boost/mpl/back_inserter.hpp
 -
 boost/mpl/front_inserter.hpp
@@ -1920,7 +2026,7 @@ boost/mpl/aux_/config/ctps.hpp
 boost/preprocessor/arithmetic/dec.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/integral_wrapper.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/integral_wrapper.hpp
 boost/mpl/integral_c_tag.hpp
 -
 boost/mpl/aux_/static_cast.hpp
@@ -1934,7 +2040,7 @@ boost/mpl/aux_/config/workaround.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/is_msvc_eti_arg.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/is_msvc_eti_arg.hpp
 boost/mpl/aux_/yes_no.hpp
 -
 boost/mpl/aux_/config/eti.hpp
@@ -1942,13 +2048,13 @@ boost/mpl/aux_/config/eti.hpp
 boost/mpl/aux_/config/static_constant.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/iter_apply.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/iter_apply.hpp
 boost/mpl/apply.hpp
 -
 boost/mpl/deref.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/iter_fold_if_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/iter_fold_if_impl.hpp
 boost/mpl/identity.hpp
 -
 boost/mpl/next.hpp
@@ -1976,7 +2082,7 @@ boost/preprocessor/dec.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/iter_fold_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/iter_fold_impl.hpp
 boost/mpl/next_prior.hpp
 -
 boost/mpl/apply.hpp
@@ -1994,11 +2100,11 @@ boost/mpl/aux_/include_preprocessed.hpp
 boost/mpl/aux_/fold_impl_body.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/lambda_arity_param.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/lambda_arity_param.hpp
 boost/mpl/aux_/config/ttp.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/lambda_no_ctps.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/lambda_no_ctps.hpp
 boost/mpl/lambda_fwd.hpp
 -
 boost/mpl/bind_fwd.hpp
@@ -2048,7 +2154,7 @@ boost/preprocessor/inc.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/lambda_spec.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/lambda_spec.hpp
 boost/mpl/void.hpp
 -
 boost/mpl/lambda_fwd.hpp
@@ -2062,7 +2168,7 @@ boost/mpl/aux_/lambda_arity_param.hpp
 boost/mpl/aux_/config/lambda.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/lambda_support.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/lambda_support.hpp
 boost/mpl/aux_/config/lambda.hpp
 -
 boost/mpl/int_fwd.hpp
@@ -2088,7 +2194,7 @@ boost/preprocessor/inc.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/largest_int.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/largest_int.hpp
 boost/mpl/if.hpp
 -
 boost/mpl/int.hpp
@@ -2098,7 +2204,7 @@ boost/mpl/aux_/config/integral.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/logical_op.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/logical_op.hpp
 boost/mpl/bool.hpp
 -
 boost/mpl/aux_/nested_type_wknd.hpp
@@ -2130,11 +2236,11 @@ boost/preprocessor/inc.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/msvc_dtw.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/msvc_dtw.hpp
 boost/mpl/aux_/preprocessor/params.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/msvc_eti_base.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/msvc_eti_base.hpp
 boost/mpl/aux_/is_msvc_eti_arg.hpp
 -
 boost/mpl/aux_/config/eti.hpp
@@ -2144,7 +2250,7 @@ boost/mpl/aux_/config/gcc.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/msvc_is_class.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/msvc_is_class.hpp
 boost/mpl/if.hpp
 -
 boost/mpl/bool.hpp
@@ -2156,19 +2262,19 @@ boost/mpl/aux_/yes_no.hpp
 boost/type_traits/is_reference.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/msvc_never_true.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/msvc_never_true.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/msvc_type.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/msvc_type.hpp
 boost/mpl/aux_/config/eti.hpp
 -
 boost/mpl/aux_/is_msvc_eti_arg.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/na.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/na.hpp
 boost/mpl/bool.hpp
 -
 boost/mpl/aux_/na_fwd.hpp
@@ -2178,7 +2284,7 @@ boost/mpl/aux_/config/msvc.hpp
 boost/mpl/aux_/config/ctps.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/na_assert.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/na_assert.hpp
 boost/mpl/aux_/na.hpp
 -
 boost/mpl/aux_/config/msvc.hpp
@@ -2190,11 +2296,11 @@ boost/mpl/assert.hpp
 boost/static_assert.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/na_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/na_fwd.hpp
 boost/mpl/aux_/adl_barrier.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/na_spec.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/na_spec.hpp
 boost/mpl/lambda_fwd.hpp
 -
 boost/mpl/int.hpp
@@ -2228,19 +2334,19 @@ boost/mpl/aux_/config/lambda.hpp
 boost/mpl/aux_/config/overload_resolution.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/nested_type_wknd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/nested_type_wknd.hpp
 boost/mpl/aux_/config/gcc.hpp
 -
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/nttp_decl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/nttp_decl.hpp
 boost/mpl/aux_/config/nttp.hpp
 -
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/numeric_cast_utils.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/numeric_cast_utils.hpp
 boost/mpl/numeric_cast.hpp
 -
 boost/mpl/apply_wrap.hpp
@@ -2248,7 +2354,7 @@ boost/mpl/apply_wrap.hpp
 boost/mpl/aux_/config/forwarding.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/numeric_op.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/numeric_op.hpp
 boost/mpl/numeric_cast.hpp
 -
 boost/mpl/apply_wrap.hpp
@@ -2310,7 +2416,7 @@ boost/preprocessor/iterate.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/add.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/add.hpp
 boost/mpl/aux_/config/preprocessor.hpp
 -
 boost/mpl/aux_/preprocessor/tuple.hpp
@@ -2320,7 +2426,7 @@ boost/preprocessor/cat.hpp
 boost/preprocessor/arithmetic/add.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/def_params_tail.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/def_params_tail.hpp
 boost/mpl/limits/arity.hpp
 -
 boost/mpl/aux_/config/dtp.hpp
@@ -2352,7 +2458,7 @@ boost/preprocessor/repeat.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/default_params.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/default_params.hpp
 boost/mpl/aux_/config/preprocessor.hpp
 -
 boost/preprocessor/cat.hpp
@@ -2368,7 +2474,7 @@ boost/preprocessor/inc.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/enum.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/enum.hpp
 boost/mpl/aux_/config/preprocessor.hpp
 -
 boost/preprocessor/cat.hpp
@@ -2378,7 +2484,7 @@ boost/preprocessor/comma_if.hpp
 boost/preprocessor/repeat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/ext_params.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/ext_params.hpp
 boost/mpl/aux_/config/preprocessor.hpp
 -
 boost/mpl/aux_/preprocessor/filter_params.hpp
@@ -2398,9 +2504,9 @@ boost/preprocessor/tuple/elem.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/filter_params.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/filter_params.hpp
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/params.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/params.hpp
 boost/mpl/aux_/config/preprocessor.hpp
 -
 boost/preprocessor/cat.hpp
@@ -2414,7 +2520,7 @@ boost/preprocessor/inc.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/partial_spec_params.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/partial_spec_params.hpp
 boost/mpl/limits/arity.hpp
 -
 boost/mpl/aux_/preprocessor/params.hpp
@@ -2426,11 +2532,11 @@ boost/mpl/aux_/preprocessor/sub.hpp
 boost/preprocessor/comma_if.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/range.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/range.hpp
 boost/preprocessor/seq/subseq.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/repeat.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/repeat.hpp
 boost/mpl/aux_/config/preprocessor.hpp
 -
 boost/preprocessor/cat.hpp
@@ -2438,7 +2544,7 @@ boost/preprocessor/cat.hpp
 boost/preprocessor/repeat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/sub.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/sub.hpp
 boost/mpl/aux_/config/preprocessor.hpp
 -
 boost/mpl/aux_/preprocessor/tuple.hpp
@@ -2448,9 +2554,9 @@ boost/preprocessor/cat.hpp
 boost/preprocessor/arithmetic/sub.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/preprocessor/tuple.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/preprocessor/tuple.hpp
 
-/gs/naoqi/include/boost/mpl/aux_/push_back_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/push_back_impl.hpp
 boost/mpl/push_back_fwd.hpp
 -
 boost/mpl/assert.hpp
@@ -2466,7 +2572,7 @@ boost/mpl/aux_/config/static_constant.hpp
 boost/type_traits/is_same.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/push_front_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/push_front_impl.hpp
 boost/mpl/push_front_fwd.hpp
 -
 boost/mpl/assert.hpp
@@ -2482,7 +2588,7 @@ boost/mpl/aux_/config/static_constant.hpp
 boost/type_traits/is_same.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/reverse_fold_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/reverse_fold_impl.hpp
 boost/mpl/next_prior.hpp
 -
 boost/mpl/deref.hpp
@@ -2502,7 +2608,7 @@ boost/mpl/aux_/include_preprocessed.hpp
 boost/mpl/aux_/reverse_fold_impl_body.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/reverse_fold_impl_body.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/reverse_fold_impl_body.hpp
 boost/mpl/limits/unrolling.hpp
 -
 boost/mpl/aux_/preprocessor/repeat.hpp
@@ -2522,7 +2628,7 @@ boost/preprocessor/inc.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/sequence_wrapper.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/sequence_wrapper.hpp
 boost/mpl/aux_/config/ctps.hpp
 -
 boost/mpl/aux_/config/static_constant.hpp
@@ -2548,7 +2654,7 @@ boost/preprocessor/iterate.hpp
 boost/mpl/aux_/count_args.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/size_impl.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/size_impl.hpp
 boost/mpl/size_fwd.hpp
 -
 boost/mpl/begin_end.hpp
@@ -2560,11 +2666,11 @@ boost/mpl/aux_/traits_lambda_spec.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/static_cast.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/static_cast.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/template_arity.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/template_arity.hpp
 boost/mpl/aux_/config/ttp.hpp
 -
 boost/mpl/aux_/config/lambda.hpp
@@ -2606,9 +2712,9 @@ boost/preprocessor/cat.hpp
 boost/mpl/aux_/config/eti.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/template_arity_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/template_arity_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/aux_/traits_lambda_spec.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/traits_lambda_spec.hpp
 boost/mpl/sequence_tag_fwd.hpp
 -
 boost/mpl/void.hpp
@@ -2618,11 +2724,11 @@ boost/mpl/aux_/preprocessor/params.hpp
 boost/mpl/aux_/config/lambda.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/type_wrapper.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/type_wrapper.hpp
 boost/mpl/aux_/config/ctps.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/value_wknd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/value_wknd.hpp
 boost/mpl/aux_/static_cast.hpp
 -
 boost/mpl/aux_/config/integral.hpp
@@ -2634,7 +2740,7 @@ boost/mpl/aux_/config/workaround.hpp
 boost/mpl/int.hpp
 -
 
-/gs/naoqi/include/boost/mpl/aux_/yes_no.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/aux_/yes_no.hpp
 boost/mpl/aux_/nttp_decl.hpp
 -
 boost/mpl/aux_/config/arrays.hpp
@@ -2644,15 +2750,15 @@ boost/mpl/aux_/config/msvc.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/back_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/back_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/back_inserter.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/back_inserter.hpp
 boost/mpl/push_back.hpp
 -
 boost/mpl/inserter.hpp
 -
 
-/gs/naoqi/include/boost/mpl/begin_end.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/begin_end.hpp
 boost/mpl/begin_end_fwd.hpp
 -
 boost/mpl/aux_/begin_end_impl.hpp
@@ -2664,9 +2770,9 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/begin_end_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/begin_end_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/bind.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/bind.hpp
 boost/mpl/bind_fwd.hpp
 -
 boost/mpl/placeholders.hpp
@@ -2734,7 +2840,7 @@ boost/preprocessor/inc.hpp
 boost/mpl/aux_/count_args.hpp
 -
 
-/gs/naoqi/include/boost/mpl/bind_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/bind_fwd.hpp
 boost/mpl/aux_/na.hpp
 -
 boost/mpl/aux_/config/bind.hpp
@@ -2758,7 +2864,7 @@ boost/preprocessor/iterate.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/bool.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/bool.hpp
 boost/mpl/bool_fwd.hpp
 -
 boost/mpl/integral_c_tag.hpp
@@ -2766,11 +2872,11 @@ boost/mpl/integral_c_tag.hpp
 boost/mpl/aux_/config/static_constant.hpp
 -
 
-/gs/naoqi/include/boost/mpl/bool_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/bool_fwd.hpp
 boost/mpl/aux_/adl_barrier.hpp
 -
 
-/gs/naoqi/include/boost/mpl/clear.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/clear.hpp
 boost/mpl/clear_fwd.hpp
 -
 boost/mpl/aux_/clear_impl.hpp
@@ -2782,9 +2888,9 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/clear_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/clear_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/contains.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/contains.hpp
 boost/mpl/contains_fwd.hpp
 -
 boost/mpl/sequence_tag.hpp
@@ -2796,9 +2902,9 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/contains_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/contains_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/copy.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/copy.hpp
 boost/mpl/fold.hpp
 -
 boost/mpl/reverse_fold.hpp
@@ -2806,7 +2912,7 @@ boost/mpl/reverse_fold.hpp
 boost/mpl/aux_/inserter_algorithm.hpp
 -
 
-/gs/naoqi/include/boost/mpl/deref.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/deref.hpp
 boost/mpl/aux_/msvc_type.hpp
 -
 boost/mpl/aux_/na_spec.hpp
@@ -2816,7 +2922,7 @@ boost/mpl/aux_/lambda_support.hpp
 boost/mpl/aux_/config/eti.hpp
 -
 
-/gs/naoqi/include/boost/mpl/distance.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/distance.hpp
 boost/mpl/distance_fwd.hpp
 -
 boost/mpl/iter_fold.hpp
@@ -2842,13 +2948,13 @@ boost/mpl/aux_/config/forwarding.hpp
 boost/mpl/aux_/config/static_constant.hpp
 -
 
-/gs/naoqi/include/boost/mpl/distance_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/distance_fwd.hpp
 boost/mpl/aux_/common_name_wknd.hpp
 -
 
-/gs/naoqi/include/boost/mpl/empty_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/empty_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/eval_if.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/eval_if.hpp
 boost/mpl/if.hpp
 -
 boost/mpl/aux_/na_spec.hpp
@@ -2862,7 +2968,7 @@ boost/mpl/aux_/config/gcc.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/find.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/find.hpp
 boost/mpl/find_if.hpp
 -
 boost/mpl/same_as.hpp
@@ -2872,7 +2978,7 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/find_if.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/find_if.hpp
 boost/mpl/aux_/find_if_pred.hpp
 -
 boost/mpl/arg.hpp
@@ -2886,7 +2992,7 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/fold.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/fold.hpp
 boost/mpl/begin_end.hpp
 -
 boost/mpl/O1_size.hpp
@@ -2898,15 +3004,15 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/front_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/front_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/front_inserter.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/front_inserter.hpp
 boost/mpl/push_front.hpp
 -
 boost/mpl/inserter.hpp
 -
 
-/gs/naoqi/include/boost/mpl/has_xxx.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/has_xxx.hpp
 boost/mpl/bool.hpp
 -
 boost/mpl/aux_/na_spec.hpp
@@ -2944,13 +3050,13 @@ boost/mpl/if.hpp
 boost/mpl/bool.hpp
 -
 
-/gs/naoqi/include/boost/mpl/identity.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/identity.hpp
 boost/mpl/aux_/na_spec.hpp
 -
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/if.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/if.hpp
 boost/mpl/aux_/value_wknd.hpp
 -
 boost/mpl/aux_/static_cast.hpp
@@ -2966,21 +3072,21 @@ boost/mpl/aux_/config/ctps.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/inserter.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/inserter.hpp
 
-/gs/naoqi/include/boost/mpl/int.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/int.hpp
 boost/mpl/int_fwd.hpp
 -
 boost/mpl/aux_/integral_wrapper.hpp
 -
 
-/gs/naoqi/include/boost/mpl/int_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/int_fwd.hpp
 boost/mpl/aux_/adl_barrier.hpp
 -
 boost/mpl/aux_/nttp_decl.hpp
 -
 
-/gs/naoqi/include/boost/mpl/integral_c.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/integral_c.hpp
 boost/mpl/integral_c_fwd.hpp
 -
 boost/mpl/aux_/config/ctps.hpp
@@ -2992,19 +3098,19 @@ boost/mpl/aux_/config/workaround.hpp
 boost/mpl/aux_/integral_wrapper.hpp
 -
 
-/gs/naoqi/include/boost/mpl/integral_c_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/integral_c_fwd.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 boost/mpl/aux_/adl_barrier.hpp
 -
 
-/gs/naoqi/include/boost/mpl/integral_c_tag.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/integral_c_tag.hpp
 boost/mpl/aux_/adl_barrier.hpp
 -
 boost/mpl/aux_/config/static_constant.hpp
 -
 
-/gs/naoqi/include/boost/mpl/is_placeholder.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/is_placeholder.hpp
 boost/mpl/arg_fwd.hpp
 -
 boost/mpl/bool.hpp
@@ -3020,7 +3126,7 @@ boost/mpl/aux_/config/ctps.hpp
 boost/mpl/aux_/config/static_constant.hpp
 -
 
-/gs/naoqi/include/boost/mpl/iter_fold.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/iter_fold.hpp
 boost/mpl/begin_end.hpp
 -
 boost/mpl/O1_size.hpp
@@ -3034,7 +3140,7 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/iter_fold_if.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/iter_fold_if.hpp
 boost/mpl/begin_end.hpp
 -
 boost/mpl/logical.hpp
@@ -3062,17 +3168,17 @@ boost/mpl/aux_/config/workaround.hpp
 boost/type_traits/is_same.hpp
 -
 
-/gs/naoqi/include/boost/mpl/iterator_range.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/iterator_range.hpp
 boost/mpl/aux_/na_spec.hpp
 -
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/iterator_tags.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/iterator_tags.hpp
 boost/mpl/int.hpp
 -
 
-/gs/naoqi/include/boost/mpl/lambda.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/lambda.hpp
 boost/mpl/lambda_fwd.hpp
 -
 boost/mpl/bind.hpp
@@ -3086,7 +3192,7 @@ boost/mpl/aux_/lambda_no_ctps.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/lambda_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/lambda_fwd.hpp
 boost/mpl/void_fwd.hpp
 -
 boost/mpl/aux_/na.hpp
@@ -3102,17 +3208,17 @@ boost/mpl/aux_/template_arity_fwd.hpp
 boost/mpl/bool.hpp
 -
 
-/gs/naoqi/include/boost/mpl/less.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/less.hpp
 boost/mpl/aux_/comparison_op.hpp
 -
 
-/gs/naoqi/include/boost/mpl/limits/arity.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/limits/arity.hpp
 
-/gs/naoqi/include/boost/mpl/limits/unrolling.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/limits/unrolling.hpp
 
-/gs/naoqi/include/boost/mpl/limits/vector.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/limits/vector.hpp
 
-/gs/naoqi/include/boost/mpl/logical.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/logical.hpp
 boost/mpl/or.hpp
 -
 boost/mpl/and.hpp
@@ -3120,23 +3226,23 @@ boost/mpl/and.hpp
 boost/mpl/not.hpp
 -
 
-/gs/naoqi/include/boost/mpl/long.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/long.hpp
 boost/mpl/long_fwd.hpp
 -
 boost/mpl/aux_/integral_wrapper.hpp
 -
 
-/gs/naoqi/include/boost/mpl/long_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/long_fwd.hpp
 boost/mpl/aux_/adl_barrier.hpp
 -
 boost/mpl/aux_/nttp_decl.hpp
 -
 
-/gs/naoqi/include/boost/mpl/minus.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/minus.hpp
 boost/mpl/aux_/arithmetic_op.hpp
 -
 
-/gs/naoqi/include/boost/mpl/multiplies.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/multiplies.hpp
 boost/mpl/times.hpp
 -
 boost/mpl/aux_/na_spec.hpp
@@ -3150,7 +3256,7 @@ boost/mpl/aux_/preprocessor/params.hpp
 boost/mpl/aux_/config/ctps.hpp
 -
 
-/gs/naoqi/include/boost/mpl/negate.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/negate.hpp
 boost/mpl/integral_c.hpp
 -
 boost/mpl/aux_/msvc_eti_base.hpp
@@ -3166,11 +3272,11 @@ boost/mpl/aux_/config/integral.hpp
 boost/mpl/aux_/config/static_constant.hpp
 -
 
-/gs/naoqi/include/boost/mpl/next.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/next.hpp
 boost/mpl/next_prior.hpp
 -
 
-/gs/naoqi/include/boost/mpl/next_prior.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/next_prior.hpp
 boost/mpl/aux_/common_name_wknd.hpp
 -
 boost/mpl/aux_/na_spec.hpp
@@ -3178,7 +3284,7 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/not.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/not.hpp
 boost/mpl/bool.hpp
 -
 boost/mpl/aux_/nttp_decl.hpp
@@ -3190,13 +3296,13 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/numeric_cast.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/numeric_cast.hpp
 boost/mpl/aux_/config/msvc.hpp
 -
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/or.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/or.hpp
 boost/mpl/aux_/config/use_preprocessed.hpp
 -
 boost/mpl/bool.hpp
@@ -3214,7 +3320,7 @@ boost/mpl/aux_/include_preprocessed.hpp
 boost/mpl/aux_/logical_op.hpp
 -
 
-/gs/naoqi/include/boost/mpl/pair.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/pair.hpp
 boost/mpl/aux_/msvc_eti_base.hpp
 -
 boost/mpl/aux_/na_spec.hpp
@@ -3224,7 +3330,7 @@ boost/mpl/aux_/lambda_support.hpp
 boost/mpl/aux_/config/eti.hpp
 -
 
-/gs/naoqi/include/boost/mpl/placeholders.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/placeholders.hpp
 boost/mpl/arg.hpp
 -
 boost/mpl/aux_/adl_barrier.hpp
@@ -3242,19 +3348,19 @@ boost/preprocessor/iterate.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/plus.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/plus.hpp
 boost/mpl/aux_/arithmetic_op.hpp
 -
 
-/gs/naoqi/include/boost/mpl/pop_back_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/pop_back_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/pop_front_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/pop_front_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/prior.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/prior.hpp
 boost/mpl/next_prior.hpp
 -
 
-/gs/naoqi/include/boost/mpl/protect.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/protect.hpp
 boost/mpl/aux_/arity.hpp
 -
 boost/mpl/aux_/config/dtp.hpp
@@ -3264,7 +3370,7 @@ boost/mpl/aux_/nttp_decl.hpp
 boost/mpl/aux_/na_spec.hpp
 -
 
-/gs/naoqi/include/boost/mpl/push_back.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/push_back.hpp
 boost/mpl/push_back_fwd.hpp
 -
 boost/mpl/aux_/push_back_impl.hpp
@@ -3276,9 +3382,9 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/push_back_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/push_back_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/push_front.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/push_front.hpp
 boost/mpl/push_front_fwd.hpp
 -
 boost/mpl/aux_/push_front_impl.hpp
@@ -3290,9 +3396,9 @@ boost/mpl/aux_/na_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/mpl/push_front_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/push_front_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/quote.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/quote.hpp
 boost/mpl/void.hpp
 -
 boost/mpl/aux_/has_type.hpp
@@ -3318,7 +3424,7 @@ boost/preprocessor/iterate.hpp
 boost/preprocessor/cat.hpp
 -
 
-/gs/naoqi/include/boost/mpl/reverse_fold.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/reverse_fold.hpp
 boost/mpl/begin_end.hpp
 -
 boost/mpl/O1_size.hpp
@@ -3330,7 +3436,7 @@ boost/mpl/aux_/reverse_fold_impl.hpp
 boost/mpl/aux_/na_spec.hpp
 -
 
-/gs/naoqi/include/boost/mpl/same_as.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/same_as.hpp
 boost/mpl/not.hpp
 -
 boost/mpl/aux_/lambda_spec.hpp
@@ -3340,7 +3446,7 @@ boost/mpl/aux_/config/forwarding.hpp
 boost/type_traits/is_same.hpp
 -
 
-/gs/naoqi/include/boost/mpl/sequence_tag.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/sequence_tag.hpp
 boost/mpl/sequence_tag_fwd.hpp
 -
 boost/mpl/aux_/has_tag.hpp
@@ -3358,9 +3464,9 @@ boost/mpl/aux_/yes_no.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/sequence_tag_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/sequence_tag_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/size.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/size.hpp
 boost/mpl/size_fwd.hpp
 -
 boost/mpl/sequence_tag.hpp
@@ -3374,15 +3480,15 @@ boost/mpl/aux_/lambda_support.hpp
 boost/mpl/aux_/msvc_eti_base.hpp
 -
 
-/gs/naoqi/include/boost/mpl/size_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/size_fwd.hpp
 
-/gs/naoqi/include/boost/mpl/size_t.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/size_t.hpp
 boost/mpl/size_t_fwd.hpp
 -
 boost/mpl/aux_/integral_wrapper.hpp
 -
 
-/gs/naoqi/include/boost/mpl/size_t_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/size_t_fwd.hpp
 boost/mpl/aux_/adl_barrier.hpp
 -
 boost/config.hpp
@@ -3390,7 +3496,7 @@ boost/config.hpp
 cstddef
 -
 
-/gs/naoqi/include/boost/mpl/tag.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/tag.hpp
 boost/mpl/eval_if.hpp
 -
 boost/mpl/void.hpp
@@ -3400,11 +3506,11 @@ boost/mpl/aux_/has_tag.hpp
 boost/mpl/aux_/config/eti.hpp
 -
 
-/gs/naoqi/include/boost/mpl/times.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/times.hpp
 boost/mpl/aux_/arithmetic_op.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector.hpp
 boost/mpl/limits/vector.hpp
 -
 boost/mpl/aux_/na.hpp
@@ -3426,7 +3532,7 @@ boost/mpl/limits/vector.hpp
 boost/mpl/aux_/sequence_wrapper.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/O1_size.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/O1_size.hpp
 boost/mpl/O1_size_fwd.hpp
 -
 boost/mpl/minus.hpp
@@ -3440,7 +3546,7 @@ boost/mpl/aux_/config/typeof.hpp
 boost/mpl/aux_/config/ctps.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/at.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/at.hpp
 boost/mpl/at_fwd.hpp
 -
 boost/mpl/vector/aux_/tag.hpp
@@ -3460,7 +3566,7 @@ boost/mpl/aux_/config/typeof.hpp
 boost/mpl/aux_/config/ctps.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/back.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/back.hpp
 boost/mpl/back_fwd.hpp
 -
 boost/mpl/next_prior.hpp
@@ -3474,7 +3580,7 @@ boost/mpl/aux_/config/typeof.hpp
 boost/mpl/aux_/config/ctps.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/begin_end.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/begin_end.hpp
 boost/mpl/aux_/config/typeof.hpp
 -
 boost/mpl/begin_end_fwd.hpp
@@ -3484,7 +3590,7 @@ boost/mpl/vector/aux_/iterator.hpp
 boost/mpl/vector/aux_/tag.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/clear.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/clear.hpp
 boost/mpl/clear_fwd.hpp
 -
 boost/mpl/vector/aux_/vector0.hpp
@@ -3496,7 +3602,7 @@ boost/mpl/aux_/config/typeof.hpp
 boost/mpl/aux_/config/ctps.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/empty.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/empty.hpp
 boost/mpl/empty_fwd.hpp
 -
 boost/mpl/bool.hpp
@@ -3510,7 +3616,7 @@ boost/mpl/aux_/config/ctps.hpp
 boost/type_traits/is_same.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/front.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/front.hpp
 boost/mpl/front_fwd.hpp
 -
 boost/mpl/vector/aux_/at.hpp
@@ -3524,7 +3630,7 @@ boost/mpl/aux_/config/typeof.hpp
 boost/mpl/aux_/config/ctps.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/include_preprocessed.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/include_preprocessed.hpp
 boost/mpl/aux_/config/typeof.hpp
 -
 boost/mpl/aux_/config/ctps.hpp
@@ -3538,7 +3644,7 @@ boost/preprocessor/cat.hpp
 boost/preprocessor/stringize.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/item.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/item.hpp
 boost/mpl/long.hpp
 -
 boost/mpl/void.hpp
@@ -3552,7 +3658,7 @@ boost/mpl/aux_/config/typeof.hpp
 boost/mpl/aux_/config/ctps.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/iterator.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/iterator.hpp
 boost/mpl/vector/aux_/at.hpp
 -
 boost/mpl/iterator_tags.hpp
@@ -3578,7 +3684,7 @@ boost/mpl/aux_/config/ctps.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/pop_back.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/pop_back.hpp
 boost/mpl/pop_back_fwd.hpp
 -
 boost/mpl/aux_/config/typeof.hpp
@@ -3588,7 +3694,7 @@ boost/mpl/vector/aux_/item.hpp
 boost/mpl/vector/aux_/tag.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/pop_front.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/pop_front.hpp
 boost/mpl/pop_front_fwd.hpp
 -
 boost/mpl/aux_/config/typeof.hpp
@@ -3598,7 +3704,7 @@ boost/mpl/vector/aux_/item.hpp
 boost/mpl/vector/aux_/tag.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/push_back.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/push_back.hpp
 boost/mpl/push_back_fwd.hpp
 -
 boost/mpl/aux_/config/typeof.hpp
@@ -3608,7 +3714,7 @@ boost/mpl/vector/aux_/item.hpp
 boost/mpl/vector/aux_/tag.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/push_front.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/push_front.hpp
 boost/mpl/push_front_fwd.hpp
 -
 boost/mpl/aux_/config/typeof.hpp
@@ -3618,7 +3724,7 @@ boost/mpl/vector/aux_/item.hpp
 boost/mpl/vector/aux_/tag.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/size.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/size.hpp
 boost/mpl/size_fwd.hpp
 -
 boost/mpl/vector/aux_/O1_size.hpp
@@ -3630,13 +3736,13 @@ boost/mpl/aux_/config/typeof.hpp
 boost/mpl/aux_/config/ctps.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/tag.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/tag.hpp
 boost/mpl/aux_/config/typeof.hpp
 -
 boost/mpl/aux_/nttp_decl.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/aux_/vector0.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/aux_/vector0.hpp
 boost/mpl/long.hpp
 -
 boost/mpl/void.hpp
@@ -3652,7 +3758,7 @@ boost/mpl/vector/aux_/tag.hpp
 boost/mpl/aux_/config/typeof.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/vector0.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/vector0.hpp
 boost/mpl/vector/aux_/at.hpp
 -
 boost/mpl/vector/aux_/front.hpp
@@ -3686,7 +3792,7 @@ boost/mpl/vector/aux_/begin_end.hpp
 boost/mpl/vector/aux_/tag.hpp
 -
 
-/gs/naoqi/include/boost/mpl/vector/vector10.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/vector/vector10.hpp
 boost/mpl/vector/vector0.hpp
 -
 boost/mpl/aux_/config/use_preprocessed.hpp
@@ -3700,7 +3806,7 @@ boost/mpl/aux_/config/ctps.hpp
 boost/preprocessor/iterate.hpp
 -
 
-/gs/naoqi/include/boost/mpl/void.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/void.hpp
 boost/mpl/void_fwd.hpp
 -
 boost/mpl/bool.hpp
@@ -3712,25 +3818,25 @@ boost/mpl/aux_/config/msvc.hpp
 boost/mpl/aux_/config/workaround.hpp
 -
 
-/gs/naoqi/include/boost/mpl/void_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/mpl/void_fwd.hpp
 boost/mpl/aux_/adl_barrier.hpp
 -
 
-/gs/naoqi/include/boost/next_prior.hpp
+/gs/cross/sysroot/usr/include/boost/next_prior.hpp
 iterator
 -
 
-/gs/naoqi/include/boost/non_type.hpp
+/gs/cross/sysroot/usr/include/boost/non_type.hpp
 
-/gs/naoqi/include/boost/noncopyable.hpp
+/gs/cross/sysroot/usr/include/boost/noncopyable.hpp
 
-/gs/naoqi/include/boost/none.hpp
+/gs/cross/sysroot/usr/include/boost/none.hpp
 boost/none_t.hpp
-/gs/naoqi/include/boost/boost/none_t.hpp
+/gs/cross/sysroot/usr/include/boost/boost/none_t.hpp
 
-/gs/naoqi/include/boost/none_t.hpp
+/gs/cross/sysroot/usr/include/boost/none_t.hpp
 
-/gs/naoqi/include/boost/operators.hpp
+/gs/cross/sysroot/usr/include/boost/operators.hpp
 boost/config.hpp
 -
 boost/iterator.hpp
@@ -3738,11 +3844,11 @@ boost/iterator.hpp
 boost/detail/workaround.hpp
 -
 
-/gs/naoqi/include/boost/optional.hpp
+/gs/cross/sysroot/usr/include/boost/optional.hpp
 boost/optional/optional.hpp
-/gs/naoqi/include/boost/boost/optional/optional.hpp
+/gs/cross/sysroot/usr/include/boost/boost/optional/optional.hpp
 
-/gs/naoqi/include/boost/optional/optional.hpp
+/gs/cross/sysroot/usr/include/boost/optional/optional.hpp
 new
 -
 algorithm
@@ -3784,9 +3890,9 @@ boost/utility/in_place_factory.hpp
 boost/optional/optional_fwd.hpp
 -
 
-/gs/naoqi/include/boost/optional/optional_fwd.hpp
+/gs/cross/sysroot/usr/include/boost/optional/optional_fwd.hpp
 
-/gs/naoqi/include/boost/preprocessor/arithmetic/add.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/arithmetic/add.hpp
 boost/preprocessor/arithmetic/dec.hpp
 -
 boost/preprocessor/arithmetic/inc.hpp
@@ -3798,11 +3904,11 @@ boost/preprocessor/control/while.hpp
 boost/preprocessor/tuple/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/arithmetic/dec.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/arithmetic/dec.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/arithmetic/detail/div_base.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/arithmetic/detail/div_base.hpp
 boost/preprocessor/arithmetic/inc.hpp
 -
 boost/preprocessor/arithmetic/sub.hpp
@@ -3818,11 +3924,11 @@ boost/preprocessor/tuple/elem.hpp
 boost/preprocessor/tuple/rem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/arithmetic/inc.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/arithmetic/inc.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/arithmetic/mod.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/arithmetic/mod.hpp
 boost/preprocessor/arithmetic/detail/div_base.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -3830,7 +3936,7 @@ boost/preprocessor/config/config.hpp
 boost/preprocessor/tuple/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/arithmetic/sub.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/arithmetic/sub.hpp
 boost/preprocessor/arithmetic/dec.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -3840,13 +3946,13 @@ boost/preprocessor/control/while.hpp
 boost/preprocessor/tuple/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/array/data.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/array/data.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/tuple/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/array/elem.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/array/elem.hpp
 boost/preprocessor/array/data.hpp
 -
 boost/preprocessor/array/size.hpp
@@ -3856,21 +3962,21 @@ boost/preprocessor/config/config.hpp
 boost/preprocessor/tuple/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/array/size.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/array/size.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/tuple/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/cat.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/cat.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/comma_if.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/comma_if.hpp
 boost/preprocessor/punctuation/comma_if.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/comparison/less_equal.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/comparison/less_equal.hpp
 boost/preprocessor/arithmetic/sub.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -3878,15 +3984,15 @@ boost/preprocessor/config/config.hpp
 boost/preprocessor/logical/not.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/config/config.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/config/config.hpp
 
-/gs/naoqi/include/boost/preprocessor/control/deduce_d.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/control/deduce_d.hpp
 boost/preprocessor/control/while.hpp
 -
 boost/preprocessor/detail/auto_rec.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/control/detail/dmc/while.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/control/detail/dmc/while.hpp
 boost/preprocessor/control/iif.hpp
 -
 boost/preprocessor/logical/bool.hpp
@@ -3894,19 +4000,19 @@ boost/preprocessor/logical/bool.hpp
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/control/detail/edg/while.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/control/detail/edg/while.hpp
 boost/preprocessor/control/if.hpp
 -
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/control/detail/msvc/while.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/control/detail/msvc/while.hpp
 boost/preprocessor/control/if.hpp
 -
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/control/detail/while.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/control/detail/while.hpp
 boost/preprocessor/control/iif.hpp
 -
 boost/preprocessor/logical/bool.hpp
@@ -3914,7 +4020,7 @@ boost/preprocessor/logical/bool.hpp
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/control/expr_if.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/control/expr_if.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/control/expr_iif.hpp
@@ -3922,11 +4028,11 @@ boost/preprocessor/control/expr_iif.hpp
 boost/preprocessor/logical/bool.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/control/expr_iif.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/control/expr_iif.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/control/if.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/control/if.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/control/iif.hpp
@@ -3934,11 +4040,11 @@ boost/preprocessor/control/iif.hpp
 boost/preprocessor/logical/bool.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/control/iif.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/control/iif.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/control/while.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/control/while.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -3962,17 +4068,17 @@ boost/preprocessor/control/detail/dmc/while.hpp
 boost/preprocessor/control/detail/while.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/debug/error.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/debug/error.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/dec.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/dec.hpp
 boost/preprocessor/arithmetic/dec.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/detail/auto_rec.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/detail/auto_rec.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/detail/dmc/auto_rec.hpp
@@ -3980,77 +4086,77 @@ boost/preprocessor/detail/dmc/auto_rec.hpp
 boost/preprocessor/control/iif.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/detail/check.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/detail/check.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/detail/dmc/auto_rec.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/detail/dmc/auto_rec.hpp
 boost/preprocessor/control/iif.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/detail/is_binary.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/detail/is_binary.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/detail/check.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/detail/is_unary.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/detail/is_unary.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/detail/check.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/empty.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/empty.hpp
 boost/preprocessor/facilities/empty.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/enum.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/enum.hpp
 boost/preprocessor/repetition/enum.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/enum_params.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/enum_params.hpp
 boost/preprocessor/repetition/enum_params.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/enum_params_with_a_default.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/enum_params_with_a_default.hpp
 boost/preprocessor/repetition/enum_params_with_a_default.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/enum_shifted_params.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/enum_shifted_params.hpp
 boost/preprocessor/repetition/enum_shifted_params.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/expr_if.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/expr_if.hpp
 boost/preprocessor/control/expr_if.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/facilities/empty.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/facilities/empty.hpp
 
-/gs/naoqi/include/boost/preprocessor/facilities/identity.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/facilities/identity.hpp
 boost/preprocessor/facilities/empty.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/facilities/intercept.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/facilities/intercept.hpp
 
-/gs/naoqi/include/boost/preprocessor/identity.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/identity.hpp
 boost/preprocessor/facilities/identity.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/if.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/if.hpp
 boost/preprocessor/control/if.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/inc.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/inc.hpp
 boost/preprocessor/arithmetic/inc.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/iterate.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/iterate.hpp
 boost/preprocessor/iteration/iterate.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/iteration/iterate.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/iteration/iterate.hpp
 boost/preprocessor/arithmetic/dec.hpp
 -
 boost/preprocessor/arithmetic/inc.hpp
@@ -4066,7 +4172,7 @@ boost/preprocessor/slot/slot.hpp
 boost/preprocessor/tuple/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/iteration/local.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/iteration/local.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/slot/slot.hpp
@@ -4074,9 +4180,9 @@ boost/preprocessor/slot/slot.hpp
 boost/preprocessor/tuple/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/iteration/self.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/iteration/self.hpp
 
-/gs/naoqi/include/boost/preprocessor/list/adt.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/adt.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/detail/is_binary.hpp
@@ -4086,13 +4192,13 @@ boost/preprocessor/logical/compl.hpp
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/list/append.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/append.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/list/fold_right.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/list/detail/dmc/fold_left.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/detail/dmc/fold_left.hpp
 boost/preprocessor/control/expr_iif.hpp
 -
 boost/preprocessor/control/iif.hpp
@@ -4102,7 +4208,7 @@ boost/preprocessor/list/adt.hpp
 boost/preprocessor/tuple/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/list/detail/edg/fold_left.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/detail/edg/fold_left.hpp
 boost/preprocessor/control/expr_iif.hpp
 -
 boost/preprocessor/control/iif.hpp
@@ -4112,7 +4218,7 @@ boost/preprocessor/list/adt.hpp
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/list/detail/edg/fold_right.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/detail/edg/fold_right.hpp
 boost/preprocessor/control/iif.hpp
 -
 boost/preprocessor/list/adt.hpp
@@ -4120,7 +4226,7 @@ boost/preprocessor/list/adt.hpp
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/list/detail/fold_left.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/detail/fold_left.hpp
 boost/preprocessor/control/expr_iif.hpp
 -
 boost/preprocessor/control/iif.hpp
@@ -4130,13 +4236,13 @@ boost/preprocessor/list/adt.hpp
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/list/detail/fold_right.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/detail/fold_right.hpp
 boost/preprocessor/list/fold_left.hpp
 -
 boost/preprocessor/list/reverse.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/list/fold_left.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/fold_left.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/control/while.hpp
@@ -4152,7 +4258,7 @@ boost/preprocessor/list/detail/dmc/fold_left.hpp
 boost/preprocessor/list/detail/fold_left.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/list/fold_right.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/fold_right.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/control/while.hpp
@@ -4166,7 +4272,7 @@ boost/preprocessor/list/detail/edg/fold_right.hpp
 boost/preprocessor/list/detail/fold_right.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/list/for_each_i.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/for_each_i.hpp
 boost/preprocessor/arithmetic/inc.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -4180,13 +4286,13 @@ boost/preprocessor/tuple/elem.hpp
 boost/preprocessor/tuple/rem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/list/reverse.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/reverse.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/list/fold_left.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/list/transform.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/list/transform.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/list/fold_right.hpp
@@ -4196,7 +4302,7 @@ boost/preprocessor/tuple/elem.hpp
 boost/preprocessor/tuple/rem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/logical/and.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/logical/and.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/logical/bool.hpp
@@ -4204,23 +4310,23 @@ boost/preprocessor/logical/bool.hpp
 boost/preprocessor/logical/bitand.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/logical/bitand.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/logical/bitand.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/logical/bitor.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/logical/bitor.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/logical/bool.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/logical/bool.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/logical/compl.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/logical/compl.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/logical/not.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/logical/not.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/logical/bool.hpp
@@ -4228,7 +4334,7 @@ boost/preprocessor/logical/bool.hpp
 boost/preprocessor/logical/compl.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/logical/or.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/logical/or.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/logical/bool.hpp
@@ -4236,9 +4342,9 @@ boost/preprocessor/logical/bool.hpp
 boost/preprocessor/logical/bitor.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/punctuation/comma.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/punctuation/comma.hpp
 
-/gs/naoqi/include/boost/preprocessor/punctuation/comma_if.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/punctuation/comma_if.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/control/if.hpp
@@ -4248,17 +4354,17 @@ boost/preprocessor/facilities/empty.hpp
 boost/preprocessor/punctuation/comma.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/punctuation/paren.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/punctuation/paren.hpp
 
-/gs/naoqi/include/boost/preprocessor/repeat.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repeat.hpp
 boost/preprocessor/repetition/repeat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repeat_from_to.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repeat_from_to.hpp
 boost/preprocessor/repetition/repeat_from_to.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/detail/dmc/for.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/detail/dmc/for.hpp
 boost/preprocessor/control/expr_iif.hpp
 -
 boost/preprocessor/control/iif.hpp
@@ -4268,13 +4374,13 @@ boost/preprocessor/logical/bool.hpp
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/detail/edg/for.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/detail/edg/for.hpp
 boost/preprocessor/control/if.hpp
 -
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/detail/for.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/detail/for.hpp
 boost/preprocessor/control/expr_iif.hpp
 -
 boost/preprocessor/control/iif.hpp
@@ -4284,13 +4390,13 @@ boost/preprocessor/logical/bool.hpp
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/detail/msvc/for.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/detail/msvc/for.hpp
 boost/preprocessor/control/if.hpp
 -
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/enum.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/enum.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -4308,7 +4414,7 @@ boost/preprocessor/tuple/elem.hpp
 boost/preprocessor/tuple/rem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/enum_binary_params.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/enum_binary_params.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -4322,7 +4428,7 @@ boost/preprocessor/tuple/elem.hpp
 boost/preprocessor/tuple/rem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/enum_params.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/enum_params.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/punctuation/comma_if.hpp
@@ -4330,7 +4436,7 @@ boost/preprocessor/punctuation/comma_if.hpp
 boost/preprocessor/repetition/repeat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/enum_params_with_a_default.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/enum_params_with_a_default.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/facilities/intercept.hpp
@@ -4338,7 +4444,7 @@ boost/preprocessor/facilities/intercept.hpp
 boost/preprocessor/repetition/enum_binary_params.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/enum_shifted_params.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/enum_shifted_params.hpp
 boost/preprocessor/arithmetic/dec.hpp
 -
 boost/preprocessor/arithmetic/inc.hpp
@@ -4352,7 +4458,7 @@ boost/preprocessor/punctuation/comma_if.hpp
 boost/preprocessor/repetition/repeat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/enum_trailing.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/enum_trailing.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -4368,13 +4474,13 @@ boost/preprocessor/tuple/elem.hpp
 boost/preprocessor/tuple/rem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/enum_trailing_params.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/enum_trailing_params.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/repetition/repeat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/for.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/for.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/debug/error.hpp
@@ -4390,7 +4496,7 @@ boost/preprocessor/repetition/detail/dmc/for.hpp
 boost/preprocessor/repetition/detail/for.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/repeat.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/repeat.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -4402,7 +4508,7 @@ boost/preprocessor/detail/auto_rec.hpp
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/repetition/repeat_from_to.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/repetition/repeat_from_to.hpp
 boost/preprocessor/arithmetic/add.hpp
 -
 boost/preprocessor/arithmetic/sub.hpp
@@ -4424,7 +4530,7 @@ boost/preprocessor/tuple/elem.hpp
 boost/preprocessor/tuple/rem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/cat.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/cat.hpp
 boost/preprocessor/arithmetic/dec.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -4440,11 +4546,11 @@ boost/preprocessor/seq/size.hpp
 boost/preprocessor/tuple/eat.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/detail/split.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/detail/split.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/elem.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/elem.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -4452,7 +4558,7 @@ boost/preprocessor/config/config.hpp
 boost/preprocessor/facilities/empty.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/enum.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/enum.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -4460,7 +4566,7 @@ boost/preprocessor/config/config.hpp
 boost/preprocessor/seq/size.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/first_n.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/first_n.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/control/if.hpp
@@ -4472,7 +4578,7 @@ boost/preprocessor/tuple/eat.hpp
 boost/preprocessor/tuple/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/fold_left.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/fold_left.hpp
 boost/preprocessor/arithmetic/dec.hpp
 -
 boost/preprocessor/cat.hpp
@@ -4488,7 +4594,7 @@ boost/preprocessor/seq/seq.hpp
 boost/preprocessor/seq/size.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/for_each_i.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/for_each_i.hpp
 boost/preprocessor/arithmetic/dec.hpp
 -
 boost/preprocessor/arithmetic/inc.hpp
@@ -4506,7 +4612,7 @@ boost/preprocessor/tuple/elem.hpp
 boost/preprocessor/tuple/rem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/rest_n.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/rest_n.hpp
 boost/preprocessor/arithmetic/inc.hpp
 -
 boost/preprocessor/config/config.hpp
@@ -4518,19 +4624,19 @@ boost/preprocessor/seq/detail/split.hpp
 boost/preprocessor/tuple/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/seq.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/seq.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/seq/elem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/size.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/size.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/subseq.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/subseq.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/seq/first_n.hpp
@@ -4538,7 +4644,7 @@ boost/preprocessor/seq/first_n.hpp
 boost/preprocessor/seq/rest_n.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/seq/transform.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/seq/transform.hpp
 boost/preprocessor/config/config.hpp
 -
 boost/preprocessor/seq/fold_left.hpp
@@ -4550,35 +4656,35 @@ boost/preprocessor/tuple/elem.hpp
 boost/preprocessor/tuple/rem.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/slot/detail/def.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/slot/detail/def.hpp
 
-/gs/naoqi/include/boost/preprocessor/slot/slot.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/slot/slot.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/slot/detail/def.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/stringize.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/stringize.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/tuple/eat.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/tuple/eat.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/tuple/elem.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/tuple/elem.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/tuple/rem.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/tuple/rem.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/preprocessor/tuple/to_list.hpp
+/gs/cross/sysroot/usr/include/boost/preprocessor/tuple/to_list.hpp
 boost/preprocessor/config/config.hpp
 -
 
-/gs/naoqi/include/boost/ref.hpp
+/gs/cross/sysroot/usr/include/boost/ref.hpp
 boost/config.hpp
 -
 boost/utility/addressof.hpp
@@ -4590,23 +4696,23 @@ boost/detail/workaround.hpp
 boost/type.hpp
 -
 
-/gs/naoqi/include/boost/scoped_array.hpp
+/gs/cross/sysroot/usr/include/boost/scoped_array.hpp
 boost/smart_ptr/scoped_array.hpp
 -
 
-/gs/naoqi/include/boost/scoped_ptr.hpp
+/gs/cross/sysroot/usr/include/boost/scoped_ptr.hpp
 boost/smart_ptr/scoped_ptr.hpp
 -
 
-/gs/naoqi/include/boost/shared_array.hpp
+/gs/cross/sysroot/usr/include/boost/shared_array.hpp
 boost/smart_ptr/shared_array.hpp
 -
 
-/gs/naoqi/include/boost/shared_ptr.hpp
+/gs/cross/sysroot/usr/include/boost/shared_ptr.hpp
 boost/smart_ptr/shared_ptr.hpp
 -
 
-/gs/naoqi/include/boost/signal.hpp
+/gs/cross/sysroot/usr/include/boost/signal.hpp
 boost/config.hpp
 -
 boost/type_traits/function_traits.hpp
@@ -4636,7 +4742,7 @@ boost/signals/signal10.hpp
 boost/function.hpp
 -
 
-/gs/naoqi/include/boost/signals/connection.hpp
+/gs/cross/sysroot/usr/include/boost/signals/connection.hpp
 boost/signals/detail/signals_common.hpp
 -
 boost/smart_ptr.hpp
@@ -4652,13 +4758,13 @@ cassert
 utility
 -
 
-/gs/naoqi/include/boost/signals/detail/config.hpp
+/gs/cross/sysroot/usr/include/boost/signals/detail/config.hpp
 boost/config.hpp
 -
 boost/config/auto_link.hpp
 -
 
-/gs/naoqi/include/boost/signals/detail/named_slot_map.hpp
+/gs/cross/sysroot/usr/include/boost/signals/detail/named_slot_map.hpp
 boost/signals/detail/config.hpp
 -
 boost/signals/detail/signals_common.hpp
@@ -4680,7 +4786,7 @@ memory
 utility
 -
 
-/gs/naoqi/include/boost/signals/detail/signal_base.hpp
+/gs/cross/sysroot/usr/include/boost/signals/detail/signal_base.hpp
 boost/signals/detail/config.hpp
 -
 boost/signals/detail/signals_common.hpp
@@ -4704,7 +4810,7 @@ utility
 vector
 -
 
-/gs/naoqi/include/boost/signals/detail/signals_common.hpp
+/gs/cross/sysroot/usr/include/boost/signals/detail/signals_common.hpp
 boost/type_traits/conversion_traits.hpp
 -
 boost/ref.hpp
@@ -4712,7 +4818,7 @@ boost/ref.hpp
 boost/signals/detail/config.hpp
 -
 
-/gs/naoqi/include/boost/signals/detail/slot_call_iterator.hpp
+/gs/cross/sysroot/usr/include/boost/signals/detail/slot_call_iterator.hpp
 memory
 -
 boost/iterator/iterator_facade.hpp
@@ -4726,51 +4832,51 @@ boost/signals/connection.hpp
 boost/optional.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal0.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal0.hpp
 boost/signals/signal_template.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal1.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal1.hpp
 boost/signals/signal_template.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal10.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal10.hpp
 boost/signals/signal_template.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal2.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal2.hpp
 boost/signals/signal_template.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal3.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal3.hpp
 boost/signals/signal_template.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal4.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal4.hpp
 boost/signals/signal_template.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal5.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal5.hpp
 boost/signals/signal_template.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal6.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal6.hpp
 boost/signals/signal_template.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal7.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal7.hpp
 boost/signals/signal_template.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal8.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal8.hpp
 boost/signals/signal_template.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal9.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal9.hpp
 boost/signals/signal_template.hpp
 -
 
-/gs/naoqi/include/boost/signals/signal_template.hpp
+/gs/cross/sysroot/usr/include/boost/signals/signal_template.hpp
 boost/config.hpp
 -
 boost/signals/connection.hpp
@@ -4798,7 +4904,7 @@ functional
 memory
 -
 
-/gs/naoqi/include/boost/signals/slot.hpp
+/gs/cross/sysroot/usr/include/boost/signals/slot.hpp
 boost/signals/detail/signals_common.hpp
 -
 boost/signals/connection.hpp
@@ -4812,7 +4918,7 @@ boost/shared_ptr.hpp
 cassert
 -
 
-/gs/naoqi/include/boost/signals/trackable.hpp
+/gs/cross/sysroot/usr/include/boost/signals/trackable.hpp
 boost/type_traits.hpp
 -
 boost/signals/connection.hpp
@@ -4826,7 +4932,7 @@ list
 vector
 -
 
-/gs/naoqi/include/boost/smart_ptr.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr.hpp
 boost/config.hpp
 -
 boost/scoped_ptr.hpp
@@ -4846,11 +4952,11 @@ boost/enable_shared_from_this.hpp
 boost/make_shared.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/bad_weak_ptr.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/bad_weak_ptr.hpp
 exception
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/atomic_count.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/atomic_count.hpp
 boost/config.hpp
 -
 boost/smart_ptr/detail/sp_has_sync.hpp
@@ -4868,27 +4974,27 @@ boost/smart_ptr/detail/atomic_count_gcc.hpp
 boost/smart_ptr/detail/atomic_count_pthreads.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/atomic_count_gcc.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/atomic_count_gcc.hpp
 ext/atomicity.h
 -
 bits/atomicity.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/atomic_count_gcc_x86.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/atomic_count_gcc_x86.hpp
 
-/gs/naoqi/include/boost/smart_ptr/detail/atomic_count_pthreads.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/atomic_count_pthreads.hpp
 pthread.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/atomic_count_sync.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/atomic_count_sync.hpp
 ia64intrin.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/atomic_count_win32.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/atomic_count_win32.hpp
 boost/detail/interlocked.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/lightweight_mutex.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/lightweight_mutex.hpp
 boost/config.hpp
 -
 boost/smart_ptr/detail/lwm_nop.hpp
@@ -4898,21 +5004,21 @@ boost/smart_ptr/detail/lwm_pthreads.hpp
 boost/smart_ptr/detail/lwm_win32_cs.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/lwm_nop.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/lwm_nop.hpp
 
-/gs/naoqi/include/boost/smart_ptr/detail/lwm_pthreads.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/lwm_pthreads.hpp
 boost/assert.hpp
 -
 pthread.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/lwm_win32_cs.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/lwm_win32_cs.hpp
 windows.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/operator_bool.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/operator_bool.hpp
 
-/gs/naoqi/include/boost/smart_ptr/detail/quick_allocator.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/quick_allocator.hpp
 boost/config.hpp
 -
 boost/smart_ptr/detail/lightweight_mutex.hpp
@@ -4926,7 +5032,7 @@ new
 cstddef
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/shared_array_nmt.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/shared_array_nmt.hpp
 boost/assert.hpp
 -
 boost/checked_delete.hpp
@@ -4944,7 +5050,7 @@ functional
 new
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/shared_count.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/shared_count.hpp
 boost/config.hpp
 -
 boost/checked_delete.hpp
@@ -4966,7 +5072,7 @@ functional
 new
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/shared_ptr_nmt.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/shared_ptr_nmt.hpp
 boost/assert.hpp
 -
 boost/checked_delete.hpp
@@ -4984,11 +5090,11 @@ functional
 new
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_convertible.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_convertible.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base.hpp
 boost/config.hpp
 -
 boost/smart_ptr/detail/sp_has_sync.hpp
@@ -5024,55 +5130,55 @@ boost/smart_ptr/detail/sp_counted_base_nt.hpp
 boost/smart_ptr/detail/sp_counted_base_spin.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_acc_ia64.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_acc_ia64.hpp
 boost/detail/sp_typeinfo.hpp
 -
 machine/sys/inline.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_cw_ppc.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_cw_ppc.hpp
 boost/detail/sp_typeinfo.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_gcc_ia64.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_ia64.hpp
 boost/detail/sp_typeinfo.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_gcc_mips.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_mips.hpp
 boost/detail/sp_typeinfo.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_gcc_ppc.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_ppc.hpp
 boost/detail/sp_typeinfo.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_gcc_sparc.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_sparc.hpp
 boost/detail/sp_typeinfo.hpp
 -
 inttypes.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp
 boost/detail/sp_typeinfo.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_nt.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_nt.hpp
 boost/detail/sp_typeinfo.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_pt.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_pt.hpp
 boost/detail/sp_typeinfo.hpp
 -
 pthread.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_spin.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_spin.hpp
 boost/detail/sp_typeinfo.hpp
 -
 boost/smart_ptr/detail/spinlock_pool.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_sync.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_sync.hpp
 boost/detail/sp_typeinfo.hpp
 -
 limits.h
@@ -5080,7 +5186,7 @@ limits.h
 ia64intrin.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_base_w32.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_base_w32.hpp
 boost/detail/interlocked.hpp
 -
 boost/detail/workaround.hpp
@@ -5088,7 +5194,7 @@ boost/detail/workaround.hpp
 boost/detail/sp_typeinfo.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_counted_impl.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_counted_impl.hpp
 boost/config.hpp
 -
 boost/checked_delete.hpp
@@ -5102,9 +5208,9 @@ memory
 cstddef
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/sp_has_sync.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/sp_has_sync.hpp
 
-/gs/naoqi/include/boost/smart_ptr/detail/spinlock.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/spinlock.hpp
 boost/config.hpp
 -
 boost/smart_ptr/detail/sp_has_sync.hpp
@@ -5122,15 +5228,15 @@ boost/smart_ptr/detail/spinlock_pt.hpp
 boost/smart_ptr/detail/spinlock_nt.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/spinlock_gcc_arm.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/spinlock_gcc_arm.hpp
 boost/smart_ptr/detail/yield_k.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/spinlock_nt.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/spinlock_nt.hpp
 boost/assert.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/spinlock_pool.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp
 boost/config.hpp
 -
 boost/smart_ptr/detail/spinlock.hpp
@@ -5138,23 +5244,23 @@ boost/smart_ptr/detail/spinlock.hpp
 cstddef
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/spinlock_pt.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/spinlock_pt.hpp
 pthread.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/spinlock_sync.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/spinlock_sync.hpp
 boost/smart_ptr/detail/yield_k.hpp
 -
 ia64intrin.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/spinlock_w32.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/spinlock_w32.hpp
 boost/detail/interlocked.hpp
 -
 boost/smart_ptr/detail/yield_k.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/detail/yield_k.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/detail/yield_k.hpp
 boost/config.hpp
 -
 windows.h
@@ -5164,7 +5270,7 @@ sched.h
 time.h
 -
 
-/gs/naoqi/include/boost/smart_ptr/enable_shared_from_this.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/enable_shared_from_this.hpp
 boost/smart_ptr/weak_ptr.hpp
 -
 boost/smart_ptr/shared_ptr.hpp
@@ -5174,7 +5280,7 @@ boost/assert.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/intrusive_ptr.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/intrusive_ptr.hpp
 boost/config.hpp
 -
 boost/assert.hpp
@@ -5192,7 +5298,7 @@ ostream
 boost/smart_ptr/detail/operator_bool.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/make_shared.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/make_shared.hpp
 boost/config.hpp
 -
 boost/smart_ptr/shared_ptr.hpp
@@ -5206,7 +5312,7 @@ cstddef
 new
 -
 
-/gs/naoqi/include/boost/smart_ptr/scoped_array.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/scoped_array.hpp
 boost/assert.hpp
 -
 boost/checked_delete.hpp
@@ -5220,7 +5326,7 @@ cstddef
 boost/smart_ptr/detail/operator_bool.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/scoped_ptr.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/scoped_ptr.hpp
 boost/assert.hpp
 -
 boost/checked_delete.hpp
@@ -5232,7 +5338,7 @@ memory
 boost/smart_ptr/detail/operator_bool.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/shared_array.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/shared_array.hpp
 boost/config.hpp
 -
 boost/smart_ptr/detail/shared_array_nmt.hpp
@@ -5256,7 +5362,7 @@ functional
 boost/smart_ptr/detail/operator_bool.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/shared_ptr.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/shared_ptr.hpp
 boost/config.hpp
 -
 boost/smart_ptr/detail/shared_ptr_nmt.hpp
@@ -5294,7 +5400,7 @@ ostream
 boost/smart_ptr/detail/operator_bool.hpp
 -
 
-/gs/naoqi/include/boost/smart_ptr/weak_ptr.hpp
+/gs/cross/sysroot/usr/include/boost/smart_ptr/weak_ptr.hpp
 memory
 -
 boost/smart_ptr/detail/shared_count.hpp
@@ -5302,13 +5408,13 @@ boost/smart_ptr/detail/shared_count.hpp
 boost/smart_ptr/shared_ptr.hpp
 -
 
-/gs/naoqi/include/boost/static_assert.hpp
+/gs/cross/sysroot/usr/include/boost/static_assert.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
 -
 
-/gs/naoqi/include/boost/throw_exception.hpp
+/gs/cross/sysroot/usr/include/boost/throw_exception.hpp
 boost/exception/detail/attribute_noreturn.hpp
 -
 boost/detail/workaround.hpp
@@ -5322,165 +5428,165 @@ boost/exception/exception.hpp
 boost/current_function.hpp
 -
 
-/gs/naoqi/include/boost/type.hpp
+/gs/cross/sysroot/usr/include/boost/type.hpp
 
-/gs/naoqi/include/boost/type_traits.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits.hpp
 boost/type_traits/add_const.hpp
-/gs/naoqi/include/boost/boost/type_traits/add_const.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/add_const.hpp
 boost/type_traits/add_cv.hpp
-/gs/naoqi/include/boost/boost/type_traits/add_cv.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/add_cv.hpp
 boost/type_traits/add_lvalue_reference.hpp
-/gs/naoqi/include/boost/boost/type_traits/add_lvalue_reference.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/add_lvalue_reference.hpp
 boost/type_traits/add_pointer.hpp
-/gs/naoqi/include/boost/boost/type_traits/add_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/add_pointer.hpp
 boost/type_traits/add_reference.hpp
-/gs/naoqi/include/boost/boost/type_traits/add_reference.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/add_reference.hpp
 boost/type_traits/add_rvalue_reference.hpp
-/gs/naoqi/include/boost/boost/type_traits/add_rvalue_reference.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/add_rvalue_reference.hpp
 boost/type_traits/add_volatile.hpp
-/gs/naoqi/include/boost/boost/type_traits/add_volatile.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/add_volatile.hpp
 boost/type_traits/aligned_storage.hpp
-/gs/naoqi/include/boost/boost/type_traits/aligned_storage.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/aligned_storage.hpp
 boost/type_traits/alignment_of.hpp
-/gs/naoqi/include/boost/boost/type_traits/alignment_of.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/alignment_of.hpp
 boost/type_traits/common_type.hpp
-/gs/naoqi/include/boost/boost/type_traits/common_type.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/common_type.hpp
 boost/type_traits/conditional.hpp
-/gs/naoqi/include/boost/boost/type_traits/conditional.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/conditional.hpp
 boost/type_traits/decay.hpp
-/gs/naoqi/include/boost/boost/type_traits/decay.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/decay.hpp
 boost/type_traits/extent.hpp
-/gs/naoqi/include/boost/boost/type_traits/extent.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/extent.hpp
 boost/type_traits/floating_point_promotion.hpp
-/gs/naoqi/include/boost/boost/type_traits/floating_point_promotion.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/floating_point_promotion.hpp
 boost/type_traits/function_traits.hpp
-/gs/naoqi/include/boost/boost/type_traits/function_traits.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/function_traits.hpp
 boost/type_traits/has_new_operator.hpp
-/gs/naoqi/include/boost/boost/type_traits/has_new_operator.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/has_new_operator.hpp
 boost/type_traits/has_nothrow_assign.hpp
-/gs/naoqi/include/boost/boost/type_traits/has_nothrow_assign.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/has_nothrow_assign.hpp
 boost/type_traits/has_nothrow_constructor.hpp
-/gs/naoqi/include/boost/boost/type_traits/has_nothrow_constructor.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/has_nothrow_constructor.hpp
 boost/type_traits/has_nothrow_copy.hpp
-/gs/naoqi/include/boost/boost/type_traits/has_nothrow_copy.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/has_nothrow_copy.hpp
 boost/type_traits/has_nothrow_destructor.hpp
-/gs/naoqi/include/boost/boost/type_traits/has_nothrow_destructor.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/has_nothrow_destructor.hpp
 boost/type_traits/has_operator.hpp
 -
 boost/type_traits/has_trivial_assign.hpp
-/gs/naoqi/include/boost/boost/type_traits/has_trivial_assign.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/has_trivial_assign.hpp
 boost/type_traits/has_trivial_constructor.hpp
-/gs/naoqi/include/boost/boost/type_traits/has_trivial_constructor.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/has_trivial_constructor.hpp
 boost/type_traits/has_trivial_copy.hpp
-/gs/naoqi/include/boost/boost/type_traits/has_trivial_copy.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/has_trivial_copy.hpp
 boost/type_traits/has_trivial_destructor.hpp
-/gs/naoqi/include/boost/boost/type_traits/has_trivial_destructor.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/has_trivial_destructor.hpp
 boost/type_traits/has_virtual_destructor.hpp
-/gs/naoqi/include/boost/boost/type_traits/has_virtual_destructor.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/has_virtual_destructor.hpp
 boost/type_traits/is_abstract.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_abstract.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_abstract.hpp
 boost/type_traits/is_arithmetic.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_arithmetic.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_arithmetic.hpp
 boost/type_traits/is_array.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_array.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_array.hpp
 boost/type_traits/is_base_and_derived.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_base_and_derived.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_base_and_derived.hpp
 boost/type_traits/is_base_of.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_base_of.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_base_of.hpp
 boost/type_traits/is_class.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_class.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_class.hpp
 boost/type_traits/is_complex.hpp
 -
 boost/type_traits/is_compound.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_compound.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_compound.hpp
 boost/type_traits/is_const.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_const.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_const.hpp
 boost/type_traits/is_convertible.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_convertible.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_convertible.hpp
 boost/type_traits/is_empty.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_empty.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_empty.hpp
 boost/type_traits/is_enum.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_enum.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_enum.hpp
 boost/type_traits/is_float.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_float.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_float.hpp
 boost/type_traits/is_floating_point.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_floating_point.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_floating_point.hpp
 boost/type_traits/is_function.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_function.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_function.hpp
 boost/type_traits/is_fundamental.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_fundamental.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_fundamental.hpp
 boost/type_traits/is_integral.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_integral.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_integral.hpp
 boost/type_traits/is_lvalue_reference.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_lvalue_reference.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_lvalue_reference.hpp
 boost/type_traits/is_member_function_pointer.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_member_function_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_member_function_pointer.hpp
 boost/type_traits/is_member_object_pointer.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_member_object_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_member_object_pointer.hpp
 boost/type_traits/is_member_pointer.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_member_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_member_pointer.hpp
 boost/type_traits/is_object.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_object.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_object.hpp
 boost/type_traits/is_pod.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_pod.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_pod.hpp
 boost/type_traits/is_polymorphic.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_polymorphic.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_polymorphic.hpp
 boost/type_traits/is_pointer.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_pointer.hpp
 boost/type_traits/is_reference.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_reference.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_reference.hpp
 boost/type_traits/is_rvalue_reference.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_rvalue_reference.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_rvalue_reference.hpp
 boost/type_traits/is_signed.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_signed.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_signed.hpp
 boost/type_traits/is_same.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_same.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_same.hpp
 boost/type_traits/is_scalar.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_scalar.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_scalar.hpp
 boost/type_traits/is_stateless.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_stateless.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_stateless.hpp
 boost/type_traits/is_union.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_union.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_union.hpp
 boost/type_traits/is_unsigned.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_unsigned.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_unsigned.hpp
 boost/type_traits/is_void.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_void.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_void.hpp
 boost/type_traits/is_virtual_base_of.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_virtual_base_of.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_virtual_base_of.hpp
 boost/type_traits/is_volatile.hpp
-/gs/naoqi/include/boost/boost/type_traits/is_volatile.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/is_volatile.hpp
 boost/type_traits/make_unsigned.hpp
 -
 boost/type_traits/make_signed.hpp
 -
 boost/type_traits/rank.hpp
-/gs/naoqi/include/boost/boost/type_traits/rank.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/rank.hpp
 boost/type_traits/remove_bounds.hpp
-/gs/naoqi/include/boost/boost/type_traits/remove_bounds.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/remove_bounds.hpp
 boost/type_traits/remove_extent.hpp
-/gs/naoqi/include/boost/boost/type_traits/remove_extent.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/remove_extent.hpp
 boost/type_traits/remove_all_extents.hpp
-/gs/naoqi/include/boost/boost/type_traits/remove_all_extents.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/remove_all_extents.hpp
 boost/type_traits/remove_const.hpp
-/gs/naoqi/include/boost/boost/type_traits/remove_const.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/remove_const.hpp
 boost/type_traits/remove_cv.hpp
-/gs/naoqi/include/boost/boost/type_traits/remove_cv.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/remove_cv.hpp
 boost/type_traits/remove_pointer.hpp
-/gs/naoqi/include/boost/boost/type_traits/remove_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/remove_pointer.hpp
 boost/type_traits/remove_reference.hpp
-/gs/naoqi/include/boost/boost/type_traits/remove_reference.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/remove_reference.hpp
 boost/type_traits/remove_volatile.hpp
-/gs/naoqi/include/boost/boost/type_traits/remove_volatile.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/remove_volatile.hpp
 boost/type_traits/type_with_alignment.hpp
-/gs/naoqi/include/boost/boost/type_traits/type_with_alignment.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/type_with_alignment.hpp
 boost/type_traits/integral_promotion.hpp
-/gs/naoqi/include/boost/boost/type_traits/integral_promotion.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/integral_promotion.hpp
 boost/type_traits/promote.hpp
-/gs/naoqi/include/boost/boost/type_traits/promote.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/promote.hpp
 boost/type_traits/ice.hpp
-/gs/naoqi/include/boost/boost/type_traits/ice.hpp
+/gs/cross/sysroot/usr/include/boost/boost/type_traits/ice.hpp
 
-/gs/naoqi/include/boost/type_traits/add_const.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/add_const.hpp
 boost/config.hpp
 -
 boost/type_traits/detail/type_trait_def.hpp
@@ -5488,7 +5594,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/add_cv.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/add_cv.hpp
 boost/config.hpp
 -
 boost/type_traits/detail/type_trait_def.hpp
@@ -5496,7 +5602,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/add_lvalue_reference.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/add_lvalue_reference.hpp
 boost/type_traits/add_reference.hpp
 -
 boost/type_traits/detail/type_trait_def.hpp
@@ -5504,7 +5610,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/add_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/add_pointer.hpp
 boost/type_traits/remove_reference.hpp
 -
 boost/type_traits/detail/type_trait_def.hpp
@@ -5512,7 +5618,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/add_reference.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/add_reference.hpp
 boost/type_traits/is_reference.hpp
 -
 boost/detail/workaround.hpp
@@ -5524,7 +5630,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/add_rvalue_reference.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/add_rvalue_reference.hpp
 boost/config.hpp
 -
 boost/type_traits/is_void.hpp
@@ -5536,7 +5642,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/add_volatile.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/add_volatile.hpp
 boost/config.hpp
 -
 boost/type_traits/detail/type_trait_def.hpp
@@ -5544,11 +5650,11 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/aligned_storage.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/aligned_storage.hpp
 boost/aligned_storage.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/alignment_of.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/alignment_of.hpp
 boost/config.hpp
 -
 cstddef
@@ -5560,7 +5666,7 @@ boost/type_traits/detail/size_t_trait_def.hpp
 boost/type_traits/detail/size_t_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/broken_compiler_spec.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/broken_compiler_spec.hpp
 boost/mpl/aux_/lambda_support.hpp
 -
 boost/config.hpp
@@ -5568,7 +5674,7 @@ boost/config.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/common_type.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/common_type.hpp
 boost/config.hpp
 -
 boost/typeof/typeof.hpp
@@ -5590,7 +5696,7 @@ boost/utility/declval.hpp
 boost/type_traits/add_rvalue_reference.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/composite_traits.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/composite_traits.hpp
 boost/type_traits/is_array.hpp
 -
 boost/type_traits/is_enum.hpp
@@ -5606,21 +5712,21 @@ boost/type_traits/is_reference.hpp
 boost/type_traits/is_union.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/conditional.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/conditional.hpp
 boost/mpl/if.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/config.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/config.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/conversion_traits.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/conversion_traits.hpp
 boost/type_traits/is_convertible.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/decay.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/decay.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/is_array.hpp
@@ -5638,7 +5744,7 @@ boost/mpl/eval_if.hpp
 boost/mpl/identity.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/bool_trait_def.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/template_arity_spec.hpp
 -
 boost/type_traits/integral_constant.hpp
@@ -5650,9 +5756,9 @@ boost/mpl/aux_/lambda_support.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/bool_trait_undef.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/bool_trait_undef.hpp
 
-/gs/naoqi/include/boost/type_traits/detail/common_type_imp.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/common_type_imp.hpp
 cstddef
 -
 boost/mpl/assert.hpp
@@ -5704,7 +5810,7 @@ boost/type_traits/remove_reference.hpp
 boost/utility/declval.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/cv_traits_impl.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/cv_traits_impl.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
@@ -5712,11 +5818,11 @@ boost/detail/workaround.hpp
 boost/type_traits/detail/yes_no_type.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/false_result.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/false_result.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/has_binary_operator.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/has_binary_operator.hpp
 boost/config.hpp
 -
 boost/type_traits/ice.hpp
@@ -5750,7 +5856,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/has_postfix_operator.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/has_postfix_operator.hpp
 boost/config.hpp
 -
 boost/type_traits/ice.hpp
@@ -5778,7 +5884,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/has_prefix_operator.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/has_prefix_operator.hpp
 boost/config.hpp
 -
 boost/type_traits/ice.hpp
@@ -5808,23 +5914,23 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/ice_and.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/ice_and.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/ice_eq.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/ice_eq.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/ice_not.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/ice_not.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/ice_or.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/ice_or.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/is_function_ptr_helper.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/is_function_ptr_helper.hpp
 boost/type_traits/config.hpp
 -
 boost/preprocessor/iterate.hpp
@@ -5834,7 +5940,7 @@ boost/preprocessor/enum_params.hpp
 boost/preprocessor/comma_if.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/is_function_ptr_tester.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/is_function_ptr_tester.hpp
 boost/type_traits/detail/yes_no_type.hpp
 -
 boost/type_traits/config.hpp
@@ -5846,7 +5952,7 @@ boost/preprocessor/enum_params.hpp
 boost/preprocessor/comma_if.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp
 boost/config.hpp
 -
 boost/preprocessor/iterate.hpp
@@ -5856,7 +5962,7 @@ boost/preprocessor/enum_params.hpp
 boost/preprocessor/comma_if.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/is_mem_fun_pointer_tester.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/is_mem_fun_pointer_tester.hpp
 boost/type_traits/detail/yes_no_type.hpp
 -
 boost/type_traits/config.hpp
@@ -5868,7 +5974,7 @@ boost/preprocessor/enum_params.hpp
 boost/preprocessor/comma_if.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/size_t_trait_def.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/size_t_trait_def.hpp
 boost/type_traits/detail/template_arity_spec.hpp
 -
 boost/type_traits/integral_constant.hpp
@@ -5880,9 +5986,9 @@ boost/mpl/size_t.hpp
 cstddef
 -
 
-/gs/naoqi/include/boost/type_traits/detail/size_t_trait_undef.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/size_t_trait_undef.hpp
 
-/gs/naoqi/include/boost/type_traits/detail/template_arity_spec.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/template_arity_spec.hpp
 boost/mpl/int.hpp
 -
 boost/mpl/aux_/template_arity_fwd.hpp
@@ -5894,25 +6000,25 @@ boost/mpl/aux_/config/lambda.hpp
 boost/mpl/aux_/config/overload_resolution.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/type_trait_def.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/template_arity_spec.hpp
 -
 boost/mpl/aux_/lambda_support.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/detail/type_trait_undef.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/type_trait_undef.hpp
 
-/gs/naoqi/include/boost/type_traits/detail/wrap.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/wrap.hpp
 
-/gs/naoqi/include/boost/type_traits/detail/yes_no_type.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/detail/yes_no_type.hpp
 
-/gs/naoqi/include/boost/type_traits/extent.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/extent.hpp
 boost/type_traits/detail/size_t_trait_def.hpp
 -
 boost/type_traits/detail/size_t_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/floating_point_promotion.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/floating_point_promotion.hpp
 boost/config.hpp
 -
 boost/mpl/at.hpp
@@ -5932,7 +6038,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/function_traits.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/function_traits.hpp
 boost/config.hpp
 -
 boost/type_traits/is_function.hpp
@@ -5940,115 +6046,115 @@ boost/type_traits/is_function.hpp
 boost/type_traits/add_pointer.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_bit_and.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_bit_and.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_bit_and_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_bit_and_assign.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_bit_or.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_bit_or.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_bit_or_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_bit_or_assign.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_bit_xor.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_bit_xor.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_bit_xor_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_bit_xor_assign.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_complement.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_complement.hpp
 boost/type_traits/detail/has_prefix_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_dereference.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_dereference.hpp
 boost/type_traits/detail/has_prefix_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_divides.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_divides.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_divides_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_divides_assign.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_equal_to.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_equal_to.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_greater.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_greater.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_greater_equal.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_greater_equal.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_left_shift.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_left_shift.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_left_shift_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_left_shift_assign.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_less.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_less.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_less_equal.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_less_equal.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_logical_and.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_logical_and.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_logical_not.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_logical_not.hpp
 boost/type_traits/detail/has_prefix_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_logical_or.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_logical_or.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_minus.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_minus.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_minus_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_minus_assign.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_modulus.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_modulus.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_modulus_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_modulus_assign.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_multiplies.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_multiplies.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_multiplies_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_multiplies_assign.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_negate.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_negate.hpp
 boost/type_traits/detail/has_prefix_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_new_operator.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_new_operator.hpp
 new
 -
 cstddef
@@ -6064,11 +6170,11 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_not_equal_to.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_not_equal_to.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_nothrow_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_nothrow_assign.hpp
 boost/type_traits/has_trivial_assign.hpp
 -
 boost/type_traits/detail/bool_trait_def.hpp
@@ -6076,7 +6182,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_nothrow_constructor.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_nothrow_constructor.hpp
 boost/type_traits/has_trivial_constructor.hpp
 -
 boost/type_traits/detail/bool_trait_def.hpp
@@ -6084,7 +6190,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_nothrow_copy.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_nothrow_copy.hpp
 boost/type_traits/has_trivial_copy.hpp
 -
 boost/type_traits/detail/bool_trait_def.hpp
@@ -6092,7 +6198,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_nothrow_destructor.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_nothrow_destructor.hpp
 boost/type_traits/has_trivial_destructor.hpp
 -
 boost/type_traits/detail/bool_trait_def.hpp
@@ -6100,7 +6206,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_operator.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_operator.hpp
 boost/type_traits/has_bit_and.hpp
 -
 boost/type_traits/has_bit_and_assign.hpp
@@ -6178,39 +6284,39 @@ boost/type_traits/has_unary_minus.hpp
 boost/type_traits/has_unary_plus.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_plus.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_plus.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_plus_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_plus_assign.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_post_decrement.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_post_decrement.hpp
 boost/type_traits/detail/has_postfix_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_post_increment.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_post_increment.hpp
 boost/type_traits/detail/has_postfix_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_pre_decrement.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_pre_decrement.hpp
 boost/type_traits/detail/has_prefix_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_pre_increment.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_pre_increment.hpp
 boost/type_traits/detail/has_prefix_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_right_shift.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_right_shift.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_right_shift_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_right_shift_assign.hpp
 boost/type_traits/detail/has_binary_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_trivial_assign.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_trivial_assign.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/intrinsics.hpp
@@ -6232,7 +6338,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_trivial_constructor.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_trivial_constructor.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/intrinsics.hpp
@@ -6246,7 +6352,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_trivial_copy.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_trivial_copy.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/intrinsics.hpp
@@ -6266,7 +6372,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_trivial_destructor.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_trivial_destructor.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/intrinsics.hpp
@@ -6280,15 +6386,15 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_unary_minus.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_unary_minus.hpp
 boost/type_traits/detail/has_prefix_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_unary_plus.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_unary_plus.hpp
 boost/type_traits/detail/has_prefix_operator.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/has_virtual_destructor.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/has_virtual_destructor.hpp
 boost/type_traits/intrinsics.hpp
 -
 boost/type_traits/detail/bool_trait_def.hpp
@@ -6296,7 +6402,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/ice.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/ice.hpp
 boost/type_traits/detail/yes_no_type.hpp
 -
 boost/type_traits/detail/ice_or.hpp
@@ -6308,7 +6414,7 @@ boost/type_traits/detail/ice_not.hpp
 boost/type_traits/detail/ice_eq.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/integral_constant.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/integral_constant.hpp
 boost/config.hpp
 -
 boost/mpl/bool.hpp
@@ -6316,7 +6422,7 @@ boost/mpl/bool.hpp
 boost/mpl/integral_c.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/integral_promotion.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/integral_promotion.hpp
 boost/config.hpp
 -
 boost/mpl/eval_if.hpp
@@ -6338,7 +6444,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/intrinsics.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/intrinsics.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/is_same.hpp
@@ -6380,7 +6486,7 @@ boost/type_traits/is_volatile.hpp
 boost/type_traits/is_void.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_abstract.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_abstract.hpp
 boost/type_traits/intrinsics.hpp
 -
 boost/static_assert.hpp
@@ -6398,7 +6504,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_arithmetic.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_arithmetic.hpp
 boost/type_traits/is_integral.hpp
 -
 boost/type_traits/is_float.hpp
@@ -6412,7 +6518,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_array.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_array.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/detail/yes_no_type.hpp
@@ -6426,7 +6532,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_base_and_derived.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_base_and_derived.hpp
 boost/type_traits/intrinsics.hpp
 -
 boost/type_traits/is_class.hpp
@@ -6448,7 +6554,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_base_of.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_base_of.hpp
 boost/type_traits/is_base_and_derived.hpp
 -
 boost/type_traits/is_same.hpp
@@ -6464,7 +6570,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_class.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_class.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/intrinsics.hpp
@@ -6494,7 +6600,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_complex.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_complex.hpp
 boost/type_traits/is_convertible.hpp
 -
 complex
@@ -6504,7 +6610,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_compound.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_compound.hpp
 boost/config.hpp
 -
 boost/type_traits/is_fundamental.hpp
@@ -6516,7 +6622,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_const.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_const.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
@@ -6540,7 +6646,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_convertible.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_convertible.hpp
 boost/type_traits/intrinsics.hpp
 -
 boost/type_traits/detail/yes_no_type.hpp
@@ -6570,7 +6676,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_empty.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_empty.hpp
 boost/type_traits/is_convertible.hpp
 -
 boost/type_traits/detail/ice_or.hpp
@@ -6604,7 +6710,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_enum.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_enum.hpp
 boost/type_traits/intrinsics.hpp
 -
 boost/type_traits/add_reference.hpp
@@ -6630,19 +6736,19 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_float.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_float.hpp
 boost/type_traits/detail/bool_trait_def.hpp
 -
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_floating_point.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_floating_point.hpp
 boost/type_traits/detail/bool_trait_def.hpp
 -
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_function.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_function.hpp
 boost/type_traits/is_reference.hpp
 -
 boost/type_traits/detail/false_result.hpp
@@ -6660,7 +6766,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_fundamental.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_fundamental.hpp
 boost/type_traits/is_arithmetic.hpp
 -
 boost/type_traits/is_void.hpp
@@ -6672,7 +6778,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_integral.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_integral.hpp
 boost/config.hpp
 -
 boost/type_traits/detail/bool_trait_def.hpp
@@ -6680,7 +6786,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_lvalue_reference.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_lvalue_reference.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/detail/yes_no_type.hpp
@@ -6692,7 +6798,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_member_function_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_member_function_pointer.hpp
 boost/type_traits/config.hpp
 -
 boost/detail/workaround.hpp
@@ -6718,7 +6824,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_member_object_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_member_object_pointer.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/is_member_pointer.hpp
@@ -6734,7 +6840,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_member_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_member_pointer.hpp
 boost/type_traits/config.hpp
 -
 boost/detail/workaround.hpp
@@ -6758,7 +6864,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_object.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_object.hpp
 boost/type_traits/is_reference.hpp
 -
 boost/type_traits/is_void.hpp
@@ -6776,7 +6882,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_pod.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_pod.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/is_void.hpp
@@ -6794,7 +6900,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_pointer.hpp
 boost/type_traits/is_member_pointer.hpp
 -
 boost/type_traits/detail/ice_and.hpp
@@ -6820,7 +6926,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_polymorphic.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_polymorphic.hpp
 boost/type_traits/intrinsics.hpp
 -
 boost/type_traits/is_class.hpp
@@ -6834,7 +6940,7 @@ boost/detail/workaround.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_reference.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_reference.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/is_lvalue_reference.hpp
@@ -6848,7 +6954,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_rvalue_reference.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_rvalue_reference.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/detail/bool_trait_def.hpp
@@ -6856,7 +6962,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_same.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_same.hpp
 boost/type_traits/config.hpp
 -
 boost/type_traits/detail/yes_no_type.hpp
@@ -6870,7 +6976,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_scalar.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_scalar.hpp
 boost/type_traits/is_arithmetic.hpp
 -
 boost/type_traits/is_enum.hpp
@@ -6888,7 +6994,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_signed.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_signed.hpp
 boost/type_traits/is_integral.hpp
 -
 boost/type_traits/remove_cv.hpp
@@ -6902,7 +7008,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_stateless.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_stateless.hpp
 boost/type_traits/has_trivial_constructor.hpp
 -
 boost/type_traits/has_trivial_copy.hpp
@@ -6922,7 +7028,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_union.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_union.hpp
 boost/type_traits/remove_cv.hpp
 -
 boost/type_traits/config.hpp
@@ -6934,7 +7040,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_unsigned.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_unsigned.hpp
 boost/type_traits/is_integral.hpp
 -
 boost/type_traits/is_enum.hpp
@@ -6948,7 +7054,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_virtual_base_of.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_virtual_base_of.hpp
 boost/type_traits/is_base_of.hpp
 -
 boost/type_traits/is_same.hpp
@@ -6962,7 +7068,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_void.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_void.hpp
 boost/config.hpp
 -
 boost/type_traits/detail/bool_trait_def.hpp
@@ -6970,7 +7076,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/is_volatile.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/is_volatile.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
@@ -6992,7 +7098,7 @@ boost/type_traits/detail/bool_trait_def.hpp
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/make_signed.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/make_signed.hpp
 boost/mpl/if.hpp
 -
 boost/type_traits/is_integral.hpp
@@ -7028,7 +7134,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/make_unsigned.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/make_unsigned.hpp
 boost/mpl/if.hpp
 -
 boost/type_traits/is_integral.hpp
@@ -7064,19 +7170,19 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/msvc/remove_all_extents.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/msvc/remove_all_extents.hpp
 boost/type_traits/msvc/typeof.hpp
 -
 boost/type_traits/is_array.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/msvc/remove_bounds.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/msvc/remove_bounds.hpp
 boost/type_traits/msvc/typeof.hpp
 -
 boost/type_traits/is_array.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/msvc/remove_const.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/msvc/remove_const.hpp
 boost/type_traits/msvc/typeof.hpp
 -
 boost/type_traits/is_volatile.hpp
@@ -7088,7 +7194,7 @@ boost/type_traits/is_pointer.hpp
 boost/type_traits/is_array.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/msvc/remove_cv.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/msvc/remove_cv.hpp
 boost/type_traits/msvc/typeof.hpp
 -
 boost/type_traits/is_volatile.hpp
@@ -7100,25 +7206,25 @@ boost/type_traits/is_pointer.hpp
 boost/type_traits/is_array.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/msvc/remove_extent.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/msvc/remove_extent.hpp
 boost/type_traits/msvc/typeof.hpp
 -
 boost/type_traits/is_array.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/msvc/remove_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/msvc/remove_pointer.hpp
 boost/type_traits/msvc/typeof.hpp
 -
 boost/type_traits/is_pointer.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/msvc/remove_reference.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/msvc/remove_reference.hpp
 boost/type_traits/msvc/typeof.hpp
 -
 boost/type_traits/is_reference.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/msvc/remove_volatile.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/msvc/remove_volatile.hpp
 boost/type_traits/msvc/typeof.hpp
 -
 boost/type_traits/is_volatile.hpp
@@ -7130,13 +7236,13 @@ boost/type_traits/is_pointer.hpp
 boost/type_traits/is_array.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/msvc/typeof.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/msvc/typeof.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/promote.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/promote.hpp
 boost/config.hpp
 -
 boost/type_traits/integral_promotion.hpp
@@ -7148,13 +7254,13 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/rank.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/rank.hpp
 boost/type_traits/detail/size_t_trait_def.hpp
 -
 boost/type_traits/detail/size_t_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/remove_all_extents.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/remove_all_extents.hpp
 boost/config.hpp
 -
 cstddef
@@ -7168,7 +7274,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/remove_bounds.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/remove_bounds.hpp
 boost/config.hpp
 -
 cstddef
@@ -7182,7 +7288,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/remove_const.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/remove_const.hpp
 boost/type_traits/is_volatile.hpp
 -
 boost/type_traits/broken_compiler_spec.hpp
@@ -7202,7 +7308,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/remove_cv.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/remove_cv.hpp
 boost/type_traits/broken_compiler_spec.hpp
 -
 boost/type_traits/detail/cv_traits_impl.hpp
@@ -7220,7 +7326,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/remove_extent.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/remove_extent.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
@@ -7234,7 +7340,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/remove_pointer.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/remove_pointer.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
@@ -7252,7 +7358,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/remove_reference.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/remove_reference.hpp
 boost/type_traits/broken_compiler_spec.hpp
 -
 boost/config.hpp
@@ -7266,7 +7372,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/remove_volatile.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/remove_volatile.hpp
 boost/type_traits/is_const.hpp
 -
 boost/type_traits/broken_compiler_spec.hpp
@@ -7286,7 +7392,7 @@ boost/type_traits/detail/type_trait_def.hpp
 boost/type_traits/detail/type_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/type_traits/type_with_alignment.hpp
+/gs/cross/sysroot/usr/include/boost/type_traits/type_with_alignment.hpp
 boost/mpl/if.hpp
 -
 boost/preprocessor/list/for_each_i.hpp
@@ -7314,7 +7420,7 @@ cstddef
 boost/type_traits/detail/bool_trait_undef.hpp
 -
 
-/gs/naoqi/include/boost/typeof/dmc/typeof_impl.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/dmc/typeof_impl.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
@@ -7322,7 +7428,7 @@ boost/detail/workaround.hpp
 boost/mpl/int.hpp
 -
 
-/gs/naoqi/include/boost/typeof/encode_decode.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/encode_decode.hpp
 boost/mpl/deref.hpp
 -
 boost/mpl/next.hpp
@@ -7330,13 +7436,13 @@ boost/mpl/next.hpp
 boost/typeof/message.hpp
 -
 
-/gs/naoqi/include/boost/typeof/encode_decode_params.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/encode_decode_params.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/repetition/repeat.hpp
 -
 
-/gs/naoqi/include/boost/typeof/int_encoding.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/int_encoding.hpp
 boost/mpl/if.hpp
 -
 boost/mpl/size_t.hpp
@@ -7344,17 +7450,17 @@ boost/mpl/size_t.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/typeof/integral_template_param.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/integral_template_param.hpp
 
-/gs/naoqi/include/boost/typeof/message.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/message.hpp
 
-/gs/naoqi/include/boost/typeof/modifiers.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/modifiers.hpp
 boost/typeof/encode_decode.hpp
 -
 boost/preprocessor/facilities/identity.hpp
 -
 
-/gs/naoqi/include/boost/typeof/msvc/typeof_impl.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/msvc/typeof_impl.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
@@ -7368,19 +7474,19 @@ boost/utility/enable_if.hpp
 typeinfo
 -
 
-/gs/naoqi/include/boost/typeof/native.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/native.hpp
 boost/type_traits/is_function.hpp
 -
 boost/utility/enable_if.hpp
 -
 
-/gs/naoqi/include/boost/typeof/pointers_data_members.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/pointers_data_members.hpp
 boost/typeof/encode_decode_params.hpp
 -
 boost/typeof/encode_decode.hpp
 -
 
-/gs/naoqi/include/boost/typeof/register_functions.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/register_functions.hpp
 boost/preprocessor/repetition/enum.hpp
 -
 boost/preprocessor/repetition/enum_params.hpp
@@ -7400,11 +7506,11 @@ boost/preprocessor/arithmetic/add.hpp
 boost/preprocessor/iteration/iterate.hpp
 -
 
-/gs/naoqi/include/boost/typeof/register_fundamental.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/register_fundamental.hpp
 boost/typeof/typeof.hpp
 -
 
-/gs/naoqi/include/boost/typeof/template_encoding.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/template_encoding.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/repetition/enum_trailing.hpp
@@ -7434,7 +7540,7 @@ boost/typeof/integral_template_param.hpp
 boost/typeof/template_template_param.hpp
 -
 
-/gs/naoqi/include/boost/typeof/template_template_param.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/template_template_param.hpp
 boost/preprocessor/logical/or.hpp
 -
 boost/preprocessor/seq/fold_left.hpp
@@ -7442,11 +7548,11 @@ boost/preprocessor/seq/fold_left.hpp
 boost/preprocessor/seq/enum.hpp
 -
 
-/gs/naoqi/include/boost/typeof/type_encoding.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/type_encoding.hpp
 
-/gs/naoqi/include/boost/typeof/type_template_param.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/type_template_param.hpp
 
-/gs/naoqi/include/boost/typeof/typeof.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/typeof.hpp
 boost/typeof/dmc/typeof_impl.hpp
 -
 boost/typeof/msvc/typeof_impl.hpp
@@ -7476,7 +7582,7 @@ boost/typeof/message.hpp
 boost/typeof/native.hpp
 -
 
-/gs/naoqi/include/boost/typeof/typeof_impl.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/typeof_impl.hpp
 boost/mpl/size_t.hpp
 -
 boost/preprocessor/repetition/enum.hpp
@@ -7490,9 +7596,9 @@ boost/type_traits/is_function.hpp
 boost/utility/enable_if.hpp
 -
 
-/gs/naoqi/include/boost/typeof/unsupported.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/unsupported.hpp
 
-/gs/naoqi/include/boost/typeof/vector.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/vector.hpp
 boost/mpl/int.hpp
 -
 boost/preprocessor/iteration/self.hpp
@@ -7526,15 +7632,15 @@ boost/preprocessor/control/expr_iif.hpp
 boost/preprocessor/logical/not.hpp
 -
 
-/gs/naoqi/include/boost/typeof/vector100.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/vector100.hpp
 
-/gs/naoqi/include/boost/typeof/vector150.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/vector150.hpp
 
-/gs/naoqi/include/boost/typeof/vector200.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/vector200.hpp
 
-/gs/naoqi/include/boost/typeof/vector50.hpp
+/gs/cross/sysroot/usr/include/boost/typeof/vector50.hpp
 
-/gs/naoqi/include/boost/utility.hpp
+/gs/cross/sysroot/usr/include/boost/utility.hpp
 boost/utility/addressof.hpp
 -
 boost/utility/base_from_member.hpp
@@ -7550,13 +7656,13 @@ boost/next_prior.hpp
 boost/noncopyable.hpp
 -
 
-/gs/naoqi/include/boost/utility/addressof.hpp
+/gs/cross/sysroot/usr/include/boost/utility/addressof.hpp
 boost/config.hpp
 -
 boost/detail/workaround.hpp
 -
 
-/gs/naoqi/include/boost/utility/base_from_member.hpp
+/gs/cross/sysroot/usr/include/boost/utility/base_from_member.hpp
 boost/preprocessor/arithmetic/inc.hpp
 -
 boost/preprocessor/repetition/enum_binary_params.hpp
@@ -7566,7 +7672,7 @@ boost/preprocessor/repetition/enum_params.hpp
 boost/preprocessor/repetition/repeat_from_to.hpp
 -
 
-/gs/naoqi/include/boost/utility/binary.hpp
+/gs/cross/sysroot/usr/include/boost/utility/binary.hpp
 boost/preprocessor/control/deduce_d.hpp
 -
 boost/preprocessor/facilities/identity.hpp
@@ -7586,17 +7692,17 @@ boost/preprocessor/facilities/empty.hpp
 boost/preprocessor/control/while.hpp
 -
 
-/gs/naoqi/include/boost/utility/compare_pointees.hpp
+/gs/cross/sysroot/usr/include/boost/utility/compare_pointees.hpp
 functional
 -
 
-/gs/naoqi/include/boost/utility/declval.hpp
+/gs/cross/sysroot/usr/include/boost/utility/declval.hpp
 boost/config.hpp
 -
 boost/type_traits/add_rvalue_reference.hpp
 -
 
-/gs/naoqi/include/boost/utility/detail/in_place_factory_prefix.hpp
+/gs/cross/sysroot/usr/include/boost/utility/detail/in_place_factory_prefix.hpp
 new
 -
 cstddef
@@ -7620,39 +7726,151 @@ boost/preprocessor/repetition/enum_binary_params.hpp
 boost/preprocessor/repetition/enum_trailing_params.hpp
 -
 
-/gs/naoqi/include/boost/utility/detail/in_place_factory_suffix.hpp
+/gs/cross/sysroot/usr/include/boost/utility/detail/in_place_factory_suffix.hpp
 
-/gs/naoqi/include/boost/utility/enable_if.hpp
+/gs/cross/sysroot/usr/include/boost/utility/enable_if.hpp
 boost/config.hpp
-/gs/naoqi/include/boost/utility/boost/config.hpp
+/gs/cross/sysroot/usr/include/boost/utility/boost/config.hpp
 
-/gs/naoqi/include/boost/utility/in_place_factory.hpp
+/gs/cross/sysroot/usr/include/boost/utility/in_place_factory.hpp
 boost/utility/detail/in_place_factory_prefix.hpp
 -
 boost/utility/detail/in_place_factory_suffix.hpp
 -
 
-/gs/naoqi/include/boost/utility/swap.hpp
+/gs/cross/sysroot/usr/include/boost/utility/swap.hpp
 algorithm
 -
 cstddef
 -
 
-/gs/naoqi/include/boost/version.hpp
+/gs/cross/sysroot/usr/include/boost/version.hpp
 
-/gs/naoqi/include/boost/visit_each.hpp
+/gs/cross/sysroot/usr/include/boost/visit_each.hpp
 boost/config.hpp
 -
 
-/gs/naoqi/include/boost/weak_ptr.hpp
+/gs/cross/sysroot/usr/include/boost/weak_ptr.hpp
 boost/smart_ptr/weak_ptr.hpp
 -
 
-/gs/naoqi/include/qi/config.hpp
+/gs/cross/sysroot/usr/include/ctype.h
+features.h
+-
+bits/types.h
+-
+endian.h
+-
+xlocale.h
+-
+
+/gs/cross/sysroot/usr/include/endian.h
+features.h
+-
+bits/endian.h
+-
+bits/byteswap.h
+-
+
+/gs/cross/sysroot/usr/include/features.h
+sys/cdefs.h
+-
+gnu/stubs.h
+-
+
+/gs/cross/sysroot/usr/include/gconv.h
+features.h
+-
+wchar.h
+-
+stddef.h
+-
+
+/gs/cross/sysroot/usr/include/getopt.h
+ctype.h
+-
+
+/gs/cross/sysroot/usr/include/gnu/stubs-32.h
+
+/gs/cross/sysroot/usr/include/gnu/stubs.h
+bits/wordsize.h
+-
+gnu/stubs-32.h
+-
+gnu/stubs-64.h
+-
+
+/gs/cross/sysroot/usr/include/inttypes.h
+features.h
+-
+stdint.h
+-
+stddef.h
+-
+
+/gs/cross/sysroot/usr/include/libio.h
+_G_config.h
+-
+stdarg.h
+-
+sys/cdefs.h
+-
+bits/stdio-lock.h
+-
+shlib-compat.h
+-
+bits/libio-ldbl.h
+-
+
+/gs/cross/sysroot/usr/include/limits.h
+features.h
+-
+bits/wordsize.h
+-
+bits/posix1_lim.h
+-
+bits/posix2_lim.h
+-
+bits/xopen_lim.h
+-
+
+/gs/cross/sysroot/usr/include/linux/limits.h
+
+/gs/cross/sysroot/usr/include/linux/posix_types.h
+linux/stddef.h
+-
+asm/posix_types.h
+-
+
+/gs/cross/sysroot/usr/include/linux/stddef.h
+
+/gs/cross/sysroot/usr/include/linux/types.h
+asm/types.h
+-
+linux/posix_types.h
+-
+
+/gs/cross/sysroot/usr/include/pthread.h
+features.h
+-
+endian.h
+-
+sched.h
+-
+time.h
+-
+bits/pthreadtypes.h
+-
+bits/setjmp.h
+-
+bits/wordsize.h
+-
+
+/gs/cross/sysroot/usr/include/qi/config.hpp
 qi/macro.hpp
 -
 
-/gs/naoqi/include/qi/log.hpp
+/gs/cross/sysroot/usr/include/qi/log.hpp
 map
 -
 string
@@ -7672,9 +7890,9 @@ qi/config.hpp
 qi/os.hpp
 -
 
-/gs/naoqi/include/qi/macro.hpp
+/gs/cross/sysroot/usr/include/qi/macro.hpp
 
-/gs/naoqi/include/qi/os.hpp
+/gs/cross/sysroot/usr/include/qi/os.hpp
 string
 -
 map
@@ -7683,4 +7901,216 @@ vector
 -
 qi/config.hpp
 -
+
+/gs/cross/sysroot/usr/include/sched.h
+features.h
+-
+bits/types.h
+-
+stddef.h
+-
+time.h
+-
+bits/sched.h
+-
+
+/gs/cross/sysroot/usr/include/signal.h
+features.h
+-
+bits/sigset.h
+-
+bits/types.h
+-
+bits/signum.h
+-
+time.h
+-
+bits/siginfo.h
+-
+bits/sigaction.h
+-
+bits/sigcontext.h
+-
+stddef.h
+-
+bits/sigstack.h
+-
+sys/ucontext.h
+-
+bits/pthreadtypes.h
+-
+bits/sigthread.h
+-
+
+/gs/cross/sysroot/usr/include/stdint.h
+features.h
+-
+bits/wchar.h
+-
+bits/wordsize.h
+-
+
+/gs/cross/sysroot/usr/include/stdio.h
+features.h
+-
+stddef.h
+-
+bits/types.h
+-
+libio.h
+-
+stdarg.h
+-
+bits/stdio_lim.h
+-
+bits/sys_errlist.h
+-
+getopt.h
+-
+bits/stdio.h
+-
+bits/stdio2.h
+-
+bits/stdio-ldbl.h
+-
+
+/gs/cross/sysroot/usr/include/sys/cdefs.h
+features.h
+-
+bits/wordsize.h
+-
+
+/gs/cross/sysroot/usr/include/sys/ucontext.h
+features.h
+-
+signal.h
+-
+bits/sigcontext.h
+-
+
+/gs/cross/sysroot/usr/include/time.h
+features.h
+-
+stddef.h
+-
+bits/time.h
+-
+bits/types.h
+-
+bits/types.h
+-
+bits/types.h
+-
+bits/types.h
+-
+bits/types.h
+-
+xlocale.h
+-
+
+/gs/cross/sysroot/usr/include/unistd.h
+features.h
+-
+bits/posix_opt.h
+-
+bits/environments.h
+-
+bits/types.h
+-
+stddef.h
+-
+bits/confname.h
+-
+getopt.h
+-
+bits/unistd.h
+-
+
+/gs/cross/sysroot/usr/include/wchar.h
+features.h
+-
+stdio.h
+-
+stdarg.h
+-
+bits/wchar.h
+-
+stddef.h
+-
+wctype.h
+-
+xlocale.h
+-
+xlocale.h
+-
+xlocale.h
+-
+wctype.h
+-
+bits/wchar2.h
+-
+bits/wchar-ldbl.h
+-
+
+/gs/cross/sysroot/usr/include/wctype.h
+features.h
+-
+bits/types.h
+-
+wchar.h
+-
+endian.h
+-
+xlocale.h
+-
+
+/gs/cross/sysroot/usr/include/xlocale.h
+
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.cpp
+events.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h
+alvalue/alvalue.h
+-
+alcommon/alproxy.h
+-
+alcommon/albroker.h
+-
+vector
+-
+cmath
+-
+qi/os.hpp
+-
+qi/log.hpp
+-
+
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h
+boost/shared_ptr.hpp
+-
+alcommon/almodule.h
+-
+string
+-
+vector
+-
+qi/os.hpp
+-
+alproxies/almemoryproxy.h
+-
+
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/main.cpp
+signal.h
+-
+boost/shared_ptr.hpp
+-
+alcommon/albroker.h
+-
+alcommon/almodule.h
+-
+alcommon/albrokermanager.h
+-
+alcommon/altoolsmain.h
+-
+events.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h
 

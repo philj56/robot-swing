@@ -50,15 +50,15 @@ CMakeFiles/gyroevents.dir/main.cpp.o: CMakeFiles/gyroevents.dir/flags.make
 CMakeFiles/gyroevents.dir/main.cpp.o: ../main.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-tc/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/gyroevents.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/gyroevents.dir/main.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/main.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -o CMakeFiles/gyroevents.dir/main.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/main.cpp
 
 CMakeFiles/gyroevents.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gyroevents.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/main.cpp > CMakeFiles/gyroevents.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -E /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/main.cpp > CMakeFiles/gyroevents.dir/main.cpp.i
 
 CMakeFiles/gyroevents.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gyroevents.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/main.cpp -o CMakeFiles/gyroevents.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -S /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/main.cpp -o CMakeFiles/gyroevents.dir/main.cpp.s
 
 CMakeFiles/gyroevents.dir/main.cpp.o.requires:
 .PHONY : CMakeFiles/gyroevents.dir/main.cpp.o.requires
@@ -73,15 +73,15 @@ CMakeFiles/gyroevents.dir/events.cpp.o: CMakeFiles/gyroevents.dir/flags.make
 CMakeFiles/gyroevents.dir/events.cpp.o: ../events.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-tc/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/gyroevents.dir/events.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/gyroevents.dir/events.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -o CMakeFiles/gyroevents.dir/events.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.cpp
 
 CMakeFiles/gyroevents.dir/events.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gyroevents.dir/events.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.cpp > CMakeFiles/gyroevents.dir/events.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -E /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.cpp > CMakeFiles/gyroevents.dir/events.cpp.i
 
 CMakeFiles/gyroevents.dir/events.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gyroevents.dir/events.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.cpp -o CMakeFiles/gyroevents.dir/events.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -S /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.cpp -o CMakeFiles/gyroevents.dir/events.cpp.s
 
 CMakeFiles/gyroevents.dir/events.cpp.o.requires:
 .PHONY : CMakeFiles/gyroevents.dir/events.cpp.o.requires
@@ -100,31 +100,31 @@ gyroevents_OBJECTS = \
 # External object files for target gyroevents
 gyroevents_EXTERNAL_OBJECTS =
 
-sdk/bin/gyroevents: CMakeFiles/gyroevents.dir/main.cpp.o
-sdk/bin/gyroevents: CMakeFiles/gyroevents.dir/events.cpp.o
-sdk/bin/gyroevents: /gs/naoqi/lib/libalproxies.so
-sdk/bin/gyroevents: /gs/naoqi/lib/libalcommon.so
-sdk/bin/gyroevents: /gs/naoqi/lib/libalsoap.so
-sdk/bin/gyroevents: /gs/naoqi/lib/librttools.so
-sdk/bin/gyroevents: /gs/naoqi/lib/libalthread.so
-sdk/bin/gyroevents: /gs/naoqi/lib/libboost_signals-mt.a
-sdk/bin/gyroevents: /gs/naoqi/lib/libboost_program_options-mt.a
-sdk/bin/gyroevents: /gs/naoqi/lib/libalvalue.so
-sdk/bin/gyroevents: /gs/naoqi/lib/libtinyxml.so
-sdk/bin/gyroevents: /usr/lib/x86_64-linux-gnu/librt.so
-sdk/bin/gyroevents: /gs/naoqi/lib/libqi.so
-sdk/bin/gyroevents: /gs/naoqi/lib/libboost_filesystem-mt.a
-sdk/bin/gyroevents: /gs/naoqi/lib/libboost_thread-mt.a
-sdk/bin/gyroevents: /gs/naoqi/lib/libboost_system-mt.a
-sdk/bin/gyroevents: /usr/lib/x86_64-linux-gnu/libdl.so
-sdk/bin/gyroevents: /gs/naoqi/lib/libalerror.so
-sdk/bin/gyroevents: CMakeFiles/gyroevents.dir/build.make
-sdk/bin/gyroevents: CMakeFiles/gyroevents.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable sdk/bin/gyroevents"
+sdk/lib/naoqi/libgyroevents.so: CMakeFiles/gyroevents.dir/main.cpp.o
+sdk/lib/naoqi/libgyroevents.so: CMakeFiles/gyroevents.dir/events.cpp.o
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libalproxies.so
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libalcommon.so
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libalsoap.so
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/librttools.so
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libalthread.so
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libboost_signals-mt.a
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libboost_program_options-mt.a
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libalvalue.so
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libtinyxml.so
+sdk/lib/naoqi/libgyroevents.so: /usr/lib/x86_64-linux-gnu/librt.so
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libqi.so
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libboost_filesystem-mt.a
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libboost_thread-mt.a
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libboost_system-mt.a
+sdk/lib/naoqi/libgyroevents.so: /usr/lib/x86_64-linux-gnu/libdl.so
+sdk/lib/naoqi/libgyroevents.so: /gs/naoqi/lib/libalerror.so
+sdk/lib/naoqi/libgyroevents.so: CMakeFiles/gyroevents.dir/build.make
+sdk/lib/naoqi/libgyroevents.so: CMakeFiles/gyroevents.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library sdk/lib/naoqi/libgyroevents.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gyroevents.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/gyroevents.dir/build: sdk/bin/gyroevents
+CMakeFiles/gyroevents.dir/build: sdk/lib/naoqi/libgyroevents.so
 .PHONY : CMakeFiles/gyroevents.dir/build
 
 CMakeFiles/gyroevents.dir/requires: CMakeFiles/gyroevents.dir/main.cpp.o.requires
