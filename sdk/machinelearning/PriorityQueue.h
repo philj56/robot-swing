@@ -7,24 +7,6 @@
 #include <utility>
 
 /**
- * @struct isPointer
- * @brief One of two structs to check if a type is a pointer
- * @see isPointer<_T*>
- */
-template<typename _T> struct isPointer {
-	static const bool isPointerFlag = false;	
-};
-
-/**
- * @struct isPointer<_T*>
- * @brief One of two structs to check if a type is a pointer
- * @see isPointer
- */
-template<typename _T> struct isPointer<_T*> {
-	static const bool isPointerFlag = true;	
-};
-
-/**
 * @enum HeapType
 *
 * @brief Type of binary heap structure for a PriorityQueue implementation, contains the
@@ -35,6 +17,26 @@ enum HeapType {
 	MIN,
 	MAX
 
+};
+
+/**
+* @struct isPointer
+*
+* @brief One of two structs to check is a typename _T is a pointer
+*		  sets field isPointerFlag to false
+*/
+template<typename _T> struct isPointer {
+	static const bool isPointerFlag = false;
+};
+
+/**
+* @struct isPointer<_T*>
+*
+* @brief One of two structs to check is a typename _T is a pointer
+*        sets field is PointerFlag to true
+*/
+template<typename _T> struct isPointer<_T*> {
+	static const bool isPointerFlag = true;
 };
 
 /**
@@ -518,7 +520,6 @@ public:
 				retString += to_string(*dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
 			else
 				retString += to_string(dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
-
 		}
 
 		return retString;
@@ -657,7 +658,7 @@ public:
 	* @return A std::pair containing the object and its corresponding priority
 	* @throw Throws invalid_argument exception if item does not exist within queue
 	*/
-	const std::pair<T, PT>& search(const T& item) {
+	std::pair<T, PT> search(const T& item) {
 
 		// iterate over queue
 		for (const_iterator iter = begin(); iter < end(); ++iter) {
@@ -709,7 +710,7 @@ public:
 	* @return A std::pair of data and associated priority containing the first instance where priority occurs
 	* @throw Throws invalid_argument exception if priority does not exist in the queue
 	*/
-	const std::pair<T, PT>& searchByPriority(const PT priority) {
+	std::pair<T, PT> searchByPriority(const PT priority) {
 
 		// iterate over queue
 		for (const_iterator iter = begin(); iter < end(); ++iter) {
@@ -1058,7 +1059,7 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
 		std::pair<Type, PriorityType> dataPair = streamedQueue.dequeue();
 		if (isPointer<Type>::isPointerFlag)
 			outStream << to_string(*dataPair.first) << "\t" << to_string(dataPair.second) << "\n";
-		else 
+		else
 			outStream << to_string(dataPair.first) << "\t" << to_string(dataPair.second) << "\n";
 	}
 
