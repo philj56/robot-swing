@@ -86,7 +86,7 @@ void GyroEvents::init() {
         
         if (floor(faverage*10) == 0){
             newperiod = true;
-            amp = (max + min)/2.0;
+            amp = (max + abs(min))/2.0;
             omin = min;
             omax = max;
             max = 0;
@@ -104,8 +104,8 @@ void GyroEvents::init() {
         }
         
         position = asin(faverage/amp) + M_PI / 2;
-        while (position > M_PI){position -= 2*M_PI;}
-        while (position < M_PI){position += 2*M_PI;}
+        while (position > 2*M_PI){position -= 2*M_PI;}
+        while (position < 0/*M_PI*/){position += 2*M_PI;}
         timer();
         if ((position - forwardspos)/forwardspos < 0.05 && time > 500){
             //Move to forwards position
