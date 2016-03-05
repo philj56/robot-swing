@@ -1,0 +1,1 @@
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-tc/CMakeFiles/gyroevents.dir

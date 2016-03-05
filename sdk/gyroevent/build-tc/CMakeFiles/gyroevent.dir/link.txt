@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/gyroevent.dir/main.cpp.o  -o sdk/bin/gyroevent -rdynamic -Wl,-rpath,:::::::::::::: 
