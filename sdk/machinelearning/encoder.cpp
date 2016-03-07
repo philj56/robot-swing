@@ -62,7 +62,7 @@ void Encoder::Calibrate(){
 
 void* Encoder::ReadAngle()
 {
-    while(!end_thread)
+    while(true)
     {
         raw_angle = pmd_digin16(handle) & (2047);
         
