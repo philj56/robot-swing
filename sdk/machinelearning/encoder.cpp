@@ -15,8 +15,10 @@ Encoder::~Encoder()
 }
 
 float Encoder::GetAngle(){
-    
+    //mut.lock();
     return actual_angle;
+    //mut.free();
+    
 /*  
     unsigned int a;//, c;
 
@@ -38,7 +40,9 @@ float Encoder::GetAngle(){
 
 float Encoder::GetVelocity()
 {
+    //mut.lock();
     return velocity;
+    //mut.free();
 }
 
 void Encoder::Calibrate(){
@@ -60,10 +64,14 @@ void Encoder::ReadAngle()
     {
         raw_angle = pmd_digin16(handle) & (2047);
         
+        //mut.lock();
+        
         actual_angle = raw_angle*(360.0/2048.0) - cal;
         
         //calculate velocity
         velocity=(actual_angle-old_angle)/0.01;
+        
+        //mut.free();
         
         //sleep for 10ms
         qi::os::msleep(10);
