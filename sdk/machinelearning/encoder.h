@@ -24,8 +24,6 @@ class Encoder
         float old_angle;
         float velocity;
         
-        bool end_thread;
-        
         libusb_device_handle * handle;
         
         pthread_t thread;
