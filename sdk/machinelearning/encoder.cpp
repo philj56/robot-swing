@@ -5,19 +5,21 @@ cal(0),
 end_thread(false),
 handle(pmd_find_first())
 {
-    //thread_var=startThread(ReadAngle);
+    pthread_mutex_init(&mut, NULL);
+    pthread_create(&thread, NULL, ReadAngle, NULL);
 }
 
 Encoder::~Encoder()
 {
+    pthread_mutex_destroy(&mut);
     end_thread=true;
-    //thread_var.join();
+    
 }
 
 float Encoder::GetAngle(){
-    //mut.lock();
+    pthread_mutex_lock (&mut);
     return actual_angle;
-    //mut.free();
+    pthread_mutex_unlock (&mut);
     
 /*  
     unsigned int a;//, c;
@@ -40,9 +42,9 @@ float Encoder::GetAngle(){
 
 float Encoder::GetVelocity()
 {
-    //mut.lock();
+    pthread_mutex_lock (&mut);
     return velocity;
-    //mut.free();
+    pthread_mutex_unlock (&mut);
 }
 
 void Encoder::Calibrate(){
@@ -58,22 +60,25 @@ void Encoder::Calibrate(){
 
 }
 
-void Encoder::ReadAngle()
+void* Encoder::ReadAngle()
 {
     while(!end_thread)
     {
         raw_angle = pmd_digin16(handle) & (2047);
         
-        //mut.lock();
+        pthread_mutex_lock (&mut);
         
+        //calibrate angle
         actual_angle = raw_angle*(360.0/2048.0) - cal;
         
         //calculate velocity
         velocity=(actual_angle-old_angle)/0.01;
         
-        //mut.free();
+        pthread_mutex_unlock (&mut);
         
         //sleep for 10ms
         qi::os::msleep(10);
+        
+        pthread_exit((void)* 0);
     }
 }
