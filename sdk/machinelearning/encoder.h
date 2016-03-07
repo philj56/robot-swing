@@ -28,6 +28,8 @@ class Encoder
         libusb_device_handle * handle;
         
         //Thread thread_var
+        
+        //Mutex mut;
 };
 
 #endif // ENCODER_H
