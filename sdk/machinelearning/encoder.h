@@ -9,25 +9,25 @@ class Encoder
 {
     public:
         explicit Encoder();
-        ~Encoder();
+//      ~Encoder();
         
-        inline float GetAngle();
-        inline float GetVelocity();
-        inline void Calibrate();
+        float GetAngle();
+        float GetVelocity();
+        void Calibrate();
         
     private:
-        void* ReadAngle();
+//      void* ReadAngle();
         
         float cal;
         float raw_angle;
         float actual_angle;
-        float old_angle;
-        float velocity;
+//      float old_angle;
+//      float velocity;
         
         libusb_device_handle * handle;
         
-        pthread_t thread;
-        pthread_mutex_t mut;
+//      pthread_t thread;
+//      pthread_mutex_t mut;
 };
 
 #endif // ENCODER_H
