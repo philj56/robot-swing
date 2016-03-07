@@ -3,6 +3,7 @@
 
 #include "pmd1208fs.h"
 #include <iostream>
+#include <pthread.h>
 
 class Encoder
 {
@@ -15,7 +16,7 @@ class Encoder
         inline void Calibrate();
         
     private:
-        void ReadAngle();
+        void* ReadAngle();
         
         float cal;
         float raw_angle;
@@ -27,9 +28,8 @@ class Encoder
         
         libusb_device_handle * handle;
         
-        //Thread thread_var
-        
-        //Mutex mut;
+        pthread_t thread;
+        pthread_mutex_t mut;
 };
 
 #endif // ENCODER_H
