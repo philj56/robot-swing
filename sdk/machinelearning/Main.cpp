@@ -141,15 +141,24 @@ int main()
 	return 1;
 }
 
+/**
+ * @brief Analog to temperature variable in Boltzmann Distribution.
+ * 
+ * @return current system time in milliseconds
+ */
 double temperature()
 {
 	return static_cast<double>(std::time(NULL));
 }
 
-//function is fed with a priority queue of action-values 
-//generates Boltzmann distribution of these action-values
-//and selects an action based on probabilities 
-int selectAction(PriorityQueue<int,double>& a_queue)
+/**
+ * @brief Selects an action to perform based on probabilities.
+ *
+ * @param a_queue A priority queue instance storing integral types with double type priorities,
+ *		  represents the queue of possible actions with pre-initialised priority levels.
+ * @return integer corresponding to chosen action
+ */
+int selectAction(const PriorityQueue<int,double>& a_queue)
 {	
 	typedef PriorityQueue<int,double> PQ;
 	typedef std::vector< std::pair<int, double> > Vec_Pair;
@@ -193,6 +202,15 @@ int selectAction(PriorityQueue<int,double>& a_queue)
 	return -1; //note that this line should never be reached
 }
 
+/**
+ * @brief Updates the utility (Q-value) of the system
+ * 
+ * @param space Reference to StateSpace object
+ * @param new_state Reference to State instance giving the new system state
+ * @param old_state Reference to State instance giving the old system state
+ * @param alpha Learning rate of temporal difference learning algorithm
+ * @param gamma Discount factor applied to q-learning equation
+ */
 void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma)
 {
     //oldQ value reference
@@ -212,12 +230,12 @@ void updateQ(StateSpace & space, int action, State & new_state, State & old_stat
 }
 
 /**
-* @brief Selects an action to perform based on probabilities.
-*
-* @param a_queue A priority queue instance storing integral types with double type priorities,
-represents the queue of possible actions with pre-initialised priority levels.
-* @return integer corresponding to chosen action
-*/
+ * @brief Selects an action to perform based on probabilities.
+ *
+ * @param a_queue A priority queue instance storing integral types with double type priorities,
+ *		  represents the queue of possible actions with pre-initialised priority levels.
+ * @return integer corresponding to chosen action
+ */
 int selectActionAlt(const PriorityQueue<int, double>& a_queue) {
 
 	// queue to store action values
@@ -245,7 +263,7 @@ int selectActionAlt(const PriorityQueue<int, double>& a_queue) {
 
 	//generate RN between 0 and 1
 	double rand_num = static_cast<double>(rand()) / RAND_MAX;
-	std::cout << rand_num << std::endl;
+
 	// choose action based on random number relation to priorities within action queue
 	for (PriorityQueue<int, double>::const_iterator iter = actionQueue.begin(), end = actionQueue.end(); iter < end; ++iter) {
 		if (rand_num < iter->second)
