@@ -20,26 +20,6 @@ enum HeapType {
 };
 
 /**
-* @struct isPointer
-*
-* @brief One of two structs to check is a typename _T is a pointer
-*		  sets field isPointerFlag to false
-*/
-template<typename _T> struct isPointer {
-	static const bool isPointerFlag = false;
-};
-
-/**
-* @struct isPointer<_T*>
-*
-* @brief One of two structs to check is a typename _T is a pointer
-*        sets field is PointerFlag to true
-*/
-template<typename _T> struct isPointer<_T*> {
-	static const bool isPointerFlag = true;
-};
-
-/**
 * @class PriorityQueue
 *
 * @brief Template class representing a priority queue type data structure where each item (of type T) stored in the
@@ -516,10 +496,7 @@ public:
 		// loop over streamed queue appending data to return string
 		while (streamedQueue.getSize()) {
 			std::pair<T, PT> dataPair = streamedQueue.dequeue();
-			if (isPointer<T>::isPointerFlag)
-				retString += to_string(*dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
-			else
-				retString += to_string(dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
+			retString += to_string(dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
 		}
 
 		return retString;
@@ -1057,10 +1034,7 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
 	// loop over queue sending queue data to output stream
 	while (streamedQueue.getSize()) {
 		std::pair<Type, PriorityType> dataPair = streamedQueue.dequeue();
-		if (isPointer<Type>::isPointerFlag)
-			outStream << to_string(*dataPair.first) << "\t" << to_string(dataPair.second) << "\n";
-		else
-			outStream << to_string(dataPair.first) << "\t" << to_string(dataPair.second) << "\n";
+		outStream << to_string(dataPair.first) << "\t" << to_string(dataPair.second) << "\n";
 	}
 
 	return outStream;
