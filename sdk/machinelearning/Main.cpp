@@ -143,7 +143,7 @@ int main()
 
 double temperature()
 {
-	return std::time(NULL);
+	return static_cast<double>(std::time(NULL));
 }
 
 //function is fed with a priority queue of action-values 
@@ -156,9 +156,9 @@ int selectAction(PriorityQueue<int,double>& a_queue)
 	typedef std::pair<int, double> Pair;
 	
 	double sum= 0;
-	int i = 0;
+	size_t i = 0;
 	
-	int size = a_queue.getSize();
+	size_t size = a_queue.getSize();
 	Vec_Pair action_vec(size);
 	
 	//Calculate partition function by iterating over action-values
@@ -181,7 +181,7 @@ int selectAction(PriorityQueue<int,double>& a_queue)
 	}
 	
 	//generate RN between 0 and 1
-	double rand_num = static_cast<double>(rand()/ (RAND_MAX));
+	double rand_num = static_cast<double>(rand())/ RAND_MAX;
 	
 	//select action based on probability 
 	for(Vec_Pair::iterator it = action_vec.begin(),end=action_vec.end(); it < end; ++it)
@@ -211,3 +211,46 @@ void updateQ(StateSpace & space, int action, State & new_state, State & old_stat
     space[old_state].changePriority(action, newQ);
 }
 
+/**
+* @brief Selects an action to perform based on probabilities.
+*
+* @param a_queue A priority queue instance storing integral types with double type priorities,
+represents the queue of possible actions with pre-initialised priority levels.
+* @return integer corresponding to chosen action
+*/
+int selectActionAlt(const PriorityQueue<int, double>& a_queue) {
+
+	// queue to store action values
+	PriorityQueue<int, double> actionQueue(MAX);
+
+	double sum = 0.0;
+
+	// calculate partition function by iterating over action-values
+	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(), end = a_queue.end(); iter < end; ++iter) {
+		sum += std::exp((iter->second) / temperature());
+	}
+
+	// compute Boltzmann factors for action-values and enqueue to actionQueue
+	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(); iter < a_queue.end(); ++iter) {
+		double priority = std::exp(iter.operator*().second / temperature()) / sum;
+		actionQueue.enqueueWithPriority(iter.operator*().first, priority);
+	}
+
+	// calculate cumulative probability distribution
+	for (PriorityQueue<int, double>::const_iterator it1 = actionQueue.begin()++, it2 = actionQueue.begin(), end = actionQueue.end(); it1 < end; ++it1, ++it2) {
+		// change priority of it1->first data item in actionQueue to
+		// sum of priorities of it1 and it2 items
+		actionQueue.changePriority(it1->first, it1->second + it2->second);
+	}
+
+	//generate RN between 0 and 1
+	double rand_num = static_cast<double>(rand()) / RAND_MAX;
+	std::cout << rand_num << std::endl;
+	// choose action based on random number relation to priorities within action queue
+	for (PriorityQueue<int, double>::const_iterator iter = actionQueue.begin(), end = actionQueue.end(); iter < end; ++iter) {
+		if (rand_num < iter->second)
+			return iter->first;
+	}
+
+	return -1; //note that this line should never be reached
+}
