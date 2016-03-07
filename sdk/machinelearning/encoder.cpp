@@ -5,23 +5,18 @@ cal(0),
 end_thread(false),
 handle(pmd_find_first())
 {
-    pthread_mutex_init(&mut, NULL);
-    pthread_create(&thread, NULL, ReadAngle, NULL);
+//  thread_mutex_init(&mut, NULL);
+//  pthread_create(&thread, NULL, ReadAngle, NULL);
 }
 
-Encoder::~Encoder()
+
+/*Encoder::~Encoder()
 {
     pthread_mutex_destroy(&mut);
     end_thread=true;
-    
-}
+}*/
 
 float Encoder::GetAngle(){
-    pthread_mutex_lock (&mut);
-    return actual_angle;
-    pthread_mutex_unlock (&mut);
-    
-/*  
     unsigned int a;//, c;
 
     a = pmd_digin16(handle);
@@ -37,15 +32,21 @@ float Encoder::GetAngle(){
 //  actual_angle = raw_angle * (360.0/2048.0) - cal;
     
     return actual_angle - cal;
-*/
 }
 
-float Encoder::GetVelocity()
+/*float Encoder::GetAngle()
+{
+    pthread_mutex_lock (&mut);
+    return actual_angle;
+    pthread_mutex_unlock (&mut);
+}*/
+
+/*float Encoder::GetVelocity()
 {
     pthread_mutex_lock (&mut);
     return velocity;
     pthread_mutex_unlock (&mut);
-}
+}*/
 
 void Encoder::Calibrate(){
 /*
@@ -60,7 +61,7 @@ void Encoder::Calibrate(){
 
 }
 
-void* Encoder::ReadAngle()
+/*void* Encoder::ReadAngle()
 {
     while(true)
     {
@@ -81,4 +82,4 @@ void* Encoder::ReadAngle()
         
         pthread_exit((void)* 0);
     }
-}
+}*/
