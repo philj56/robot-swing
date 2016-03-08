@@ -20,10 +20,10 @@ template<typename T> std::string to_string(T x) {
 }
 
 //function to calculate a temperature for the select action function as a function of time
-double temperature();
+double temperature(unsigned long int t);
 
 //function to select next action
-int selectAction(const PriorityQueue<int,double>& a_queue);
+int selectAction(const PriorityQueue<int, double>& a_queue,unsigned long int iterations);
 
 //function to update a q value
 void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma);
@@ -121,6 +121,7 @@ int main()
 	State current_state(0,0,FORWARD);
 	State old_state(0,0,FORWARD);
 	
+	unsigned long int i=0;
 	while(true)
 	{
 		// set current state angle to angle received from encoder
@@ -143,6 +144,8 @@ int main()
 		// depending upon chosen action, call robot movement tools proxy with either
 		// swingForwards or swingBackwards commands.
 		(chosen_action)?movementToolsProxy.callVoid("swingForwards"):movementToolsProxy.callVoid("swingBackwards");
+		
+		++i;
 	}
 	
 	return 1;
@@ -153,9 +156,9 @@ int main()
  * 
  * @return current system time in milliseconds
  */
-double temperature()
+double temperature(unsigned long int t)
 {
-	return static_cast<double>(std::time(NULL));
+	return 100000*std::exp((-32*t*t)/(26000*26000))+0.1;//0.1 is an offset
 }
 
 /**
@@ -165,31 +168,31 @@ double temperature()
  *		  represents the queue of possible actions with pre-initialised priority levels.
  * @return integer corresponding to chosen action
  */
-int selectAction(const PriorityQueue<int, double>& a_queue) {
+int selectAction(const PriorityQueue<int, double>& a_queue,unsigned long int iterations) {
 
 	// queue to store action values
 	PriorityQueue<int, double> actionQueue(MAX);
-
+	
 	double sum = 0.0;
-
+	
 	// calculate partition function by iterating over action-values
 	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(), end = a_queue.end(); iter < end; ++iter) {
-		sum += std::exp((iter->second) / temperature());
+		sum += std::exp((iter->second) / temperature(iterations));
 	}
-
+	
 	// compute Boltzmann factors for action-values and enqueue to actionQueue
 	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(); iter < a_queue.end(); ++iter) {
-		double priority = std::exp(iter.operator*().second / temperature()) / sum;
+		double priority = std::exp(iter.operator*().second / temperature(iterations)) / sum;
 		actionQueue.enqueueWithPriority(iter.operator*().first, priority);
 	}
-
+	
 	// calculate cumulative probability distribution
 	for (PriorityQueue<int, double>::const_iterator it1 = actionQueue.begin()++, it2 = actionQueue.begin(), end = actionQueue.end(); it1 < end; ++it1, ++it2) {
 		// change priority of it1->first data item in actionQueue to
 		// sum of priorities of it1 and it2 items
 		actionQueue.changePriority(it1->first, it1->second + it2->second);
 	}
-
+	
 	//generate RN between 0 and 1
 	double rand_num = static_cast<double>(rand()) / RAND_MAX;
 
