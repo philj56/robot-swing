@@ -121,7 +121,7 @@ int main()
 	State current_state(0,0,FORWARD);
 	State old_state(0,0,FORWARD);
 	
-	unsigned long int i=0;
+	unsigned long i=0;
 	while(true)
 	{
 		// set current state angle to angle received from encoder
