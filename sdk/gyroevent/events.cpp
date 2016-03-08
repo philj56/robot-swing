@@ -104,27 +104,26 @@ void GyroEvents::init() {
         }
         
         position = asin(faverage/amp) + M_PI / 2;
-        while (position > 2*M_PI){position -= 2*M_PI;}
-        while (position < 0/*M_PI*/){position += 2*M_PI;}
+        position = fmod(position + 2*M_PI, 2*M_PI);
         timer();
-        if ((position - forwardspos)/forwardspos < 0.05 && time > 500){
+        if (time > 500 && std::abs(position - forwardspos)/forwardspos < 0.05){
             //Move to forwards position
             gettimeofday(&MovementTime);
             fMemoryProxy.raiseEvent("GyroMoveForward", true);
         }
-        else if ((position - backwardspos)/backwardspos < 0.05 && time > 500){
+        else if (time > 500 && std::abs(position - backwardspos)/backwardspos < 0.05){
             //Move to backwards position
             gettimeofday(&MovementTime);
             fMemoryProxy.raiseEvent("GyroMoveBackward", true);
         }
-        fMemoryProxy.raiseEvent("GyroMoveForward", false);
-        fMemoryProxy.raiseEvent("GyroMoveBackward", false);       
+       // fMemoryProxy.raiseEvent("GyroMoveForward", false);
+       // fMemoryProxy.raiseEvent("GyroMoveBackward", false);       
        
         gettimeofday(&currentTime);
         
-        if (currentTime.tv_sec - startTime.tv_sec == 300){
+       /* if (currentTime.tv_sec - startTime.tv_sec == 300){
             break;
-        }
+        }*/
         
         
     }
@@ -141,7 +140,7 @@ void GyroEvents::init() {
 
 void GyroEvents::timer(){
     
-    time = 1000 * (static_cast<int>(currentTime.tv_sec) - static_cast<int>(MovementTime.tv_sec)) 
+    time = 1000 * (currentTime.tv_sec - MovementTime.tv_sec) 
 			       + 0.001 * static_cast<float>(static_cast<int>(currentTime.tv_usec) - static_cast<int>(MovementTime.tv_usec));
 		
 }
