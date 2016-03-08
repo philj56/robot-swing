@@ -20,7 +20,7 @@ template<typename T> std::string to_string(T x) {
 }
 
 //function to calculate a temperature for the select action function as a function of time
-double temperature(unsigned long int t);
+double temperature(unsigned long t);
 
 //function to select next action
 int selectAction(const PriorityQueue<int, double>& a_queue,unsigned long int iterations);
