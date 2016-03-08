@@ -13,16 +13,16 @@ class environment
 {
 	public:
 	
-		explicit environment(double _theta, double _thetadot, double _torque, double _deltatorque, double _maxtorque, double _time, double _deltatime, double _mass, double _length, double _gamma);
+		explicit environment(double _theta, double _thetadot, double _torque, double _maxtorque, double _time, double _deltatime, double _mass, double _length, double _gamma);
 			
-		void propogate(); // Propogate the system through time
+		void propagate(); // Propogate the system through time
 		
-		double getTheta() {return theta};
-		double getThetadot() {return thetadot};
-		double getTorque() {return torque};
-		double getTime() {return time};
+		double getTheta() {return theta;};
+		double getThetadot() {return thetadot;};
+		double getTorque() {return torque;};
+		double getTime() {return time;};
 		
-		void setTorque();		// Machine learning code sets the torque
+		void setTorque(double _T);	 	 // Machine learning code sets the torque
 		
 		void resetPendulum() 
 		{
@@ -35,18 +35,17 @@ class environment
 	private:
 		
 		// Runge-Kutta 4 method for solving the equation of motion for a driven pendulum
-		void rk4theta(double h);		// RK4 solve for theta
-		void rk4thetadot(double h);		// RK4 solve for thetadot
+		double rk4theta(double h);	  	  // RK4 solve for theta
+		double rk4thetadot(double h);	  // RK4 solve for thetadot
 	
-		static const double torqueincrement; 	// Size of increment or decrement of torque
-		static const double maxtorque;			// Set a maximum torque in order to keep the pendulum 'undertorqued' (N m)
-		static const double initialtorque;
+
+		const double maxtorque;	 	 	 // Set a maximum torque in order to keep the pendulum 'undertorqued' (N m)
+
 		
-		static const double dt;		// The time interval the pendulum will be propogated over
-		static const double mass;		// Mass of the pendulum
-		static const double length;	// Length of the pendulum
-		static const double g = 9.81;		// Acceleration due to gravity
-		static const double gamma;	// Damping factor (initially arbitrary value chosen)
+		const double dt;	 // The time interval the pendulum will be propogated over
+		const double mass;	 	 // Mass of the pendulum
+		const double l;	// Length of the pendulum
+		const double gamma;	 // Damping factor (initially arbitrary value chosen)
 		
 		
 		// Track the number of trials either here or in the main
@@ -60,7 +59,7 @@ class environment
 		double thetadot;
 		double torque;
 		double time;
-		double deltatorque;
+
 	
 };
 
