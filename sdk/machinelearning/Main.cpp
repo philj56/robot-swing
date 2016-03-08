@@ -99,7 +99,7 @@ int main()
 	const double gamma=0.5;
 	
 	//seed rng
-	std::srand(std::time(NULL));
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
 	
 	int action_forwards = FORWARD;
 	int action_backwards = BACKWARD;
@@ -123,16 +123,25 @@ int main()
 	
 	while(true)
 	{
+		// set current state angle to angle received from encoder
+		// and set current state velocity to difference in new and
+		// old state angles over some time difference
 		current_state.theta= M_PI * (encoder.GetAngle())/180;
 		current_state.theta_dot=(current_state.theta - old_state.theta)/700; //Needs actual time
 		current_state.robot_state=static_cast<ROBOT_STATE>(chosen_action);
 		
+		// call updateQ function with state space, old and current states
+		// and learning rate, discount factor
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
 		
+		// set old_state to current_state
 		old_state=current_state;
 		
+		// determine chosen_action for current state
 		chosen_action=selectAction(space[current_state]);
 		
+		// depending upon chosen action, call robot movement tools proxy with either
+		// swingForwards or swingBackwards commands.
 		(chosen_action)?movementToolsProxy.callVoid("swingForwards"):movementToolsProxy.callVoid("swingBackwards");
 	}
 	
