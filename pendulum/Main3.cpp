@@ -1,19 +1,22 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
-#include "StateSpace.h"
-#include "Action.h"
-#include "PriorityQueue.h"
-#include "State.h"
+#include <fstream>
+#include <iomanip>
+#include "StateSpace3.h"
+#include "PriorityQueue3.h"
+#include "State3.h"
+#include "environment.h"
+
 
 //function to calculate a temperature for the select action function as a function of time
 double temperature();
 
 //function to select next action
-Action * selectAction(PriorityQueue<Action *,double>& a_queue);
+float selectAction(PriorityQueue<float,double>& a_queue);
 
 //function to update a q value
-void updateQ(StateSpace & space, Action & action, State & new_state, State & old_state, double alpha, double gamma);
+void updateQ(StateSpace & space, float & action, State & new_state, State & old_state, double alpha, double gamma);
 
 int main()
 {
@@ -22,66 +25,75 @@ int main()
 	//discount factor
 	const double gamma=0.5;
 	const int torque_bins=9;
-	
+	const double deltatime=0.1;
+	const double mass=0.5;
+	const double length=0.08;
+	const double maxtorque=4;
 
-	for (int i=0, i++, i<torque_bins){
-		const int t_i=-4+i
+	for (int i=0; i++; i<torque_bins){
+		const int t_i=-maxtorque+i;
 	}
 
+	environment* env= new environment(0,0, 0,maxtorque,0, deltatime, mass, length, gamma);
 	
 	//seed rng
 	std::srand(std::time(NULL));
 	
 	//create pointers to the possible actions as well as a pointer to hold the chosen action
-	Action* chosen_action;
-	Action* actions[torque_bins];
-	for (int i=0, i++, i<torque_bins){
-		actions[i]=new Action(t_i);
+	float chosen_action;
+	float actions[torque_bins];
+	for (int i=-maxtorque; i++; i<torque_bins-maxtorque){
+		actions[i]=i;
 	}
 
 	//create a priority queue to copy to all the state space priority queues
-	PriorityQueue<Action,double> initiator_queue(MAX);
-	for (int i=0, i++, i<torque_bins){
-		ititiator_queue.enqueueWithPriority(actions[i],0);
+	PriorityQueue<float,double> initiator_queue(MAX);
+	for (int i=0; i++; i<torque_bins){
+		initiator_queue.enqueueWithPriority(actions[i],0);
 	}
 	
 	//create the state space
-	StateSpace space(initiator_queue);
+	StateSpace space(initiator_queue,100,50,torque_bins);
 	space.setAngleBins(100);
 	space.setVelocityBins(50);
-	space.setTorqueBins(10);
+	space.setTorqueBins(torque_bins);
+	space.setTorqueMax(maxtorque);
 	
 	//state objects
-	State current_state(0,0,t_6);
-	State old_state(0,0,t_6);
-	
-	//timing variables
-	double loop_start_time;
+	State current_state(0,0,0);
+	State old_state(0,0,0);
 
+	std::ofstream file("output.txt");
+	file.precision(16);
+
+	file << "Trialno" <<"	" << "Time" <<"		"<< "Theta" << "	"<< "Thetadot" <<"		"<< "Torque" << std::endl;
+
+double trialno = 1;
 	while(true)
 	{
-		current_state.theta=getAngle();
-		current_state.theta_dot=getVelocity();
-		current_state.torque=getTorque();
-		current_state.robot_state=chosen_action.action;
-
-		if(current_state.theta>2*M_PI & current_state.theta_dot>2*M_PI & environment.getTime()>=10){
-			environment.resetPendulum();
-			std::domain_error("unsuccessful trial")
-		}
+		current_state.theta=env->getTheta();
+		current_state.theta_dot=env->getThetadot();
+		current_state.torque=env->getTorque();
+		//current_state.time=env->getTime();
 
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
 
-		old_state=current_state;+
+		if(current_state.theta>2*M_PI && current_state.theta_dot>2*M_PI && env->getTime()>=10){
+			env->resetPendulum();
+			std::domain_error("unsuccessful trial");
+			trialno++;
+		}
+
+		old_state=current_state;
 		chosen_action=selectAction(space[current_state]);
-		chosen_action.execute();
+		env->setTorque(chosen_action);
+ 		env->propagate();
 
-
-	}	
-	delete actions[0];
-	delete actions[1];
+		file << trialno <<"	  " << env->getTime() <<"	  "<< current_state.theta << "	  "<< current_state.theta_dot <<"	   "<< current_state.torque << std::endl;
+	}
 	
-	
+	file.close();
+	delete env;
 	return 1;
 }
 
@@ -93,11 +105,11 @@ double temperature()
 //function is fed with a priority queue of action-values 
 //generates Boltzmann distribution of these action-values
 //and selects an action based on probabilities 
-Action * selectAction(PriorityQueue<Action *,double>& a_queue)
+float selectAction(PriorityQueue<float,double>& a_queue)
 {	
-	typedef PriorityQueue<Action *,double> PQ;
-	typedef std::vector< std::pair<Action *, double> > Vec_Pair;
-	typedef std::pair<Action *, double> Pair;
+	typedef PriorityQueue<float,double> PQ;
+	typedef std::vector< std::pair<float, double> > Vec_Pair;
+	typedef std::pair<float, double> Pair;
 	
 	double sum= 0;
 	int i = 0;
@@ -137,7 +149,7 @@ Action * selectAction(PriorityQueue<Action *,double>& a_queue)
 	return NULL; //note that this line should never be reached
 }
 
-void updateQ(StateSpace & space, Action & action, State & new_state, State & old_state, double alpha, double gamma)
+void updateQ(StateSpace & space, float & action, State & new_state, State & old_state, double alpha, double gamma)
 {
     //oldQ value reference
     double oldQ = space[old_state].search(action).second;
@@ -146,10 +158,11 @@ void updateQ(StateSpace & space, Action & action, State & new_state, State & old
     double R = new_state.getReward();
     
     //optimal Q value for new state i.e. first element 
-    double maxQ = space[current_state].peekFront().second;
+    double maxQ = space[new_state].peekFront().second;
     
     //new Q value determined by Q learning algorithm
     double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ);
     
     space[old_state].changePriority(action, newQ);
 }
+
