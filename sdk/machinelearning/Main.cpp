@@ -23,7 +23,7 @@ template<typename T> std::string to_string(T x) {
 double temperature();
 
 //function to select next action
-int selectAction(PriorityQueue<int,double>& a_queue);
+int selectAction(const PriorityQueue<int,double>& a_queue);
 
 //function to update a q value
 void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma);
