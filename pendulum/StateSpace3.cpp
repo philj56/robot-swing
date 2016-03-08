@@ -1,26 +1,30 @@
-//for pendulum
-
 #include "StateSpace3.h"
 
-StateSpace::StateSpace(PriorityQueue<Action*,double> queue):
-	space( _angle_bins, std::vector<std::vector<PriorityQueue<Action*,double>>> ( _velocity_bins, std::vector<PriorityQueue<Action*,double>> ( _torque_bins, PriorityQueue<Action*,double> (queue) ) ) )
+StateSpace::StateSpace(const PriorityQueue<float,double>& queue, int _angle_bins, int _velocity_bins, int _torque_bins):
+	space( _angle_bins, std::vector<std::vector<PriorityQueue<float,double>>> ( _velocity_bins, std::vector<PriorityQueue<float,double>> ( _torque_bins, PriorityQueue<float,double> (queue) ) ) )
 	
 {}
 
-void setAngleBins(const double val)
+void StateSpace::setAngleBins(double val)
 {
 	angle_bins=val;
 }
 
-void setVelocityBins(const double val)
+void StateSpace::setVelocityBins(double val)
 {
 	velocity_bins=val;
 }
 
-void setTorqueBins(const double val)
+void StateSpace::setTorqueBins(double val)
 {
 	torque_bins=val;
 }
+
+void StateSpace::setTorqueMax(double val)
+{
+	torque_max=val;
+}
+
 
 StateSpace::SubscriptProxy1 StateSpace::operator[](const double angle)
 {
@@ -34,8 +38,9 @@ StateSpace::SubscriptProxy1 StateSpace::operator[](const double angle)
 }
 
 //searches state space by state object
-PriorityQueue<Action *, double>& StateSpace::operator[](const State & state)
+PriorityQueue<float, double>& StateSpace::operator[](const State & state)
 {
 	//call the subscripts with the members of the state object
 	return (*this)[state.theta][state.theta_dot][state.torque];
 }
+
