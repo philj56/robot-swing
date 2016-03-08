@@ -139,7 +139,7 @@ int main()
 		old_state=current_state;
 		
 		// determine chosen_action for current state
-		chosen_action=selectAction(space[current_state]);
+		chosen_action=selectAction(space[current_state],i);
 		
 		// depending upon chosen action, call robot movement tools proxy with either
 		// swingForwards or swingBackwards commands.
@@ -159,6 +159,9 @@ int main()
 double temperature(unsigned long int t)
 {
 	return 100000*std::exp((-32*t*t)/(26000*26000))+0.1;//0.1 is an offset
+	//	^
+	//	|
+	//make this large
 }
 
 /**
