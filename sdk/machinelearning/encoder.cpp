@@ -2,7 +2,6 @@
 
 Encoder::Encoder():
 cal(0),
-end_thread(false),
 handle(pmd_find_first())
 {
 //  thread_mutex_init(&mut, NULL);
@@ -13,7 +12,6 @@ handle(pmd_find_first())
 /*Encoder::~Encoder()
 {
     pthread_mutex_destroy(&mut);
-    end_thread=true;
 }*/
 
 float Encoder::GetAngle(){
