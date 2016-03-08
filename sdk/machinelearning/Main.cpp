@@ -165,6 +165,71 @@ double temperature()
  *		  represents the queue of possible actions with pre-initialised priority levels.
  * @return integer corresponding to chosen action
  */
+int selectAction(const PriorityQueue<int, double>& a_queue) {
+
+	// queue to store action values
+	PriorityQueue<int, double> actionQueue(MAX);
+
+	double sum = 0.0;
+
+	// calculate partition function by iterating over action-values
+	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(), end = a_queue.end(); iter < end; ++iter) {
+		sum += std::exp((iter->second) / temperature());
+	}
+
+	// compute Boltzmann factors for action-values and enqueue to actionQueue
+	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(); iter < a_queue.end(); ++iter) {
+		double priority = std::exp(iter.operator*().second / temperature()) / sum;
+		actionQueue.enqueueWithPriority(iter.operator*().first, priority);
+	}
+
+	// calculate cumulative probability distribution
+	for (PriorityQueue<int, double>::const_iterator it1 = actionQueue.begin()++, it2 = actionQueue.begin(), end = actionQueue.end(); it1 < end; ++it1, ++it2) {
+		// change priority of it1->first data item in actionQueue to
+		// sum of priorities of it1 and it2 items
+		actionQueue.changePriority(it1->first, it1->second + it2->second);
+	}
+
+	//generate RN between 0 and 1
+	double rand_num = static_cast<double>(rand()) / RAND_MAX;
+
+	// choose action based on random number relation to priorities within action queue
+	for (PriorityQueue<int, double>::const_iterator iter = actionQueue.begin(), end = actionQueue.end(); iter < end; ++iter) {
+		if (rand_num < iter->second)
+			return iter->first;
+	}
+
+	return -1; //note that this line should never be reached
+}
+
+/**
+ * @brief Updates the utility (Q-value) of the system
+ * 
+ * @param space Reference to StateSpace object
+ * @param new_state Reference to State instance giving the new system state
+ * @param old_state Reference to State instance giving the old system state
+ * @param alpha Learning rate of temporal difference learning algorithm
+ * @param gamma Discount factor applied to q-learning equation
+ */
+void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma)
+{
+    //oldQ value reference
+    double oldQ = space[old_state].search(action).second;
+    
+    //reward given to current state 
+    double R = new_state.getReward();
+    
+    //optimal Q value for new state i.e. first element 
+    double maxQ = space[new_state].peekFront().second;
+    
+    //new Q value determined by Q learning algorithm
+    double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ);
+    
+    // change priority of action to new Q value
+    space[old_state].changePriority(action, newQ);
+}
+
+/*old select action function in case the new one doesn't work
 int selectAction(const PriorityQueue<int,double>& a_queue)
 {	
 	typedef PriorityQueue<int,double> PQ;
@@ -208,74 +273,4 @@ int selectAction(const PriorityQueue<int,double>& a_queue)
  	
 	return -1; //note that this line should never be reached
 }
-
-/**
- * @brief Updates the utility (Q-value) of the system
- * 
- * @param space Reference to StateSpace object
- * @param new_state Reference to State instance giving the new system state
- * @param old_state Reference to State instance giving the old system state
- * @param alpha Learning rate of temporal difference learning algorithm
- * @param gamma Discount factor applied to q-learning equation
- */
-void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma)
-{
-    //oldQ value reference
-    double oldQ = space[old_state].search(action).second;
-    
-    //reward given to current state 
-    double R = new_state.getReward();
-    
-    //optimal Q value for new state i.e. first element 
-    double maxQ = space[new_state].peekFront().second;
-    
-    //new Q value determined by Q learning algorithm
-    double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ);
-    
-    // change priority of action to new Q value
-    space[old_state].changePriority(action, newQ);
-}
-
-/**
- * @brief Selects an action to perform based on probabilities.
- *
- * @param a_queue A priority queue instance storing integral types with double type priorities,
- *		  represents the queue of possible actions with pre-initialised priority levels.
- * @return integer corresponding to chosen action
- */
-int selectActionAlt(const PriorityQueue<int, double>& a_queue) {
-
-	// queue to store action values
-	PriorityQueue<int, double> actionQueue(MAX);
-
-	double sum = 0.0;
-
-	// calculate partition function by iterating over action-values
-	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(), end = a_queue.end(); iter < end; ++iter) {
-		sum += std::exp((iter->second) / temperature());
-	}
-
-	// compute Boltzmann factors for action-values and enqueue to actionQueue
-	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(); iter < a_queue.end(); ++iter) {
-		double priority = std::exp(iter.operator*().second / temperature()) / sum;
-		actionQueue.enqueueWithPriority(iter.operator*().first, priority);
-	}
-
-	// calculate cumulative probability distribution
-	for (PriorityQueue<int, double>::const_iterator it1 = actionQueue.begin()++, it2 = actionQueue.begin(), end = actionQueue.end(); it1 < end; ++it1, ++it2) {
-		// change priority of it1->first data item in actionQueue to
-		// sum of priorities of it1 and it2 items
-		actionQueue.changePriority(it1->first, it1->second + it2->second);
-	}
-
-	//generate RN between 0 and 1
-	double rand_num = static_cast<double>(rand()) / RAND_MAX;
-
-	// choose action based on random number relation to priorities within action queue
-	for (PriorityQueue<int, double>::const_iterator iter = actionQueue.begin(), end = actionQueue.end(); iter < end; ++iter) {
-		if (rand_num < iter->second)
-			return iter->first;
-	}
-
-	return -1; //note that this line should never be reached
-}
+*/
