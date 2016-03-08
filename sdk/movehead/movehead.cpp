@@ -13,6 +13,11 @@
 #include <alerror/alerror.h>
 #include <alproxies/almotionproxy.h>
 
+void test(){
+    std::cout << "This is a test" << std::endl;
+}
+
+
 int main(int argc, char* argv[]) {
 
   if(argc != 2)
@@ -33,6 +38,8 @@ int main(int argc, char* argv[]) {
     * - port on which NAOqi is listening, by default 9559
     */
     AL::ALMotionProxy motion(argv[1], 9559);
+    
+    motion.subscribeToEvent("GyroMoveForward", "GyroEvents", "test")
 
     /** Make sure the head is stiff to be able to move it.
     * To do so, make the stiffness go to the maximum in one second.
@@ -43,7 +50,7 @@ int main(int argc, char* argv[]) {
     AL::ALValue time = 1.0f;
 
     /** Call the stiffness interpolation method. */
-    motion.stiffnessInterpolation(jointName, stiffness, time);
+ //   motion.stiffnessInterpolation(jointName, stiffness, time);
 
     /** Set the target angle list, in radians. */
 //    AL::ALValue targetAngles = AL::ALValue::array(-1.5f, 1.5f, 0.0f);
@@ -58,12 +65,12 @@ int main(int argc, char* argv[]) {
 //    motion.angleInterpolation(jointName, targetAngles, targetTimes, isAbsolute);
 
     /** Remove the stiffness on the head. */
-    stiffness = 0.0f;
-    time = 1.0f;
-    motion.stiffnessInterpolation(jointName, stiffness, time);
+  //  stiffness = 0.0f;
+  //  time = 1.0f;
+ //   motion.stiffnessInterpolation(jointName, stiffness, time);
 
 
-    AL::ALValue result = motion.getWalkArmsEnabled();
+  //  AL::ALValue result = motion.getWalkArmsEnabled();
  //   std::cout << "Left: " << result[0] << "\nRight: " << result[1];
 
     //motion.getWalkArmsEnabled;
@@ -73,7 +80,7 @@ int main(int argc, char* argv[]) {
 //    motion.moveTo(0.5, 0, 0);
 
    /*---------Harry's Edits-------*/
-    AL::ALValue names = "RShoulderPitch"; //String is the limb name
+ /*   AL::ALValue names = "RShoulderPitch"; //String is the limb name
     AL::ALValue names2 = "LShoulderPitch";
     AL::ALValue angles = 1.0f; //Angle is in robot unit, f
     AL::ALValue angles2 = 0.0f;
@@ -91,8 +98,7 @@ int main(int argc, char* argv[]) {
         motion.angleInterpolation(names2, angles, times, isAbsolute);
     }
 
-
-  std::cout << "Shoulder Roll";
+    std::cout << "Shoulder Roll";
     //Creates arrays of values to send to robot.
     AL::ALValue angle_list, time_list;
     angle_list = AL::ALValue::array(1.0f);
@@ -117,6 +123,7 @@ int main(int argc, char* argv[]) {
     names = AL::ALValue::array("RShoulderRoll", "LShoulderRoll");
 
     motion.angleInterpolation(names, angle_list, time_list, isAbsolute);
+    */
     /*-------------------*/
   }
   catch (const AL::ALError& e) {

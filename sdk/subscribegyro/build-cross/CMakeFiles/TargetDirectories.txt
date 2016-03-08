@@ -1,0 +1,1 @@
+/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyro/build-cross/CMakeFiles/bumper.dir

@@ -20,7 +20,7 @@ const float backwardspos = M_PI * 3.0 / 4.0;
 GyroEvents::GyroEvents(
   boost::shared_ptr<AL::ALBroker> broker,
   const std::string& name):
-      AL::ALModule(broker, name),
+      AL::ALExtractor(broker, name),
       fMemoryProxy(getParentBroker())
 {
   setModuleDescription("");
@@ -136,6 +136,16 @@ void GyroEvents::init() {
     qiLogError("module.example") << e.what() << std::endl;
   }
 
+}
+
+void GyroEvents::xStartDetection(const int pPeriod, const float pPrecision)
+{
+	return;
+}
+
+void GyroEvents::xStopDetection()
+{
+	return;
 }
 
 void GyroEvents::timer(){

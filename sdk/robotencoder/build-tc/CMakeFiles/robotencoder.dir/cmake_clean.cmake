@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/robotencoder.dir/main.o"
+  "CMakeFiles/robotencoder.dir/encoder.o"
   "sdk/bin/robotencoder.pdb"
   "sdk/bin/robotencoder"
 )

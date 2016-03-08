@@ -173,6 +173,21 @@ test_robotencoder/fast:
 .PHONY : test_robotencoder/fast
 
 # target to build an object file
+encoder.o:
+	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/encoder.o
+.PHONY : encoder.o
+
+# target to preprocess a source file
+encoder.i:
+	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/encoder.i
+.PHONY : encoder.i
+
+# target to generate assembly for a file
+encoder.s:
+	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/encoder.s
+.PHONY : encoder.s
+
+# target to build an object file
 main.o:
 	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/main.o
 .PHONY : main.o
@@ -217,6 +232,9 @@ help:
 	@echo "... robotencoder"
 	@echo "... test"
 	@echo "... test_robotencoder"
+	@echo "... encoder.o"
+	@echo "... encoder.i"
+	@echo "... encoder.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

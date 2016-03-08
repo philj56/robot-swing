@@ -43,7 +43,7 @@ extern "C"
     return 0;
   }
 }
-
+/*
 #ifdef EVENTS_IS_REMOTE
   int main(int argc, char *argv[])
   {
@@ -54,4 +54,4 @@ extern "C"
     ALTools::mainFunction("events", argc, argv, sig);
   }
 #endif
-
+*/

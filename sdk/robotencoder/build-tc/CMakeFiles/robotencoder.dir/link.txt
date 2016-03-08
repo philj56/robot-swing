@@ -1,1 +1,1 @@
-/usr/bin/c++   -g    -lusb-1.0 -L/lib/i386-linux-gnu/ CMakeFiles/robotencoder.dir/main.o ../libpmd1208fs.o  -o sdk/bin/robotencoder -rdynamic -Wl,-rpath,:::::::::::::: 
+/usr/bin/c++   -g    -lusb-1.0 -L/lib/i386-linux-gnu/ CMakeFiles/robotencoder.dir/main.o CMakeFiles/robotencoder.dir/encoder.o ../libpmd1208fs.o  -o sdk/bin/robotencoder -rdynamic -Wl,-rpath,:::::::::::::: 

@@ -172,6 +172,18 @@ string
 
 /gs/cross/sysroot/usr/include/alerror/config.h
 
+/gs/cross/sysroot/usr/include/alextractor/alextractor.h
+alcommon/almodule.h
+-
+alextractor/config.h
+-
+boost/scoped_ptr.hpp
+-
+
+/gs/cross/sysroot/usr/include/alextractor/config.h
+qi/macro.hpp
+-
+
 /gs/cross/sysroot/usr/include/alproxies/almemoryproxy.h
 alproxies/almemoryproxyposthandler.h
 -
@@ -8087,7 +8099,7 @@ qi/log.hpp
 /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h
 boost/shared_ptr.hpp
 -
-alcommon/almodule.h
+alextractor/alextractor.h
 -
 string
 -

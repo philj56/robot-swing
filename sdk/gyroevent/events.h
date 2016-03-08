@@ -6,7 +6,7 @@
 #define EVENTS_EVENTS_H
 
 #include <boost/shared_ptr.hpp>
-#include <alcommon/almodule.h>
+#include <alextractor/alextractor.h>
 #include <string>
 #include <vector>
 #include <qi/os.hpp>
@@ -18,7 +18,7 @@ namespace AL
   class ALBroker;
 }
 
-class GyroEvents : public AL::ALModule
+class GyroEvents : public AL::ALExtractor
 {
   public:
 
@@ -78,6 +78,9 @@ class GyroEvents : public AL::ALModule
     qi::os::timeval MovementTime;
     
     float time;
+
+    virtual void xStartDetection(const int pPeriod, const float pPrecision);
+    virtual void xStopDetection();
 };
 
 

@@ -56,7 +56,7 @@ CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build
 CMakeFiles/robotencoder.dir/all:
 	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/depend
 	$(MAKE) -f CMakeFiles/robotencoder.dir/build.make CMakeFiles/robotencoder.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-tc/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-tc/CMakeFiles  1 2
 	@echo "Built target robotencoder"
 .PHONY : CMakeFiles/robotencoder.dir/all
 
@@ -66,7 +66,7 @@ all: CMakeFiles/robotencoder.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/robotencoder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-tc/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-tc/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/robotencoder.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-tc/CMakeFiles 0
 .PHONY : CMakeFiles/robotencoder.dir/rule
@@ -91,7 +91,7 @@ clean: CMakeFiles/robotencoder.dir/clean
 CMakeFiles/test_robotencoder.dir/all:
 	$(MAKE) -f CMakeFiles/test_robotencoder.dir/build.make CMakeFiles/test_robotencoder.dir/depend
 	$(MAKE) -f CMakeFiles/test_robotencoder.dir/build.make CMakeFiles/test_robotencoder.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-tc/CMakeFiles  2
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/robotencoder/build-tc/CMakeFiles  3
 	@echo "Built target test_robotencoder"
 .PHONY : CMakeFiles/test_robotencoder.dir/all
 

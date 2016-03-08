@@ -1,0 +1,12 @@
+Scanning dependencies of target gyroevents
+[ 50%] Building CXX object CMakeFiles/gyroevents.dir/main.cpp.o
+[100%] Building CXX object CMakeFiles/gyroevents.dir/events.cpp.o
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.cpp:141:6: error: redefinition of ‘void GyroEvents::xStartDetection(int, float)’
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h:82:18: error: ‘virtual void GyroEvents::xStartDetection(int, float)’ previously defined here
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.cpp:146:6: error: redefinition of ‘void GyroEvents::xStopDetection()’
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h:83:18: error: ‘virtual void GyroEvents::xStopDetection()’ previously defined here
+make[2]: *** [CMakeFiles/gyroevents.dir/events.cpp.o] Error 1
+make[1]: *** [CMakeFiles/gyroevents.dir/all] Error 2
+make: *** [all] Error 2
+Active configuration: crossdan (Debug)
+Building gyroevents in crossdan (Debug)
