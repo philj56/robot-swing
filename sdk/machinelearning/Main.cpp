@@ -158,7 +158,7 @@ int main()
  */
 double temperature(unsigned long int t)
 {
-	return 100000*std::exp((-32*t*t)/(26000*26000))+0.1;//0.1 is an offset
+	return 100000.0*std::exp((-8.0*t*t)/(26000.0*26000.0))+0.1;//0.1 is an offset
 	//	^
 	//	|
 	//make this large
