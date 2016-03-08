@@ -23,7 +23,7 @@ template<typename T> std::string to_string(T x) {
 double temperature(unsigned long t);
 
 //function to select next action
-int selectAction(const PriorityQueue<int, double>& a_queue,unsigned long int iterations);
+int selectAction(const PriorityQueue<int, double>& a_queue,unsigned long iterations);
 
 //function to update a q value
 void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma);
@@ -156,7 +156,7 @@ int main()
  * 
  * @return current system time in milliseconds
  */
-double temperature(unsigned long int t)
+double temperature(unsigned long t)
 {
 	return 100000.0*std::exp((-8.0*t*t)/(26000.0*26000.0))+0.1;//0.1 is an offset
 	//	^
@@ -171,7 +171,7 @@ double temperature(unsigned long int t)
  *		  represents the queue of possible actions with pre-initialised priority levels.
  * @return integer corresponding to chosen action
  */
-int selectAction(const PriorityQueue<int, double>& a_queue,unsigned long int iterations) {
+int selectAction(const PriorityQueue<int, double>& a_queue,unsigned long iterations) {
 
 	// queue to store action values
 	PriorityQueue<int, double> actionQueue(MAX);
