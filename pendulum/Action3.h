@@ -6,13 +6,14 @@
 
 struct Action
 {
-	explicit Action(const int _action, void (*)() _execute);
+	explicit Action(const int _action, void (*_execute)(int), int _param);
 	
 	//numerical identifier for the action - PLZ DONT CHANGE
 	int action;
+	int param;
 	
 	//function to call execute the associated action
-	void (*)() execute;
+	void (*execute)(int);
 	
 	/**
 	 * @brief Overloaded equivalent operator
