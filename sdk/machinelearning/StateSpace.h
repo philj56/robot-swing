@@ -19,9 +19,6 @@ class StateSpace
 		//@queue: the PriorityQueue to initialise the StateSpace with (this should normally contain just one of every action all with 0 priority)
 		explicit StateSpace(int _angle_bins, int _velocity_bins, const PriorityQueue<int,double>& queue);
 		
-		void setAngleBins(const double val);
-		void setVelocityBins(const double val);
-		
 		//these nested classes are necessary so that the [][][] operator can be called on this class
 		//the operator should be called with the continuous state variables which it will then discretise
 		//---------------------------------------------------------------------------------------------------------
