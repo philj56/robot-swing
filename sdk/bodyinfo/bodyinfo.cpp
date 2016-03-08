@@ -110,7 +110,7 @@ void BodyInfo::printAngles()
 	{
 		std::cout << std::setprecision(6)
 			  << std::setw(20) << names[i]
-			  << std::setw(10) << angles[i] - initAngles[i]
+			  << std::setw(20) << angles[i] - initAngles[i]
 			  << std::endl;
 	}
 }
