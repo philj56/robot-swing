@@ -34,32 +34,32 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 
 	speed = 0.6;
 
-	std::string angleNamesArray[] = { "LAnklePitch",		
-				    "LAnkleRoll",		
-			    	    "LElbowRoll",		
-			 	    "LElbowYaw",		
-				    "LHipPitch",		
-				    "LHipRoll",		
-				    "LHipYawPitch",	
-				    "LKneePitch",		
-				    "LShoulderPitch",	
-				    "LShoulderRoll",	
-				    "LWristYaw",		
-				    "RAnklePitch",		
-				    "RAnkleRoll",		
+	std::string angleNamesArray[] = { "LAnklePitch"		
+	//			    "LAnkleRoll",		
+	//		    	    "LElbowRoll",		
+	//		 	    "LElbowYaw",		
+	//			    "LHipPitch",		
+	//			    "LHipRoll",		
+	//			    "LHipYawPitch",	
+	//			    "LKneePitch",		
+	//			    "LShoulderPitch",	
+	//			    "LShoulderRoll",	
+	//			    "LWristYaw",		
+	//			    "RAnklePitch",		
+	//			    "RAnkleRoll",		
 	//			    "RElbowRoll",		
 	//			    "RElbowYaw",		
-				    "RHipPitch",		
-				    "RHipRoll",		
-				    "RHipYawPitch",	
-				    "RKneePitch",	
+	//			    "RHipPitch",		
+	//			    "RHipRoll",		
+	//			    "RHipYawPitch",	
+	//			    "RKneePitch",	
 	//			    "RShoulderPitch",	
 	//			    "RShoulderRoll",	
 	//			    "RWristYaw"
 				    };	
 
-	float sitForwardAnglesArray[] = { 0.921892f,
-				    0.04146f,
+	float sitForwardAnglesArray[] = { 0.921892f
+	/*			    0.04146f,
 				   -1.54462f,
 				   -0.154976f,
 				   -1.0845f,
@@ -79,11 +79,11 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 				    1.52637f,
 	//			    0.219404f,
 	//			   -0.83147f,
-	//			    1.45419f
+	*///			    1.45419f
 				    };
 
-	float sitBackwardAnglesArray[] = { 0.820648f,
-				    0.023052f,
+	float sitBackwardAnglesArray[] = { 0.820648f
+	/*			    0.023052f,
 				   -0.0475121f,
 				    0.118076f,
 				   -0.601286f,
@@ -104,7 +104,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	//			    0.420358f,
 	//			    0.0152981f,
 	//			    1.38516f
-				    };
+	*/			    };
 	
 	angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + 17));
 	sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 17));
