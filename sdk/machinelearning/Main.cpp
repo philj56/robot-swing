@@ -64,12 +64,12 @@ int selectAction(const PriorityQueue<int, double>& a_queue, unsigned long iterat
  *
  * Utility (Q-Value) of the system is updated via the Temporal Difference Learning Rule given by the following equation,
  *
- * \f[ Q_{n+1} (s,a) = Q_n (s,a) + \alpha (R + \gamma max_a (Q) - Q_n (s,a)) \f]
+ * \f[ Q_{i+1} (s,a) = Q_i (s,a) + \alpha [R(s') + \gamma \underset{a}{max} Q(s',a) - Q_i (s,a)] \f]
  *
  * where Q represents the utility of a state-action pair, \f$ \alpha \f$ is the learning rate, \f$ \gamma \f$ is the discount
  * factor and \f$ max_a (Q) \f$ yields the action-maximum of the Q space. The learning rate should be set to a low value for
  * highly stochastic, asymmetric systems or a high value for a lowly stochastic, symmetric system - this value lies between 0 and 1.
- * The discount factor (also in the interval 0,1) represents the time considerations of the learning algorithm, lower values indicate
+ * The discount factor (also in the interval [0,1]) represents the time considerations of the learning algorithm, lower values indicate
  * "living in the moment", whilst higher values indicate "planning for the future".
  *
  * @param space Reference to StateSpace object
@@ -88,6 +88,7 @@ void updateQ(StateSpace & space, int action, State & new_state, State & old_stat
  * program loop to perform algorithm continuously using calls to selectAction and updateQ sequentially to update
  * utilities and choose most optimal actions to perform based on position and velocity.
  * 
+ * @return Program exit code
  */
 int main() {
 	// STUFF WE DONT UNDERSTAND, AND DONT NEED TO
