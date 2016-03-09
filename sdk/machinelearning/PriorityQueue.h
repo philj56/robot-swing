@@ -1,3 +1,13 @@
+/**
+ * @file PriorityQueue.h
+ * 
+ * @brief Contains PriorityQueue class and HeapType enum, as well as extraction/insertion
+ *		  operators for PriorityQueue.
+ *
+ * @author Machine Learning Team 2015-2016
+ * @date March, 2016
+ */
+
 #ifndef PRIORITY_QUEUE_H
 #define PRIORITY_QUEUE_H
 
@@ -106,7 +116,7 @@ Clear = O(1) if type T has trivial destructor
 *	PriorityQueue<int, int> priorityQueueTwo(priorityQueueOne);
 * \endcode
 *
-* @author Samuel Rowlinson
+* @author Machine Learning Team 2015-2016
 * @date February, 2016
 */
 template<typename T, typename PT> class PriorityQueue {
@@ -956,8 +966,6 @@ public:
 	*
 	* @param chkPQ Check target queue
 	* @return true if this queue and chkPQ are equivalent, false otherwise
-	* @bug Differing queues sometimes give true equivalency evaluation - seems to occur when neighbouring nodes are different
-	*	   but not when nodes several positions away from each other are different.
 	*/
 	bool operator==(const PriorityQueue<T, PT>& chkPQ) const {
 
