@@ -1,7 +1,7 @@
 /**
  * @file State.h
  *
- * @brief Contains State class interface and ROBOT_STATE enum
+ * @brief Contains State struct interface and ROBOT_STATE enum
  *
  * @author Machine Learning Team 2015-2016
  * @date March, 2016
@@ -26,7 +26,7 @@ enum ROBOT_STATE { FORWARD, BACKWARD };
 const double g = 9.81;
 
 /**
- * @class State
+ * @struct State
  *
  * @brief Defines a state object that holds angular positions/velocity, and robot state.
  *
