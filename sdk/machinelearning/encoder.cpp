@@ -54,12 +54,14 @@ float Encoder::GetAngle() {
 //pthread_mutex_unlock (&mut);
 //}
 
+/*
 float Encoder::GetVelocity()
 {
 pthread_mutex_lock (&mut);
 return velocity;
 pthread_mutex_unlock (&mut);
 }
+*/
 
 void Encoder::Calibrate() {
 	/*
