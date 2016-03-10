@@ -34,7 +34,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 
 	speed = 0.6;
 
-	std::string angleNamesArray[] = { "LAnklePitch"		
+	std::string angleNamesArray[] = { "LAnklePitch",		
 				    "LAnkleRoll",		
 			    	    "LElbowRoll",		
 			 	    "LElbowYaw",		
@@ -58,7 +58,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	//			    "RWristYaw"
 				    };	
 
-	float sitForwardAnglesArray[] = { 0.921892f
+	float sitForwardAnglesArray[] = { 0.921892f,
 				    0.04146f,
 				   -1.54462f,
 				   -0.154976f,
@@ -82,7 +82,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	//			    1.45419f
 				    };
 
-	float sitBackwardAnglesArray[] = { 0.820648f
+	float sitBackwardAnglesArray[] = { 0.820648f,
 				    0.023052f,
 				   -0.0475121f,
 				    0.118076f,

@@ -4,7 +4,7 @@ find_package(qibuild)
 
 option(BUMPER_IS_REMOTE
   "module is compiled as a remote module (ON or OFF)"
-  OFF)
+  ON)
 
 set(_srcs
   main.cpp
