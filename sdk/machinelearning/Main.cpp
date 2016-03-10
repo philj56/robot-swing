@@ -217,7 +217,7 @@ double temperature(unsigned long t) {
 }
 
 int selectAction(const PriorityQueue<int, double>& a_queue, unsigned long iterations) {
-
+	/*
 	// queue to store action values
 	PriorityQueue<int, double> actionQueue(MAX);
 
@@ -249,8 +249,13 @@ int selectAction(const PriorityQueue<int, double>& a_queue, unsigned long iterat
 		if (rand_num < iter->second)
 			return iter->first;
 	}
-
+	
 	return -1; //note that this line should never be reached
+	*/
+	
+	double rand_num = static_cast<double>(rand()) / RAND_MAX;
+	
+	return (rand_num > 0.5)?0:1;	
 }
 
 void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma) {
