@@ -1,7 +1,7 @@
 /**
  * @file State.cpp
  *
- * @brief Implementation file for State class.
+ * @brief Implementation file for State struct.
  * 
  * @author Machine Learning Team 2015-2016
  * @date March, 2016
