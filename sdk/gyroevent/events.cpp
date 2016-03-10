@@ -119,7 +119,7 @@ try{
             max = 0;
             min = 0;
         }
-        else if(newperiod == true && faverage > max){
+        if(newperiod == true && faverage > max){
             max = faverage;
         }
         else if(newperiod == true && faverage < min){
