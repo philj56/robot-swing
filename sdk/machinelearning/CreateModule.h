@@ -1,3 +1,12 @@
+/**
+ * @file CreateModule.h
+ *
+ * @brief Prototype file for CreateModule function.
+ *
+ * @author Coding Team 2015-2016
+ * @date February, 2016
+ */
+
 #ifndef CREATEMODULE_H
 #define CREATEMODULE_H
 
@@ -20,6 +29,17 @@
 #include <alproxies/alrobotpostureproxy.h>
 
 // Find and open a library, and create an instance of a module in that library
+
+/**
+ * @brief Finds and opens a library, creating an instance of a module in that library.
+ *
+ * @param libName Name of library
+ * @param moduleName Name of module
+ * @param broker Shared pointer of ALBroker instance
+ * @param verb Specifies whether to load the library and symbol (true) or not (false)
+ * @param find Specifies whether to find library (true) or use libName as default library name (false)
+ * @return True if successful, false otherwise
+ */
 bool CreateModule(std::string libName, std::string moduleName, boost::shared_ptr<AL::ALBroker> broker, bool verb, bool find);
 
 #endif /* CREATEMODULE_H */
