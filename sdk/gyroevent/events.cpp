@@ -101,7 +101,7 @@ try{
     
 		fMemoryProxy.raiseEvent("GyroMoveForward", false);
 		qi::os::sleep(1.5);*/
-
+	fgyro = *fGyroY;
         ftotal -= lastvalues[0];
         lastvalues.erase(lastvalues.begin());
         ftotal += fgyro;
@@ -154,8 +154,8 @@ try{
 			fMemoryProxy.raiseEvent("GyroMoveForward", false);
 			ev = false;
 		}  
-        
-        
+
+	qi::os::msleep(5);
     }
 }
  catch (const AL::ALError& e) {
