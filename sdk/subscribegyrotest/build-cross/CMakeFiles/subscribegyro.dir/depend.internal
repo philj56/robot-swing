@@ -11,9 +11,14 @@ CMakeFiles/subscribegyro.dir/main.cpp.o
  /gs/cross/sysroot/usr/include/alcommon/almodulecore.h
  /gs/cross/sysroot/usr/include/alcommon/almoduleinfo.h
  /gs/cross/sysroot/usr/include/alcommon/alparamtype.h
+ /gs/cross/sysroot/usr/include/alcommon/alproxy.h
+ /gs/cross/sysroot/usr/include/alcommon/alproxy.hxx
  /gs/cross/sysroot/usr/include/alcommon/altoolsmain.h
  /gs/cross/sysroot/usr/include/alcommon/detail/alfunctorwithoutreturn.h
  /gs/cross/sysroot/usr/include/alcommon/detail/alfunctorwithreturn.h
+ /gs/cross/sysroot/usr/include/alcommon/detail/alpcall.h
+ /gs/cross/sysroot/usr/include/alcommon/detail/alpcallbase.h
+ /gs/cross/sysroot/usr/include/alcommon/detail/altaskinfo.h
  /gs/cross/sysroot/usr/include/alcommon/detail/gettype.h
  /gs/cross/sysroot/usr/include/alerror/alerror.h
  /gs/cross/sysroot/usr/include/alerror/config.h

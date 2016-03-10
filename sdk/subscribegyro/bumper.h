@@ -37,8 +37,8 @@ class Bumper : public AL::ALModule
     * This method will be called every time the event RightBumperPressed is raised.
     */
     //void onRightBumperPressed();
-    void onMoveForward();
-    void onMoveBackward();
+    void onMoveForward(const std::string &key, const AL::ALValue &value, const AL::ALValue &msg);
+    void onMoveBackward(const std::string &key, const AL::ALValue &value, const AL::ALValue &msg);
 
   private:
     AL::ALMemoryProxy fMemoryProxy;

@@ -144,7 +144,7 @@ BOOST_THREAD_EXECUTABLE:STRING=
 BOOST_THREAD_EXECUTABLE_DEBUG:STRING=
 
 //module is compiled as a remote module (ON or OFF)
-BUMPER_IS_REMOTE:BOOL=OFF
+BUMPER_IS_REMOTE:BOOL=ON
 
 //The Boost FILESYSTEM library
 Boost_FILESYSTEM_LIBRARY:FILEPATH=/gs/naoqi/lib/libboost_filesystem-mt.a
@@ -426,9 +426,6 @@ rt_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so
 
 //Value Computed by CMake
 subscribegyro_BINARY_DIR:STATIC=/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-tc
-
-//Dependencies for the target
-subscribegyro_LIB_DEPENDS:STATIC=general;/gs/naoqi/lib/libalproxies.so;general;/gs/naoqi/lib/libalcommon.so;general;/gs/naoqi/lib/libalsoap.so;general;/gs/naoqi/lib/librttools.so;general;/gs/naoqi/lib/libalthread.so;general;/gs/naoqi/lib/libboost_signals-mt.a;general;/gs/naoqi/lib/libboost_program_options-mt.a;general;/gs/naoqi/lib/libalvalue.so;general;/gs/naoqi/lib/libtinyxml.so;general;/usr/lib/x86_64-linux-gnu/librt.so;general;/gs/naoqi/lib/libqi.so;general;/gs/naoqi/lib/libboost_filesystem-mt.a;general;/gs/naoqi/lib/libboost_thread-mt.a;general;pthread;general;/gs/naoqi/lib/libboost_system-mt.a;general;-lpthread;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/gs/naoqi/lib/libalerror.so;
 
 //Value Computed by CMake
 subscribegyro_SOURCE_DIR:STATIC=/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest
@@ -824,9 +821,8 @@ dlfcn.h_INCLUDE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pthread.h_INCLUDE
 pthread.h_INCLUDE-ADVANCED:INTERNAL=1
 qibuild_DIR:INTERNAL=/gs/qibuild/cmake/qibuild
-subscribegyro_INTERNAL:INTERNAL=FALSE
 subscribegyro_NO_INSTALL:INTERNAL=FALSE
-subscribegyro_SUBFOLDER:INTERNAL=naoqi
+subscribegyro_SUBFOLDER:INTERNAL=
 //ADVANCED property for variable: time.h_INCLUDE
 time.h_INCLUDE-ADVANCED:INTERNAL=1
 

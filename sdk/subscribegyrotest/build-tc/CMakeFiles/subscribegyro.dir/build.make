@@ -50,15 +50,15 @@ CMakeFiles/subscribegyro.dir/main.cpp.o: CMakeFiles/subscribegyro.dir/flags.make
 CMakeFiles/subscribegyro.dir/main.cpp.o: ../main.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-tc/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/subscribegyro.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -o CMakeFiles/subscribegyro.dir/main.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/main.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/subscribegyro.dir/main.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/main.cpp
 
 CMakeFiles/subscribegyro.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/subscribegyro.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -E /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/main.cpp > CMakeFiles/subscribegyro.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/main.cpp > CMakeFiles/subscribegyro.dir/main.cpp.i
 
 CMakeFiles/subscribegyro.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/subscribegyro.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -S /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/main.cpp -o CMakeFiles/subscribegyro.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/main.cpp -o CMakeFiles/subscribegyro.dir/main.cpp.s
 
 CMakeFiles/subscribegyro.dir/main.cpp.o.requires:
 .PHONY : CMakeFiles/subscribegyro.dir/main.cpp.o.requires
@@ -73,15 +73,15 @@ CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o: CMakeFiles/subscribegyro.dir/f
 CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o: ../subscribegyro.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-tc/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -o CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/subscribegyro.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/subscribegyro.cpp
 
 CMakeFiles/subscribegyro.dir/subscribegyro.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/subscribegyro.dir/subscribegyro.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -E /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/subscribegyro.cpp > CMakeFiles/subscribegyro.dir/subscribegyro.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/subscribegyro.cpp > CMakeFiles/subscribegyro.dir/subscribegyro.cpp.i
 
 CMakeFiles/subscribegyro.dir/subscribegyro.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/subscribegyro.dir/subscribegyro.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -S /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/subscribegyro.cpp -o CMakeFiles/subscribegyro.dir/subscribegyro.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/subscribegyro.cpp -o CMakeFiles/subscribegyro.dir/subscribegyro.cpp.s
 
 CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o.requires:
 .PHONY : CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o.requires
@@ -100,31 +100,31 @@ subscribegyro_OBJECTS = \
 # External object files for target subscribegyro
 subscribegyro_EXTERNAL_OBJECTS =
 
-sdk/lib/naoqi/libsubscribegyro.so: CMakeFiles/subscribegyro.dir/main.cpp.o
-sdk/lib/naoqi/libsubscribegyro.so: CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libalproxies.so
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libalcommon.so
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libalsoap.so
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/librttools.so
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libalthread.so
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libboost_signals-mt.a
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libboost_program_options-mt.a
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libalvalue.so
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libtinyxml.so
-sdk/lib/naoqi/libsubscribegyro.so: /usr/lib/x86_64-linux-gnu/librt.so
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libqi.so
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libboost_filesystem-mt.a
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libboost_thread-mt.a
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libboost_system-mt.a
-sdk/lib/naoqi/libsubscribegyro.so: /usr/lib/x86_64-linux-gnu/libdl.so
-sdk/lib/naoqi/libsubscribegyro.so: /gs/naoqi/lib/libalerror.so
-sdk/lib/naoqi/libsubscribegyro.so: CMakeFiles/subscribegyro.dir/build.make
-sdk/lib/naoqi/libsubscribegyro.so: CMakeFiles/subscribegyro.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library sdk/lib/naoqi/libsubscribegyro.so"
+sdk/bin/subscribegyro: CMakeFiles/subscribegyro.dir/main.cpp.o
+sdk/bin/subscribegyro: CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o
+sdk/bin/subscribegyro: /gs/naoqi/lib/libalproxies.so
+sdk/bin/subscribegyro: /gs/naoqi/lib/libalcommon.so
+sdk/bin/subscribegyro: /gs/naoqi/lib/libalsoap.so
+sdk/bin/subscribegyro: /gs/naoqi/lib/librttools.so
+sdk/bin/subscribegyro: /gs/naoqi/lib/libalthread.so
+sdk/bin/subscribegyro: /gs/naoqi/lib/libboost_signals-mt.a
+sdk/bin/subscribegyro: /gs/naoqi/lib/libboost_program_options-mt.a
+sdk/bin/subscribegyro: /gs/naoqi/lib/libalvalue.so
+sdk/bin/subscribegyro: /gs/naoqi/lib/libtinyxml.so
+sdk/bin/subscribegyro: /usr/lib/x86_64-linux-gnu/librt.so
+sdk/bin/subscribegyro: /gs/naoqi/lib/libqi.so
+sdk/bin/subscribegyro: /gs/naoqi/lib/libboost_filesystem-mt.a
+sdk/bin/subscribegyro: /gs/naoqi/lib/libboost_thread-mt.a
+sdk/bin/subscribegyro: /gs/naoqi/lib/libboost_system-mt.a
+sdk/bin/subscribegyro: /usr/lib/x86_64-linux-gnu/libdl.so
+sdk/bin/subscribegyro: /gs/naoqi/lib/libalerror.so
+sdk/bin/subscribegyro: CMakeFiles/subscribegyro.dir/build.make
+sdk/bin/subscribegyro: CMakeFiles/subscribegyro.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable sdk/bin/subscribegyro"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/subscribegyro.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/subscribegyro.dir/build: sdk/lib/naoqi/libsubscribegyro.so
+CMakeFiles/subscribegyro.dir/build: sdk/bin/subscribegyro
 .PHONY : CMakeFiles/subscribegyro.dir/build
 
 CMakeFiles/subscribegyro.dir/requires: CMakeFiles/subscribegyro.dir/main.cpp.o.requires

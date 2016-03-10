@@ -3,6 +3,7 @@
  */
 
 #include "subscribegyro.h"
+#include <qi/os.hpp>
 #include <fstream>
 #include <alvalue/alvalue.h>
 #include <alcommon/alproxy.h>
@@ -37,6 +38,7 @@ void SubscribeGyro::init() {
   try {
     /** Create a proxy to ALMemory.
     */
+	gettimeofday(&startTime);
     fMemoryProxy = AL::ALMemoryProxy(getParentBroker());
 
     //fState = fMemoryProxy.getData("RightSubscribeGyroPressed");
@@ -47,6 +49,22 @@ void SubscribeGyro::init() {
     * - name of the bound method to be called on event
     */
     //fMemoryProxy.subscribeToEvent("RightSubscribeGyroPressed", "SubscribeGyro", "onRightSubscribeGyroPressed");
+
+	AL::ALProxy genericProxy ("MovementTools", "127.0.0.1" , 9559);
+
+	while (time < 180000){
+		qiLogInfo("subscribegyro.gyroswing") << "Time " << time <<  std::endl;
+		
+//		genericProxy.callVoid("swingForwards");
+		qi::os::sleep(1.5);
+//		genericProxy.callVoid("swingBackwards");			
+		qi::os::sleep(1.5);
+
+		timer();
+	}
+
+
+
     fMemoryProxy.subscribeToEvent("GyroMoveForward", "SubscribeGyro", "onMoveForward");
     fMemoryProxy.subscribeToEvent("GyroMoveBackward", "SubscribeGyro", "onMoveBackward");
   }
@@ -73,12 +91,18 @@ void SubscribeGyro::onRightSubscribeGyroPressed() {
   }
 }
 */
-void SubscribeGyro::onMoveBackward(){
+void SubscribeGyro::onMoveBackward(const std::string &key, const AL::ALValue &value, const AL::ALValue &msg){
   qiLogInfo("subscribegyro.gyroswing") << "Executing callback method on move backward" << std::endl;
   AL::ALCriticalSection section(fCallbackMutex);
   gettimeofday(&currentTime);
   file << "Back\t" << currentTime.tv_sec << std::endl;
+ bool test =  value;
   try {
+	if (test == true) {
+		 qiLogInfo("subscribegyro.gyroswing") << "Back! " << currentTime.tv_sec  << std::endl;
+		 qi::os::sleep(0.5);
+
+	}
     //fTtsProxy = AL::ALTextToSpeechProxy(getParentBroker());
     //fTtsProxy.say("Back");
   }
@@ -87,13 +111,18 @@ void SubscribeGyro::onMoveBackward(){
   }
 }
 
-void SubscribeGyro::onMoveForward(){
-     qiLogInfo("subscribegyro.gyroswing") << "Executing callback method on move forward" << std::endl;
+void SubscribeGyro::onMoveForward(const std::string &key, const AL::ALValue &value, const AL::ALValue &msg){
      AL::ALCriticalSection section(fCallbackMutex);
   gettimeofday(&currentTime);
   file << "Forward\t" << std::endl;
+bool test =  value;
+     qiLogInfo("subscribegyro.gyroswing") << "Executing callback method on move forward" << test << " " << value << " " << msg << " " << key << std::endl;
 
    try {
+ 	 if (test == true) {
+                qiLogInfo("subscribegyro.gyroswing") << "Forward! " << currentTime.tv_sec <<  std::endl;
+		qi::os::sleep(0.5);
+        }
 
     //fTtsProxy = AL::ALTextToSpeechProxy(getParentBroker());
     //fTtsProxy.say("Forward");
@@ -101,4 +130,11 @@ void SubscribeGyro::onMoveForward(){
   catch (const AL::ALError& e) {
     qiLogError("module.example") << e.what() << std::endl;
   }
+}
+
+void SubscribeGyro::timer(){
+    
+    time = 1000 * (currentTime.tv_sec - startTime.tv_sec) 
+			       + 0.001 * static_cast<float>(static_cast<int>(currentTime.tv_usec) - static_cast<int>(startTime.tv_usec));
+		
 }

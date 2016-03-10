@@ -8153,6 +8153,8 @@ pmd1208fs.h
 /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/pmd1208fs.h
 iostream
 -
+pthread.h
+-
 
 /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/pmd1208fs.h
 libusb-1.0/libusb.h

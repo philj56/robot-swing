@@ -69,7 +69,7 @@ void Bumper::onRightBumperPressed() {
   }
 }
 */
-void Bumper::onMoveBackward(){
+void Bumper::onMoveBackward(const std::string &key, const AL::ALValue &value, const AL::ALValue &msg){
   qiLogInfo("bumper.gyroswing") << "Executing callback method on move backward" << std::endl;
   AL::ALCriticalSection section(fCallbackMutex);
 
@@ -83,7 +83,7 @@ void Bumper::onMoveBackward(){
   }
 }
 
-void Bumper::onMoveForward(){
+void Bumper::onMoveForward(const std::string &key, const AL::ALValue &value, const AL::ALValue &msg){
      qiLogInfo("bumper.gyroswing") << "Executing callback method on move forward" << std::endl;
   AL::ALCriticalSection section(fCallbackMutex);
 

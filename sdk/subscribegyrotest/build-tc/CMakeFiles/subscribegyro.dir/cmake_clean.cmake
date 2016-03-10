@@ -1,8 +1,8 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/subscribegyro.dir/main.cpp.o"
   "CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o"
-  "sdk/lib/naoqi/libsubscribegyro.pdb"
-  "sdk/lib/naoqi/libsubscribegyro.so"
+  "sdk/bin/subscribegyro.pdb"
+  "sdk/bin/subscribegyro"
 )
 
 # Per-language clean rules from dependency scanning.

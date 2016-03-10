@@ -10,9 +10,14 @@ CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/
 CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/almodulecore.h
 CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/almoduleinfo.h
 CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/alparamtype.h
+CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/alproxy.h
+CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/alproxy.hxx
 CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/altoolsmain.h
 CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/detail/alfunctorwithoutreturn.h
 CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/detail/alfunctorwithreturn.h
+CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/detail/alpcall.h
+CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/detail/alpcallbase.h
+CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/detail/altaskinfo.h
 CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alcommon/detail/gettype.h
 CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alerror/alerror.h
 CMakeFiles/subscribegyro.dir/main.cpp.o: /gs/cross/sysroot/usr/include/alerror/config.h

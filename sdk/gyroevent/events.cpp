@@ -7,7 +7,7 @@
 #include <alvalue/alvalue.h>
 #include <alcommon/alproxy.h>
 #include <alcommon/albroker.h>
-
+  
 #include <vector>
 #include <cmath>
 
@@ -20,7 +20,7 @@ const float backwardspos = M_PI * 3.0 / 4.0;
 GyroEvents::GyroEvents(
   boost::shared_ptr<AL::ALBroker> broker,
   const std::string& name):
-      AL::ALExtractor(broker, name),
+      AL::ALModule(broker, name),
       fMemoryProxy(getParentBroker())
 {
   setModuleDescription("");
@@ -42,47 +42,72 @@ void GyroEvents::init() {
     //Allow ALMemory to start the Events module when someone subscribe to Gyroevent
     //This module should inherit from ALExtractor
     //It's not necessary to call this function when you dont want the autostart feature
-    fMemoryProxy.declareEvent("Gyroevent", "GyroEvents");
+/*    fMemoryProxy.declareEvent("Gyroevent", "GyroEvents");
     fMemoryProxy.declareEvent("AnglePeak", "GyroEvents");
     fMemoryProxy.declareEvent("Gyroaverageturn", "GyroEvents");
     fMemoryProxy.declareEvent("GyroZero", "GyroEvents");
     fMemoryProxy.declareEvent("GyroMoveForward", "GyroEvents");
     fMemoryProxy.declareEvent("GyroMoveBackward", "GyroEvents");
-    
+  */  
     gettimeofday(&startTime);
     gettimeofday(&currentTime);
     
     timer();
-
+/*
     fMemoryProxy.subscribeToEvent("Gyroevent", "GyroEvents", "callback");
     fMemoryProxy.subscribeToEvent("Gyroevent", "GyroEvents", "AverageTurn");
     fMemoryProxy.subscribeToEvent("Gyroevent", "GyroEvents", "AnglePeak");
-    
+  */  
     fMemoryProxy.subscribeToMicroEvent("ExampleMicroEvent", "GyroEvents", "AnotherUserDataToIdentifyEvent", "callback");
 
-    fGyroY = (AL::ALValue*)(fMemoryProxy.getDataPtr("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value"));
-    
+//    fGyroY = (AL::ALValue*)(fMemoryProxy.getDataPtr("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value"));
+	
+       
+	
+	fGyroY = (AL::ALValue*)(fMemoryProxy.getDataPtr("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value"));
+	
+
     for (int i = 0; i < datapoints; i++){
-        fgyro = *fGyroY;
+         fgyro = *fGyroY;
+    #ifdef EVENTS_IS_REMOTE
+       // fgyro = fMemoryProxy.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value");
+    #endif
         ftotal += fgyro;
         lastvalues[i] = fgyro;
     }
     
     Average();
+	Run(); 
     
-    while (true){
+  }
+  catch (const AL::ALError& e) {
+    qiLogError("module.example") << e.what() << std::endl;
+  }
+
+}
+
+void GyroEvents::Run(){
+	bool ev = false;
+try{
+	while (true){
         //This needs to sleep during a movement
         //After movement is complete, reset average 
         
         //timer();
-        fgyro = *fGyroY; //Dereferences the current gyro value from pointer for fast read speed
+ //       fgyro = *fGyroY; //Dereferences the current gyro value from pointer for fast read speed
+		/*fMemoryProxy.raiseEvent("GyroMoveForward", true);
+		qi::os::sleep(1.5);
+		std::cout << "Slept" << std::endl;	
+    
+		fMemoryProxy.raiseEvent("GyroMoveForward", false);
+		qi::os::sleep(1.5);*/
+
         ftotal -= lastvalues[0];
         lastvalues.erase(lastvalues.begin());
         ftotal += fgyro;
         lastvalues.push_back(fgyro);
         Average();
         
-        //generateEvent(faverage);
         
         if (floor(faverage*10) == 0){
             newperiod = true;
@@ -97,7 +122,6 @@ void GyroEvents::init() {
         }
         else if(newperiod == true && faverage < min){
             min = faverage;
-//            amp = (max + min)/2.0;
         }
         else {
             newperiod = false;
@@ -106,39 +130,41 @@ void GyroEvents::init() {
         position = asin(faverage/amp) + M_PI / 2;
         position = fmod(position + 2*M_PI, 2*M_PI);
         timer();
-        if (time > 500 && std::abs(position - forwardspos)/forwardspos < 0.05){
+        if (time > 500 && std::abs(position - forwardspos)/forwardspos < 0.10){
             //Move to forwards position
             gettimeofday(&MovementTime);
             fMemoryProxy.raiseEvent("GyroMoveForward", true);
+			ev = true;
         }
-        else if (time > 500 && std::abs(position - backwardspos)/backwardspos < 0.05){
+        else if (time > 500 && std::abs(position - backwardspos)/backwardspos < 0.10){
             //Move to backwards position
             gettimeofday(&MovementTime);
             fMemoryProxy.raiseEvent("GyroMoveBackward", true);
+			ev = true;
         }
+		
        // fMemoryProxy.raiseEvent("GyroMoveForward", false);
        // fMemoryProxy.raiseEvent("GyroMoveBackward", false);       
        
         gettimeofday(&currentTime);
         qiLogInfo("module.example") << "Msg     :" << faverage << " " << position <<  std::endl;
         
-       /* if (currentTime.tv_sec - startTime.tv_sec == 300){
-            break;
-        }*/
+		if (time > 500 && ev == true){
+			fMemoryProxy.raiseEvent("GyroMoveBackward", false);
+			fMemoryProxy.raiseEvent("GyroMoveForward", false);
+			ev = false;
+		}  
         
         
     }
-
-    //generate a simple event for the test
-    //generateEvent(42.0);
-    //generateMicroEvent(42.0);
-  }
-  catch (const AL::ALError& e) {
+}
+ catch (const AL::ALError& e) {
     qiLogError("module.example") << e.what() << std::endl;
   }
 
 }
 
+/*
 void GyroEvents::xStartDetection(const int pPeriod, const float pPrecision)
 {
 	return;
@@ -148,7 +174,7 @@ void GyroEvents::xStopDetection()
 {
 	return;
 }
-
+*/
 void GyroEvents::timer(){
     
     time = 1000 * (currentTime.tv_sec - MovementTime.tv_sec) 
@@ -160,13 +186,13 @@ void GyroEvents::Average(){
     foldaverage = faverage; 
     faverage = ftotal/datapoints;
     
-    if (abs(foldaverage) > abs(faverage)){
+   /* if (abs(foldaverage) > abs(faverage)){
         fMemoryProxy.raiseEvent("Gyroaverageturn", foldaverage);
     }
     else if(abs(foldaverage) < abs(faverage) && floor(faverage*10) == 0){
         anglepeak = true;
         AnglePeak(anglepeak);
-    }
+    }*/
 }
 
 void GyroEvents::AnglePeak(const bool& value){

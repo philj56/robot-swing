@@ -12,6 +12,7 @@
 #include <fstream>
 #include <string>
 #include <qi/os.hpp>
+#include <alcommon/alproxy.h>
 #include <alproxies/almemoryproxy.h>
 #include <alproxies/altexttospeechproxy.h>
 #include <althread/almutex.h>
@@ -33,18 +34,22 @@ class SubscribeGyro : public AL::ALModule
     * This is called right after the module has been loaded
     */
     virtual void init();
-
+	void timer();
     /**
     * This method will be called every time the event RightSubscribeGyroPressed is raised.
     */
     //void onRightSubscribeGyroPressed();
-    void onMoveForward();
-    void onMoveBackward();
+    void onMoveForward(const std::string &key, const AL::ALValue &value, const AL::ALValue &msg);
+    void onMoveBackward(const std::string &key, const AL::ALValue &value, const AL::ALValue &msg);
 
   private:
     AL::ALMemoryProxy fMemoryProxy;
     AL::ALTextToSpeechProxy fTtsProxy;
-	qi::os::timeval	currentTime;
+//   AL::ALProxy genericProxy;
+	qi::os::timeval	currentTime, startTime;
+	double time;
+//	qi::os::timeval start;
+//	time_t currentTime, start;
     boost::shared_ptr<AL::ALMutex> fCallbackMutex;
 	std::fstream file;
     float fState;

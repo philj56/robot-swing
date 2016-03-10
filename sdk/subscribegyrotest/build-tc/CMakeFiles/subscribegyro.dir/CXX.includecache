@@ -25,6 +25,8 @@ subscribegyro.h
 /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/subscribegyro.cpp
 subscribegyro.h
 /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/subscribegyro.h
+qi/os.hpp
+-
 fstream
 -
 alvalue/alvalue.h
@@ -42,6 +44,8 @@ althread/alcriticalsection.h
 boost/shared_ptr.hpp
 -
 alcommon/almodule.h
+-
+fstream
 -
 string
 -

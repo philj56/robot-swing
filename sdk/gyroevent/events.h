@@ -18,7 +18,7 @@ namespace AL
   class ALBroker;
 }
 
-class GyroEvents : public AL::ALExtractor
+class GyroEvents : public AL::ALModule
 {
   public:
 
@@ -48,7 +48,7 @@ class GyroEvents : public AL::ALExtractor
     void generateMicroEvent(const float& value);
     
     void Average();
-    
+    void Run();    
     void timer();
 
   private:
@@ -78,9 +78,10 @@ class GyroEvents : public AL::ALExtractor
     qi::os::timeval MovementTime;
     
     float time;
-
+/*
     virtual void xStartDetection(const int pPeriod, const float pPrecision);
     virtual void xStopDetection();
+*/
 };
 
 

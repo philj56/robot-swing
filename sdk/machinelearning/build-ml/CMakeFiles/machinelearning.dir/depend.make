@@ -1533,7 +1533,9 @@ CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/bits
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/bits/posix1_lim.h
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/bits/posix2_lim.h
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/bits/pthreadtypes.h
+CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/bits/sched.h
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/bits/select.h
+CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/bits/setjmp.h
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/bits/sigset.h
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/bits/stdio_lim.h
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/bits/time.h
@@ -1549,6 +1551,8 @@ CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/gnu/
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/libusb-1.0/libusb.h
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/limits.h
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/linux/limits.h
+CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/pthread.h
+CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/sched.h
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/stdint.h
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/sys/cdefs.h
 CMakeFiles/machinelearning.dir/encoder.cpp.o: /gs/cross/sysroot/usr/include/sys/select.h
