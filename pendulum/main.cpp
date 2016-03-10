@@ -45,7 +45,7 @@ int main()
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 
 	//create pointers to the possible actions as well as a pointer to hold the chosen action
-	float chosen_action = 1.0f;
+	float chosen_action = 1.0f;	// THE F MUST NOT BE DELETED UNDER ANY CIRCUMSTANCES
 	float actions[torque_bins];
 	for (int i = 0; i < (maxtorque*2)+1 ; ++i) {
 		actions[i] = static_cast<float>(-maxtorque+i);
