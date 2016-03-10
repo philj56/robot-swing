@@ -21,6 +21,8 @@ CMakeFiles/gyroevents.dir/events.cpp.o
  /gs/naoqi/include/alcommon/detail/gettype.h
  /gs/naoqi/include/alerror/alerror.h
  /gs/naoqi/include/alerror/config.h
+ /gs/naoqi/include/alextractor/alextractor.h
+ /gs/naoqi/include/alextractor/config.h
  /gs/naoqi/include/alproxies/almemoryproxy.h
  /gs/naoqi/include/alproxies/almemoryproxyposthandler.h
  /gs/naoqi/include/alproxies/api.h
@@ -716,6 +718,8 @@ CMakeFiles/gyroevents.dir/main.cpp.o
  /gs/naoqi/include/alcommon/detail/gettype.h
  /gs/naoqi/include/alerror/alerror.h
  /gs/naoqi/include/alerror/config.h
+ /gs/naoqi/include/alextractor/alextractor.h
+ /gs/naoqi/include/alextractor/config.h
  /gs/naoqi/include/alproxies/almemoryproxy.h
  /gs/naoqi/include/alproxies/almemoryproxyposthandler.h
  /gs/naoqi/include/alproxies/api.h

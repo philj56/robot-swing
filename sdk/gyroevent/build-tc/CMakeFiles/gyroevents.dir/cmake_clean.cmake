@@ -1,8 +1,8 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/gyroevents.dir/main.cpp.o"
   "CMakeFiles/gyroevents.dir/events.cpp.o"
-  "sdk/lib/naoqi/libgyroevents.pdb"
-  "sdk/lib/naoqi/libgyroevents.so"
+  "sdk/bin/gyroevents.pdb"
+  "sdk/bin/gyroevents"
 )
 
 # Per-language clean rules from dependency scanning.

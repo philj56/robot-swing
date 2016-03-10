@@ -347,10 +347,7 @@ DL_EXECUTABLE:STRING=
 DL_EXECUTABLE_DEBUG:STRING=
 
 //module is compiled as a remote module (ON or OFF)
-EVENTS_IS_REMOTE:BOOL=OFF
-
-//No help, variable specified on the command line.
-EVENT_IS_REMOTE:UNINITIALIZED=OFF
+EVENTS_IS_REMOTE:BOOL=ON
 
 GYROEVENTS_DEPENDS:STRING=ALCOMMON;ALCOMMON-INTERNAL;ALSOAP;RTTOOLS;ALTHREAD;BOOST_SIGNALS;BOOST_PROGRAM_OPTIONS;ALVALUE;TINYXML;RT;QI;BOOST_FILESYSTEM;BOOST_THREAD;BOOST_SYSTEM;PTHREAD;DL;ALERROR;BOOST
 
@@ -423,9 +420,6 @@ dlfcn.h_INCLUDE:PATH=/usr/include
 
 //Value Computed by CMake
 gyroevents_BINARY_DIR:STATIC=/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-tc
-
-//Dependencies for the target
-gyroevents_LIB_DEPENDS:STATIC=general;/gs/naoqi/lib/libalproxies.so;general;/gs/naoqi/lib/libalcommon.so;general;/gs/naoqi/lib/libalsoap.so;general;/gs/naoqi/lib/librttools.so;general;/gs/naoqi/lib/libalthread.so;general;/gs/naoqi/lib/libboost_signals-mt.a;general;/gs/naoqi/lib/libboost_program_options-mt.a;general;/gs/naoqi/lib/libalvalue.so;general;/gs/naoqi/lib/libtinyxml.so;general;/usr/lib/x86_64-linux-gnu/librt.so;general;/gs/naoqi/lib/libqi.so;general;/gs/naoqi/lib/libboost_filesystem-mt.a;general;/gs/naoqi/lib/libboost_thread-mt.a;general;pthread;general;/gs/naoqi/lib/libboost_system-mt.a;general;-lpthread;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/gs/naoqi/lib/libalerror.so;
 
 //Value Computed by CMake
 gyroevents_SOURCE_DIR:STATIC=/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent
@@ -824,9 +818,8 @@ _TESTS_RESULTS_FOLDER:INTERNAL=/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroev
 _dpkg_architecture:INTERNAL=_dpkg_architecture-NOTFOUND
 //ADVANCED property for variable: dlfcn.h_INCLUDE
 dlfcn.h_INCLUDE-ADVANCED:INTERNAL=1
-gyroevents_INTERNAL:INTERNAL=FALSE
 gyroevents_NO_INSTALL:INTERNAL=FALSE
-gyroevents_SUBFOLDER:INTERNAL=naoqi
+gyroevents_SUBFOLDER:INTERNAL=
 //ADVANCED property for variable: pthread.h_INCLUDE
 pthread.h_INCLUDE-ADVANCED:INTERNAL=1
 qibuild_DIR:INTERNAL=/gs/qibuild/cmake/qibuild

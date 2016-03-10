@@ -120,6 +120,7 @@ void GyroEvents::init() {
        // fMemoryProxy.raiseEvent("GyroMoveBackward", false);       
        
         gettimeofday(&currentTime);
+        qiLogInfo("module.example") << "Msg     :" << faverage << " " << position <<  std::endl;
         
        /* if (currentTime.tv_sec - startTime.tv_sec == 300){
             break;
@@ -191,5 +192,4 @@ void GyroEvents::callback(const std::string &key, const AL::ALValue &value, cons
   
   qiLogInfo("module.example") << "Callback:" << key << std::endl;
   qiLogInfo("module.example") << "Value   :" << value << std::endl;
-  qiLogInfo("module.example") << "Msg     :" << msg << std::endl;
 }

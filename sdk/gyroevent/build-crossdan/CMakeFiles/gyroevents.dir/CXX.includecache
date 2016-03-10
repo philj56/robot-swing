@@ -102,6 +102,28 @@ cstdlib
 cxxabi.h
 -
 
+/gs/cross/sysroot/usr/include/alcommon/alproxy.h
+alcommon/almoduleinfo.h
+-
+alcommon/almodule.h
+-
+alcommon/detail/altaskinfo.h
+-
+alcommon/alfunctor.h
+-
+alerror/alerror.h
+-
+boost/shared_ptr.hpp
+-
+boost/smart_ptr/enable_shared_from_this.hpp
+-
+alcommon/alproxy.hxx
+-
+
+/gs/cross/sysroot/usr/include/alcommon/alproxy.hxx
+alcommon/detail/alpcall.h
+-
+
 /gs/cross/sysroot/usr/include/alcommon/altoolsmain.h
 boost/shared_ptr.hpp
 -
@@ -114,6 +136,24 @@ alvalue/detail/alfunctorconvert.h
 
 /gs/cross/sysroot/usr/include/alcommon/detail/alfunctorwithreturn.h
 alvalue/detail/alfunctorconvert.h
+-
+
+/gs/cross/sysroot/usr/include/alcommon/detail/alpcall.h
+alcommon/alparamtype.h
+-
+alcommon/detail/altaskinfo.h
+-
+alcommon/detail/alpcallbase.h
+-
+
+/gs/cross/sysroot/usr/include/alcommon/detail/alpcallbase.h
+boost/shared_ptr.hpp
+-
+
+/gs/cross/sysroot/usr/include/alcommon/detail/altaskinfo.h
+string
+-
+pthread.h
 -
 
 /gs/cross/sysroot/usr/include/alcommon/detail/gettype.h
@@ -7842,6 +7882,26 @@ bits/wordsize.h
 qi/macro.hpp
 -
 
+/gs/cross/sysroot/usr/include/qi/log.hpp
+map
+-
+string
+-
+iostream
+-
+sstream
+-
+cstdarg
+-
+cstdio
+-
+boost/function/function_fwd.hpp
+-
+qi/config.hpp
+-
+qi/os.hpp
+-
+
 /gs/cross/sysroot/usr/include/qi/macro.hpp
 
 /gs/cross/sysroot/usr/include/qi/os.hpp
@@ -8017,6 +8077,24 @@ xlocale.h
 -
 
 /gs/cross/sysroot/usr/include/xlocale.h
+
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.cpp
+events.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h
+alvalue/alvalue.h
+-
+alcommon/alproxy.h
+-
+alcommon/albroker.h
+-
+vector
+-
+cmath
+-
+qi/os.hpp
+-
+qi/log.hpp
+-
 
 /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h
 boost/shared_ptr.hpp

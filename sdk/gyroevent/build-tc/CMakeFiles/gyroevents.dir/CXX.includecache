@@ -27,7 +27,7 @@ qi/log.hpp
 /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/events.h
 boost/shared_ptr.hpp
 -
-alcommon/almodule.h
+alextractor/alextractor.h
 -
 string
 -
@@ -209,6 +209,18 @@ string
 -
 
 /gs/naoqi/include/alerror/config.h
+
+/gs/naoqi/include/alextractor/alextractor.h
+alcommon/almodule.h
+-
+alextractor/config.h
+-
+boost/scoped_ptr.hpp
+-
+
+/gs/naoqi/include/alextractor/config.h
+qi/macro.hpp
+-
 
 /gs/naoqi/include/alproxies/almemoryproxy.h
 alproxies/almemoryproxyposthandler.h
