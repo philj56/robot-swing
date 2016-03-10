@@ -109,7 +109,7 @@ try{
         Average();
         
         
-        if (floor(faverage*10) == 0){
+        if (floor(faverage*200) == 0){
             newperiod = true;
             amp = (max + abs(min))/2.0;
             omin = min;
@@ -117,7 +117,7 @@ try{
             max = 0;
             min = 0;
         }
-        else if(newperiod == true && faverage > max){
+        if(newperiod == true && faverage > max){
             max = faverage;
         }
         else if(newperiod == true && faverage < min){
