@@ -158,7 +158,7 @@ std::vector<float> BodyInfo::getSittingCOMAngles()
 		// TODO: Get better lower COM angles, good enough for now
 		std::vector<float> COMAngles;
 		COMAngles.push_back(arg (upperCOM[0], upperCOM[1] + hipOffset) + hipAngle);
-		COMAngles.push_back(arg (lowerCOM[0], lowerCOM[1] + hipOffset) + hipAngle / 2.0);
+		COMAngles.push_back(arg (lowerCOM[0], lowerCOM[1] + hipOffset) + (0.5*hipAngle) - M_PI);
 		//std::cout << "Hip Angle:\t" << hipAngle << std::endl;
 		//std::cout << "Seat Frame Upper: " << COMAngles[0] << std::endl;
 		//std::cout << "Seat Frame Lower: " << COMAngles[1] << std::endl;
