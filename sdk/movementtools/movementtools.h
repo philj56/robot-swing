@@ -43,6 +43,9 @@ public:
 	void swingForwards();
 	void swingBackwards();
 
+	// Move to part way between forwards and backwards
+	void lerpSwing(const float &t);
+
 	// Human-style movement
 	void humanSwing(const float &theta, const bool &forwards);
 	std::vector<float> humanPosition(const float &t, const bool &forwards);

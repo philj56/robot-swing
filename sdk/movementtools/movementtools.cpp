@@ -4,6 +4,26 @@
 
 #include "movementtools.h"
 
+
+// Clamp a number to a range
+inline float clip(float n, float lower, float upper) 
+{
+	  return std::max(lower, std::min(n, upper));
+}
+
+// Linearly interpolate between two vectors of floats, truncating to shortest vector
+std::vector<float> vectorLerp(const std::vector<float> &vector1, const std::vector<float> &vector2, float t)
+{
+	t = clip(t, 0, 1);
+	std::vector<float> result;
+	size_t size = vector1.size() < vector2.size() ? vector1.size() : vector2.size();
+	for (size_t i = 0; i < size; i++)
+	{
+		result.push_back(t * vector1[i] + (1 - t) * vector2[i]);
+	}
+	return result;
+}
+
 // Constructor
 MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 			 const std::string &name)
@@ -24,6 +44,15 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	functionName("swingBackwards", getName(), "Move to backward seated position");
 	BIND_METHOD(MovementTools::swingBackwards);
 
+	functionName("lerpSwing", getName(), "Move to a position between backwards and forwards");
+	addParam("t", "The position to move to (0 = backwards, 1 = forwards)");
+	BIND_METHOD(MovementTools::swingBackwards);
+	
+	functionName("humanSwing", getName(), "Replicate a human's swinging motion");
+	addParam("theta", "The angle of the swing (0 - 1)");
+	addParam("forwards", "Whether the swing is moving forwards");
+	BIND_METHOD(MovementTools::swingBackwards);
+	
 	functionName("setSpeed", getName(), "Set movement speed");
 	addParam("newSpeed", "The new speed");
 	BIND_METHOD(MovementTools::setSpeed);
@@ -65,7 +94,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	//			    "RWristYaw"
 				    };	
 
-	float sitForwardAnglesArray[] = { 0.921892f,
+	static const float sitForwardAnglesArray[] = { 0.921892f,
 				    0.04146f,
 	//			   -1.54462f,
 	//			   -0.154976f,
@@ -89,7 +118,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	//			    1.45419f
 				    };
 
-	float sitBackwardAnglesArray[] = { 0.820648f,
+	static const float sitBackwardAnglesArray[] = { 0.820648f,
 				    0.023052f,
 	//			   -0.0475121f,
 	//			    0.118076f,
@@ -113,10 +142,10 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	//			    1.38516f
 				    };
 	
-	humanAngleNames = AL::ALValue(std::vector<std::string> (humanAngleNamesArray, humanAngleNamesArray + 4));
-	angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + 6));
-	sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 6));
-	sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + 6));
+	humanAngleNames = AL::ALValue(std::vector<std::string> (humanAngleNamesArray, humanAngleNamesArray + sizeof(humanAngleNamesArray) / sizeof(humanAngleNamesArray[0])));
+	angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + sizeof(angleNamesArray) / sizeof(angleNamesArray[0])));
+	sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + sizeof(sitForwardAnglesArray) / sizeof(sitForwardAnglesArray[0])));
+	sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + sizeof(sitBackwardAnglesArray) / sizeof(sitBackwardAnglesArray[0])));
 }
 
 // Destructor
@@ -166,25 +195,27 @@ void MovementTools::swingBackwards()
 	motion.setStiffnesses("RArm", 0.0f);
 }
 
+void MovementTools::lerpSwing(const float &t)
+{
+	std::vector <float> angles = vectorLerp(sitBackwardAngles, sitForwardAngles, t);
+	motion.setStiffnesses("Body", 1.0f);
+	motion.setStiffnesses("RArm", 0.0f);
+	motion.setAngles(angleNames, angles, speed);	
+	qi::os::msleep(700);
+	motion.setStiffnesses("Body", 0.2f);
+	motion.setStiffnesses("RArm", 0.0f);
+}
+
 void MovementTools::humanSwing(const float &theta, const bool &forwards)
 {
-	if (theta > 1 || theta < 0)
-	{
-		std::cerr << "humanSwing error: theta of " << theta << " out of range (0, 1)" << std::endl;
-		return;
-	}
 	std::vector<float> angles = humanPosition(theta, forwards);
 	motion.setAngles(humanAngleNames, angles, speed);
 }
 
-std::vector<float> MovementTools::humanPosition(const float &t, const bool &forwards)
+std::vector<float> MovementTools::humanPosition(const float &theta, const bool &forwards)
 {
 	std::vector<float> result;
-	if (t > 1 || t < 0)
-	{
-		std::cerr << "humanPosition error: theta of " << t << " out of range (0, 1)" << std::endl;
-		return result;
-	}
+	float t = clip (theta, 0, 1);
 	float body;
 	float legs;
 	if (forwards)
