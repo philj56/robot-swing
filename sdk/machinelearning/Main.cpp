@@ -45,7 +45,7 @@ template<typename T> std::string to_string(T x) {
  * @param t Number of loop iterations.
  * @return Value of normal distribution at t loop iterations.
  */
-double temperature(unsigned long t);
+double probabilityFluxDensityCoeffieicent(unsigned long t);
 
 //function to select next action
 
@@ -211,7 +211,7 @@ int main() {
 	return 1;
 }
 
-double temperature(unsigned long t) {
+double probabilityFluxDensityCoeffieicent(unsigned long t) {
 	return 100.0*std::exp((-8.0*t*t) / (2600.0*2600.0)) + 0.1;//0.1 is an offset
 }
 
@@ -227,12 +227,12 @@ int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) 
 
 	// calculate partition function by iterating over action-values
 	for (VecPair::iterator iter = vec.begin(), end = vec.end(); iter < end; ++iter) {
-		sum += std::exp((iter->second) / temperature(iterations));
+		sum += std::exp((iter->second) / probabilityFluxDensityCoeffieicent(iterations));
 	}
 
 	// compute Boltzmann factors for action-values and enqueue to vec
 	for (VecPair::iterator iter = vec.begin(); iter < vec.end(); ++iter) {
-		iter->second = std::exp(iter->second / temperature(iterations)) / sum;
+		iter->second = std::exp(iter->second / probabilityFluxDensityCoeffieicent(iterations)) / sum;
 	}
 
 	// calculate cumulative probability distribution
