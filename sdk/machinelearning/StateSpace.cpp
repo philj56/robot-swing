@@ -25,7 +25,7 @@ StateSpace::StateSpace(int _angle_bins, int _velocity_bins, double _angle_max, d
 	angle_bins = _angle_bins-1;
 	velocity_bins = _velocity_bins-1;
 	angle_max = _angle_max;
-	velocity_ = _velocity_max;
+	velocity = _velocity_max;
 }
 
 /**
