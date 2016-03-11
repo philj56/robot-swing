@@ -174,7 +174,7 @@ int main() {
 	encoder.Calibrate();
 
 	//create the state space
-	StateSpace space(100, 50, initiator_queue);
+	StateSpace space(100, 50, M_PI * 0.25, 1.0, initiator_queue);
 
 	//state objects
 	State current_state(0, 0, FORWARD);
