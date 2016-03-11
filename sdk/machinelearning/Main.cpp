@@ -12,6 +12,7 @@
 #include <ctime>
 #include <string>
 #include <sstream>
+#include <fstream>
 #include "StateSpace.h"
 #include "PriorityQueue.h"
 #include "State.h"
@@ -173,6 +174,7 @@ int main() {
 	Encoder encoder;
 	encoder.Calibrate();
 	
+	//pause briefly to allow the robot to be given a push if desired
 	qi::os::msleep(5000);
 	
 	//create the state space
@@ -181,9 +183,8 @@ int main() {
 	//state objects
 	State current_state(0, 0, FORWARD);
 	State old_state(0, 0, FORWARD);
-
-	unsigned long i = 0;
-	while (true) {
+	
+	for( unsigned long i = 0; i<500 ;++i ) {
 		// set current state angle to angle received from encoder
 		// and set current state velocity to difference in new and
 		// old state angles over some time difference
@@ -204,8 +205,6 @@ int main() {
 		// depending upon chosen action, call robot movement tools proxy with either
 		// swingForwards or swingBackwards commands.
 		(chosen_action) ? movementToolsProxy.callVoid("swingForwards") : movementToolsProxy.callVoid("swingBackwards");
-
-		++i;
 	}
 
 	return 1;
