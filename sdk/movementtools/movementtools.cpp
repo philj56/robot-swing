@@ -106,9 +106,9 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	//			    1.38516f
 				    };
 	
-	angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + 17));
-	sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 17));
-	sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + 17));
+	angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + 6));
+	sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 6));
+	sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + 6));
 }
 
 // Destructor
@@ -157,3 +157,5 @@ void MovementTools::swingBackwards()
 	motion.setStiffnesses("Body", 0.2f);
 	motion.setStiffnesses("RArm", 0.0f);
 }
+
+//void MovementTools::humanSwingForwards()

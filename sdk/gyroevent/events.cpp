@@ -75,6 +75,8 @@ void GyroEvents::init() {
         ftotal += fgyro;
         lastvalues[i] = fgyro;
     }
+            max = 0;
+            min = 0;
     
     Average();
 	Run(); 
@@ -109,7 +111,11 @@ try{
         Average();
         
         
+<<<<<<< HEAD
         if (floor(faverage*200) == 0){
+=======
+        if (floor(faverage*50) == 0){
+>>>>>>> 05ce6879dc105e82969a7d1daf0feff42150d331
             newperiod = true;
             amp = (max + abs(min))/2.0;
             omin = min;
