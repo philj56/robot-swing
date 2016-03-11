@@ -301,7 +301,7 @@ int selectAction(const PriorityQueue<int, double>& a_queue, unsigned long iterat
 	}
 	
 	return -1; //note that this line should never be reached
-	*/
+	
 	
 	double rand_num = static_cast<double>(rand()) / RAND_MAX;
 	
