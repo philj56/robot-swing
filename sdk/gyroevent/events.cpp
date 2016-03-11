@@ -66,7 +66,7 @@ void GyroEvents::init() {
 	
 	//fGyroY = (AL::ALValue*)(fMemoryProxy.getDataPtr("Device/SubDeviceList/InertialSensor/GyrY/Sensor/Value"));
 	
-	AL::AL Value ttt = *fGyroY;
+	AL::ALValue ttt = *fGyroY;
 	temp = float(ttt);	
 
     for (int i = 0; i < datapoints; i++){
