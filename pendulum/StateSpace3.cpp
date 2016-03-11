@@ -11,12 +11,12 @@ StateSpace::StateSpace(const PriorityQueue<float, double>& queue, int _angle_bin
 	space(_angle_bins, std::vector<std::vector<PriorityQueue<float, double>>>(_velocity_bins, std::vector<PriorityQueue<float, double>>(2*_torque_bins+1, PriorityQueue<float, double>(queue))))
 
 {
-	angle_bins=_angle_bins;
-	velocity_bins=_velocity_bins;
-	torque_bins=_torque_bins;
-	angle_max=_angle_max-1;	//offset is to account for array indexes starting at 1
-	velocity_max=_velocity_max-1;
-	torque_max=_torque_max-1;
+	angle_bins=_angle_bins-1; //offset is to account for array indexes starting at 1
+	velocity_bins=_velocity_bins-1;
+	torque_bins=_torque_bins-1;
+	angle_max=_angle_max;
+	velocity_max=_velocity_max;
+	torque_max=_torque_max;
 }
 
 StateSpace::SubscriptProxy1 StateSpace::operator[](const double angle)
