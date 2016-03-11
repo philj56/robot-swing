@@ -61,9 +61,11 @@ class GyroEvents : public AL::ALModule
     
     std::vector<float> lastvalues;
     
+    float temp;
     float ftotal;
     float faverage;
     float foldaverage;
+
     
     float position;
     

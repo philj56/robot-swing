@@ -60,16 +60,18 @@ void GyroEvents::init() {
   */  
     //fMemoryProxy.subscribeToMicroEvent("ExampleMicroEvent", "GyroEvents", "AnotherUserDataToIdentifyEvent", "callback");
 
-//    fGyroY = (AL::ALValue*)(fMemoryProxy.getDataPtr("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value"));
+    fGyroY = (AL::ALValue*)(fMemoryProxy.getDataPtr("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value"));
 	
        
 	
-	fGyroY = (AL::ALValue*)(fMemoryProxy.getDataPtr("Device/SubDeviceList/InertialSensor/GyrY/Sensor/Value"));
+	//fGyroY = (AL::ALValue*)(fMemoryProxy.getDataPtr("Device/SubDeviceList/InertialSensor/GyrY/Sensor/Value"));
 	
+	AL::AL Value ttt = *fGyroY;
+	temp = float(ttt);	
 
     for (int i = 0; i < datapoints; i++){
 	fCurrentGyro = *fGyroY;         
-	fgyro = double(fCurrentGyro);
+	fgyro = float(fCurrentGyro);
     
         ftotal += fgyro;
         lastvalues[i] = fgyro;
@@ -107,7 +109,7 @@ try{
 		qi::os::sleep(1.5);*/
 
 	fCurrentGyro = *fGyroY;         
-	fgyro = double(fCurrentGyro);
+	fgyro = float(fCurrentGyro);
 //	fgyro = *fGyroY;
         ftotal -= lastvalues[0];
         lastvalues.erase(lastvalues.begin());
@@ -158,7 +160,7 @@ try{
        // fMemoryProxy.raiseEvent("GyroMoveBackward", false);       
        
         gettimeofday(&currentTime);
-        qiLogInfo("GyroEvents.Loop") << "Msg: " <<  fCurrentGyro << " "  << fgyro << " " << faverage << " " << amp << " " << position  << " " << time << std::endl;
+        qiLogInfo("GyroEvents.Loop") << "Msg: "  << temp << " " <<  fCurrentGyro << " "  << fgyro << " " << faverage << " " << amp << " " << position  << " " << time << std::endl;
         
 		if (time > 500 && ev == true){
 			fMemoryProxy.raiseEvent("GyroMoveBackward", false);
