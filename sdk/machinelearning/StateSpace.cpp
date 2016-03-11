@@ -59,3 +59,39 @@ PriorityQueue<int, double>& StateSpace::operator[](const State & state) {
 	//call the subscript operators with the members of the state object
 	return (*this)[state.robot_state][state.theta][state.theta_dot];
 }
+
+std::ofstream& operator<<(std::ofstream& stream, const StateSpace& space)
+{
+	for(unsigned short i=0;i<angle_bins;++i)
+	{
+		for(unsigned short j=0;j<angle_bins;++j)
+		{
+			stream<<space.space1[i][j];
+			stream<<space.space2[i][j];
+		}
+	}
+	return stream;
+}
+
+std::ifstream& operator>>(std::ifstream& stream, StateSpace& space)
+{
+	int action1=0;
+	double priority1=0;
+	int action2=0;
+	double priority2=0;
+	
+	for(unsigned short i=0;i<angle_bins;++i)
+	{
+		for(unsigned short j=0;j<angle_bins;++j)
+		{
+			stream>>action1;
+			stream>>priority1;
+			stream>>action2;
+			stream>>priority2;
+			
+			space.space1[i][j].enqueueWithPriority(action1,priority1);
+			space.space2[i][j].enqueueWithPriority(action2,priority2);
+		}
+	}
+	return stream;
+}
