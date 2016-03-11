@@ -172,7 +172,9 @@ int main() {
 	//create encoder
 	Encoder encoder;
 	encoder.Calibrate();
-
+	
+	qi::os::msleep(5000);
+	
 	//create the state space
 	StateSpace space(100, 50, M_PI * 0.25, 1.0, initiator_queue);
 
