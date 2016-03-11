@@ -11,6 +11,8 @@
 
 int StateSpace::angle_bins;
 int StateSpace::velocity_bins;
+double StateSpace::angle_max;
+double StateSpace::velocity_max;
 
 /**
  * Creates a state space object initialised with a given number of bins for discretising angles and
