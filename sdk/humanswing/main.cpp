@@ -89,8 +89,12 @@ int main(int argc, char* argv[])
 		};
 
 		// Get next option, and check return value
-		switch(index = getopt_long(argc, argv, "vh", longopts, &index))
+		switch(index = getopt_long(argc, argv, "t:vh", longopts, &index))
 		{
+			case 't':
+				if (optarg)
+					timeToRun = atoi(optarg);
+				break;
 			// Print usage and quit
 			case 'h':
 				argErr();
@@ -181,7 +185,7 @@ int main(int argc, char* argv[])
 		currentAngle = encoder.GetAngle();
 		std::cout << "Current angle: " << currentAngle << std::endl;
 		// Check for direction of motion, and a change in direction
-		forwards = currentAngle > lastAngle;
+		forwards = currentAngle < lastAngle;
 		if (forwards == backwards)
 		{
 			if (forwards)
