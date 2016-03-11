@@ -176,6 +176,7 @@ int main(int argc, char* argv[])
 	// Run for time "timeToRun"
 	while (currentTime.tv_sec - startTime.tv_sec < timeToRun)
 	{
+		qi::os::gettimeofday(&currentTime);
 		lastAngle = currentAngle;
 		currentAngle = encoder.GetAngle();
 		std::cout << "Current angle: " << currentAngle << std::endl;
@@ -186,18 +187,18 @@ int main(int argc, char* argv[])
 			if (forwards)
 			{
 				minAngle = currentAngle;
-				outFile << currentTime.tv_sec << "." << currentTime.tv_usec << ": minAngle = " << minAngle << std::endl; 
+				std::cout << currentTime.tv_sec << "." << currentTime.tv_usec << ": minAngle = " << minAngle << std::endl; 
 			}
 			else
 			{
 				maxAngle = currentAngle;
-				outFile << currentTime.tv_sec << "." << currentTime.tv_usec << ": maxAngle = " << maxAngle << std::endl; 
+				std::cout << currentTime.tv_sec << "." << currentTime.tv_usec << ": maxAngle = " << maxAngle << std::endl; 
 			}
 		}
 		backwards = !forwards;
 
 		// Ensuer humanSwing is only called with an angle between 0 and 1
-		movementToolsProxy.callVoid("humanSwing", currentAngle / std::abs(maxAngle - minAngle), forwards);
+		movementToolsProxy.callVoid("humanSwing", std::abs(currentAngle - minAngle) / std::abs(maxAngle - minAngle), forwards);
 	}
 
 	// Get a handle to the module and close it
