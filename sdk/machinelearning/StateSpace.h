@@ -68,7 +68,7 @@ public:
 			if (std::abs(velocity)>1)throw std::domain_error("velocity argument exceeded");
 			
 			//get the coefficient
-			int coef=0.5*velocity_bins;
+			double coef=0.5*velocity_bins;
 			
 			//descretise index
 			int discrete_index = static_cast<int>(round( coef*(1+1/velocity_max) ) );
@@ -96,7 +96,7 @@ public:
 			if (std::abs(angle) > angle_max)throw std::domain_error("angle argument exceeded");
 			
 			//get the coefficient
-			int coef=0.5*angle_bins;
+			double coef=0.5*angle_bins;
 			
 			//descretise index
 			int discrete_index = static_cast<int>(round( coef*(1+1/angle_max) ) );
