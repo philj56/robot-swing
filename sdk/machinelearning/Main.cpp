@@ -210,10 +210,7 @@ int main() {
 }
 
 double temperature(unsigned long t) {
-	return 100000.0*std::exp((-8.0*t*t) / (26000.0*26000.0)) + 0.1;//0.1 is an offset
-	//	^
-	//	|
-	//make this large
+	return 100.0*std::exp((-8.0*t*t) / (2600.0*2600.0)) + 0.1;//0.1 is an offset
 }
 
 int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) {
