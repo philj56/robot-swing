@@ -107,8 +107,10 @@ try{
     
 		fMemoryProxy.raiseEvent("GyroMoveForward", false);
 		qi::os::sleep(1.5);*/
+ fCurrentGyro = (fMemoryProxy.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value"));
 
-	fCurrentGyro = *fGyroY;         
+
+//	fCurrentGyro = *fGyroY;         
 	fgyro = float(fCurrentGyro);
 //	fgyro = *fGyroY;
         ftotal -= lastvalues[0];
