@@ -198,7 +198,8 @@ int main(int argc, char* argv[])
 		backwards = !forwards;
 
 		// Ensuer humanSwing is only called with an angle between 0 and 1
-		movementToolsProxy.callVoid("humanSwing", std::abs(currentAngle - minAngle) / std::abs(maxAngle - minAngle), forwards);
+		movementToolsProxy.callVoid("humanSwing", std::abs(currentAngle - minAngle) / std::abs(maxAngle - minAngle), forwards); 
+		qi::os::msleep(100);
 	}
 
 	// Get a handle to the module and close it
