@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 #include <cstdlib>
 #include <unistd.h>
 #include <getopt.h>
@@ -170,6 +171,8 @@ int main(int argc, char* argv[])
 	qi::os::gettimeofday(&startTime);
 	qi::os::gettimeofday(&currentTime);
 
+	std::ofstream outFile("/home/nao/humanSwingOut.txt");
+
 	// Run for time "timeToRun"
 	while (currentTime.tv_sec - startTime.tv_sec < timeToRun)
 	{
@@ -183,10 +186,12 @@ int main(int argc, char* argv[])
 			if (forwards)
 			{
 				minAngle = currentAngle;
+				outFile << currentTime.tv_sec << "." << currentTime.tv_usec << ": minAngle = " << minAngle << std::endl; 
 			}
 			else
 			{
 				maxAngle = currentAngle;
+				outFile << currentTime.tv_sec << "." << currentTime.tv_usec << ": maxAngle = " << maxAngle << std::endl; 
 			}
 		}
 		backwards = !forwards;
