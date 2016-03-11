@@ -170,7 +170,7 @@ try{
 			ev = false;
 		}  
 
-	qi::os::msleep(20);
+	qi::os::msleep(50);
     }
 }
  catch (const AL::ALError& e) {
