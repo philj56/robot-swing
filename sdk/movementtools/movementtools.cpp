@@ -209,7 +209,11 @@ void MovementTools::lerpSwing(const float &t)
 void MovementTools::humanSwing(const float &theta, const bool &forwards)
 {
 	std::vector<float> angles = humanPosition(theta, forwards);
+	motion.setStiffnesses("Body", 1.0f);
+	motion.setStiffnesses("RArm", 0.0f);
 	motion.setAngles(humanAngleNames, angles, speed);
+	motion.setStiffnesses("Body", 0.2f);
+	motion.setStiffnesses("RArm", 0.0f);
 }
 
 std::vector<float> MovementTools::humanPosition(const float &theta, const bool &forwards)
