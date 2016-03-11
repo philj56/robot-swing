@@ -111,56 +111,50 @@ int main()
 	return 1;
 }
 
-double temperature(unsigned long t)
-{
-	return 100000.0*std::exp((-8.0*t*t)/(26000.0*26000.0))+0.1;
+double temperature(unsigned long t) {
+	return 100000.0*std::exp((-8.0*t*t) / (26000.0*26000.0)) + 0.1;//0.1 is an offset
+	//	^
+	//	|
+	//make this large
 }
 
-//function is fed with a priority queue of action-values 
-//generates Boltzmann distribution of these action-values
-//and selects an action based on probabilities 
-float selectAction(PriorityQueue<float, double>& a_queue, unsigned long int iterations)
-{
-	typedef PriorityQueue<float, double> PQ;
-	typedef std::vector< std::pair<float, double> > Vec_Pair;
-	typedef std::pair<float, double> Pair;
+int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) {
+	
+	typedef std::vector<std::pair<int, double> > VecPair ; 
+	
+	//turn priority queue into a vector of pairs
+	VecPair vec = a_queue.saveOrderedQueueAsVector();
 
-	double sum = 0;
-	int i = 0;
+    //sum for partition function 
+	double sum = 0.0;
 
-	int size = a_queue.getSize();
-	Vec_Pair action_vec(size);
-
-	//Calculate partition function by iterating over action-values
-	for (PQ::const_iterator iter = a_queue.begin(), end = a_queue.end(); iter < end; ++iter)
-	{
+	// calculate partition function by iterating over action-values
+	for (VecPair::iterator iter = vec.begin(), end = vec.end(); iter < end; ++iter) {
 		sum += std::exp((iter->second) / temperature(iterations));
 	}
-	//Calculate boltzmann factors for action-values
-	for (Vec_Pair::iterator it = action_vec.begin(), end = action_vec.end(); it < end; ++it)
-	{
-		it->first = a_queue[i].first;
-		it->second = std::exp(a_queue[i].second / temperature(iterations)) / sum;
-		++i;
+
+	// compute Boltzmann factors for action-values and enqueue to vec
+	for (VecPair::iterator iter = vec.begin(); iter < vec.end(); ++iter) {
+		iter->second = std::exp(iter->second / temperature(iterations)) / sum;
 	}
 
-	//calculate cumulative probability distribution    
-	for (std::vector< std::pair<float, double> >::iterator it1 = action_vec.begin()++, it2 = action_vec.begin(), end = action_vec.end(); it1 < end; ++it1, ++it2)
-	{
-		it1->second += it2->second;
+	// calculate cumulative probability distribution
+	for (VecPair::iterator iter = vec.begin()++, end = vec.end(); iter < end; ++iter) {
+        //second member of pair becomes addition of its current value
+        //and that of the index before it
+		iter->second += (iter-1)->second;
 	}
 
 	//generate RN between 0 and 1
-	double rand_num = (double)rand() / (RAND_MAX);
+	double rand_num = static_cast<double>(rand()) / RAND_MAX;
 
-	//select action based on probability 
-	for (Vec_Pair::iterator it = action_vec.begin(), end = action_vec.end(); it < end; ++it)
-	{
-		//if RN falls within cumulative probability bin return the corresponding action
-		if (rand_num < it->second)return it->first;
+	// choose action based on random number relation to priorities within action queue
+	for (VecPair::iterator iter = vec.begin(), end = vec.end(); iter < end; ++iter) {
+		if (rand_num < iter->second)
+			return iter->first;
 	}
-
-	return NULL; //note that this line should never be reached
+	
+	return -1; //note that this line should never be reached	
 }
 
 void updateQ(StateSpace & space, float action, State & new_state, State & old_state, double alpha, double gamma)
