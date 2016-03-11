@@ -60,7 +60,7 @@ PriorityQueue<int, double>& StateSpace::operator[](const State & state) {
 	return (*this)[state.robot_state][state.theta][state.theta_dot];
 }
 
-std::ofstream& operator<<(std::ofstream& stream, const StateSpace& space)
+std::ofstream& StateSpace::operator<<(std::ofstream& stream, const StateSpace& space)
 {
 	for(unsigned short i=0;i<angle_bins;++i)
 	{
@@ -73,7 +73,7 @@ std::ofstream& operator<<(std::ofstream& stream, const StateSpace& space)
 	return stream;
 }
 
-std::ifstream& operator>>(std::ifstream& stream, StateSpace& space)
+std::ifstream& StateSpace::operator>>(std::ifstream& stream, StateSpace& space)
 {
 	int action1=0;
 	double priority1=0;
