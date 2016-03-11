@@ -45,7 +45,7 @@ public:
 	 * @param _velocity_bins The number of bins for velocity of the system space
 	 * @param queue A PriorityQueue instance (referenced to avoid copying) containing initial (default) action and experience.
 	 */
-	explicit StateSpace(int _angle_bins, int _velocity_bins, double _angle_max, double _velocity_max const PriorityQueue<int, double>& queue);
+	explicit StateSpace(int _angle_bins, int _velocity_bins, double _angle_max, double _velocity_max, const PriorityQueue<int, double>& queue);
 	
 	//these nested classes are necessary so that the [][][] operator can be called on this class
 	//the operator should be called with the continuous state variables which it will then discretise
