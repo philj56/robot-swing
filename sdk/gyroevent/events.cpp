@@ -158,7 +158,7 @@ try{
        // fMemoryProxy.raiseEvent("GyroMoveBackward", false);       
        
         gettimeofday(&currentTime);
-        qiLogInfo("GyroEvents.Loop") << "Msg: " << fgyro << " " << faverage << " " << amp << " " << position  << " " << time << std::endl;
+        qiLogInfo("GyroEvents.Loop") << "Msg: " <<  fCurrentGyro << " "  << fgyro << " " << faverage << " " << amp << " " << position  << " " << time << std::endl;
         
 		if (time > 500 && ev == true){
 			fMemoryProxy.raiseEvent("GyroMoveBackward", false);
