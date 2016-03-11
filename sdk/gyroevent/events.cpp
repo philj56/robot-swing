@@ -73,6 +73,7 @@ void GyroEvents::init() {
     
         ftotal += fgyro;
         lastvalues[i] = fgyro;
+	qi::os::msleep(5);
     }
             max = 0;
             min = 0;
@@ -90,6 +91,7 @@ void GyroEvents::init() {
 void GyroEvents::Run(){
 	bool ev = false;
 	AL::ALValue temp;
+	qiLogInfo("GyroEvents.Run") << "Begining Main Loop" << std::endl;
 try{
 	while (true){
         //This needs to sleep during a movement
@@ -114,7 +116,7 @@ try{
         Average();
         
         
-        if (floor(faverage*150) == 0){
+        if (floor(faverage*200) == 0){
             newperiod = true;
             amp = (max + abs(min))/2.0;
             omin = min;
@@ -128,7 +130,7 @@ try{
         else if(newperiod == true && faverage < min){
             min = faverage;
         }
-        else {
+        else if (faverage > min && faverage < max){
             newperiod = false;
         }
         
@@ -156,7 +158,7 @@ try{
        // fMemoryProxy.raiseEvent("GyroMoveBackward", false);       
        
         gettimeofday(&currentTime);
-        qiLogInfo("GyroEvents.Loop") << "Msg: " << fgyro << " " << faverage << " " << position  << " " << time << std::endl;
+        qiLogInfo("GyroEvents.Loop") << "Msg: " << fgyro << " " << faverage << " " << amp << " " << position  << " " << time << std::endl;
         
 		if (time > 500 && ev == true){
 			fMemoryProxy.raiseEvent("GyroMoveBackward", false);
