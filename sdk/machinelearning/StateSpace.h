@@ -70,7 +70,7 @@ public:
 			int coef=0.5*velocity_bins;
 			
 			//descretise index
-			int discrete_index = static_cast<int>( std::round( coef*(1+1/velocity_max) ) );
+			int discrete_index = static_cast<int>(round( coef*(1+1/velocity_max) ) );
 
 			//return appropriate array
 			return vec[discrete_index];
@@ -98,7 +98,7 @@ public:
 			int coef=0.5*angle_bins;
 			
 			//descretise index
-			int discrete_index = static_cast<int>( round( coef*(1+1/angle_max) ) );
+			int discrete_index = static_cast<int>(round( coef*(1+1/angle_max) ) );
 
 			//return appropriate object
 			return SubscriptProxy2(vec[discrete_index]);
