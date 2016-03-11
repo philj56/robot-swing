@@ -10,13 +10,12 @@
 
 environment::environment(double _theta, double _thetadot, double _torque, double _maxtorque, double _time, double _deltatime, double _mass, double _length, double _gamma)
 	: theta(_theta), thetadot(_thetadot), torque(_torque), maxtorque(_maxtorque), time(_time), dt(_deltatime), mass(_mass), l(_length), gamma(_gamma)
-{
-	torque = 0; //setting initial torque
-}
+{}
 
 void environment::propagate() // Calculate successive values of theta and thetadot
 {
 	std::cout << "Progagating" << std::endl;
+	
 	double N = 100;			// Number of steps the RK4 method will use
 	double h = dt / N;		// Calculates RK4 step size for N steps over the time dt
 
@@ -29,7 +28,7 @@ void environment::propagate() // Calculate successive values of theta and thetad
 	time += dt;	 // Propogate time
 				 // Output t, theta, thetadot, and torque to a file either here or in the main
 
-	std::cout << thetadot << "\n";
+	std::cout << "\tTheta: " << theta << ", Thetadot: " << thetadot << "\n";
 }
 
 void environment::setTorque(double _T)
