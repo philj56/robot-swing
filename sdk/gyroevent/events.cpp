@@ -58,7 +58,7 @@ void GyroEvents::init() {
     fMemoryProxy.subscribeToEvent("Gyroevent", "GyroEvents", "AverageTurn");
     fMemoryProxy.subscribeToEvent("Gyroevent", "GyroEvents", "AnglePeak");
   */  
-    fMemoryProxy.subscribeToMicroEvent("ExampleMicroEvent", "GyroEvents", "AnotherUserDataToIdentifyEvent", "callback");
+    //fMemoryProxy.subscribeToMicroEvent("ExampleMicroEvent", "GyroEvents", "AnotherUserDataToIdentifyEvent", "callback");
 
 //    fGyroY = (AL::ALValue*)(fMemoryProxy.getDataPtr("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value"));
 	
@@ -68,10 +68,9 @@ void GyroEvents::init() {
 	
 
     for (int i = 0; i < datapoints; i++){
-         fgyro = *fGyroY;
-    #ifdef EVENTS_IS_REMOTE
-       // fgyro = fMemoryProxy.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value");
-    #endif
+	fCurrentGyro = *fGyroY;         
+	fgyro = double(fCurrentGyro);
+    
         ftotal += fgyro;
         lastvalues[i] = fgyro;
     }
@@ -90,6 +89,7 @@ void GyroEvents::init() {
 
 void GyroEvents::Run(){
 	bool ev = false;
+	AL::ALValue temp;
 try{
 	while (true){
         //This needs to sleep during a movement
@@ -103,7 +103,10 @@ try{
     
 		fMemoryProxy.raiseEvent("GyroMoveForward", false);
 		qi::os::sleep(1.5);*/
-	fgyro = *fGyroY;
+
+	fCurrentGyro = *fGyroY;         
+	fgyro = double(fCurrentGyro);
+//	fgyro = *fGyroY;
         ftotal -= lastvalues[0];
         lastvalues.erase(lastvalues.begin());
         ftotal += fgyro;
@@ -111,11 +114,7 @@ try{
         Average();
         
         
-<<<<<<< HEAD
-        if (floor(faverage*200) == 0){
-=======
-        if (floor(faverage*50) == 0){
->>>>>>> 05ce6879dc105e82969a7d1daf0feff42150d331
+        if (floor(faverage*150) == 0){
             newperiod = true;
             amp = (max + abs(min))/2.0;
             omin = min;
@@ -134,18 +133,22 @@ try{
         }
         
         position = asin(faverage/amp) + M_PI / 2;
-        position = fmod(position + 2*M_PI, 2*M_PI);
+	while (position > 2*M_PI){position -= 2*M_PI;};
+	while (position > 0/*2*M_PI*/){position += 2*M_PI;};
+//        position = fmod(position + 2*M_PI, 2*M_PI);
         timer();
         if (time > 500 && std::abs(position - forwardspos)/forwardspos < 0.10){
             //Move to forwards position
             gettimeofday(&MovementTime);
             fMemoryProxy.raiseEvent("GyroMoveForward", true);
+	qiLogInfo("GyroEvents.Loop") << "Msg: " << "Forwards" << std::endl;
 			ev = true;
         }
         else if (time > 500 && std::abs(position - backwardspos)/backwardspos < 0.10){
             //Move to backwards position
             gettimeofday(&MovementTime);
             fMemoryProxy.raiseEvent("GyroMoveBackward", true);
+	qiLogInfo("GyroEvents.Loop") << "Msg: " << "Backwards" << std::endl;
 			ev = true;
         }
 		
@@ -153,7 +156,7 @@ try{
        // fMemoryProxy.raiseEvent("GyroMoveBackward", false);       
        
         gettimeofday(&currentTime);
-        qiLogInfo("module.example") << "Msg     :" << faverage << " " << position <<  std::endl;
+        qiLogInfo("GyroEvents.Loop") << "Msg: " << fgyro << " " << faverage << " " << position  << " " << time << std::endl;
         
 		if (time > 500 && ev == true){
 			fMemoryProxy.raiseEvent("GyroMoveBackward", false);
