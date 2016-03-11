@@ -4,6 +4,12 @@
 
 #include "movementtools.h"
 
+
+// Clamp a number to a range
+inline float clip(float n, float lower, float upper) {
+	  return std::max(lower, std::min(n, upper));
+}
+
 // Constructor
 MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 			 const std::string &name)
@@ -65,7 +71,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	//			    "RWristYaw"
 				    };	
 
-	float sitForwardAnglesArray[] = { 0.921892f,
+	static const float sitForwardAnglesArray[] = { 0.921892f,
 				    0.04146f,
 	//			   -1.54462f,
 	//			   -0.154976f,
@@ -89,7 +95,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	//			    1.45419f
 				    };
 
-	float sitBackwardAnglesArray[] = { 0.820648f,
+	static const float sitBackwardAnglesArray[] = { 0.820648f,
 				    0.023052f,
 	//			   -0.0475121f,
 	//			    0.118076f,
@@ -113,10 +119,10 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	//			    1.38516f
 				    };
 	
-	humanAngleNames = AL::ALValue(std::vector<std::string> (humanAngleNamesArray, humanAngleNamesArray + 4));
-	angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + 6));
-	sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 6));
-	sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + 6));
+	humanAngleNames = AL::ALValue(std::vector<std::string> (humanAngleNamesArray, humanAngleNamesArray + sizeof(humanAngleNamesArray) / sizeof(humanAngleNamesArray[0])));
+	angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + sizeof(angleNamesArray) / sizeof(angleNamesArray[0])));
+	sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + sizeof(sitForwardAnglesArray) / sizeof(sitForwardAnglesArray[0])));
+	sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + sizeof(sitBackwardAnglesArray) / sizeof(sitBackwardAnglesArray[0])));
 }
 
 // Destructor
@@ -177,14 +183,10 @@ void MovementTools::humanSwing(const float &theta, const bool &forwards)
 	motion.setAngles(humanAngleNames, angles, speed);
 }
 
-std::vector<float> MovementTools::humanPosition(const float &t, const bool &forwards)
+std::vector<float> MovementTools::humanPosition(const float &theta, const bool &forwards)
 {
 	std::vector<float> result;
-	if (t > 1 || t < 0)
-	{
-		std::cerr << "humanPosition error: theta of " << t << " out of range (0, 1)" << std::endl;
-		return result;
-	}
+	float t = clip (theta, 0, 1);
 	float body;
 	float legs;
 	if (forwards)
