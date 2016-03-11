@@ -1,5 +1,3 @@
-//for pendulum
-
 #ifndef PRIORITY_QUEUE_H
 #define PRIORITY_QUEUE_H
 
@@ -638,7 +636,7 @@ public:
 	* @return A std::pair containing the object and its corresponding priority
 	* @throw Throws invalid_argument exception if item does not exist within queue
 	*/
-	const std::pair<T, PT>& search(const T& item) {
+	std::pair<T, PT> search(const T& item) {
 
 		// iterate over queue
 		for (const_iterator iter = begin(); iter < end(); ++iter) {
@@ -690,7 +688,7 @@ public:
 	* @return A std::pair of data and associated priority containing the first instance where priority occurs
 	* @throw Throws invalid_argument exception if priority does not exist in the queue
 	*/
-	const std::pair<T, PT>& searchByPriority(const PT priority) {
+	std::pair<T, PT> searchByPriority(const PT priority) {
 
 		// iterate over queue
 		for (const_iterator iter = begin(); iter < end(); ++iter) {
@@ -977,7 +975,7 @@ public:
 		for (const_iterator iter = begin(), iterChkPQ = chkPQ.begin(); iter < end(); ++iter, ++iterChkPQ) {
 
 			// if any nodes of the two queues differ, return false
-			if (iter.operator*().first != iterChkPQ.operator*().first || iter.operator*().second != iter.operator*().second) {
+			if (iter.operator*().first != iterChkPQ.operator*().first || iter.operator*().second != iterChkPQ.operator*().second) {
 				return false;
 			}
 
@@ -1066,3 +1064,7 @@ template<typename Type, typename PriorityType> std::istream& operator>>(std::ist
 }
 
 #endif
+
+
+
+
