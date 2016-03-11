@@ -57,7 +57,7 @@ double temperature(unsigned long t);
  * @param iterations Number of loop iterations completed.
  * @return integer corresponding to chosen action
  */
-int selectAction(const PriorityQueue<int, double>& a_queue, unsigned long iterations);
+int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations);
 
 /**
  * @brief Updates the utility (Q-value) of the system.
