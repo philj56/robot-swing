@@ -1,0 +1,65 @@
+
+generate normalised values for swing :
+double newAngles[12] = {minAngle,8.*minAngle/9.,6.*minAngle/9.,
+    4.*minAngle/9.,2.*minAngle/9., 0.,
+    2.*maxAngle/11.,4.*maxAngle/11.,6.*maxAngle/11.,
+    8.*maxAngle/11.,10.*maxAngle/11., maxAngle};
+return newAngles
+
+
+double targBodyForwards[12] = {-0.039598776,0.091300918,0.117480857,
+    0.082574272,0.047667687,0.012761102,
+    -0.074505361,-0.109411946,-0.196678408,
+    -0.318851456,-0.475931089,-0.650464014};
+
+double targBodyBackwards[12] = {-0.039598776,-0.318851456,-0.493384381,
+    -0.580650844,-0.650464014,-0.702823891,
+    -0.737730476,-0.772637061,-0.807543646,
+    -0.824996939,-0.790090354,-0.650464014};
+
+//with swing offset
+double targLegForwards[12] = {0.664944871,0.228612558,0.071532925,
+    0.001719755,-0.050640122,-0.076820061,
+    -0.085546707,-0.041913476,0.097712864,
+    0.324605667,0.769664626,1.370057889};
+
+double targLegBackwards[12] = {0.664944871,1.363076572,1.799408885,
+    1.991395102,2.04375498,2.026301687,
+    2.000121749,1.991395102,2.008848395,
+    2.008848395,1.825588823,1.370057889};
+
+
+
+// main function
+MAIN{
+  LOOOOOOOP FOREVER{
+    if(swing going from backwards to forwards (at min angle)){
+      record minimum angle of swing
+      generate normalised values for positions in the swing
+    }
+    if(swing going from forwards to backwards (at max angle)){
+      record maximum angle for swing
+      generate normalised values for positions in the swing
+    }
+    
+    for(int i = 0; i<12; i++)
+    {
+        double targAngle = targAngles[i];
+        if(swing is within +- 0.02 radians of the targetangle)
+        {
+          if swing going forward
+          {
+            set_leg(targLegForwards[i]);
+            set_body(targBodyForwards[i]);
+          }
+          else
+          {
+            set_leg(targLegBackwards[i]);
+            set_body(targBodyBackwards[i]);
+          }
+        }
+    }
+  }
+  
+  return 0;
+}

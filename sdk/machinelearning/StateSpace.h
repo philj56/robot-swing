@@ -45,12 +45,12 @@ public:
 	 * @param _velocity_bins The number of bins for velocity of the system space
 	 * @param queue A PriorityQueue instance (referenced to avoid copying) containing initial (default) action and experience.
 	 */
-	explicit StateSpace(int _angle_bins, int _velocity_bins, const PriorityQueue<int, double>& queue);
-
+	explicit StateSpace(int _angle_bins, int _velocity_bins, double _angle_max, double _velocity_max const PriorityQueue<int, double>& queue);
+	
 	//these nested classes are necessary so that the [][][] operator can be called on this class
 	//the operator should be called with the continuous state variables which it will then discretise
 	//---------------------------------------------------------------------------------------------------------
-
+	
 	/**
 	 * @class SubscriptProxy2
 	 *
@@ -65,8 +65,12 @@ public:
 		PriorityQueue<int, double>& operator[](const double velocity) {
 			//error if angle exceeds bounds
 			if (std::abs(velocity)>1)throw std::domain_error("velocity argument exceeded");
+			
+			//get the coefficient
+			int coef=0.5*velocity_bins;
+			
 			//descretise index
-			int discrete_index = round(velocity * 100 / velocity_bins) + velocity_bins / 2;
+			int discrete_index = static_cast<int>( std::round( coef*(1+1/velocity_max) ) );
 
 			//return appropriate array
 			return vec[discrete_index];
@@ -87,11 +91,14 @@ public:
 		SubscriptProxy1(std::vector< std::vector< PriorityQueue<int, double> > >& _vec) :vec(_vec) {}
 
 		SubscriptProxy2 operator[](const double angle) {
-			//error if angle exceeds bounds
-			std::cout << angle << std::endl;
-			if (std::abs(angle)>M_PI / 4)throw std::domain_error("angle argument exceeded");
+			//throw if angle exceeds bounds
+			if (std::abs(angle) > angle_max)throw std::domain_error("angle argument exceeded");
+			
+			//get the coefficient
+			int coef=0.5*angle_bins;
+			
 			//descretise index
-			int discrete_index = round(angle * 100 / angle_bins) + angle_bins / 2;
+			int discrete_index = static_cast<int>( std::round( coef*(1+1/angle_max) ) );
 
 			//return appropriate object
 			return SubscriptProxy2(vec[discrete_index]);
@@ -146,6 +153,10 @@ private:
 	//the sizes of the two arrays
 	static int angle_bins;
 	static int velocity_bins;
+	
+	//the max absolute values of the dimensions
+	static double angle_max;
+	static double velocity_max;
 
 	//the 2d array that contains the robots previous experiences in each state
 	std::vector< std::vector< PriorityQueue<int, double> > > space1;

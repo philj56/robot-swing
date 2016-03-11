@@ -34,6 +34,13 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 
 	speed = 0.6;
 
+	std::string humanAngleNamesArray[] = { "LHipPitch",
+					 "RHipPitch",
+					 "LKneePitch",
+					 "RKneePitch"
+					 };
+
+
 	std::string angleNamesArray[] = { "LAnklePitch",		
 				    "LAnkleRoll",		
 	//		    	    "LElbowRoll",		
@@ -106,6 +113,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	//			    1.38516f
 				    };
 	
+	humanAngleNames = AL::ALValue(std::vector<std::string> (humanAngleNamesArray, humanAngleNamesArray + 4));
 	angleNames = AL::ALValue(std::vector<std::string> (angleNamesArray, angleNamesArray + 6));
 	sitForwardAngles = AL::ALValue(std::vector<float> (sitForwardAnglesArray, sitForwardAnglesArray + 6));
 	sitBackwardAngles = AL::ALValue(std::vector<float> (sitBackwardAnglesArray, sitBackwardAnglesArray + 6));
@@ -158,4 +166,41 @@ void MovementTools::swingBackwards()
 	motion.setStiffnesses("RArm", 0.0f);
 }
 
-//void MovementTools::humanSwingForwards()
+void MovementTools::humanSwing(const float &theta, const bool &forwards)
+{
+	if (theta > 1 || theta < 0)
+	{
+		std::cerr << "humanSwing error: theta of " << theta << " out of range (0, 1)" << std::endl;
+		return;
+	}
+	std::vector<float> angles = humanPosition(theta, forwards);
+	motion.setAngles(humanAngleNames, angles, speed);
+}
+
+std::vector<float> MovementTools::humanPosition(const float &t, const bool &forwards)
+{
+	std::vector<float> result;
+	if (t > 1 || t < 0)
+	{
+		std::cerr << "humanPosition error: theta of " << t << " out of range (0, 1)" << std::endl;
+		return result;
+	}
+	float body;
+	float legs;
+	if (forwards)
+	{
+		body = t * (t * (t * (t * (-3.58786) + 7.39683) - 6.0916) + 1.65163) - 0.0301169;
+		legs = t * (t * (t * (t * (10.7608) - 19.1384) + 14.255) - 5.12733) + 0.640052;
+	}
+	else
+	{
+		body = t * (t * (t * (t * (6.03095) - 12.6726) + 9.93016) - 3.90386) - 0.0387037;
+		legs = t * (t * (t * (t * (-18.9054) + 40.952) - 32.3375) + 11.0356) + 0.641814;
+	}
+	result.push_back(body);
+	result.push_back(body);
+	result.push_back(legs);
+	result.push_back(legs);
+
+	return result;
+}

@@ -43,6 +43,10 @@ public:
 	void swingForwards();
 	void swingBackwards();
 
+	// Human-style movement
+	void humanSwing(const float &theta, const bool &forwards);
+	std::vector<float> humanPosition(const float &t, const bool &forwards);
+
 	void setSpeed(const float &newSpeed);
 
 private:
@@ -58,6 +62,7 @@ private:
 	AL::ALRobotPostureProxy posture;
 
 	// Arrays of names and angles for movement
+	AL::ALValue humanAngleNames; 
 	AL::ALValue angleNames; 
 	AL::ALValue sitForwardAngles; 
 	AL::ALValue sitBackwardAngles; 

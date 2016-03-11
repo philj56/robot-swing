@@ -6,7 +6,7 @@
 #include <stdexcept>
 #include <iostream>
 #include "PriorityQueue.h"
-#include "State3.h"
+#include "State.h"
 
 //index with state_space_object[angle][velocity][torque]
 //   or with state_space_object[state_object]
@@ -19,17 +19,12 @@ public:
 	//@_velocity_bins: the size of the second vector
 	//@_torque_bins: the size of the third vector
 	//@queue: the PriorityQueue to initialise the StateSpace with (this should normally contain just one of every action all with 0 priority)
-	explicit StateSpace(const PriorityQueue<float, double>& queue, int _angle_bins, int _velocity_bins, int _torque_bins);
+	explicit StateSpace(const PriorityQueue<float, double>& queue, int _angle_bins, int _velocity_bins, int _torque_bins, double _angle_max, double _velocity_max, double _torque_max);
 
 
 	//deny copy construction
-	//StateSpace(const StateSpace&)=delete;
-
-	void setAngleBins(int val);
-	void setVelocityBins(int val);
-	void setTorqueBins(int val);
-	void setTorqueMax(int val);
-
+	StateSpace(const StateSpace&)=delete;
+	
 	//these nested classes are necessary so that the [][][] operator can be called on this class
 	//the operator should be called with the continuous state variables which it will then discretise
 	//-----------------------------------------------------------------------------
@@ -40,13 +35,18 @@ public:
 
 		PriorityQueue<float, double>& operator[](const double torque)
 		{
-			std::cout << "torque = " << torque << std::endl;
 			//error if angle exceeds bounds
-			if (std::abs(torque)>torque_max)throw std::domain_error("torque argument exceeded");
+			if ( std::abs(torque) > torque_max )throw std::domain_error("torque argument exceeded");
+			
+			//get the coefficient
+			int coef=0.5*torque_bins;
+			
 			//descretise index
-			int discrete_index = static_cast<int>(round(torque / torque_bins)+torque_max);
-			std::cout << "dis_ind: " << discrete_index << std::endl;
+			int discrete_index = static_cast<int>( std::round( coef*(1+1/torque_max) ) );
+			
 			//return appropriate vector
+			PriorityQueue<float, double> v=vec[discrete_index];
+			
 			return vec[discrete_index];
 		}
 	private:
@@ -60,11 +60,14 @@ public:
 
 		SubscriptProxy2 operator[](const double velocity)
 		{
-			//std::cout << velocity << std::endl;
 			//error if velocity exceeds bounds
-			if (std::abs(velocity)>100)throw std::domain_error("velocity argument exceeded");
+			if ( std::abs(velocity) > velocity_max )throw std::domain_error("velocity argument exceeded");
+			
+			//get the coefficient
+			int coef=0.5*velocity_bins;
+			
 			//descretise index
-			int discrete_index = static_cast<int>(round(velocity * 100 / velocity_bins) + velocity_bins / 2);
+			int discrete_index = static_cast<int>( std::round( coef*(1+1/velocity_max) ) );
 			
 			//return appropriate object
 			return SubscriptProxy2(vec[discrete_index]);
@@ -87,12 +90,12 @@ private:
 	static int angle_bins;
 	static int velocity_bins;
 	static int torque_bins;
-	static int torque_max;
+	static double angle_max;
+	static double velocity_max;
+	static double torque_max;
 
 	//the 3d vector that contains the robots previous experiences in each state
 	std::vector< std::vector< std::vector< PriorityQueue<float, double> > > > space;
 };
 
 #endif
-
-

@@ -216,46 +216,43 @@ double temperature(unsigned long t) {
 	//make this large
 }
 
-int selectAction(const PriorityQueue<int, double>& a_queue, unsigned long iterations) {
-	/*
-	// queue to store action values
-	PriorityQueue<int, double> actionQueue(MAX);
+int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) {
+	
+	typedef std::vector<std::pair<int, double> > VecPair ; 
+	
+	//turn priority queue into a vector of pairs
+	VecPair vec = a_queue.saveOrderedQueueAsVector();
 
+    //sum for partition function 
 	double sum = 0.0;
 
 	// calculate partition function by iterating over action-values
-	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(), end = a_queue.end(); iter < end; ++iter) {
+	for (VecPair::iterator iter = vec.begin(), end = vec.end(); iter < end; ++iter) {
 		sum += std::exp((iter->second) / temperature(iterations));
 	}
 
-	// compute Boltzmann factors for action-values and enqueue to actionQueue
-	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(); iter < a_queue.end(); ++iter) {
-		double priority = std::exp(iter.operator*().second / temperature(iterations)) / sum;
-		actionQueue.enqueueWithPriority(iter.operator*().first, priority);
+	// compute Boltzmann factors for action-values and enqueue to vec
+	for (VecPair::iterator iter = vec.begin(); iter < vec.end(); ++iter) {
+		iter->second = std::exp(iter->second / temperature(iterations)) / sum;
 	}
 
 	// calculate cumulative probability distribution
-	for (PriorityQueue<int, double>::const_iterator it1 = actionQueue.begin()++, it2 = actionQueue.begin(), end = actionQueue.end(); it1 < end; ++it1, ++it2) {
-		// change priority of it1->first data item in actionQueue to
-		// sum of priorities of it1 and it2 items
-		actionQueue.changePriority(it1->first, it1->second + it2->second);
+	for (VecPair::iterator iter = vec.begin()++, end = vec.end(); iter < end; ++iter) {
+        //second member of pair becomes addition of its current value
+        //and that of the index before it
+		iter->second += (iter-1)->second;
 	}
 
 	//generate RN between 0 and 1
 	double rand_num = static_cast<double>(rand()) / RAND_MAX;
 
 	// choose action based on random number relation to priorities within action queue
-	for (PriorityQueue<int, double>::const_iterator iter = actionQueue.begin(), end = actionQueue.end(); iter < end; ++iter) {
+	for (VecPair::iterator iter = vec.begin(), end = vec.end(); iter < end; ++iter) {
 		if (rand_num < iter->second)
 			return iter->first;
 	}
 	
-	return -1; //note that this line should never be reached
-	*/
-	
-	double rand_num = static_cast<double>(rand()) / RAND_MAX;
-	
-	return (rand_num > 0.5)?0:1;	
+	return -1; //note that this line should never be reached	
 }
 
 void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma) {
@@ -274,49 +271,40 @@ void updateQ(StateSpace & space, int action, State & new_state, State & old_stat
 	// change priority of action to new Q value
 	space[old_state].changePriority(action, newQ);
 }
-
-/*old select action function in case the new one doesn't work
-int selectAction(const PriorityQueue<int,double>& a_queue)
-{
-typedef PriorityQueue<int,double> PQ;
-typedef std::vector< std::pair<int, double> > Vec_Pair;
-typedef std::pair<int, double> Pair;
-
-double sum= 0;
-size_t i = 0;
-
-size_t size = a_queue.getSize();
-Vec_Pair action_vec(size);
-
-//Calculate partition function by iterating over action-values
-for(PQ::const_iterator iter = a_queue.begin(),end=a_queue.end(); iter < end; ++iter)
-{
-sum += std::exp((iter->second)/temperature());
-}
-//Calculate boltzmann factors for action-values
-for(Vec_Pair::iterator it = action_vec.begin(),end=action_vec.end(); it < end; ++it)
-{
-it->first = a_queue[i].first;
-it->second = std::exp(a_queue[i].second /temperature()) / sum;
-++i;
-}
-
-//calculate cumulative probability distribution
-for(Vec_Pair::iterator it1 = action_vec.begin()++,it2 = action_vec.begin(),end=action_vec.end(); it1 < end; ++it1,++it2)
-{
-it1->second += it2->second;
-}
-
-//generate RN between 0 and 1
-double rand_num = static_cast<double>(rand())/ RAND_MAX;
-
-//select action based on probability
-for(Vec_Pair::iterator it = action_vec.begin(),end=action_vec.end(); it < end; ++it)
-{
-//if RN falls within cumulative probability bin return the corresponding action
-if(rand_num < it->second)return it->first;
-}
-
-return -1; //note that this line should never be reached
+/* OLD SELECT ACTION
+int selectAction(const PriorityQueue<int, double>& a_queue, unsigned long iterations) {
+	/*
+	// queue to store action values
+	PriorityQueue<int, double> actionQueue(MAX);
+	double sum = 0.0;
+	// calculate partition function by iterating over action-values
+	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(), end = a_queue.end(); iter < end; ++iter) {
+		sum += std::exp((iter->second) / temperature(iterations));
+	}
+	// compute Boltzmann factors for action-values and enqueue to actionQueue
+	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(); iter < a_queue.end(); ++iter) {
+		double priority = std::exp(iter.operator*().second / temperature(iterations)) / sum;
+		actionQueue.enqueueWithPriority(iter.operator*().first, priority);
+	}
+	// calculate cumulative probability distribution
+	for (PriorityQueue<int, double>::const_iterator it1 = actionQueue.begin()++, it2 = actionQueue.begin(), end = actionQueue.end(); it1 < end; ++it1, ++it2) {
+		// change priority of it1->first data item in actionQueue to
+		// sum of priorities of it1 and it2 items
+		actionQueue.changePriority(it1->first, it1->second + it2->second);
+	}
+	//generate RN between 0 and 1
+	double rand_num = static_cast<double>(rand()) / RAND_MAX;
+	// choose action based on random number relation to priorities within action queue
+	for (PriorityQueue<int, double>::const_iterator iter = actionQueue.begin(), end = actionQueue.end(); iter < end; ++iter) {
+		if (rand_num < iter->second)
+			return iter->first;
+	}
+	
+	return -1; //note that this line should never be reached
+	*/
+	
+	double rand_num = static_cast<double>(rand()) / RAND_MAX;
+	
+	return (rand_num > 0.5)?0:1;	
 }
 */

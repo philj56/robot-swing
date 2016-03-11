@@ -18,11 +18,14 @@ int StateSpace::velocity_bins;
  * in order to initialise state space actions and experiences - not that this queue then should be
  * the queue of default initial action(s) and prioritised experience(s).
  */
-StateSpace::StateSpace(int _angle_bins, int _velocity_bins, const PriorityQueue<int, double>& queue) :
+StateSpace::StateSpace(int _angle_bins, int _velocity_bins, double _angle_max, double _velocity_max const PriorityQueue<int, double>& queue) :
 	space1(_angle_bins, std::vector< PriorityQueue<int, double> >(_velocity_bins, PriorityQueue<int, double>(queue))),
-	space2(_angle_bins, std::vector< PriorityQueue<int, double> >(_velocity_bins, PriorityQueue<int, double>(queue))) {
-	angle_bins = _angle_bins;
-	velocity_bins = _velocity_bins;
+	space2(_angle_bins, std::vector< PriorityQueue<int, double> >(_velocity_bins, PriorityQueue<int, double>(queue)))
+{
+	angle_bins = _angle_bins-1;
+	velocity_bins = _velocity_bins-1;
+	angle_max = _angle_max;
+	velocity_ = _velocity_max;
 }
 
 /**

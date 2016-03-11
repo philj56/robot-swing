@@ -29,11 +29,16 @@ int main()
 	const double alpha = 0.5;
 	//discount factor
 	const double gamma = 0.5;
-	const int torque_bins = 9;
 	const double deltatime = 0.1;
 	const double mass = 0.5;
 	const double length = 0.08;
-	const int maxtorque = 4;
+	
+	const int angle_bins = 100;
+	const int velocity_bins = 50;
+	const int torque_bins = 9;
+	const double maxangle = 4;
+	const double maxvelocity = 4;
+	const double maxtorque = 4;
 
 	/*for (int i = 0; i < torque_bins; ++i) {
 		const int t_i = -maxtorque + i;
@@ -58,11 +63,7 @@ int main()
 	}
 
 	//create the state space
-	StateSpace space(initiator_queue, 100, 50, torque_bins);
-	space.setAngleBins(100);
-	space.setVelocityBins(50);
-	space.setTorqueBins(torque_bins);
-	space.setTorqueMax(maxtorque);
+	StateSpace space(initiator_queue, angle_bins, velocity_bins, torque_bins, maxangle, maxvelocity, maxtorque);
 
 	//state objects
 	State current_state(0, 0, 0);
@@ -80,9 +81,10 @@ int main()
 		current_state.theta = env->getTheta();
 		current_state.theta_dot = env->getThetadot();
 		current_state.torque = env->getTorque();
-		//current_state.time=env->getTime();
-		std::cout << "before updateQ" << std::endl;
+		std::cout << "State Read" << std::endl;
+		
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
+		std::cout << "Q Updated" << std::endl;
 
 		if (current_state.theta>2 * 3.1415 && current_state.theta_dot>2 * 3.1415 && env->getTime() >= 10) {
 			env->resetPendulum();
@@ -90,13 +92,16 @@ int main()
 			trialno++;
 			i = 0;
 		}
-
-		std::cout << "before selectAction" << std::endl;
+		
 		old_state = current_state;
+		
 		chosen_action = selectAction(space[current_state],i);
+		std::cout << "Action Selected" << std::endl;
 		env->setTorque(chosen_action);
+		
 		env->propagate();
-
+		std::cout << "Environment Propogated\n" << std::endl;
+		
 		file << trialno << "	  " << env->getTime() << "	  " << current_state.theta << "	  " << current_state.theta_dot << "	   " << current_state.torque << std::endl;
 		++i;
 	}

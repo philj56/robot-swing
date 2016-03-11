@@ -516,8 +516,8 @@ public:
 	/**
 	* @brief Saves a vector of pairs representation of the priority queue
 	*
-	* Returns a const reference to a vector of pairs representing the priority queue in
-	* order of priorities based upon the underlying heap type of the structure.
+	* Returns a vector of pairs representing the priority queue in order
+	* of priorities based upon the underlying heap type of the structure.
 	*
 	* @warning Potentially slow if used often for large queues
 	* @return std::vector of std::pair's containing ordered queue data
