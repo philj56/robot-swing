@@ -14,6 +14,7 @@
 #include <cmath>
 #include <stdexcept>
 #include <iostream>
+#include <fstream>
 #include "PriorityQueue.h"
 #include "State.h"
 
