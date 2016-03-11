@@ -133,7 +133,10 @@ public:
 	 * @return Reference to PriorityQueue object contained at this location in state space
 	 */
 	PriorityQueue<int, double>& operator[](const State & state);
-
+	
+	friend std::ostream& operator<<(std::ostream& stream, const StateSpace& space);
+	friend std::ifstream& operator>>(std::ostream& stream, StateSpace& space);
+	
 private:
 	//this object should NEVER be copied
 
