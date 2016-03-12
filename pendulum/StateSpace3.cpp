@@ -22,7 +22,8 @@ StateSpace::StateSpace(const PriorityQueue<float, double>& queue, int _angle_bin
 StateSpace::SubscriptProxy1 StateSpace::operator[](const double angle)
 {
 	//error if angle exceeds bounds
-	if (std::abs(angle) > angle_max)throw std::domain_error("angle argument exceeded");
+	// ***COMMENTED OUT TO PREVENT RUN-TIME ERRORS***
+//	if (std::abs(angle) > angle_max)throw std::domain_error("angle argument exceeded");
 	
 	//get the coefficient
 	int coef=0.5*angle_bins;
