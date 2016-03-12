@@ -1,23 +1,13 @@
-	/**********************************************************************/
+/**
+* @file PriorityQueue.h
+*
+* @brief Contains PriorityQueue class and HeapType enum, as well as extraction/insertion
+*		  operators for PriorityQueue.
+*
+* @author Machine Learning Team 2015-2016
+* @date March, 2016
+*/
 
-	/**
-	* @brief Bubble down the MBH, performing swaps if any priorities are out of order.
-	*
-	* @param position Position in MBH to perform bubbling down from
-	*/
-	void bubbleDownHeap(size_t position) {
-
-		size_t sizeVec = dataWithPriorityVec.size();
-
-		// position of left node of heap in terms of vector storage
-		size_t leftNodePos = 2 * position + 1;
-
-		// position of right node of heap in terms of vector storage
-		size_t rightNodePos = 2 * position + 2;
-
-		// if position of left node is >= vector size then this is a leaf node (do nothing)
-		if (leftNodePos >= sizeVec) {
-			return;
 #ifndef PRIORITY_QUEUE_H
 #define PRIORITY_QUEUE_H
 
@@ -126,7 +116,7 @@ Clear = O(1) if type T has trivial destructor
 *	PriorityQueue<int, int> priorityQueueTwo(priorityQueueOne);
 * \endcode
 *
-* @author Samuel Rowlinson
+* @author Machine Learning Team 2015-2016
 * @date February, 2016
 */
 template<typename T, typename PT> class PriorityQueue {
@@ -142,6 +132,26 @@ private:
 
 	/**********************************************************************/
 	/**********************	PRIVATE MEMBER FUNCTIONS **********************/
+	/**********************************************************************/
+
+	/**
+	* @brief Bubble down the MBH, performing swaps if any priorities are out of order.
+	*
+	* @param position Position in MBH to perform bubbling down from
+	*/
+	void bubbleDownHeap(size_t position) {
+
+		size_t sizeVec = dataWithPriorityVec.size();
+
+		// position of left node of heap in terms of vector storage
+		size_t leftNodePos = 2 * position + 1;
+
+		// position of right node of heap in terms of vector storage
+		size_t rightNodePos = 2 * position + 2;
+
+		// if position of left node is >= vector size then this is a leaf node (do nothing)
+		if (leftNodePos >= sizeVec) {
+			return;
 		}
 
 		size_t minPos = position;
@@ -497,7 +507,6 @@ public:
 		while (streamedQueue.getSize()) {
 			std::pair<T, PT> dataPair = streamedQueue.dequeue();
 			retString += to_string(dataPair.first) + "\t" + to_string(dataPair.second) + "\n";
-
 		}
 
 		return retString;
@@ -507,8 +516,8 @@ public:
 	/**
 	* @brief Saves a vector of pairs representation of the priority queue
 	*
-	* Returns a const reference to a vector of pairs representing the priority queue in
-	* order of priorities based upon the underlying heap type of the structure.
+	* Returns a vector of pairs representing the priority queue in order
+	* of priorities based upon the underlying heap type of the structure.
 	*
 	* @warning Potentially slow if used often for large queues
 	* @return std::vector of std::pair's containing ordered queue data
@@ -957,8 +966,6 @@ public:
 	*
 	* @param chkPQ Check target queue
 	* @return true if this queue and chkPQ are equivalent, false otherwise
-	* @bug Differing queues sometimes give true equivalency evaluation - seems to occur when neighbouring nodes are different
-	*	   but not when nodes several positions away from each other are different.
 	*/
 	bool operator==(const PriorityQueue<T, PT>& chkPQ) const {
 
