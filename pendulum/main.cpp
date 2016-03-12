@@ -115,9 +115,9 @@ double temperature(unsigned long t) {
 	return 100.0*std::exp((-8.0*t*t) / (2600.0*2600.0)) + 0.1;//0.1 is an offset
 }
 
-int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) {
+float selectAction(PriorityQueue<float, double>& a_queue, unsigned long iterations) {
 	
-	typedef std::vector<std::pair<int, double> > VecPair ; 
+	typedef std::vector<std::pair<float, double> > VecPair ; 
 	
 	//turn priority queue into a vector of pairs
 	VecPair vec = a_queue.saveOrderedQueueAsVector();
