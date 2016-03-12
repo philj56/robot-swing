@@ -46,14 +46,6 @@ class Environment
 		double torque;
 		double time;
 		
-		//------------------------------------------------------------------------------------------------------------------------------------------------------
-		void print();
-		
-		SDL_Rect centre_position;
-		SDL_Rect pendulum_position;
-		SDL_Surface* point;
-		SDL_Window* window;
-		SDL_Surface* window_surface;
 };
 
 #endif //ENVIRONMENT_H_ 
