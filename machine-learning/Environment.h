@@ -6,7 +6,6 @@ class Environment
 	public:
 	
 		explicit Environment(double _theta, double _thetadot, double _torque, double _maxtorque, double _time, double _deltatime, double _mass, double _length, double _gamma);
-		~Environment();
 		
 		void propagate(); //Propagate the system through time
 		
