@@ -36,9 +36,9 @@ int main() {
 	const int angle_bins = 100;
 	const int velocity_bins = 50;
 	const int torque_bins = 9;
-	const double maxangle = 4;
-	const double maxvelocity = 4;
-	const double maxtorque = 4;
+	const double maxangle = 4.0;
+	const double maxvelocity = 10.0;
+	const double maxtorque = 4.0;
 
 	/*for (int i = 0; i < torque_bins; ++i) {
 	const int t_i = -maxtorque + i;
@@ -70,9 +70,9 @@ int main() {
 	State old_state(0, 0, 0);
 
 	std::ofstream file("output.txt");
-	file.precision(16);
+	file.precision(6);
 
-	file << "Trialno" << "	" << "Time" << "		" << "Theta" << "	" << "Thetadot" << "		" << "Torque" << std::endl;
+	file << "Trialno" << "\t" << "Time" << "\t" << "Theta" << "\t\t" << "Thetadot" << "\t\t" << "Torque" << std::endl;
 
 	double trialno = 1;
 	unsigned long i = 0UL;
@@ -101,7 +101,7 @@ int main() {
 		env->propagate();
 		std::cout << "Environment Propogated\n" << std::endl;
 
-		file << trialno << "	  " << env->getTime() << "	  " << current_state.theta << "	  " << current_state.theta_dot << "	   " << current_state.torque << std::endl;
+		file << trialno << "\t" << env->getTime() << "\t" << current_state.theta << "\t\t" << current_state.theta_dot << "\t\t" << current_state.torque << std::endl;
 		++i;
 	}
 
@@ -159,7 +159,7 @@ float selectAction(PriorityQueue<float, double>& a_queue, unsigned long iteratio
 void updateQ(StateSpace & space, float action, State & new_state, State & old_state, double alpha, double gamma) {
 	//std::cout << action << std::endl;
 	//std::cout << space[old_state].toString() << std::endl << "-----------";
-
+//	space[old_state];
 	//oldQ value reference
 	double oldQ = space[old_state].search(action).second;
 
