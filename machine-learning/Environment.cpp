@@ -17,35 +17,7 @@ Environment::Environment(double _theta, double _thetadot, double _torque, double
 	thetadot(_thetadot),
 	torque(_torque),
 	time(_time)
-{
-	//initialise SDL
-	SDL_Init(SDL_INIT_VIDEO);
-	
-	//create the window and the window surface
-	window = SDL_CreateWindow( "Inverted Pendulum", 0,0,130,130, SDL_WINDOW_SHOWN );
-	window_surface=SDL_GetWindowSurface(window);
-	
-	//get the images of the three states as SDL_Surface*s
-	point=SDL_LoadBMP("point.bmp");
-	
-	//position rectangles for rendering purposes
-	centre_position.x=65;
-	centre_position.y=65;
-	centre_position.w=1;
-	centre_position.h=1;
-	pendulum_position.x=65;
-	pendulum_position.y=115;
-	pendulum_position.w=1;
-	pendulum_position.h=1;
-}
-
-Environment::~Environment()
-{
-	SDL_FreeSurface(window_surface);
-	SDL_FreeSurface(point);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
-}
+{}
 
 void Environment::propagate() // Calculate successive values of theta and thetadot
 {
@@ -70,8 +42,6 @@ void Environment::propagate() // Calculate successive values of theta and thetad
 	time+=dt;
 	
 	std::cout << "theta: " << theta << ", thetadot: " <<thetadot << "\n";
-	
-	print();
 }
 
 void Environment::setTorque(double _T)
@@ -112,24 +82,4 @@ double Environment::rk4thetadot(double h)
 	thetadot += k1 / 6 + k2 / 3 + k3 / 3 + k4 / 6;
 
 	return thetadot;
-}
-
-void Environment::print()
-{
-	//fill the window with white
-	SDL_FillRect(window_surface,NULL,SDL_MapRGB(window_surface->format,0xFF,0xFF,0xFF));
-	
-	//blit the centre
-	SDL_BlitSurface(point,NULL,window_surface,&centre_position);
-	
-	//set the pendulum position and blit the end point
-	pendulum_position.x=std::round(centre_position.x+50*std::sin(theta));
-	pendulum_position.y=std::round(centre_position.y+50*std::cos(theta));
-	SDL_BlitSurface(point,NULL,window_surface,&pendulum_position);
-	
-	//update the window
-	SDL_UpdateWindowSurface(window);
-	
-	//pause for smoothness
-	SDL_Delay(dt*1000);
 }
