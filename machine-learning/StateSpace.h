@@ -40,15 +40,15 @@ public:
 			if ( std::abs(torque) > torque_max )
 			{
 				std::string error("torque argument exceeded with value: ");
-				error+=to_string(torque);
+				error+=std::to_string(torque);
 				throw std::domain_error(error);
 			}
 			
 			//get the coefficient
-			int coef=0.5*torque_bins;
+			double coef=0.5*torque_bins;
 			
 			//descretise index
-			double discrete_index = static_cast<int>( std::round( coef*(1+torque/torque_max) ) );
+			int discrete_index = static_cast<int>( std::round( coef*(1+torque/torque_max) ) );
 			
 			//return appropriate vector
 			PriorityQueue<float, double> v=vec[discrete_index];
@@ -70,7 +70,7 @@ public:
 			if( std::abs(velocity) > velocity_max )
 			{
 				std::string error("velocity argument exceeded with value: ");
-				error+=to_string(velocity);
+				error+=std::to_string(velocity);
 				throw std::domain_error(error);
 			}
 			
@@ -92,9 +92,13 @@ public:
 	//subscript operator for accessing states
 	//MUST be called with two additional subscripts
 	SubscriptProxy1 operator[](const double angle);
-
+	
 	//subscript to get state queue from a state object
 	PriorityQueue<float, double>& operator[](const State & state);
+	
+	//serialisation operators
+//	friend std::ofstream& operator<<(std::ofstream& stream, StateSpace& space);
+//	friend std::ifstream& operator>>(std::ifstream& stream, StateSpace& space);
 	
 private:
 	//the sizes of the three arrays
