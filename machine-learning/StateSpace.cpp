@@ -25,7 +25,7 @@ StateSpace::SubscriptProxy1 StateSpace::operator[](const double angle)
 	if ( std::abs(angle) > angle_max )
 	{
 		std::string error("angle argument exceeded with value: ");
-		error+=to_string(angle);
+		error+=std::to_string(angle);
 		throw std::domain_error(error);
 	}
 	
