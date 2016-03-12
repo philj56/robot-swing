@@ -1,42 +1,23 @@
-/*
-* environment.h
-* Robotics 2016
-* Create an 'environment' to simulate a driven pendulum, in order to test machine learning.
-* In the case of the inverted pendulum, the motor is undertorqued (i.e. cannot swing the pendulum up in one motion).
-* Values chosen to represent the Phidget and stepper motor setup
-*/
-
-#ifndef ENVIRONMENT_H_
-#define ENVIRONMENT_H_
-
 #include <cmath>
+#include "SDL2/SDL.h"
 
 class Environment
 {
 	public:
 	
 		explicit Environment(double _theta, double _thetadot, double _torque, double _maxtorque, double _time, double _deltatime, double _mass, double _length, double _gamma);
+		~Environment();
 		
 		void propagate(); //Propagate the system through time
 		
-		double getTheta()
-		{
-			return std::acos(std::cos(theta));
-		}
-		
-		double getThetadot() { return thetadot; }
-		double getTorque() { return torque; }
-		double getTime() { return time; }
+		double getTheta(){return std::acos(std::cos(theta));}
+		double getThetadot() {return thetadot;}
+		double getTorque() {return torque;}
+		double getTime() {return time;}
 		
 		void setTorque(double _T); //Machine learning code sets the torque
 		
-		void resetPendulum()
-		{
-			theta = 0;
-			thetadot = 0;
-			time = 0;
-			torque = 0;
-		}
+		void resetPendulum();
 		
 	private:
 		
@@ -64,6 +45,15 @@ class Environment
 		double thetadot;
 		double torque;
 		double time;
+		
+		//------------------------------------------------------------------------------------------------------------------------------------------------------
+		void print();
+		
+		SDL_Rect centre_position;
+		SDL_Rect pendulum_position;
+		SDL_Surface* point;
+		SDL_Window* window;
+		SDL_Surface* window_surface;
 };
 
 #endif //ENVIRONMENT_H_ 
