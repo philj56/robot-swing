@@ -26,15 +26,15 @@ int main()
 	//discount factor
 	const double gamma = 0.5;
 	
-	const double deltatime = 0.1;
+	const double deltatime = 0.05;
 	const double mass = 0.5;
 	const double length = 0.08;
 	const int angle_bins = 100;
 	const int velocity_bins = 50;
 	const int torque_bins = 9;
-	const int max_angle = M_PI;
-	const int max_velocity = 10;
-	const int max_torque = 4;
+	const double max_angle = M_PI;
+	const double max_velocity = 10;
+	const double max_torque = 4;
 	
 	Environment* env = new Environment(0, 0, 0, max_torque, 0, deltatime, mass, length, gamma);
 	
@@ -63,10 +63,10 @@ int main()
 	State current_state(0, 0, 0);
 	State old_state(0, 0, 0);
 	
-	std::ofstream file("output.txt");
-	file.precision(16);
+//	std::ofstream file("output.txt");
+//	file.precision(16);
 	
-	file << "Trialno" << "	" << "Time" << "		" << "Theta" << "	" << "Thetadot" << "		" << "Torque" << std::endl;
+//	file << "Trialno" << "	" << "Time" << "		" << "Theta" << "	" << "Thetadot" << "		" << "Torque" << std::endl;
 	
 	double trialno = 1;
 	unsigned long i=0;
@@ -79,10 +79,9 @@ int main()
 		std::cout << "State Read" << std::endl;
 		
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
-		
-		std::cout << "Q Updated" << std::endl;
 
-		if (current_state.theta>2 * 3.1415 && current_state.theta_dot>2 * 3.1415 && env->getTime() >= 10) {
+		if (std::abs(current_state.theta_dot) > 5)
+		{
 			env->resetPendulum();
 			std::cout<<"->unsuccessful trial\n";
 			trialno++;
@@ -99,12 +98,14 @@ int main()
 		env->propagate();
 		std::cout << "Environment Propagated\n" << std::endl;
 
-		file << trialno << "	  " << env->getTime() << "	  " << current_state.theta << "	  " << current_state.theta_dot << "	   " << current_state.torque << std::endl;
+//		file << trialno << "	  " << env->getTime() << "	  " << current_state.theta << "	  " << current_state.theta_dot << "	   " << current_state.torque << std::endl;
 		++i;
 	}
 
-	file.close();
+//	file.close();
+	
 	delete env;
+	
 	return 1;
 }
 
@@ -173,4 +174,6 @@ void updateQ(StateSpace & space, float action, State & new_state, State & old_st
 	double newQ = oldQ + alpha * (R + (gamma * maxQ) - oldQ);
 	
 	space[old_state].changePriority(action, newQ);
+	
+	std::cout << "Q Updated to "<< newQ << std::endl;
 }
