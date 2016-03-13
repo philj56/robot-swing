@@ -1,12 +1,12 @@
 /**
-* @file PriorityQueue.h
-*
-* @brief Contains PriorityQueue class and HeapType enum, as well as extraction/insertion
-*		  operators for PriorityQueue.
-*
-* @author Machine Learning Team 2015-2016
-* @date March, 2016
-*/
+ * @file PriorityQueue.h
+ * 
+ * @brief Contains PriorityQueue class and HeapType enum, as well as extraction/insertion
+ *		  operators for PriorityQueue.
+ *
+ * @author Machine Learning Team 2015-2016
+ * @date March, 2016
+ */
 
 #ifndef PRIORITY_QUEUE_H
 #define PRIORITY_QUEUE_H
@@ -516,13 +516,13 @@ public:
 	/**
 	* @brief Saves a vector of pairs representation of the priority queue
 	*
-	* Returns a vector of pairs representing the priority queue in order
-	* of priorities based upon the underlying heap type of the structure.
+	* Returns a vector of pairs representing the priority queue in
+	* order of priorities based upon the underlying heap type of the structure.
 	*
 	* @warning Potentially slow if used often for large queues
 	* @return std::vector of std::pair's containing ordered queue data
 	*/
-	std::vector< std::pair<T, PT> > saveOrderedQueueAsVector() {
+	std::vector< std::pair<T, PT> > saveOrderedQueueAsVector() const {
 
 		// copy this queue to a temporary queue
 		PriorityQueue<T, PT> savedQueue(*this);
@@ -614,6 +614,7 @@ public:
 	*
 	* @return The dequeued item, i.e. the pair containing the data entry and its corresponding priority
 	* @throw Throws out_of_range exception if queue is empty
+	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in the container.
 	*/
 	std::pair<T, PT> dequeue() {
 
@@ -644,6 +645,7 @@ public:
 	* @param item Object to search for in the priority queue
 	* @return A std::pair containing the object and its corresponding priority
 	* @throw Throws invalid_argument exception if item does not exist within queue
+	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in the container.
 	*/
 	std::pair<T, PT> search(const T& item) {
 
@@ -696,6 +698,7 @@ public:
 	* @param priority Priority to search for in the queue
 	* @return A std::pair of data and associated priority containing the first instance where priority occurs
 	* @throw Throws invalid_argument exception if priority does not exist in the queue
+	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in the container.
 	*/
 	std::pair<T, PT> searchByPriority(const PT priority) {
 
@@ -828,6 +831,7 @@ public:
 	*
 	* @param thatQueue A priority queue container to merge with this queue
 	* @throw Throws std::invalid_argument exception if this queue and thatQueue are of different heapType
+	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in the container.
 	*/
 	void merge(const PriorityQueue<T, PT>& thatQueue) {
 
@@ -861,6 +865,7 @@ public:
 	* @param secondQueue A priority queue container instance of same type as firstQueue
 	* @return Merged priority queue containers
 	* @throw Throws std::invalid_argument exception if firstQueue and secondQueue have different heap types
+	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in either containers.
 	*/
 	static PriorityQueue<T, PT> merge(const PriorityQueue<T, PT>& firstQueue, const PriorityQueue<T, PT>& secondQueue) {
 
@@ -901,6 +906,7 @@ public:
 	* @param addPQ Addition target queue
 	* @return Instance of priority queue as this queue plus addPQ
 	* @throw Throws invalid_argument exception if this queue and addPQ are of different heapType
+	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in the container.
 	*/
 	PriorityQueue<T, PT> operator+(const PriorityQueue<T, PT>& addPQ) const {
 
@@ -937,6 +943,7 @@ public:
 	* @param addPQ Addition target queue
 	* @return Instance of priority queue added and assigned to this queue
 	* @throw Throws invalid_argument exception if this queue and addPQ are of different heapType
+	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in the container.
 	*/
 	PriorityQueue<T, PT>& operator+=(const PriorityQueue<T, PT>& addPQ) {
 
