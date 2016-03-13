@@ -35,6 +35,8 @@ enum HeapType {
 * @brief Template class representing a priority queue type data structure where each item (of type T) stored in the
 *		  queue has a priority level (of type PT) associated with it.
 *
+* @invariant Class-Invariant: 
+*
 * This priority queue structure has been implemented with a Min/Max Binary Heap (MBH) of dynamic size based on
 * a vector of data with corresponding priorities. Both minimum and maximum heap structures can be chosen when
 * creating a priority queue instance, whereby a minimum binary heap will store data items in order of ascending
@@ -384,7 +386,7 @@ public:
 	* @param size Size of arrays
 	* @param _heapType Type of underlying heap structure, can be HeapType::MIN or HeapType::MAX
 	*/
-	PriorityQueue(T* dataArr, PT* priorityArr, size_t size, HeapType _heapType) : heapType(_heapType) {
+	PriorityQueue(const T* dataArr, const PT* priorityArr, const size_t size, HeapType _heapType) : heapType(_heapType) {
 		// loop over data and priorities arrays inserting the data
 		// with corresponding priority to the dataVector
 		for (size_t i = 0; i < size; ++i) {
@@ -588,7 +590,7 @@ public:
 	* @param priority Array of priorities corresponding the data array items
 	* @param arraySize Size of data and priority arrays
 	*/
-	void enqueueWithPriority(T* data, PT* priority, size_t arraySize) {
+	void enqueueWithPriority(const T* data, const PT* priority, const size_t arraySize) {
 
 		for (size_t i = 0; i < arraySize; ++i) {
 			enqueueWithPriority(data[i], priority[i]);
@@ -1036,7 +1038,7 @@ public:
 };
 
 /**
-* @brief Overloaded stream extraction operator.
+* @brief Overloaded stream insertion operator.
 *
 * @param outStream Reference to output stream
 * @param targetQueue Instance of priority queue to write to output stream
@@ -1057,21 +1059,47 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
 }
 
 /**
-* @brief Overloaded stream insertion operator.
+* @brief Overloaded stream extraction operator.
 *
-* @warning Untested, use at your own risk!
+* @warning Only works for primitives as template types currently!
 * @param inStream Reference to input stream
-* @param targetQueue Instance of priority queue to insert to input stream
+* @param targetQueue Instance of priority queue to manipulate with extraction stream
 * @return Reference to input stream containing target queue data
+* @bug First line of input is overwritten as (0,0) for (data,priority)
 */
-template<typename Type, typename PriorityType> std::istream& operator>>(std::istream& inStream, const PriorityQueue<Type, PriorityType>& targetQueue) {
+template<typename Type, typename PriorityType> std::istream& operator>>(std::istream& inStream, PriorityQueue<Type, PriorityType>& targetQueue) {
 
-	PriorityQueue<Type, PriorityType> streamedQueue(targetQueue);
+	// vector container for input storage
+	std::vector< std::pair<Type, PriorityType> > pairVec;
+	// cache to store line input from stream
+	std::string input;
 
-	while (streamedQueue.getSize()) {
-		std::pair<Type, PriorityType> dataPair = streamedQueue.dequeue();
-		inStream >> to_string(dataPair.first) >> "\t" >> to_string(dataPair.second) >> "\n";
+	std::getline(inStream, input);
+	// loop until empty line
+	while (!input.empty()) {
+		// get line from input stream and store in input string
+		std::getline(inStream, input);
+		unsigned int first = 0;
+		// loop over input cache
+		for (unsigned int i = 0; i < input.size(); ++i) {
+			// if char at index i of cache is a tab, break from loop
+			if (input.at(i) == '\t')
+				break;
+			++first;
+		}
+		std::string data_str = input.substr(0, first);
+		// convert from std::string to reqd Type
+		Type data = atoi(data_str.c_str());
+
+		std::string priority_str = input.substr(first);
+		// convert from std::string to reqd PriorityType
+		PriorityType priority = atof(priority_str.c_str());
+
+		pairVec.push_back(std::make_pair(data, priority));
 	}
+
+	// enqueue pairVec container into targetQueue
+	targetQueue.enqueueWithPriority(pairVec);
 
 	return inStream;
 
