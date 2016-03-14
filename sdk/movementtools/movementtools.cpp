@@ -245,5 +245,7 @@ std::vector<float> MovementTools::humanPosition(const float &theta, const bool &
 	result.push_back(legs);
 	result.push_back(legs);
 
+	qiLogInfo("Human Movement") << "Body Angle: " << body << "Leg Angle: " << legs << std::endl;
+
 	return result;
 }

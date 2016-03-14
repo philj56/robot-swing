@@ -15,6 +15,7 @@
 #include <alvalue/alvalue.h>
 
 #include <qi/os.hpp>
+#include <qi/log.hpp>
 
 // Forward declaration of ALBroker
 namespace AL
