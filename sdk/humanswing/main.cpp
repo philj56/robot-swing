@@ -180,7 +180,10 @@ int main(int argc, char* argv[])
 	std::ofstream outFile("/home/nao/humanSwingOut.txt");
 
 	// Run for time "timeToRun"
-	while (currentTime.tv_sec - startTime.tv_sec < timeToRun)
+	movementToolsProxy.callVoid("humanSwing", 0, true); 
+	qi::os::sleep(1);
+	movementToolsProxy.callVoid("humanSwing", 1, true); 
+/*	while (currentTime.tv_sec - startTime.tv_sec < timeToRun)
 	{
 		qi::os::gettimeofday(&currentTime);
 		lastAngle = currentAngle;
@@ -210,7 +213,7 @@ int main(int argc, char* argv[])
 		movementToolsProxy.callVoid("humanSwing", std::abs(currentAngle - minAngle) / std::abs(maxAngle - minAngle), forwards); 
 		qi::os::msleep(50);
 	}
-
+*/
 	// Get a handle to the module and close it
 	{
 		boost::shared_ptr<AL::ALModuleCore> module = broker->getModuleByName(moduleName);
