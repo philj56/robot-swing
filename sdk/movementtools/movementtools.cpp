@@ -29,6 +29,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 			 const std::string &name)
 	: AL::ALModule(broker, name)
 {
+	qiLogInfo("Human.movement") << "Loading human stuff" << std::endl;
 	// Set description, and bind each function
 	setModuleDescription("Smooth movement testing module");
 
@@ -212,7 +213,7 @@ void MovementTools::humanSwing(const float &theta, const bool &forwards)
 	motion.setStiffnesses("Body", 1.0f);
 	motion.setStiffnesses("RArm", 0.0f);
 	motion.setAngles(humanAngleNames, angles, speed);
-	qi::os::msleep(10);
+	qi::os::msleep(100);
 }
 
 std::vector<float> MovementTools::humanPosition(const float &theta, const bool &forwards)
@@ -244,7 +245,7 @@ std::vector<float> MovementTools::humanPosition(const float &theta, const bool &
 	result.push_back(legs);
 	result.push_back(legs);
 
-	qiLogInfo("Human Movement") << "Body Angle: " << body << "Leg Angle: " << legs << std::endl;
+	qiLogInfo("Human.Movement") << "Body Angle: " << body << "Leg Angle: " << legs << std::endl;
 
 	return result;
 }
