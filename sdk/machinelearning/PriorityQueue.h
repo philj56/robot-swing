@@ -15,8 +15,6 @@
 #include <string>
 #include <stdexcept>
 #include <utility>
-#include <typeinfo>
-#include <fstream>
 
 /**
 * @enum HeapType
@@ -1064,7 +1062,7 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
  * @brief Overloaded stream extraction operator.
  *
  * Bitshift operator>>, i.e. extraction operator. Used to write data from an input stream
- * into a targeted priority queue instance. The data is written into the queue in the format,
+ * into a targeted priority queue instance. The data should be written into the queue in the format,
  *
  * \verbatim
 	[item1] + "\t" + [priority1] + "\n"
@@ -1072,54 +1070,21 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
 	...
  * \endverbatim
  * 
- * @todo Implement functionality for any generic Type and PriorityType.
- * @warning Only works for primitives as template types currently!
  * @param inStream Reference to input stream
  * @param targetQueue Instance of priority queue to manipulate with extraction stream
  * @return Reference to input stream containing target queue data
  */
 template<typename Type, typename PriorityType> std::istream& operator>>(std::istream& inStream, PriorityQueue<Type, PriorityType>& targetQueue) {
 
-	// vector container for input storage
-	std::vector< std::pair<Type, PriorityType> > pairVec;
-	// cache to store line input from stream
-	std::string input;
-
-	std::getline(inStream, input);
-
-	if (typeid(inStream) == typeid(std::ifstream)) {
-		inStream.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	Type data;
+	PriorityType priority;
+	
+	while (inStream >> data >> priority) {
+		targetQueue.enqueueWithPriority(data, priority);
 	}
-	//std::cout << "initial input: " << input << std::endl;
-	// loop until empty line
-	while (!input.empty()) {
-		unsigned int first = 0;
-		// loop over input cache
-		for (unsigned int i = 0; i < input.size(); ++i) {
-			// if char at index i of cache is a tab, break from loop
-			if (input.at(i) == '\t')
-				break;
-			++first;
-		}
-		std::string data_str = input.substr(0, first);
-		// convert from std::string to reqd Type
-		Type data = atoi(data_str.c_str());
-
-		std::string priority_str = input.substr(first);
-		// convert from std::string to reqd PriorityType
-		PriorityType priority = atof(priority_str.c_str());
-
-		pairVec.push_back(std::make_pair(data, priority));
-		
-		// get line from input stream and store in input string
-		std::getline(inStream, input);
-	}
-
-	// enqueue pairVec container into targetQueue
-	targetQueue.enqueueWithPriority(pairVec);
 
 	return inStream;
-
+	
 }
 
 #endif
