@@ -15,6 +15,8 @@
 #include <string>
 #include <stdexcept>
 #include <utility>
+#include <typeinfo>
+#include <fstream>
 
 /**
 * @enum HeapType
@@ -1059,14 +1061,23 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
 }
 
 /**
-* @brief Overloaded stream extraction operator.
-*
-* @warning Only works for primitives as template types currently!
-* @param inStream Reference to input stream
-* @param targetQueue Instance of priority queue to manipulate with extraction stream
-* @return Reference to input stream containing target queue data
-* @bug First line of input is overwritten as (0,0) for (data,priority)
-*/
+ * @brief Overloaded stream extraction operator.
+ *
+ * Bitshift operator>>, i.e. extraction operator. Used to write data from an input stream
+ * into a targeted priority queue instance. The data is written into the queue in the format,
+ *
+ * \verbatim
+	[item1] + "\t" + [priority1] + "\n"
+	[item2] + "\t" + [priority2] + "\n"
+	...
+ * \endverbatim
+ * 
+ * @todo Implement functionality for any generic Type and PriorityType.
+ * @warning Only works for primitives as template types currently!
+ * @param inStream Reference to input stream
+ * @param targetQueue Instance of priority queue to manipulate with extraction stream
+ * @return Reference to input stream containing target queue data
+ */
 template<typename Type, typename PriorityType> std::istream& operator>>(std::istream& inStream, PriorityQueue<Type, PriorityType>& targetQueue) {
 
 	// vector container for input storage
@@ -1075,10 +1086,13 @@ template<typename Type, typename PriorityType> std::istream& operator>>(std::ist
 	std::string input;
 
 	std::getline(inStream, input);
+
+	if (typeid(inStream) == typeid(std::ifstream)) {
+		inStream.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
+	//std::cout << "initial input: " << input << std::endl;
 	// loop until empty line
 	while (!input.empty()) {
-		// get line from input stream and store in input string
-		std::getline(inStream, input);
 		unsigned int first = 0;
 		// loop over input cache
 		for (unsigned int i = 0; i < input.size(); ++i) {
@@ -1096,6 +1110,9 @@ template<typename Type, typename PriorityType> std::istream& operator>>(std::ist
 		PriorityType priority = atof(priority_str.c_str());
 
 		pairVec.push_back(std::make_pair(data, priority));
+		
+		// get line from input stream and store in input string
+		std::getline(inStream, input);
 	}
 
 	// enqueue pairVec container into targetQueue
