@@ -212,8 +212,7 @@ void MovementTools::humanSwing(const float &theta, const bool &forwards)
 	motion.setStiffnesses("Body", 1.0f);
 	motion.setStiffnesses("RArm", 0.0f);
 	motion.setAngles(humanAngleNames, angles, speed);
-	motion.setStiffnesses("Body", 0.2f);
-	motion.setStiffnesses("RArm", 0.0f);
+	qi::os::msleep(10);
 }
 
 std::vector<float> MovementTools::humanPosition(const float &theta, const bool &forwards)
