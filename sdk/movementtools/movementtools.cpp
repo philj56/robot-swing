@@ -222,6 +222,10 @@ std::vector<float> MovementTools::humanPosition(const float &theta, const bool &
 	float t = clip (theta, 0, 1);
 	float body;
 	float legs;
+	const static float maxBody =  0.48f;
+	const static float minBody = -1.53f;
+	const static float maxLegs =  1.52f;
+	const static float minLegs = -0.09f;
 	if (forwards)
 	{
 		body = t * (t * (t * (t * (-3.58786) + 7.39683) - 6.0916) + 1.65163) - 0.0301169;
@@ -232,6 +236,10 @@ std::vector<float> MovementTools::humanPosition(const float &theta, const bool &
 		body = t * (t * (t * (t * (6.03095) - 12.6726) + 9.93016) - 3.90386) - 0.0387037;
 		legs = t * (t * (t * (t * (-18.9054) + 40.952) - 32.3375) + 11.0356) + 0.641814;
 	}
+
+	body = clip(body, minBody, maxBody);
+	legs = clip(legs, minLegs, maxLegs);
+
 	result.push_back(body);
 	result.push_back(body);
 	result.push_back(legs);
