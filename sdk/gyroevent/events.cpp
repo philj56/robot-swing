@@ -27,7 +27,10 @@ GyroEvents::GyroEvents(
   datapoints = 20.0;
 
   functionName("callback", getName(), "");
-  BIND_METHOD(GyroEvents::callback)
+  BIND_METHOD(GyroEvents::callback);
+  
+  functionName("Run", getName(), "Start gyro reading");
+  BIND_METHOD(GyroEvents::Run);
 
   lastvalues.resize(20);
 }
@@ -66,7 +69,7 @@ void GyroEvents::init() {
 	
 	//fGyroY = (AL::ALValue*)(fMemoryProxy.getDataPtr("Device/SubDeviceList/InertialSensor/GyrY/Sensor/Value"));
 	
-	AL::ALValue ttt = *fGyroY;
+/*	AL::ALValue ttt = *fGyroY;
 	temp = float(ttt);	
 
     for (int i = 0; i < datapoints; i++){
@@ -76,7 +79,7 @@ void GyroEvents::init() {
         ftotal += fgyro;
         lastvalues[i] = fgyro;
 	qi::os::msleep(5);
-    }
+    }*/
             max = 0;
             min = 0;
     
