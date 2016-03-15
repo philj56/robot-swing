@@ -35,7 +35,10 @@ enum HeapType {
 * @brief Template class representing a priority queue type data structure where each item (of type T) stored in the
 *		  queue has a priority level (of type PT) associated with it.
 *
-* @invariant Class-Invariant: 
+* @invariant Class-Invariant: The underlying structure of the queue will always obey the behaviour of a binary heap
+* 			      of the type given by the enum HeapType; such that all child nodes of a given node
+* 			      have higher priority than this node for a Maximum Binary Heap, or lower priority for
+* 			      a Minimim Binary Heap.
 *
 * This priority queue structure has been implemented with a Min/Max Binary Heap (MBH) of dynamic size based on
 * a vector of data with corresponding priorities. Both minimum and maximum heap structures can be chosen when
