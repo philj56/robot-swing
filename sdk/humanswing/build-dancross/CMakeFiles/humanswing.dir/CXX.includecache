@@ -8048,6 +8048,10 @@ xlocale.h
 
 /gs/cross/sysroot/usr/include/xlocale.h
 
+/gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/createmodule.cpp
+createmodule.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/createmodule.h
+
 /gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/createmodule.h
 iostream
 -
@@ -8079,6 +8083,10 @@ alproxies/almotionproxy.h
 -
 alproxies/alrobotpostureproxy.h
 -
+
+/gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/encoder.cpp
+encoder.h
+/gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/encoder.h
 
 /gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/encoder.h
 pmd1208fs.h
