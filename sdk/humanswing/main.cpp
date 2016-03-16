@@ -184,6 +184,8 @@ int main(int argc, char* argv[])
 	qi::os::gettimeofday(&startTime);
 	qi::os::gettimeofday(&currentTime);
 
+	movementToolsProxy.callVoid("setSpeed", speed);
+
 	// Run for time "timeToRun"
 //	movementToolsProxy.callVoid("humanSwing", 0, true); 
 //	qi::os::sleep(1);
