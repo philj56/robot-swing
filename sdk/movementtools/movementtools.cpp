@@ -214,6 +214,7 @@ void MovementTools::humanSwing(const float &theta, const bool &forwards)
 	motion.setStiffnesses("RArm", 0.0f);
 	motion.setAngles(humanAngleNames, angles, speed);
 	qi::os::msleep(100);
+	qiLogInfo("Gyro.Loop") << "Human swing called" << std::endl;
 }
 
 std::vector<float> MovementTools::humanPosition(const float &theta, const bool &forwards)
@@ -245,7 +246,7 @@ std::vector<float> MovementTools::humanPosition(const float &theta, const bool &
 	result.push_back(legs);
 	result.push_back(legs);
 
-	qiLogInfo("Human.Movement") << "Body Angle: " << body << "Leg Angle: " << legs << std::endl;
+	qiLogInfo("Gyro.Log") << "Body Angle: " << body << "Leg Angle: " << legs << std::endl;
 
 	return result;
 }
