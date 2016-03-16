@@ -47,12 +47,12 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 
 	functionName("lerpSwing", getName(), "Move to a position between backwards and forwards");
 	addParam("t", "The position to move to (0 = backwards, 1 = forwards)");
-	BIND_METHOD(MovementTools::swingBackwards);
+	BIND_METHOD(MovementTools::lerpSwing);
 	
 	functionName("humanSwing", getName(), "Replicate a human's swinging motion");
 	addParam("theta", "The angle of the swing (0 - 1)");
 	addParam("forwards", "Whether the swing is moving forwards");
-	BIND_METHOD(MovementTools::swingBackwards);
+	BIND_METHOD(MovementTools::humanSwing);
 	
 	functionName("setSpeed", getName(), "Set movement speed");
 	addParam("newSpeed", "The new speed");
@@ -214,9 +214,7 @@ void MovementTools::humanSwing(const float &theta, const bool &forwards)
 	motion.setStiffnesses("RArm", 0.0f);
 	motion.setAngles(humanAngleNames, angles, speed);
 	qi::os::msleep(100);
-	std::cerr << "Human swing" << std::endl;
-	std::cout << "Human swing" << std::endl;
-	qiLogError("MovementTools.humanSwing") << "Human swing called" << std::endl;
+	qiLogInfo("MovementTools.humanSwing") << "Human swing called" << std::endl;
 }
 
 std::vector<float> MovementTools::humanPosition(const float &theta, const bool &forwards)
@@ -248,7 +246,7 @@ std::vector<float> MovementTools::humanPosition(const float &theta, const bool &
 	result.push_back(legs);
 	result.push_back(legs);
 
-	qiLogError("MovementTools.humanPosition") << "Body Angle: " << body << "Leg Angle: " << legs << std::endl;
+	qiLogInfo("MovementTools.humanPosition") << "Body Angle: " << body << "Leg Angle: " << legs << std::endl;
 
 	return result;
 }
