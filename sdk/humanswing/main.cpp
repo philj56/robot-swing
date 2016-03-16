@@ -73,6 +73,9 @@ int main(int argc, char* argv[])
 	// Default time to run in seconds
 	int timeToRun = 10;
 
+	// Speed of movement (0-1)
+	float speed = 0.5f;
+
 	// Get any arguments
 	while (true)
 	{
@@ -89,11 +92,15 @@ int main(int argc, char* argv[])
 		};
 
 		// Get next option, and check return value
-		switch(index = getopt_long(argc, argv, "t:vh", longopts, &index))
+		switch(index = getopt_long(argc, argv, "t:s:vh", longopts, &index))
 		{
 			case 't':
 				if (optarg)
 					timeToRun = atoi(optarg);
+				break;
+			case 's':
+				if (optarg)
+					speed = atof(optarg);
 				break;
 			// Print usage and quit
 			case 'h':
@@ -177,8 +184,6 @@ int main(int argc, char* argv[])
 	qi::os::gettimeofday(&startTime);
 	qi::os::gettimeofday(&currentTime);
 
-	std::ofstream outFile("/home/nao/humanSwingOut.txt");
-
 	// Run for time "timeToRun"
 //	movementToolsProxy.callVoid("humanSwing", 0, true); 
 //	qi::os::sleep(1);
@@ -195,12 +200,12 @@ int main(int argc, char* argv[])
 		{
 			float moveTime = 1000 * (static_cast<int>(currentTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
 			              + 0.001 * (static_cast<int>(currentTime.tv_usec) - static_cast<int>(startTime.tv_usec));
-			if (forwards)
+			if (forwards && currentAngle < minAngle)
 			{
 				minAngle = currentAngle;
 				std::cout << moveTime << ": minAngle = " << minAngle << std::endl; 
 			}
-			else
+			else if (!forwards && currentAngle > maxAngle)
 			{
 				maxAngle = currentAngle;
 				std::cout << moveTime << ": maxAngle = " << maxAngle << std::endl; 
@@ -211,7 +216,7 @@ int main(int argc, char* argv[])
 		// Ensure humanSwing is only called with an angle between 0 and 1
 		std::cout << "Calling with value " << std::abs(currentAngle - minAngle) / std::abs(maxAngle - minAngle) << std::endl;
 		movementToolsProxy.callVoid("humanSwing", std::abs(currentAngle - minAngle) / std::abs(maxAngle - minAngle), forwards); 
-		qi::os::msleep(50);
+		qi::os::msleep(30);
 	}
 
 	// Get a handle to the module and close it

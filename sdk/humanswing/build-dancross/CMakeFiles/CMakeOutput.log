@@ -382,3 +382,35 @@ Linking C executable cmTryCompileExec
 make[1]: Leaving directory `/gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/build-dancross/CMakeFiles/CMakeTmp'
 
 
+The target system is: Linux -  - i486
+The host system is: Linux - 3.13.0-71-generic - x86_64
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/build-dancross/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/build-dancross/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/build-dancross/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o
+/gs/cross/cross/bin/i686-aldebaran-linux-gnu-gcc   --sysroot /gs/cross//sysroot/ -pipe -fomit-frame-pointer -fno-align-jumps -fno-align-functions -fno-align-labels -fno-align-loops -m32 -mtune=generic -DOE_CROSS_BUILD     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o   -c /gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/build-dancross/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/gs/cross/cross/bin/i686-aldebaran-linux-gnu-gcc    --sysroot /gs/cross//sysroot/ -pipe -fomit-frame-pointer -fno-align-jumps -fno-align-functions -fno-align-labels -fno-align-loops -m32 -mtune=generic -DOE_CROSS_BUILD    -Wl,--sysroot,/gs/cross//sysroot/ CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec -rdynamic 
+make[1]: Leaving directory `/gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/build-dancross/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/build-dancross/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+make[1]: Entering directory `/gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/build-dancross/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/build-dancross/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
+/gs/cross/cross/bin/i686-aldebaran-linux-gnu-gcc   --sysroot /gs/cross//sysroot/ -pipe -fomit-frame-pointer -fno-align-jumps -fno-align-functions -fno-align-labels -fno-align-loops -m32 -mtune=generic -DOE_CROSS_BUILD  -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/gs/cross/cross/bin/i686-aldebaran-linux-gnu-gcc    --sysroot /gs/cross//sysroot/ -pipe -fomit-frame-pointer -fno-align-jumps -fno-align-functions -fno-align-labels -fno-align-loops -m32 -mtune=generic -DOE_CROSS_BUILD  -DCHECK_FUNCTION_EXISTS=pthread_create  -Wl,--sysroot,/gs/cross//sysroot/ CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec -rdynamic -lpthread 
+make[1]: Leaving directory `/gs/naoqi/doc/examples/new/robot-swing/sdk/humanswing/build-dancross/CMakeFiles/CMakeTmp'
+
+
