@@ -92,16 +92,41 @@ CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o.provides: CMakeFiles/subscribeg
 
 CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o.provides.build: CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o
 
+CMakeFiles/subscribegyro.dir/createmodule.cpp.o: CMakeFiles/subscribegyro.dir/flags.make
+CMakeFiles/subscribegyro.dir/createmodule.cpp.o: ../createmodule.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-cross/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/subscribegyro.dir/createmodule.cpp.o"
+	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++   $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -o CMakeFiles/subscribegyro.dir/createmodule.cpp.o -c /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/createmodule.cpp
+
+CMakeFiles/subscribegyro.dir/createmodule.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/subscribegyro.dir/createmodule.cpp.i"
+	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++  $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -E /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/createmodule.cpp > CMakeFiles/subscribegyro.dir/createmodule.cpp.i
+
+CMakeFiles/subscribegyro.dir/createmodule.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/subscribegyro.dir/createmodule.cpp.s"
+	/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++  $(CXX_DEFINES) $(CXX_FLAGS) -fPIC -S /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/createmodule.cpp -o CMakeFiles/subscribegyro.dir/createmodule.cpp.s
+
+CMakeFiles/subscribegyro.dir/createmodule.cpp.o.requires:
+.PHONY : CMakeFiles/subscribegyro.dir/createmodule.cpp.o.requires
+
+CMakeFiles/subscribegyro.dir/createmodule.cpp.o.provides: CMakeFiles/subscribegyro.dir/createmodule.cpp.o.requires
+	$(MAKE) -f CMakeFiles/subscribegyro.dir/build.make CMakeFiles/subscribegyro.dir/createmodule.cpp.o.provides.build
+.PHONY : CMakeFiles/subscribegyro.dir/createmodule.cpp.o.provides
+
+CMakeFiles/subscribegyro.dir/createmodule.cpp.o.provides.build: CMakeFiles/subscribegyro.dir/createmodule.cpp.o
+
 # Object files for target subscribegyro
 subscribegyro_OBJECTS = \
 "CMakeFiles/subscribegyro.dir/main.cpp.o" \
-"CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o"
+"CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o" \
+"CMakeFiles/subscribegyro.dir/createmodule.cpp.o"
 
 # External object files for target subscribegyro
 subscribegyro_EXTERNAL_OBJECTS =
 
 sdk/lib/naoqi/libsubscribegyro.so: CMakeFiles/subscribegyro.dir/main.cpp.o
 sdk/lib/naoqi/libsubscribegyro.so: CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o
+sdk/lib/naoqi/libsubscribegyro.so: CMakeFiles/subscribegyro.dir/createmodule.cpp.o
 sdk/lib/naoqi/libsubscribegyro.so: /gs/cross/sysroot/usr/lib/libalproxies.so
 sdk/lib/naoqi/libsubscribegyro.so: /gs/cross/sysroot/usr/lib/libalsoap.so
 sdk/lib/naoqi/libsubscribegyro.so: /gs/cross/sysroot/usr/lib/librttools.so
@@ -129,13 +154,15 @@ CMakeFiles/subscribegyro.dir/build: sdk/lib/naoqi/libsubscribegyro.so
 # Object files for target subscribegyro
 subscribegyro_OBJECTS = \
 "CMakeFiles/subscribegyro.dir/main.cpp.o" \
-"CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o"
+"CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o" \
+"CMakeFiles/subscribegyro.dir/createmodule.cpp.o"
 
 # External object files for target subscribegyro
 subscribegyro_EXTERNAL_OBJECTS =
 
 CMakeFiles/CMakeRelink.dir/libsubscribegyro.so: CMakeFiles/subscribegyro.dir/main.cpp.o
 CMakeFiles/CMakeRelink.dir/libsubscribegyro.so: CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o
+CMakeFiles/CMakeRelink.dir/libsubscribegyro.so: CMakeFiles/subscribegyro.dir/createmodule.cpp.o
 CMakeFiles/CMakeRelink.dir/libsubscribegyro.so: /gs/cross/sysroot/usr/lib/libalproxies.so
 CMakeFiles/CMakeRelink.dir/libsubscribegyro.so: /gs/cross/sysroot/usr/lib/libalsoap.so
 CMakeFiles/CMakeRelink.dir/libsubscribegyro.so: /gs/cross/sysroot/usr/lib/librttools.so
@@ -162,6 +189,7 @@ CMakeFiles/subscribegyro.dir/preinstall: CMakeFiles/CMakeRelink.dir/libsubscribe
 
 CMakeFiles/subscribegyro.dir/requires: CMakeFiles/subscribegyro.dir/main.cpp.o.requires
 CMakeFiles/subscribegyro.dir/requires: CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o.requires
+CMakeFiles/subscribegyro.dir/requires: CMakeFiles/subscribegyro.dir/createmodule.cpp.o.requires
 .PHONY : CMakeFiles/subscribegyro.dir/requires
 
 CMakeFiles/subscribegyro.dir/clean:

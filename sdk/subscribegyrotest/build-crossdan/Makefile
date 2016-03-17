@@ -154,6 +154,30 @@ subscribegyro/preinstall:
 	$(MAKE) -f CMakeFiles/subscribegyro.dir/build.make CMakeFiles/subscribegyro.dir/preinstall
 .PHONY : subscribegyro/preinstall
 
+createmodule.o: createmodule.cpp.o
+.PHONY : createmodule.o
+
+# target to build an object file
+createmodule.cpp.o:
+	$(MAKE) -f CMakeFiles/subscribegyro.dir/build.make CMakeFiles/subscribegyro.dir/createmodule.cpp.o
+.PHONY : createmodule.cpp.o
+
+createmodule.i: createmodule.cpp.i
+.PHONY : createmodule.i
+
+# target to preprocess a source file
+createmodule.cpp.i:
+	$(MAKE) -f CMakeFiles/subscribegyro.dir/build.make CMakeFiles/subscribegyro.dir/createmodule.cpp.i
+.PHONY : createmodule.cpp.i
+
+createmodule.s: createmodule.cpp.s
+.PHONY : createmodule.s
+
+# target to generate assembly for a file
+createmodule.cpp.s:
+	$(MAKE) -f CMakeFiles/subscribegyro.dir/build.make CMakeFiles/subscribegyro.dir/createmodule.cpp.s
+.PHONY : createmodule.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -215,6 +239,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... subscribegyro"
+	@echo "... createmodule.o"
+	@echo "... createmodule.i"
+	@echo "... createmodule.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

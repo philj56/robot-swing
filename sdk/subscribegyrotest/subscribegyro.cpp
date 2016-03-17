@@ -41,6 +41,7 @@ void SubscribeGyro::init() {
 	gettimeofday(&startTime);
     fMemoryProxy = AL::ALMemoryProxy(getParentBroker());
 
+    bool test = CreateModule("movementtools", "MovementTools", this->getParentBroker(), true, true);
     //fState = fMemoryProxy.getData("RightSubscribeGyroPressed");
     /** Subscribe to event LeftSubscribeGyroPressed
     * Arguments:
@@ -51,18 +52,21 @@ void SubscribeGyro::init() {
     //fMemoryProxy.subscribeToEvent("RightSubscribeGyroPressed", "SubscribeGyro", "onRightSubscribeGyroPressed");
 
 	AL::ALProxy genericProxy ("MovementTools", "127.0.0.1" , 9559);
-
+   
+		timer();
+        gettimeofday(&currentTime);
+    
 	while (time < 180000){
 		qiLogInfo("subscribegyro.gyroswing") << "Time " << time <<  std::endl;
 		
-//		genericProxy.callVoid("swingForwards");
-		qi::os::sleep(1.5);
-//		genericProxy.callVoid("swingBackwards");			
-		qi::os::sleep(1.5);
-
+		genericProxy.callVoid("swingForwards");
+		qi::os::msleep(1300);
+		genericProxy.callVoid("swingBackwards");			
+		qi::os::msleep(1300);
+        gettimeofday(&currentTime);
 		timer();
 	}
-
+     gettimeofday(&lastTime);
 
 
     fMemoryProxy.subscribeToEvent("GyroMoveForward", "SubscribeGyro", "onMoveForward");
@@ -97,10 +101,11 @@ void SubscribeGyro::onMoveBackward(const std::string &key, const AL::ALValue &va
   gettimeofday(&currentTime);
   file << "Back\t" << currentTime.tv_sec << std::endl;
  bool test =  value;
+ 		timer();
   try {
-	if (test == true) {
+	if (test == true && t > 500) {
 		 qiLogInfo("subscribegyro.gyroswing") << "Back! " << currentTime.tv_sec  << std::endl;
-		 qi::os::sleep(0.5);
+		 //qi::os::sleep(0.5);
 
 	}
     //fTtsProxy = AL::ALTextToSpeechProxy(getParentBroker());
@@ -113,15 +118,16 @@ void SubscribeGyro::onMoveBackward(const std::string &key, const AL::ALValue &va
 
 void SubscribeGyro::onMoveForward(const std::string &key, const AL::ALValue &value, const AL::ALValue &msg){
      AL::ALCriticalSection section(fCallbackMutex);
-  gettimeofday(&currentTime);
-  file << "Forward\t" << std::endl;
-bool test =  value;
+    gettimeofday(&currentTime);
+    file << "Forward\t" << std::endl;
+     bool test =  value;
+	 timer();
      qiLogInfo("subscribegyro.gyroswing") << "Executing callback method on move forward" << test << " " << value << " " << msg << " " << key << std::endl;
 
    try {
- 	 if (test == true) {
+ 	 if (test == true && t > 500) {
                 qiLogInfo("subscribegyro.gyroswing") << "Forward! " << currentTime.tv_sec <<  std::endl;
-		qi::os::sleep(0.5);
+		//qi::os::sleep(0.5);
         }
 
     //fTtsProxy = AL::ALTextToSpeechProxy(getParentBroker());
@@ -136,5 +142,6 @@ void SubscribeGyro::timer(){
     
     time = 1000 * (currentTime.tv_sec - startTime.tv_sec) 
 			       + 0.001 * static_cast<float>(static_cast<int>(currentTime.tv_usec) - static_cast<int>(startTime.tv_usec));
-		
+	t = 1000 * (currentTime.tv_sec - lastTime.tv_sec) 
+			       + 0.001 * static_cast<float>(static_cast<int>(currentTime.tv_usec) - static_cast<int>(lastTime.tv_usec));
 }

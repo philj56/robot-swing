@@ -10,6 +10,8 @@ set(_srcs
   main.cpp
   subscribegyro.h
   subscribegyro.cpp
+  createmodule.h
+  createmodule.cpp
 )
 
 if(BUMPER_IS_REMOTE)

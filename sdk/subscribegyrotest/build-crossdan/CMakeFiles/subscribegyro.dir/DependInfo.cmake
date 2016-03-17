@@ -4,6 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/createmodule.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-crossdan/CMakeFiles/subscribegyro.dir/createmodule.cpp.o"
   "/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/main.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-crossdan/CMakeFiles/subscribegyro.dir/main.cpp.o"
   "/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/subscribegyro.cpp" "/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-crossdan/CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o"
   )

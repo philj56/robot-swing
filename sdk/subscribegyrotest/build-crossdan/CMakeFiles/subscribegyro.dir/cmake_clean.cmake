@@ -1,6 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/subscribegyro.dir/main.cpp.o"
   "CMakeFiles/subscribegyro.dir/subscribegyro.cpp.o"
+  "CMakeFiles/subscribegyro.dir/createmodule.cpp.o"
   "sdk/lib/naoqi/libsubscribegyro.pdb"
   "sdk/lib/naoqi/libsubscribegyro.so"
   "CMakeFiles/CMakeRelink.dir/libsubscribegyro.pdb"

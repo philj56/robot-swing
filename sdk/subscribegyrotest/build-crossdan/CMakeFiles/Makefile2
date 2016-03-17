@@ -56,7 +56,7 @@ CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/
 CMakeFiles/subscribegyro.dir/all:
 	$(MAKE) -f CMakeFiles/subscribegyro.dir/build.make CMakeFiles/subscribegyro.dir/depend
 	$(MAKE) -f CMakeFiles/subscribegyro.dir/build.make CMakeFiles/subscribegyro.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-crossdan/CMakeFiles  1 2
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-crossdan/CMakeFiles  1 2 3
 	@echo "Built target subscribegyro"
 .PHONY : CMakeFiles/subscribegyro.dir/all
 
@@ -66,7 +66,7 @@ all: CMakeFiles/subscribegyro.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/subscribegyro.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-crossdan/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-crossdan/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/subscribegyro.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/build-crossdan/CMakeFiles 0
 .PHONY : CMakeFiles/subscribegyro.dir/rule

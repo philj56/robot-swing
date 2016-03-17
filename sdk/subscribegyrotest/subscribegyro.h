@@ -16,7 +16,7 @@
 #include <alproxies/almemoryproxy.h>
 #include <alproxies/altexttospeechproxy.h>
 #include <althread/almutex.h>
-
+#include "createmodule.h"
 namespace AL
 {
   class ALBroker;
@@ -53,6 +53,11 @@ class SubscribeGyro : public AL::ALModule
     boost::shared_ptr<AL::ALMutex> fCallbackMutex;
 	std::fstream file;
     float fState;
+    
+    
+    qi::os::timeval lastTime;
+
+    float t;
 
 };
 
