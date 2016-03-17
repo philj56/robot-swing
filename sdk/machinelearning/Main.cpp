@@ -193,6 +193,8 @@ int main() {
 		current_state.theta_dot = (current_state.theta - old_state.theta) / 700; //Needs actual time
 		current_state.robot_state = static_cast<ROBOT_STATE>(chosen_action);
 
+		std::cout << "Angle of current state: " << current_state.theta << std::endl;
+
 		// call updateQ function with state space, old and current states
 		// and learning rate, discount factor
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
