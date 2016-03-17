@@ -195,7 +195,7 @@ int main(int argc, char* argv[])
 		qi::os::gettimeofday(&currentTime);
 		lastAngle = currentAngle;
 		currentAngle = encoder.GetAngle();
-	//	std::cout << "Current angle: " << currentAngle << std::endl;
+		std::cout << "Current angle: " << currentAngle << std::endl;
 		// Check for direction of motion, and a change in direction
 		forwards = currentAngle < lastAngle;
 		if (forwards == backwards)
