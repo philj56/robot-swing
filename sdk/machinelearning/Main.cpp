@@ -31,6 +31,17 @@ template<typename T> std::string to_string(T x) {
 }
 
 /**
+ * @brief Determines whether a file exists / is accessible
+ * 
+ * @param filename File to check for
+ * @return true if file exists, false if not or is inaccessible
+ */
+bool fileExists(const char* filename) {
+	std::ifstream file(filename);
+	return file.good();
+}
+
+/**
  * @brief Analog to temperature variable in Boltzmann Distribution, computes 'evolution variable' of system.
  *
  * This function computes a normal distribution over the parameterised number of loop iterations in order
@@ -180,6 +191,19 @@ int main() {
 	//create the state space
 	StateSpace space(100, 50, M_PI * 0.25, 1.0, initiator_queue);
 	
+	const char* filename = "output.txt";
+	
+	// if file containing previous state space data exists
+	// get handle to this file and stream contents to space object
+	if (fileExists(filename)) {
+		std::ifstream inputFile(filename);
+		std::string firstFileLine;
+		std::getline(inputFile, firstFileLine);
+		// if file is not empty, save file data to state space object
+		if (!firstFileLine.empty())
+			inputFile >> space;
+	}
+	
 	//state objects
 	State current_state(0, 0, FORWARD);
 	State old_state(0, 0, FORWARD);
@@ -210,9 +234,9 @@ int main() {
 		(chosen_action) ? movementToolsProxy.callVoid("swingForwards") : movementToolsProxy.callVoid("swingBackwards");
 	}
 	
-//	std::ofstream output("output.txt");
-//	output<<space;
-//	output.close();
+	std::ofstream output(filename);
+	output<<space;
+	output.close();
 	
 	return 1;
 }
