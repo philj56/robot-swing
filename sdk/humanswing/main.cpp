@@ -184,6 +184,9 @@ int main(int argc, char* argv[])
 	qi::os::gettimeofday(&startTime);
 	qi::os::gettimeofday(&currentTime);
 
+	// Time the loop has been running
+	float time;
+
 	movementToolsProxy.callVoid("setSpeed", speed);
 
 	// Run for time "timeToRun"
@@ -193,9 +196,11 @@ int main(int argc, char* argv[])
 	while (currentTime.tv_sec - startTime.tv_sec < timeToRun)
 	{
 		qi::os::gettimeofday(&currentTime);
+	     	time = 1000 * (currentTime.tv_sec - startTime.tv_sec) 
+		     + 0.001 * (currentTime.tv_usec - startTime.tv_usec);
 		lastAngle = currentAngle;
 		currentAngle = encoder.GetAngle();
-		std::cout << "Current angle: " << currentAngle << std::endl;
+		std::cout << time << "\t" << currentAngle << std::endl;
 		// Check for direction of motion, and a change in direction
 		forwards = currentAngle < lastAngle;
 		if (forwards == backwards)
