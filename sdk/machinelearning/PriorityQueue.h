@@ -1054,7 +1054,7 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
 	// loop over queue sending queue data to output stream
 	while (streamedQueue.getSize()) {
 		std::pair<Type, PriorityType> dataPair = streamedQueue.dequeue();
-		outStream << to_string(dataPair.first) << "\t" << to_string(dataPair.second) << "\n";
+		outStream << dataPair.first << "\t" << dataPair.second << "\n";
 	}
 
 	return outStream;
