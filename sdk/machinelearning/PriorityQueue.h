@@ -1,12 +1,12 @@
 /**
- * @file PriorityQueue.h
- * 
- * @brief Contains PriorityQueue class and HeapType enum, as well as extraction/insertion
- *		  operators for PriorityQueue.
- *
- * @author Machine Learning Team 2015-2016
- * @date March, 2016
- */
+* @file PriorityQueue.h
+*
+* @brief Contains PriorityQueue class and HeapType enum, as well as extraction/insertion
+*		  operators for PriorityQueue.
+*
+* @author Machine Learning Team 2015-2016
+* @date March, 2016
+*/
 
 #ifndef PRIORITY_QUEUE_H
 #define PRIORITY_QUEUE_H
@@ -38,7 +38,8 @@ enum HeapType {
 * @invariant Class-Invariant: The underlying structure of the queue will always obey the behaviour of a binary heap
 * 			      of the type given by the enum HeapType; such that all child nodes of a given node
 * 			      have higher priority than this node for a Maximum Binary Heap, or lower priority for
-* 			      a Minimim Binary Heap.
+* 			      a Minimim Binary Heap. This binary heap invariant shall never be broken by any public nor private
+*				  member functions of this class.
 *
 * This priority queue structure has been implemented with a Min/Max Binary Heap (MBH) of dynamic size based on
 * a vector of data with corresponding priorities. Both minimum and maximum heap structures can be chosen when
@@ -64,8 +65,8 @@ Clear = O(1) if type T has trivial destructor
 * The priority type PT should, generally, be a primitive such as int, double, float - however any types/classes which have assignment, greater than,
 * less than and equality operators are supported (though generally not recommended).
 *
-* The type T that a priority queue is instantiated with MUST have overloaded assignment and equality operators as well as a defined toString() method.
-* Additionally, the instantiated type T must have an "overloaded" definition of to_string(const T&) - this is required for Argument-Dependent-Lookup (ADL)
+* The type T that a priority queue is instantiated with MUST have overloaded assignment and equality operators, and extraction/insertion if these are being used.
+* Additionally, the instantiated type T must (if using toString) have an "overloaded" definition of to_string(const T&) - this is required for Argument-Dependent-Lookup (ADL)
 * to work; to do this, in the namespace where class T is defined one must define the following:
 *
 * \code{.cpp}
@@ -74,13 +75,14 @@ Clear = O(1) if type T has trivial destructor
 *	}
 * \endcode
 *
-* Note that if one is using priority queues with only primitive data types as the template typename arguments, then the following function should
-* be defined in the namespace where the priority queues are instantiated (do NOT do this if you are also using queues with non-primitive types
-* as well, in which case you should have to_string methods defined for any classes you use as mentioned above):
+* Note that if one is using priority queues with any primitive data types as the template typename arguments, then the following function should
+* be defined in the namespace where the priority queues are instantiated:
 *
 * \code{.cpp}
 *	template<typename T> std::string to_string(T x) {
 *		return static_cast<std::ostringstream&>((std::ostringstream() << std::dec << x)).str();
+*		// ELSE IF USING C++11 OR ONWARDS (basically does same thing but simpler):
+*		// return std::to_string(x);
 *	}
 * \endcode
 *
@@ -263,7 +265,7 @@ private:
 	}
 
 	/**
-	* @brief Removes the top item of the heap, i.e. elements with highest/lowest priority for MAX/MIN queue.
+	* @brief Removes the top item of the heap, i.e. element with highest/lowest priority for MAX/MIN queue.
 	*/
 	void removeTopOfHeap() {
 
@@ -372,7 +374,7 @@ public:
 	/**
 	* @brief Constructor for priority queue to pass data with priorities initially via a vector of pairs.
 	*
-	* @param _dataWithPriorityVec Vector of pairs containing data objects and corresponding priorities
+	* @param _dataWithPriorityVec std::vector of std::pair's containing data objects and corresponding priorities
 	* @param _heapType Type of underlying heap structure, can be HeapType::MIN or HeapType::MAX
 	*/
 	PriorityQueue(const std::vector< std::pair<T, PT> >& _dataWithPriorityVec, HeapType _heapType) : dataWithPriorityVec(_dataWithPriorityVec), heapType(_heapType) {
@@ -424,44 +426,44 @@ public:
 	/**************************************************************************/
 
 	/**
-	* @brief Gets the pair at a given index in the underlying vector
+	* @brief Gets the pair at a given index in the underlying std::vector
 	*        structure in the queue NOT IN TERMS OF HEAP STORAGE ORDER!
 	*
-	* This method should only be used in routines to randomly access elements
+	* This method should ONLY be used in routines to "randomly" access elements
 	* in the priority queue (i.e. an algorithm where order is not important).
 	*
 	* @remark Rather than using this operator to iterate over a priority queue use
-	* 	   the PriorityQueue::const_iterator and begin(), end() methods
+	* 		  the PriorityQueue::const_iterator and begin(), end() methods
 	* @warning THIS OPERATOR DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
-	* @return Pair of queue at given index of underlying vector
+	* @return Reference to std::pair of queue at given index of underlying container
 	*/
 	const std::pair<T, PT>& at(const size_t index) const {
 		return dataWithPriorityVec.at(index);
 	}
 
 	/**
-	* @brief Getter for the size of the priority queue
-	*
-	* @return The current filled size of the priority queue
-	*/
+	 * @brief Getter for the size of the priority queue
+	 *
+	 * @return The current filled size of the priority queue
+	 */
 	size_t getSize() const {
 		return dataWithPriorityVec.size();
 	}
 
 	/**
-	* @brief Determines whether the priority queue is empty or not
-	*
-	* @return True if the queue is empty, false otherwise
-	*/
+	 * @brief Determines whether the priority queue is empty or not
+	 *
+	 * @return True if the queue is empty, false otherwise
+	 */
 	bool isEmpty() const {
 		return dataWithPriorityVec.empty();
 	}
 
 	/**
-	* @brief Peeks the top pair of the queue without dequeuing it.
+	* @brief Peeks the top std::pair of the queue without dequeuing it.
 	*
 	* @warning Undefined behaviour if PQ is empty
-	* @return Pair at top of PQ without removing it from the structure
+	* @return Reference to std::pair at top of PQ without removing it from the structure
 	*/
 	const std::pair<T, PT>& peekFront() const {
 		return dataWithPriorityVec.at(0);
@@ -477,7 +479,8 @@ public:
 	}
 
 	/**
-	* @brief Sets the type of the underlying binary heap structure
+	* @brief Sets the type of the underlying binary heap structure and heapifies
+	*		 the queue if the heap type has changed.
 	*
 	* @param heap Type of underlying heap structure, can be HeapType::MIN or HeapType::MAX
 	*/
@@ -495,13 +498,22 @@ public:
 	}
 
 	/**
-	* @brief Gives a string representation of the PQ, printed in order of priority based on heap type.
+	* @brief Gives a std::string representation of the PQ, printed in order of priority based on heap type.
+	*
+	* Data of this priority queue is given in the format:
+	* 
+	* \verbatim
+		Data	Priority
+		[i1]	[p1]
+		[i2]	[p2]
+		...		...
+	\endverbatim
 	*
 	* @remark This method requires that the type T of the priority queue has
-	*		  a defined "overloaded" to_string(const T&) method for ADL to work.
-	* @return The PQ in a string data format
+	*		  a defined, "overloaded" to_string(const T&) method for ADL to work.
+	* @return The PQ in a std::string data format
 	*/
-	std::string toString() {
+	std::string toString() const {
 
 		// copy this queue to a temporary "streamed queue"
 		PriorityQueue<T, PT> streamedQueue(*this);
@@ -519,9 +531,9 @@ public:
 	}
 
 	/**
-	* @brief Saves a vector of pairs representation of the priority queue
+	* @brief Saves a std::vector of std::pair's representation of the priority queue
 	*
-	* Returns a vector of pairs representing the priority queue in
+	* Returns a std::vector of std::pair's representing the priority queue in
 	* order of priorities based upon the underlying heap type of the structure.
 	*
 	* @warning Potentially slow if used often for large queues
@@ -548,12 +560,12 @@ public:
 	/**************************************************************/
 
 	/**
-	* @brief Enqueue a data item in the PQ with "lowest" level of priority
+	* @brief Enqueue a data item to the end of the priority queue (will have priority equal to current last)
 	*
 	* Inserts an item of data into the queue at end of queue (highest value of priority
 	* for MIN heap queue, lowest value of priority for MAX heap queue)
 	*
-	* @remark If the priority queue is empty this method does nothing.
+	* @remark If the priority queue is empty this method does nothing and is safe to use.
 	* @param data Data item to insert into PQ
 	*/
 	void enqueue(const T& data) {
@@ -602,9 +614,9 @@ public:
 	}
 
 	/**
-	* @brief Enqueue a vector of data with corresponding priorities into the PQ
+	* @brief Enqueue a std::vector of data with corresponding priorities into the PQ
 	*
-	* @param data Vector of pairs containing data items with corresponding priorities
+	* @param data std::vector of std::pair's containing data items with corresponding priorities
 	*/
 	void enqueueWithPriority(const std::vector< std::pair<T, PT> >& data) {
 
@@ -617,8 +629,8 @@ public:
 	/**
 	* @brief Dequeues the data item with highest priority for a MAX queue and lowest priority for a MIN queue.
 	*
-	* @return The dequeued item, i.e. the pair containing the data entry and its corresponding priority
-	* @throw Throws out_of_range exception if queue is empty
+	* @return The dequeued item, i.e. the std::pair containing the data entry and its corresponding priority
+	* @throw Throws std::out_of_range exception if queue is empty
 	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in the container.
 	*/
 	std::pair<T, PT> dequeue() {
@@ -644,12 +656,12 @@ public:
 	}
 
 	/**
-	* @brief Searches for an item in the PQ and returns the item with corresponding priority
+	* @brief Searches for an item in the PQ and returns the item with corresponding priority in a std::pair
 	*
 	* @todo Consider implementing a concurrent data structure with PQ (such as a set) to improve search time complexity.
 	* @param item Object to search for in the priority queue
 	* @return A std::pair containing the object and its corresponding priority
-	* @throw Throws invalid_argument exception if item does not exist within queue
+	* @throw Throws std::invalid_argument exception if item does not exist within queue
 	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in the container.
 	*/
 	std::pair<T, PT> search(const T& item) {
@@ -670,10 +682,10 @@ public:
 	}
 
 	/**
-	* @brief Searches for an item in the PQ and returns a vector of all occurrences of the item
+	* @brief Searches for an item in the PQ and returns a std::vector of all occurrences of the item
 	*		  with their corresponding priorities.
 	*
-	* @warning If the item does not exist within the queue then this method will return an empty vector.
+	* @warning If the item does not exist within the queue then this method will return an empty std::vector.
 	* @param item Object to search for in the priority queue
 	* @return A std::vector of std::pair instances containing the objects and corresponding priorities
 	*/
@@ -697,12 +709,12 @@ public:
 	}
 
 	/**
-	* @brief Searches for a priority in the PQ and returns a pair with the first instance of an item
+	* @brief Searches for a priority in the PQ and returns a std::pair with the first instance of an item
 	*		  in the queue with the given priority.
 	*
 	* @param priority Priority to search for in the queue
 	* @return A std::pair of data and associated priority containing the first instance where priority occurs
-	* @throw Throws invalid_argument exception if priority does not exist in the queue
+	* @throw Throws std::invalid_argument exception if priority does not exist in the queue
 	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in the container.
 	*/
 	std::pair<T, PT> searchByPriority(const PT priority) {
@@ -719,7 +731,7 @@ public:
 	}
 
 	/**
-	* @brief Searches for a priority in the PQ and returns a vector containing all pairs of data
+	* @brief Searches for a priority in the PQ and returns a std::vector containing all std::pair's of data
 	*		  where the priority occurred.
 	*
 	* @param priority Priority to search for in the queue
@@ -890,16 +902,16 @@ public:
 	/******************************************************************/
 
 	/**
-	* @brief Gets the pair at a given index in the underlying vector
+	* @brief Gets a reference to the std::pair at a given index in the underlying std::vector
 	*        structure in the queue NOT IN TERMS OF HEAP STORAGE ORDER!
 	*
-	* This method should only be used in routines to randomly access elements
+	* This method should only be used in routines to "randomly" access elements
 	* in the priority queue (i.e. an algorithm where order is not important).
 	*
 	* @remark Rather than using this operator to iterate over a priority queue use
 	* 	   the PriorityQueue::const_iterator and begin(), end() methods
 	* @warning THIS OPERATOR DOES NOT RETURN THE PAIR AT AN ORDERED INDEX IN THE QUEUE
-	* @return Pair of queue at given index of underlying vector
+	* @return Reference to std::pair of queue at given index of underlying container
 	*/
 	const std::pair<T, PT>& operator[](const size_t index) const {
 		return dataWithPriorityVec.at(index);
@@ -910,7 +922,7 @@ public:
 	*
 	* @param addPQ Addition target queue
 	* @return Instance of priority queue as this queue plus addPQ
-	* @throw Throws invalid_argument exception if this queue and addPQ are of different heapType
+	* @throw Throws std::invalid_argument exception if this queue and addPQ are of different heapType
 	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in the container.
 	*/
 	PriorityQueue<T, PT> operator+(const PriorityQueue<T, PT>& addPQ) const {
@@ -933,7 +945,7 @@ public:
 	* @brief Overloaded assignment operator.
 	*
 	* @param assignPQ Assigment target queue
-	* @return Instance of priority queue which is a copy of pQ
+	* @return Reference to instance of priority queue which is a copy of assignPQ
 	*/
 	const PriorityQueue<T, PT>& operator=(const PriorityQueue<T, PT>& assignPQ) {
 		if (this != &assignPQ)
@@ -947,7 +959,7 @@ public:
 	*
 	* @param addPQ Addition target queue
 	* @return Instance of priority queue added and assigned to this queue
-	* @throw Throws invalid_argument exception if this queue and addPQ are of different heapType
+	* @throw Throws std::invalid_argument exception if this queue and addPQ are of different heapType
 	* @exceptionsafety Strong-Guarantee - if an exception is thrown there are no changes in the container.
 	*/
 	PriorityQueue<T, PT>& operator+=(const PriorityQueue<T, PT>& addPQ) {
@@ -1043,6 +1055,17 @@ public:
 /**
 * @brief Overloaded stream insertion operator.
 *
+* Bitshift operator<<, i.e. insertion operator. Used to write data from a priority queue
+* into an output stream instance. The data is written to the stream in the format,
+*
+* \verbatim
+[item1] + "\t" + [priority1] + "\n"
+[item2] + "\t" + [priority2] + "\n"
+...
+* \endverbatim
+*
+* @remark Instantiated queue types must have overloaded insertion operators defined (note: primitives
+*		  have these overloaded by default).
 * @param outStream Reference to output stream
 * @param targetQueue Instance of priority queue to write to output stream
 * @return Reference to output stream containing target queue data
@@ -1062,32 +1085,34 @@ template<typename Type, typename PriorityType> std::ostream& operator<<(std::ost
 }
 
 /**
- * @brief Overloaded stream extraction operator.
- *
- * Bitshift operator>>, i.e. extraction operator. Used to write data from an input stream
- * into a targeted priority queue instance. The data should be written into the queue in the format,
- *
- * \verbatim
-	[item1] + "\t" + [priority1] + "\n"
-	[item2] + "\t" + [priority2] + "\n"
-	...
- * \endverbatim
- * 
- * @param inStream Reference to input stream
- * @param targetQueue Instance of priority queue to manipulate with extraction stream
- * @return Reference to input stream containing target queue data
- */
+* @brief Overloaded stream extraction operator.
+*
+* Bitshift operator>>, i.e. extraction operator. Used to write data from an input stream
+* into a targeted priority queue instance. The data should be written into the queue in the format,
+*
+* \verbatim
+[item1] + "\t" + [priority1] + "\n"
+[item2] + "\t" + [priority2] + "\n"
+...
+* \endverbatim
+*
+* @remark Instantiated queue types must have overloaded extraction operators defined (note: primitives
+*		  have these overloaded by default).
+* @param inStream Reference to input stream
+* @param targetQueue Instance of priority queue to manipulate with extraction stream
+* @return Reference to input stream containing target queue data
+*/
 template<typename Type, typename PriorityType> std::istream& operator>>(std::istream& inStream, PriorityQueue<Type, PriorityType>& targetQueue) {
 
 	Type data;
 	PriorityType priority;
-	
+
 	while (inStream >> data >> priority) {
 		targetQueue.enqueueWithPriority(data, priority);
 	}
 
 	return inStream;
-	
+
 }
 
 #endif
