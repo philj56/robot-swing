@@ -184,6 +184,7 @@ int main() {
 	State current_state(0, 0, FORWARD);
 	State old_state(0, 0, FORWARD);
 	
+	std::cout << "Initialisation complete!" << std::endl;
 	for( unsigned long i = 0; i<500 ;++i ) {
 		// set current state angle to angle received from encoder
 		// and set current state velocity to difference in new and
@@ -195,21 +196,21 @@ int main() {
 		// call updateQ function with state space, old and current states
 		// and learning rate, discount factor
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
-
+		std::cout << "Update Q completed!" << std::endl;
 		// set old_state to current_state
 		old_state = current_state;
 
 		// determine chosen_action for current state
 		chosen_action = selectAction(space[current_state], i);
-
+		std::cout << "Select Action completed!" << std::endl;
 		// depending upon chosen action, call robot movement tools proxy with either
 		// swingForwards or swingBackwards commands.
 		(chosen_action) ? movementToolsProxy.callVoid("swingForwards") : movementToolsProxy.callVoid("swingBackwards");
 	}
 	
-	std::ofstream outout("output.txt");
-	output<<space;
-	output.close();
+//	std::ofstream output("output.txt");
+//	output<<space;
+//	output.close();
 	
 	return 1;
 }
