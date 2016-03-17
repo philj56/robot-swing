@@ -64,8 +64,8 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 
 	speed = 0.6;
 
-	std::string humanAngleNamesArray[] = { "LHipPitch",
-					 "RHipPitch",
+	std::string humanAngleNamesArray[] = { //"LHipPitch",
+	//				 "RHipPitch",
 					 "LKneePitch",
 					 "RKneePitch"
 					 };
@@ -240,8 +240,8 @@ std::vector<float> MovementTools::humanPosition(const float &theta, const bool &
 	body = clip(body, minBody, maxBody);
 	legs = clip(legs, minLegs, maxLegs);
 
-	result.push_back(body);
-	result.push_back(body);
+//	result.push_back(body);
+//	result.push_back(body);
 	result.push_back(legs);
 	result.push_back(legs);
 
