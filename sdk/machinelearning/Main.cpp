@@ -179,7 +179,7 @@ int main() {
 	
 	//create the state space
 	StateSpace space(100, 50, M_PI * 0.25, 1.0, initiator_queue);
-
+	
 	//state objects
 	State current_state(0, 0, FORWARD);
 	State old_state(0, 0, FORWARD);
@@ -206,7 +206,11 @@ int main() {
 		// swingForwards or swingBackwards commands.
 		(chosen_action) ? movementToolsProxy.callVoid("swingForwards") : movementToolsProxy.callVoid("swingBackwards");
 	}
-
+	
+	std::ofstream outout("output.txt");
+	output<<space;
+	output.close();
+	
 	return 1;
 }
 
