@@ -167,7 +167,7 @@ private:
 	std::vector< std::vector< PriorityQueue<int, double> > > space2;
 };
 
-std::ostream& operator<<(std::ostream& stream, const StateSpace& space)
+std::ostream& StateSpace::operator<<(std::ostream& stream, const StateSpace& space)
 {
 	for(unsigned short i=0;i<StateSpace::angle_bins;++i)
 	{
@@ -180,7 +180,7 @@ std::ostream& operator<<(std::ostream& stream, const StateSpace& space)
 	return stream;
 }
 
-std::istream& operator>>(std::istream& stream, StateSpace& space)
+std::istream& StateSpace::operator>>(std::istream& stream, StateSpace& space)
 {
 	int action1=0;
 	double priority1=0;
