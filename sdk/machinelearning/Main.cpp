@@ -239,10 +239,11 @@ int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) 
 	}
 
 	// calculate cumulative probability distribution
-	for (VecPair::iterator iter = vec.begin()++, end = vec.end(); iter < end; ++iter) {
+	for (VecPair::iterator iter = vec.begin(), end = vec.end(); iter < end; ++iter) {
         //second member of pair becomes addition of its current value
         //and that of the index before it
-		iter->second += (iter-1)->second;
+        	if (iter != vec.begin())
+			iter->second += (iter-1)->second;
 	}
 
 	//generate RN between 0 and 1
