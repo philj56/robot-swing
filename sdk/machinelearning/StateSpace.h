@@ -201,12 +201,12 @@ private:
 	std::vector< std::vector< PriorityQueue<int, double> > > space2;
 };
 
-std::ostream& operator<<(std::ostream& stream, const StateSpace& space)
+inline std::ostream& operator<<(std::ostream& stream, const StateSpace& space)
 {
 	return StateSpace::input(stream, space);
 }
 
-std::istream& operator>>(std::istream& stream, StateSpace& space)
+inline std::istream& operator>>(std::istream& stream, StateSpace& space)
 {
 	return StateSpace::output(stream, space);
 }
