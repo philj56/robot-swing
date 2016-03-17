@@ -202,12 +202,12 @@ int main(int argc, char* argv[])
 		{
 			float moveTime = 1000 * (static_cast<int>(currentTime.tv_sec) - static_cast<int>(startTime.tv_sec)) 
 			              + 0.001 * (static_cast<int>(currentTime.tv_usec) - static_cast<int>(startTime.tv_usec));
-			if (forwards && currentAngle < minAngle)
+			if (currentAngle < minAngle)
 			{
 				minAngle = currentAngle;
 				std::cout << moveTime << ": minAngle = " << minAngle << std::endl; 
 			}
-			else if (!forwards && currentAngle > maxAngle)
+			else if (currentAngle > maxAngle)
 			{
 				maxAngle = currentAngle;
 				std::cout << moveTime << ": maxAngle = " << maxAngle << std::endl; 
