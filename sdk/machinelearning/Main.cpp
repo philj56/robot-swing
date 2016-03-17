@@ -260,6 +260,15 @@ int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) 
 	
 	return -1; //note that this line should never be reached	
 }
+int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) {
+	double rand_num = static_cast<double>(rand()) / RAND_MAX);
+	if(rand_num < epsilon){
+		return a_queue.peekFront()->first;
+	}
+	
+	rand_num = static_cast<double>(rand()) / RAND_MAX);
+	return a_queue[ std::round( rand_num*(a_queue.getSize()-1) ) ];
+}
 
 void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma) {
 	//oldQ value reference
