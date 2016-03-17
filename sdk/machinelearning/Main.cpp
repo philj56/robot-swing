@@ -154,7 +154,7 @@ int main() {
 	//END OF STUFF WE DONT UNDERSTAND, BREATHE NOW
 
 	//learning factor
-	const double alpha = 0.5;
+	const double alpha = 0.8;
 	//discount factor
 	const double gamma = 0.5;
 
