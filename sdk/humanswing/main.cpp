@@ -195,7 +195,7 @@ int main(int argc, char* argv[])
 		qi::os::gettimeofday(&currentTime);
 		lastAngle = currentAngle;
 		currentAngle = encoder.GetAngle();
-		std::cout << "Current angle: " << currentAngle << std::endl;
+	//	std::cout << "Current angle: " << currentAngle << std::endl;
 		// Check for direction of motion, and a change in direction
 		forwards = currentAngle < lastAngle;
 		if (forwards == backwards)
@@ -216,7 +216,7 @@ int main(int argc, char* argv[])
 		backwards = !forwards;
 
 		// Ensure humanSwing is only called with an angle between 0 and 1
-		std::cout << "Calling with value " << std::abs(currentAngle - minAngle) / std::abs(maxAngle - minAngle) << std::endl;
+	//	std::cout << "Calling with value " << std::abs(currentAngle - minAngle) / std::abs(maxAngle - minAngle) << std::endl;
 		movementToolsProxy.callVoid("humanSwing", std::abs(currentAngle - minAngle) / std::abs(maxAngle - minAngle), forwards); 
 		qi::os::msleep(30);
 	}
