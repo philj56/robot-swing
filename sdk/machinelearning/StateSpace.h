@@ -135,8 +135,42 @@ public:
 	 */
 	PriorityQueue<int, double>& operator[](const State & state);
 	
-	friend std::ostream& operator<<(std::ostream& stream, const StateSpace& space);
-	friend std::istream& operator>>(std::istream& stream, StateSpace& space);
+	static std::ostream& input(std::ostream& stream, const StateSpace& space) {
+		for(unsigned short i=0;i<StateSpace::angle_bins;++i)
+		{
+			for(unsigned short j=0;j<StateSpace::angle_bins;++j)
+			{
+				stream<<space.space1[i][j];
+				stream<<space.space2[i][j];
+			}
+		}
+		return stream;
+	}
+	
+	static std::istream& output(std::istream& stream, StateSpace& space) {
+		int action1=0;
+		double priority1=0;
+		int action2=0;
+		double priority2=0;
+	
+		for(unsigned short i=0;i<StateSpace::angle_bins;++i)
+		{
+			for(unsigned short j=0;j<StateSpace::angle_bins;++j)
+			{
+				stream>>action1;
+				stream>>priority1;
+				stream>>action2;
+				stream>>priority2;
+			
+				space.space1[i][j].enqueueWithPriority(action1,priority1);
+				space.space2[i][j].enqueueWithPriority(action2,priority2);
+			}
+		}
+		return stream;
+	}
+	
+//	friend std::ostream& operator<<(std::ostream& stream, const StateSpace& space);
+//	friend std::istream& operator>>(std::istream& stream, StateSpace& space);
 	
 private:
 	//this object should NEVER be copied
@@ -167,40 +201,14 @@ private:
 	std::vector< std::vector< PriorityQueue<int, double> > > space2;
 };
 
-std::ostream& StateSpace::operator<<(std::ostream& stream, const StateSpace& space)
+std::ostream& operator<<(std::ostream& stream, const StateSpace& space)
 {
-	for(unsigned short i=0;i<StateSpace::angle_bins;++i)
-	{
-		for(unsigned short j=0;j<StateSpace::angle_bins;++j)
-		{
-			stream<<space.space1[i][j];
-			stream<<space.space2[i][j];
-		}
-	}
-	return stream;
+	return StateSpace::input(stream, space);
 }
 
-std::istream& StateSpace::operator>>(std::istream& stream, StateSpace& space)
+std::istream& operator>>(std::istream& stream, StateSpace& space)
 {
-	int action1=0;
-	double priority1=0;
-	int action2=0;
-	double priority2=0;
-	
-	for(unsigned short i=0;i<StateSpace::angle_bins;++i)
-	{
-		for(unsigned short j=0;j<StateSpace::angle_bins;++j)
-		{
-			stream>>action1;
-			stream>>priority1;
-			stream>>action2;
-			stream>>priority2;
-			
-			space.space1[i][j].enqueueWithPriority(action1,priority1);
-			space.space2[i][j].enqueueWithPriority(action2,priority2);
-		}
-	}
-	return stream;
+	return StateSpace::output(stream, space);
 }
 
 #endif
