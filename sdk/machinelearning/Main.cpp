@@ -291,8 +291,8 @@ int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) 
 		return a_queue.peekFront().first;
 	}
 	
-	rand_num = static_cast<double>(rand()) / RAND_MAX);
-	return a_queue[ round( rand_num*(a_queue.getSize()-1) ) ];
+	rand_num = static_cast<double>(rand()) / RAND_MAX;
+	return a_queue[ round( rand_num*(a_queue.getSize()-1) ) ].first;
 }
 
 void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma) {
