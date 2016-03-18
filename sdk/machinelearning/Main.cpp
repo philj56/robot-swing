@@ -69,7 +69,7 @@ double probabilityFluxDensityCoeffieicent(unsigned long t);
  * @param iterations Number of loop iterations completed.
  * @return integer corresponding to chosen action
  */
-int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations);
+int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations, double epsilon);
 
 /**
  * @brief Updates the utility (Q-value) of the system.
@@ -185,6 +185,8 @@ int main() {
 	Encoder encoder;
 	encoder.Calibrate();
 	
+	std::cout << "Encoder angle calibrated... " << std::endl;
+	
 	//pause briefly to allow the robot to be given a push if desired
 	qi::os::msleep(5000);
 	
@@ -210,7 +212,7 @@ int main() {
 	//state objects
 	State current_state(0, 0, FORWARD);
 	State old_state(0, 0, FORWARD);
-	
+	double epsilon = 1.0;
 	std::cout << "Initialisation complete!" << std::endl;
 	for( unsigned long i = 0; i<500 ;++i ) {
 		// set current state angle to angle received from encoder
@@ -229,9 +231,13 @@ int main() {
 	//	std::cout << "Update Q completed!" << std::endl;
 		// set old_state to current_state
 		old_state = current_state;
-
+		
+		if (i > 100) {
+			epsilon -= 0.005;	
+		}
+		
 		// determine chosen_action for current state
-		chosen_action = selectAction(space[current_state], i);
+		chosen_action = selectAction(space[current_state], i, epsilon);
 	//	std::cout << "Select Action completed!" << std::endl;
 		// depending upon chosen action, call robot movement tools proxy with either
 		// swingForwards or swingBackwards commands.
@@ -290,8 +296,8 @@ int selectActionAlt(PriorityQueue<int, double>& a_queue, unsigned long iteration
 	
 	return -1; //note that this line should never be reached	
 }
-int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) {
-	double epsilon = 0.8;
+int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations, double epsilon) {
+	//double epsilon = 0.8;
 	double rand_num = static_cast<double>(rand()) / RAND_MAX;
 	if(rand_num < epsilon){
 		return a_queue.peekFront().first;
