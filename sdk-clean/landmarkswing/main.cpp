@@ -68,7 +68,7 @@ int main(int argc, char* argv[])
 	int timeToRun = 10;
 
 	// Default number of previous widths to smooth over
-	unsigned int landmarkSmoothing = 2;
+	size_t landmarkSmoothing = 2;
 
 	// Get any arguments
 	while (true)
@@ -196,7 +196,7 @@ int main(int argc, char* argv[])
 	landmarkIDs.push_back(108);
 	landmarkIDs.push_back(68);
 
-	unsigned int nLandmarks = landmarkIDs.size();
+	size_t nLandmarks = landmarkIDs.size();
 
 	// Whether each landmark has been detected this cycle
 	std::vector<bool> landmarksDetected(nLandmarks, false);
@@ -217,7 +217,7 @@ int main(int argc, char* argv[])
 	while (currentTime.tv_sec - startTime.tv_sec < timeToRun)
 	{
 		// Reset landmark detection flags
-		for (unsigned int i = 0; i < nLandmarks; i++)
+		for (size_t i = 0; i < nLandmarks; i++)
 		{
 			landmarksDetected[i] = false;
 		}
@@ -229,7 +229,7 @@ int main(int argc, char* argv[])
 		if (landmarks.isValid() && landmarks.isArray() && landmarks.getSize() >= 2)
 		{
 			// Get widths of desired landmarks, and store them in appropriate vectors
-			for (unsigned int i = 0; i < landmarks[1].getSize(); i++)
+			for (size_t i = 0; i < landmarks[1].getSize(); i++)
 			{
 				// Relevant parameters in landmark vector
 				int   ID           = landmarks [1][i][1][0];
@@ -238,7 +238,7 @@ int main(int argc, char* argv[])
 			//	float width        = landmarks [1][i][0][3];
 			//	float height       = landmarks [1][i][0][4];
 	
-				for (unsigned int j = 0; j < nLandmarks; j++)
+				for (size_t j = 0; j < nLandmarks; j++)
 				{
 					if (ID == landmarkIDs[j])
 					{
@@ -261,7 +261,7 @@ int main(int argc, char* argv[])
 
 				// The average order of all vectors
 				int avgOrder;
-				for (unsigned int i = 0; i < nLandmarks; i++)
+				for (size_t i = 0; i < nLandmarks; i++)
 				{
 					orders.push_back(vectorOrder(landmarkAngles[i]));
 				}
@@ -338,7 +338,7 @@ int vectorOrder (std::vector<float> vec)
 		else
 			order = 0;
 	}
-	for (unsigned int i = 2; i < vec.size(); i++)
+	for (size_t i = 2; i < vec.size(); i++)
 	{
 		if (vec[i] > vec[i-1] && order == 1)
 			continue;
@@ -353,7 +353,7 @@ int vectorOrder (std::vector<float> vec)
 // Check if all bools in vector are true
 bool vectorAll (std::vector<bool> vec)
 {
-	for (unsigned int i = 0; i < vec.size(); i++)
+	for (size_t i = 0; i < vec.size(); i++)
 	{
 		if (!vec[i])
 			return false;
@@ -364,7 +364,7 @@ bool vectorAll (std::vector<bool> vec)
 // Check if any bools in vector are true
 bool vectorAny (std::vector<bool> vec)
 {
-	for (unsigned int i = 0; i < vec.size(); i++)
+	for (size_t i = 0; i < vec.size(); i++)
 	{
 		if (vec[i])
 			return true;
