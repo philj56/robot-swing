@@ -256,7 +256,7 @@ int main(int argc, char* argv[])
 					}
 				}
 			}
-
+			std::cout<<landmarkAngles[0].size()<<std::endl;
 			// Check whether a landmark was detected this interval
 			if (vectorAny(landmarksDetected))
 			{
