@@ -270,11 +270,6 @@ int main(int argc, char* argv[])
 					orders.push_back(vectorOrder(landmarkAngles[i]));
 				}
 					
-				for (size_t i = 0; i < orders.size(); i++)
-				{
-					std::cout << "orders[" << i << "]: " << orders[i] << std::endl;
-				}
-
 				avgOrder = vectorAverage(orders);
 
 				if (avgOrder > 0)
@@ -384,10 +379,10 @@ bool vectorAny (std::vector<bool> vec)
 // Get average of vector of ints, rounded towards 0
 int vectorAverage (std::vector<int> vec)
 {
-	int sum = 0;
+	float sum = 0;
 	for (size_t i = 0; i < vec.size(); i++)
 	{
 		sum += vec[i];
 	}
-	return sum / vec.size();
+	return round(sum / static_cast<float>(vec.size()));
 }
