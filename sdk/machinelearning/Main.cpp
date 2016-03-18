@@ -193,6 +193,9 @@ int main() {
 	
 	const char* filename = "output.txt";
 	
+	const char* encoderData = "encoderData.txt";
+	std::ofstream encoderOutput(encoderData);
+	
 	// if file containing previous state space data exists
 	// get handle to this file and stream contents to space object
 	if (fileExists(filename)) {
@@ -217,18 +220,19 @@ int main() {
 		current_state.theta_dot = (current_state.theta - old_state.theta) / 700; //Needs actual time
 		current_state.robot_state = static_cast<ROBOT_STATE>(chosen_action);
 
-		std::cout << "Angle of current state: " << current_state.theta << std::endl;
+		//std::cout << "Angle of current state: " << current_state.theta << std::endl;
+		encoderOutput << current_state.theta << std::endl;
 
 		// call updateQ function with state space, old and current states
 		// and learning rate, discount factor
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
-		std::cout << "Update Q completed!" << std::endl;
+	//	std::cout << "Update Q completed!" << std::endl;
 		// set old_state to current_state
 		old_state = current_state;
 
 		// determine chosen_action for current state
 		chosen_action = selectAction(space[current_state], i);
-		std::cout << "Select Action completed!" << std::endl;
+	//	std::cout << "Select Action completed!" << std::endl;
 		// depending upon chosen action, call robot movement tools proxy with either
 		// swingForwards or swingBackwards commands.
 		(chosen_action) ? movementToolsProxy.callVoid("swingForwards") : movementToolsProxy.callVoid("swingBackwards");
@@ -237,6 +241,7 @@ int main() {
 	std::ofstream output(filename);
 	output<<space;
 	output.close();
+	encoderOutput.close();
 	
 	return 1;
 }
@@ -285,7 +290,7 @@ int selectActionAlt(PriorityQueue<int, double>& a_queue, unsigned long iteration
 	return -1; //note that this line should never be reached	
 }
 int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) {
-	double epsilon = 0.2;
+	double epsilon = 0.8;
 	double rand_num = static_cast<double>(rand()) / RAND_MAX;
 	if(rand_num < epsilon){
 		return a_queue.peekFront().first;
