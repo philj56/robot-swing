@@ -197,6 +197,10 @@ int main(int argc, char* argv[])
 	landmarkIDs.push_back(68);
 
 	size_t nLandmarks = landmarkIDs.size();
+	for (size_t i = 0; i < nLandmarks; i++)
+	{
+		landmarkAngles.push_back(std::vector<float> ());
+	}
 
 	// Whether each landmark has been detected this cycle
 	std::vector<bool> landmarksDetected(nLandmarks, false);
