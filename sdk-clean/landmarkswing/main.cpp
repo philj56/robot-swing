@@ -271,6 +271,7 @@ int main(int argc, char* argv[])
 				}
 					
 				avgOrder = vectorAverage(orders);
+				std::cout << avgOrder << std::endl;
 
 				if (avgOrder > 0)
 				{
