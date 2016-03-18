@@ -238,9 +238,10 @@ int main() {
 		(chosen_action) ? movementToolsProxy.callVoid("swingForwards") : movementToolsProxy.callVoid("swingBackwards");
 	}
 	
-	std::ofstream output(filename);
-	output<<space;
-	output.close();
+//	std::ofstream output(filename);
+//	output<<space;
+//	output.close();
+	std::cout << space << std::endl;
 	encoderOutput.close();
 	
 	return 1;
