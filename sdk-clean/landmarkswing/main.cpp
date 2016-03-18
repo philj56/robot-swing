@@ -272,6 +272,7 @@ int main(int argc, char* argv[])
 				}
 					
 				avgOrder = vectorAverage(orders);
+				std::cout << orders.size() << ": " << avgOrder << std::endl;
 
 				if (avgOrder > 0)
 				{
