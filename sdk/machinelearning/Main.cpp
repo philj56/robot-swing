@@ -245,7 +245,7 @@ double probabilityFluxDensityCoeffieicent(unsigned long t) {
 	return 100.0*std::exp((-8.0*t*t) / (2600.0*2600.0)) + 0.1;//0.1 is an offset
 }
 
-int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) {
+int selectActionAlt(PriorityQueue<int, double>& a_queue, unsigned long iterations) {
 	
 	typedef std::vector<std::pair<int, double> > VecPair ; 
 	
@@ -285,13 +285,14 @@ int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) 
 	return -1; //note that this line should never be reached	
 }
 int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations) {
-	double rand_num = static_cast<double>(rand()) / RAND_MAX);
+	double epsilon = 0.2;
+	double rand_num = static_cast<double>(rand()) / RAND_MAX;
 	if(rand_num < epsilon){
-		return a_queue.peekFront()->first;
+		return a_queue.peekFront().first;
 	}
 	
 	rand_num = static_cast<double>(rand()) / RAND_MAX);
-	return a_queue[ std::round( rand_num*(a_queue.getSize()-1) ) ];
+	return a_queue[ round( rand_num*(a_queue.getSize()-1) ) ];
 }
 
 void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma) {
