@@ -212,7 +212,7 @@ int main() {
 	//state objects
 	State current_state(0, 0, FORWARD);
 	State old_state(0, 0, FORWARD);
-	double epsilon = 1.0;
+	double epsilon = 0.0;
 	std::cout << "Initialisation complete!" << std::endl;
 	for( unsigned long i = 0; i<500 ;++i ) {
 		// set current state angle to angle received from encoder
@@ -233,7 +233,7 @@ int main() {
 		old_state = current_state;
 		
 		if (i > 100) {
-			epsilon -= 0.005;	
+			epsilon += 0.005;	
 		}
 		
 		// determine chosen_action for current state
