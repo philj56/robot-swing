@@ -270,8 +270,12 @@ int main(int argc, char* argv[])
 					orders.push_back(vectorOrder(landmarkAngles[i]));
 				}
 					
+				for (size_t i = 0; i < orders.size(); i++)
+				{
+					std::cout << "orders[" << i << "]: " << orders[i] << std::endl;
+				}
+
 				avgOrder = vectorAverage(orders);
-				std::cout << avgOrder << std::endl;
 
 				if (avgOrder > 0)
 				{
