@@ -7,6 +7,8 @@ set(_srcs
     main.cpp
     createmodule.cpp) 
 
+SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=gnu++98 -g -O3 -Wall -Wextra -pedantic")
+
 # Create an executable named localcall
 qi_create_bin(landmarkswing ${_srcs})
 

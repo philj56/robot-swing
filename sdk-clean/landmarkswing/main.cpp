@@ -46,9 +46,6 @@ int main(int argc, char* argv[])
 {
 	// Whether to print verbose output - default off
 	bool verb = false;
-	
-	// Whether to manually load Libraries - default off
-	bool init = false;
 
 	// Libraries to load
 	std::string cameraLibName   = "cameratools";
@@ -205,7 +202,7 @@ int main(int argc, char* argv[])
 	std::vector<bool> landmarksDetected(nLandmarks, false);
 
 	// Current direction of movement, either +1 or -1
-	int currentDirection;
+	//int currentDirection;
 
 	// Start landmark detection
 	camToolsProxy.callVoid("startLandmarkDetection");
@@ -243,7 +240,7 @@ int main(int argc, char* argv[])
 	
 				for (unsigned int j = 0; j < nLandmarks; j++)
 				{
-					if (ID = landmarkIDs[j])
+					if (ID == landmarkIDs[j])
 					{
 						landmarksDetected[j] = true;
 						
