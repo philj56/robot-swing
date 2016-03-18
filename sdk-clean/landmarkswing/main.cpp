@@ -267,7 +267,8 @@ int main(int argc, char* argv[])
 				int avgOrder;
 				for (size_t i = 0; i < nLandmarks; i++)
 				{
-					orders.push_back(vectorOrder(landmarkAngles[i]));
+					if (landmarksDetected[i])
+						orders.push_back(vectorOrder(landmarkAngles[i]));
 				}
 					
 				avgOrder = vectorAverage(orders);
