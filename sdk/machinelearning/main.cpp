@@ -7,7 +7,8 @@
  * @date March, 2016
  */
 
-//#define _USE_MATH_DEFINES -> for VS
+// Uncomment for use with Visual Studio C++ Compiler
+//#define _USE_MATH_DEFINES
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
