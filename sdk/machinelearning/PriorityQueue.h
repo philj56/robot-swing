@@ -4,7 +4,7 @@
 * @brief Contains PriorityQueue class and HeapType enum, as well as extraction/insertion
 *		  operators for PriorityQueue.
 *
-* @author Machine Learning Team 2015-2016
+* @author Samuel Rowlinson
 * @date March, 2016
 */
 
@@ -123,7 +123,7 @@ Clear = O(1) if type T has trivial destructor
 *	PriorityQueue<int, int> priorityQueueTwo(priorityQueueOne);
 * \endcode
 *
-* @author Machine Learning Team 2015-2016
+* @author Samuel Rowlinson
 * @date February, 2016
 */
 template<typename T, typename PT> class PriorityQueue {
