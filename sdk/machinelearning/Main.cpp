@@ -194,7 +194,7 @@ int main() {
 
 	// Learning rate - set low for highly stochastic systems, high for less random and more symmetric systems
 	const double alpha = 0.8;
-	// Discount factor - set low for disregarding future events, high for taking the future into more consideration
+	// Discount factor - set low for "disregarding" future events, high for taking the future into more consideration
 	const double gamma = 0.5;
 
 	// Seed PRNG with current system time
@@ -209,8 +209,8 @@ int main() {
 	PriorityQueue<int, double> initiator_queue(MAX);
 
 	// enqueue possible actions with intial zero utilities to initiator_queue
-	initiator_queue.enqueueWithPriority(action_forwards, 0);
-	initiator_queue.enqueueWithPriority(action_backwards, 0);
+	initiator_queue.enqueueWithPriority(action_forwards, 0.0);
+	initiator_queue.enqueueWithPriority(action_backwards, 0.0);
 
 	// create encoder and calibrate to current angle
 	Encoder encoder;
@@ -260,12 +260,12 @@ int main() {
 	// Each iteration currently requires 700ms time for action performing
 	// => increase maxIterations for longer learning times
 	const unsigned long maxIterations = 500UL;
-	for(unsigned long i = 0; i < maxIterations; ++i) {
+	for(unsigned long i = 0UL; i < maxIterations; ++i) {
 		// set current state angle to angle received from encoder
 		// and set current state velocity to difference in new and
 		// old state angles over some time difference
-		current_state.theta = M_PI * (encoder.GetAngle()) / 180;
-		current_state.theta_dot = (current_state.theta - old_state.theta) / 700; //Needs actual time
+		current_state.theta = M_PI * (encoder.GetAngle()) / 180.0;
+		current_state.theta_dot = (current_state.theta - old_state.theta) / 700.0; //Needs actual time
 		current_state.robot_state = static_cast<ROBOT_STATE>(chosen_action);
 
 		// save encoder data to encoderData.txt output file
@@ -280,7 +280,7 @@ int main() {
 		
 		// after 100 iterations, start slowly increasing epsilon to
 		// reduce stochasticity of action learning
-		if (i > 100) {
+		if (i > 100UL) {
 			epsilon += 0.005;	
 		}
 		
