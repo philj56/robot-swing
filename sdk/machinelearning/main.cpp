@@ -7,7 +7,7 @@
  * @date March, 2016
  */
 
-#define _USE_MATH_DEFINES
+//#define _USE_MATH_DEFINES -> for VS
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
