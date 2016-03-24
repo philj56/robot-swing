@@ -24,6 +24,8 @@ SubscribeGyro::SubscribeGyro(
   BIND_METHOD(SubscribeGyro::onMoveBackward)
   functionName("onMoveForward", getName(), "MoveForward");
   BIND_METHOD(SubscribeGyro::onMoveForward)
+  functionName("GyroStart", getName(), "StartMovement");
+  BIND_METHOD(SubscribeGyro::GyroStart)
 
 //std::fstream file;
 file.open("/home/nao/data/gyroswingdata.txt");
@@ -35,13 +37,17 @@ SubscribeGyro::~SubscribeGyro() {
 }
 
 void SubscribeGyro::init() {
-  try {
+
+}
+
+void SubscribeGyro::GyroStart () {
+    try {
     /** Create a proxy to ALMemory.
     */
-	gettimeofday(&startTime);
+  	gettimeofday(&startTime);
     fMemoryProxy = AL::ALMemoryProxy(getParentBroker());
 
-    bool test = CreateModule("movementtools", "MovementTools", this->getParentBroker(), true, true);
+    bool test = CreateModule("/home/nao/lib/libmovementtools.so", "MovementTools", getParentBroker(), true, false);
     //fState = fMemoryProxy.getData("RightSubscribeGyroPressed");
     /** Subscribe to event LeftSubscribeGyroPressed
     * Arguments:
@@ -52,22 +58,23 @@ void SubscribeGyro::init() {
     //fMemoryProxy.subscribeToEvent("RightSubscribeGyroPressed", "SubscribeGyro", "onRightSubscribeGyroPressed");
 
 	AL::ALProxy genericProxy ("MovementTools", "127.0.0.1" , 9559);
+	genericProxy.callVoid("setSpeed", 0.8f);
    
 		timer();
         gettimeofday(&currentTime);
+     gettimeofday(&lastTime);
     
-	while (time < 180000){
-		qiLogInfo("subscribegyro.gyroswing") << "Time " << time <<  std::endl;
+/*	while (time < 180000){
+		qiLogInfo("subscribegyro.gyroswing") << "Time: " << time <<  std::endl;
 		
 		genericProxy.callVoid("swingForwards");
-		qi::os::msleep(1300);
+		qi::os::msleep(1250);
 		genericProxy.callVoid("swingBackwards");			
-		qi::os::msleep(1300);
-        gettimeofday(&currentTime);
+		qi::os::msleep(1250);
+	        gettimeofday(&currentTime);
 		timer();
 	}
-     gettimeofday(&lastTime);
-
+*/
 
     fMemoryProxy.subscribeToEvent("GyroMoveForward", "SubscribeGyro", "onMoveForward");
     fMemoryProxy.subscribeToEvent("GyroMoveBackward", "SubscribeGyro", "onMoveBackward");
@@ -75,11 +82,14 @@ void SubscribeGyro::init() {
   catch (const AL::ALError& e) {
     qiLogError("module.example") << e.what() << std::endl;
   }
+    
 }
+
 /*
 void SubscribeGyro::onRightSubscribeGyroPressed() {
   qiLogInfo("module.example") << "Executing callback method on right subscribegyro event" << std::endl;
-  
+
+
 
 
   //fState =  fMemoryProxy.getData("RightSubscribeGyroPressed");
@@ -102,10 +112,16 @@ void SubscribeGyro::onMoveBackward(const std::string &key, const AL::ALValue &va
   file << "Back\t" << currentTime.tv_sec << std::endl;
  bool test =  value;
  		timer();
-  try {
-	if (test == true && t > 500) {
+  try { 
+       AL::ALProxy genericProxy ("MovementTools", "127.0.0.1" , 9559);
+       genericProxy.callVoid("setSpeed", 0.8f);
+
+	if (test == true && t > 300) {
+		genericProxy.callVoid("swingBackwards");
+
 		 qiLogInfo("subscribegyro.gyroswing") << "Back! " << currentTime.tv_sec  << std::endl;
 		 //qi::os::sleep(0.5);
+		gettimeofday(&lastTime); 
 
 	}
     //fTtsProxy = AL::ALTextToSpeechProxy(getParentBroker());
@@ -122,12 +138,18 @@ void SubscribeGyro::onMoveForward(const std::string &key, const AL::ALValue &val
     file << "Forward\t" << std::endl;
      bool test =  value;
 	 timer();
-     qiLogInfo("subscribegyro.gyroswing") << "Executing callback method on move forward" << test << " " << value << " " << msg << " " << key << std::endl;
+     qiLogInfo("subscribegyro.gyroswing") << "Executing callback method on move forward: " << test  << std::endl;
 
    try {
- 	 if (test == true && t > 500) {
+       AL::ALProxy genericProxy ("MovementTools", "127.0.0.1" , 9559);
+       genericProxy.callVoid("setSpeed", 0.8f);
+
+ 	 if (test == true && t > 300) {
+		genericProxy.callVoid("swingForwards");
+
                 qiLogInfo("subscribegyro.gyroswing") << "Forward! " << currentTime.tv_sec <<  std::endl;
 		//qi::os::sleep(0.5);
+		gettimeofday(&lastTime);
         }
 
     //fTtsProxy = AL::ALTextToSpeechProxy(getParentBroker());

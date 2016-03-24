@@ -1,5 +1,6 @@
 /**
  *
+ *
  */
 
 #include "events.h"
@@ -14,8 +15,8 @@
 #include <qi/os.hpp>
 #include <qi/log.hpp>
 
-const float forwardspos = M_PI * 7.0 / 4.0;
-const float backwardspos = M_PI * 3.0 / 4.0;
+const float forwardspos = - M_PI  / 4.0 ;
+const float backwardspos = - M_PI * 3.0 / 4.0 ;
 
 GyroEvents::GyroEvents(
   boost::shared_ptr<AL::ALBroker> broker,
@@ -54,7 +55,7 @@ void GyroEvents::init() {
   */  
     gettimeofday(&startTime);
     gettimeofday(&currentTime);
-    
+    gettimeofday(&MovementTime);
     timer();
 /*
     fMemoryProxy.subscribeToEvent("Gyroevent", "GyroEvents", "callback");
@@ -96,9 +97,11 @@ void GyroEvents::init() {
 void GyroEvents::Run(){
 	bool ev = false;
 	AL::ALValue temp;
+  //  int count = 0;
 	qiLogInfo("GyroEvents.Run") << "Begining Main Loop" << std::endl;
 try{
 	while (true){
+//        count++;
         //This needs to sleep during a movement
         //After movement is complete, reset average 
         
@@ -110,11 +113,11 @@ try{
     
 		fMemoryProxy.raiseEvent("GyroMoveForward", false);
 		qi::os::sleep(1.5);*/
- fCurrentGyro = (fMemoryProxy.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value"));
+        fCurrentGyro = (fMemoryProxy.getData("Device/SubDeviceList/InertialSensor/GyroscopeY/Sensor/Value"));
 
-
+        
 //	fCurrentGyro = *fGyroY;         
-	fgyro = float(fCurrentGyro);
+	    fgyro = float(fCurrentGyro);
 //	fgyro = *fGyroY;
         ftotal -= lastvalues[0];
         lastvalues.erase(lastvalues.begin());
@@ -122,53 +125,83 @@ try{
         lastvalues.push_back(fgyro);
         Average();
         
+/*        if(newperiod  && Time > 5000){
+            min = 0;
+            max = 0;
+        }
         
-        if (floor(faverage*200) == 0){
+  */      
+        if ((pTime - oTime > 500) && floor(faverage*100) == 0){
 	    qiLogInfo("GyroEvents.Loop") << "New Period" << std::endl;
             newperiod = true;
-            amp = (max + abs(min))/2.0;
+            pTime = oTime;
+            //amp = (max + abs(min))/2.0;
             omin = min;
             omax = max;
-            max = 0;
-            min = 0;
+            //max = 0;
+            //min = 0;
+	 /*   if (faverage < 0){
+		max = 0;
+		}
+	    else {
+		min = 0;
+		}
+*/
+//	    amp = (omax + abs(omin))/2.0;
+
         }
-        if(newperiod == true && faverage > max){
+        if (faverage > 0 && faverage > max){
             max = faverage;
         }
-        else if(newperiod == true && faverage < min){
+        else if(faverage < 0 && faverage < min){
             min = faverage;
         }
-        else if (faverage > min && faverage < max){
+        else {//if (faverage > min && faverage < max){
             newperiod = false;
+            amp = (max + std::abs(min))/2.0;
+  //          amp = (omax + abs(omin))/2.0;
+
         }
         
         position = asin(faverage/amp) + M_PI / 2;
-	while (position > 2*M_PI){position -= 2*M_PI;};
-	while (position < 0/*2*M_PI*/){position += 2*M_PI;};
+        
+	   while (position > M_PI){position -= 2*M_PI;};
+	   while (position < -M_PI){position += 2*M_PI;};
+       
 //        position = fmod(position + 2*M_PI, 2*M_PI);
+
         timer();
-        if (time > 500 && std::abs(position - forwardspos)/forwardspos < 0.10){
+        if (time > 500 && std::abs(position - forwardspos)/forwardspos < 0.05){
             //Move to forwards position
             gettimeofday(&MovementTime);
-            fMemoryProxy.raiseEvent("GyroMoveForward", true);
-	qiLogInfo("GyroEvents.Loop") << "Msg: " << "Forwards" << std::endl;
+            
+            if (faverage < 0){      
+                fMemoryProxy.raiseEvent("GyroMoveForward", true);
+                qiLogInfo("GyroEvents.Loop") << "Msg: " << "Forwards" << std::endl;
+//		max = 0.0;
+            }            
+            else if (faverage > 0){
+                 fMemoryProxy.raiseEvent("GyroMoveBackward", true);
+                 qiLogInfo("GyroEvents.Loop") << "Msg: " << "Backwards" << std::endl;
+            }
+	        
 			ev = true;
         }
-        else if (time > 500 && std::abs(position - backwardspos)/backwardspos < 0.10){
+        /*else if (time > 500 && std::abs(position - backwardspos)/backwardspos < 0.10){
             //Move to backwards position
             gettimeofday(&MovementTime);
             fMemoryProxy.raiseEvent("GyroMoveBackward", true);
-	qiLogInfo("GyroEvents.Loop") << "Msg: " << "Backwards" << std::endl;
+	        qiLogInfo("GyroEvents.Loop") << "Msg: " << "Backwards" << std::endl;
 			ev = true;
-        }
+        }*/
 		
        // fMemoryProxy.raiseEvent("GyroMoveForward", false);
        // fMemoryProxy.raiseEvent("GyroMoveBackward", false);       
        
         gettimeofday(&currentTime);
-        qiLogInfo("GyroEvents.Loop") << "Msg: "   << " " <<   fgyro << " " << faverage << " " << amp << " " << position << " " << (faverage/amp)  << " " << max << " " << min  << " "  << time << std::endl;
+//        qiLogInfo("GyroEvents.Loop") << "Msg: " << Time  << " " <<   fgyro << " " << faverage << " " << amp << " " << position << " " << (faverage/amp)  << " " << max << " " << min   << std::endl;
         
-		if (time > 500 && ev == true){
+		if (time > 400 && ev == true){
 			fMemoryProxy.raiseEvent("GyroMoveBackward", false);
 			fMemoryProxy.raiseEvent("GyroMoveForward", false);
 			ev = false;
@@ -194,11 +227,15 @@ void GyroEvents::xStopDetection()
 	return;
 }
 */
+
+
 void GyroEvents::timer(){
     
     time = 1000 * (currentTime.tv_sec - MovementTime.tv_sec) 
 			       + 0.001 * static_cast<float>(static_cast<int>(currentTime.tv_usec) - static_cast<int>(MovementTime.tv_usec));
-		
+    Time = 1000 * (currentTime.tv_sec - startTime.tv_sec) 
+			       + 0.001 * static_cast<float>(static_cast<int>(currentTime.tv_usec) - static_cast<int>(startTime.tv_usec));
+	pTime = Time;	
 }
 
 void GyroEvents::Average(){

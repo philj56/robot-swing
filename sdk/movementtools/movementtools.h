@@ -52,6 +52,7 @@ public:
 	std::vector<float> humanPosition(const float &t, const bool &forwards);
 
 	void setSpeed(const float &newSpeed);
+	//void setSpeed(const AL::ALValue &newSpeed);
 
 private:
 	// Broker Parent IP and port

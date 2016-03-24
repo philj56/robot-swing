@@ -8095,6 +8095,8 @@ string
 -
 sstream
 -
+fstream
+-
 StateSpace.h
 /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/StateSpace.h
 PriorityQueue.h
@@ -8138,6 +8140,8 @@ cmath
 stdexcept
 -
 iostream
+-
+fstream
 -
 PriorityQueue.h
 /gs/naoqi/doc/examples/new/robot-swing/sdk/machinelearning/PriorityQueue.h

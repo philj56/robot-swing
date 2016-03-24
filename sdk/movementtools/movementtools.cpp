@@ -59,9 +59,10 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 	BIND_METHOD(MovementTools::setSpeed);
 	
 	// Set broker parent IP and port
-	pip = broker->getParentIP();
-	pport = broker->getParentPort();
-
+	//pip = broker->getParentIP();
+	//pport = broker->getParentPort();
+    pip = "127.0.0.1";
+    pport = 9559;
 	speed = 0.6;
 
 	std::string humanAngleNamesArray[] = { //"LHipPitch",
@@ -75,7 +76,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 				    "LAnkleRoll",		
 	//		    	    "LElbowRoll",		
 	//		 	    "LElbowYaw",		
-				    "LHipPitch",		
+	//			    "LHipPitch",		
 	//			    "LHipRoll",		
 	//			    "LHipYawPitch",	
 				    "LKneePitch",		
@@ -86,7 +87,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 				    "RAnkleRoll",		
 	//			    "RElbowRoll",		
 	//			    "RElbowYaw",		
-				    "RHipPitch",		
+	//			    "RHipPitch",		
 	//			    "RHipRoll",		
 	//			    "RHipYawPitch",	
 				    "RKneePitch",	
@@ -99,7 +100,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 				    0.04146f,
 	//			   -1.54462f,
 	//			   -0.154976f,
-				   -1.0845f,
+	//			   -1.0845f,
 	//			   -0.0337059f,
 	//			   -0.0183661f,
 				    1.54163f,
@@ -110,7 +111,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 				   -0.0168321f,
 	//			    1.53864f,
 	//			    0.22699f,
-				   -1.07231f,
+	//			   -1.07231f,
 	//			    0.0506639f,
 	//			   -0.0183661f,
 				    1.52637f,
@@ -123,7 +124,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 				    0.023052f,
 	//			   -0.0475121f,
 	//			    0.118076f,
-				   -0.601286f,
+	//			   -0.601286f,
 	//			   -0.0337059f,
 	//			   -0.02757f,
 				   -0.090548f,
@@ -134,7 +135,7 @@ MovementTools::MovementTools(boost::shared_ptr<AL::ALBroker> broker,
 				   -0.0168321f,
 	//			    0.0583339f,
 	//			    0.20398f,
-			 	   -0.615176f,
+	//		 	   -0.615176f,
 	//			    0.0368581f,
 	//			   -0.02757f,
 				   -0.0923279f,
@@ -165,6 +166,11 @@ void MovementTools::setSpeed(const float &newSpeed)
 {
 	speed = clip(newSpeed, 0, 1);
 }
+/*void MovementTools::setSpeed(const AL::ALValue &newSpeed)
+{
+	 float s = (float)newSpeed;
+       speed = clip(s, 0, 1);
+}*/
 
 void MovementTools::goLimp()
 {

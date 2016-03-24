@@ -66,6 +66,7 @@ class GyroEvents : public AL::ALModule
     float faverage;
     float foldaverage;
 
+    float pTime, oTime;
     
     float position;
     
@@ -79,7 +80,7 @@ class GyroEvents : public AL::ALModule
     qi::os::timeval currentTime;
     qi::os::timeval MovementTime;
     
-    float time;
+    float time, Time;
 /*
     virtual void xStartDetection(const int pPeriod, const float pPrecision);
     virtual void xStopDetection();

@@ -124,12 +124,6 @@ alcommon/alproxy.hxx
 alcommon/detail/alpcall.h
 -
 
-/gs/cross/sysroot/usr/include/alcommon/altoolsmain.h
-boost/shared_ptr.hpp
--
-boost/function/function_fwd.hpp
--
-
 /gs/cross/sysroot/usr/include/alcommon/detail/alfunctorwithoutreturn.h
 alvalue/detail/alfunctorconvert.h
 -
@@ -278,38 +272,6 @@ cassert
 alvalue/config.h
 -
 
-/gs/cross/sysroot/usr/include/asm-generic/bitsperlong.h
-
-/gs/cross/sysroot/usr/include/asm-generic/int-ll64.h
-asm/bitsperlong.h
--
-
-/gs/cross/sysroot/usr/include/asm-generic/types.h
-asm-generic/int-ll64.h
--
-
-/gs/cross/sysroot/usr/include/asm/bitsperlong.h
-asm-generic/bitsperlong.h
--
-
-/gs/cross/sysroot/usr/include/asm/posix_types.h
-posix_types_32.h
-/gs/cross/sysroot/usr/include/asm/posix_types_32.h
-posix_types_64.h
-/gs/cross/sysroot/usr/include/asm/posix_types_64.h
-
-/gs/cross/sysroot/usr/include/asm/posix_types_32.h
-
-/gs/cross/sysroot/usr/include/asm/posix_types_64.h
-
-/gs/cross/sysroot/usr/include/asm/sigcontext.h
-linux/types.h
--
-
-/gs/cross/sysroot/usr/include/asm/types.h
-asm-generic/types.h
--
-
 /gs/cross/sysroot/usr/include/assert.h
 features.h
 -
@@ -355,24 +317,6 @@ bits/local_lim.h
 /gs/cross/sysroot/usr/include/bits/sched.h
 
 /gs/cross/sysroot/usr/include/bits/setjmp.h
-
-/gs/cross/sysroot/usr/include/bits/sigaction.h
-
-/gs/cross/sysroot/usr/include/bits/sigcontext.h
-asm/sigcontext.h
--
-
-/gs/cross/sysroot/usr/include/bits/siginfo.h
-bits/wordsize.h
--
-
-/gs/cross/sysroot/usr/include/bits/signum.h
-
-/gs/cross/sysroot/usr/include/bits/sigset.h
-
-/gs/cross/sysroot/usr/include/bits/sigstack.h
-
-/gs/cross/sysroot/usr/include/bits/sigthread.h
 
 /gs/cross/sysroot/usr/include/bits/stdio-ldbl.h
 
@@ -7900,20 +7844,6 @@ bits/xopen_lim.h
 
 /gs/cross/sysroot/usr/include/linux/limits.h
 
-/gs/cross/sysroot/usr/include/linux/posix_types.h
-linux/stddef.h
--
-asm/posix_types.h
--
-
-/gs/cross/sysroot/usr/include/linux/stddef.h
-
-/gs/cross/sysroot/usr/include/linux/types.h
-asm/types.h
--
-linux/posix_types.h
--
-
 /gs/cross/sysroot/usr/include/pthread.h
 features.h
 -
@@ -7986,34 +7916,6 @@ time.h
 bits/sched.h
 -
 
-/gs/cross/sysroot/usr/include/signal.h
-features.h
--
-bits/sigset.h
--
-bits/types.h
--
-bits/signum.h
--
-time.h
--
-bits/siginfo.h
--
-bits/sigaction.h
--
-bits/sigcontext.h
--
-stddef.h
--
-bits/sigstack.h
--
-sys/ucontext.h
--
-bits/pthreadtypes.h
--
-bits/sigthread.h
--
-
 /gs/cross/sysroot/usr/include/stdint.h
 features.h
 -
@@ -8050,14 +7952,6 @@ bits/stdio-ldbl.h
 features.h
 -
 bits/wordsize.h
--
-
-/gs/cross/sysroot/usr/include/sys/ucontext.h
-features.h
--
-signal.h
--
-bits/sigcontext.h
 -
 
 /gs/cross/sysroot/usr/include/time.h
@@ -8138,10 +8032,6 @@ xlocale.h
 
 /gs/cross/sysroot/usr/include/xlocale.h
 
-/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/createmodule.cpp
-createmodule.h
-/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/createmodule.h
-
 /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/createmodule.h
 iostream
 -
@@ -8173,22 +8063,6 @@ alproxies/almotionproxy.h
 -
 alproxies/alrobotpostureproxy.h
 -
-
-/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/main.cpp
-signal.h
--
-boost/shared_ptr.hpp
--
-alcommon/albroker.h
--
-alcommon/almodule.h
--
-alcommon/albrokermanager.h
--
-alcommon/altoolsmain.h
--
-subscribegyro.h
-/gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/subscribegyro.h
 
 /gs/naoqi/doc/examples/new/robot-swing/sdk/subscribegyrotest/subscribegyro.cpp
 subscribegyro.h

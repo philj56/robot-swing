@@ -34,6 +34,7 @@ class SubscribeGyro : public AL::ALModule
     * This is called right after the module has been loaded
     */
     virtual void init();
+    void GyroStart();
 	void timer();
     /**
     * This method will be called every time the event RightSubscribeGyroPressed is raised.

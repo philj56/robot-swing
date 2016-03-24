@@ -56,7 +56,7 @@ CMAKE_BINARY_DIR = /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-da
 CMakeFiles/gyroevents.dir/all:
 	$(MAKE) -f CMakeFiles/gyroevents.dir/build.make CMakeFiles/gyroevents.dir/depend
 	$(MAKE) -f CMakeFiles/gyroevents.dir/build.make CMakeFiles/gyroevents.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-dancross/CMakeFiles  1 2
+	$(CMAKE_COMMAND) -E cmake_progress_report /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-dancross/CMakeFiles 
 	@echo "Built target gyroevents"
 .PHONY : CMakeFiles/gyroevents.dir/all
 
@@ -66,7 +66,7 @@ all: CMakeFiles/gyroevents.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gyroevents.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-dancross/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-dancross/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/gyroevents.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /gs/naoqi/doc/examples/new/robot-swing/sdk/gyroevent/build-dancross/CMakeFiles 0
 .PHONY : CMakeFiles/gyroevents.dir/rule
