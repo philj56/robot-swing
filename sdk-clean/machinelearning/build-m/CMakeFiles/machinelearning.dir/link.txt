@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=gnu++98 -g    -lusb-1.0 -L/lib/i386-linux-gnu/ CMakeFiles/machinelearning.dir/Main.cpp.o CMakeFiles/machinelearning.dir/CreateModule.cpp.o CMakeFiles/machinelearning.dir/State.cpp.o CMakeFiles/machinelearning.dir/StateSpace.cpp.o CMakeFiles/machinelearning.dir/encoder.cpp.o ../libpmd1208fs.o  -o sdk/bin/machinelearning -rdynamic -Wl,-rpath,:::::::::::::: 

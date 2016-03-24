@@ -1,0 +1,1 @@
+/gs/cross/cross/bin/i686-aldebaran-linux-gnu-g++    --sysroot /gs/cross//sysroot/ -pipe -fomit-frame-pointer -fno-align-jumps -fno-align-functions -fno-align-labels -fno-align-loops -m32 -mtune=generic -DOE_CROSS_BUILD -g  -Wl,--sysroot,/gs/cross//sysroot/ CMakeFiles/test_machinelearning.dir/test.cpp.o  -o sdk/bin/test_machinelearning -rdynamic 
