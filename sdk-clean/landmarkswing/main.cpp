@@ -197,6 +197,10 @@ int main(int argc, char* argv[])
 	landmarkIDs.push_back(68);
 
 	size_t nLandmarks = landmarkIDs.size();
+	for (size_t i = 0; i < nLandmarks; i++)
+	{
+		landmarkAngles.push_back(std::vector<float> ());
+	}
 
 	// Whether each landmark has been detected this cycle
 	std::vector<bool> landmarksDetected(nLandmarks, false);
@@ -252,7 +256,7 @@ int main(int argc, char* argv[])
 					}
 				}
 			}
-
+			std::cout<<landmarkAngles[0].size()<<std::endl;
 			// Check whether a landmark was detected this interval
 			if (vectorAny(landmarksDetected))
 			{
@@ -263,10 +267,12 @@ int main(int argc, char* argv[])
 				int avgOrder;
 				for (size_t i = 0; i < nLandmarks; i++)
 				{
-					orders.push_back(vectorOrder(landmarkAngles[i]));
+					if (landmarksDetected[i])
+						orders.push_back(vectorOrder(landmarkAngles[i]));
 				}
 					
 				avgOrder = vectorAverage(orders);
+				std::cout << orders.size() << ": " << avgOrder << std::endl;
 
 				if (avgOrder > 0)
 				{
@@ -375,10 +381,10 @@ bool vectorAny (std::vector<bool> vec)
 // Get average of vector of ints, rounded towards 0
 int vectorAverage (std::vector<int> vec)
 {
-	int sum = 0;
+	float sum = 0;
 	for (size_t i = 0; i < vec.size(); i++)
 	{
 		sum += vec[i];
 	}
-	return sum / vec.size();
+	return round(sum / static_cast<float>(vec.size()));
 }

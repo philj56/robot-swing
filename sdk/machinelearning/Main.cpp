@@ -7,6 +7,8 @@
  * @date March, 2016
  */
 
+// Uncomment for use with Visual Studio C++ Compiler
+//#define _USE_MATH_DEFINES
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
@@ -57,19 +59,27 @@ bool fileExists(const char* filename) {
  * @param t Number of loop iterations.
  * @return Value of normal distribution at t loop iterations.
  */
-double probabilityFluxDensityCoeffieicent(unsigned long t);
-
-//function to select next action
+double probabilityFluxDensityCoefficient(unsigned long t);
 
 /**
- * @brief Selects an action to perform based on experience, iterations and probabilities.
+ * @brief Selects an action to perform based on a stochastic factor, epsilon, and past experiences
  *
  * @param a_queue A priority queue instance storing integral types with double type priorities,
  *		  represents the queue of possible actions with pre-initialised priority levels.
- * @param iterations Number of loop iterations completed.
+ * @param epsilon Fraction determining randomness of greedy search, 0.0 = completely random.
  * @return integer corresponding to chosen action
  */
-int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations, double epsilon);
+int selectAction_EpsilonGreedy(const PriorityQueue<int, double>& a_queue, double epsilon);
+
+/**
+* @brief Selects an action to perform based on experience, iterations and probabilities.
+*
+* @param a_queue A priority queue instance storing integral types with double type priorities,
+*		  represents the queue of possible actions with pre-initialised priority levels.
+* @param iterations Number of iterations completed
+* @return integer corresponding to chosen action
+*/
+int selectAction_BoltzmannFactor(const PriorityQueue<int, double>& a_queue, unsigned long iterations);
 
 /**
  * @brief Updates the utility (Q-value) of the system.
@@ -94,18 +104,14 @@ int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations, 
 void updateQ(StateSpace & space, int action, State & new_state, State & old_state, double alpha, double gamma);
 
 /**
- * @brief Program launcher!
+ * @brief Performs all proxy initialisation through NAO SDK functions and structures, setting up a connection
+ *		  to the robot and allowing use of movement tools and body info libraries.
  *
- * Contains all initialisations including setting up the StateSpace and connecting to robot via a proxy. Holds main
- * program loop to perform algorithm continuously using calls to selectAction and updateQ sequentially to update
- * utilities and choose most optimal actions to perform based on position and velocity.
- * 
- * @return Program exit code
+ * @return A vector of size 3 where the first element contains the body info proxy (type AL::ALProxy), the second
+ *		   element contains the movement tools proxy (type AL::ALProxy) and the third element contains the motion
+ *		   proxy (type AL::ALMotionProxy).
  */
-int main() {
-	// STUFF WE DONT UNDERSTAND, AND DONT NEED TO
-	//__________________________________________________________________________________________
-	//__________________________________________________________________________________________
+std::vector<AL::ALProxy> robotProxyInitialisation() {
 	// Libraries to load
 	std::string bodyLibName = "bodyinfo";
 	std::string movementLibName = "movementtools";
@@ -157,31 +163,56 @@ int main() {
 	CreateModule(movementLibName, movementModuleName, broker, false, true);
 	CreateModule(bodyLibName, bodyModuleName, broker, false, true);
 
+	std::vector<AL::ALProxy> proxyVec;
+
+	// initialise proxies
 	AL::ALProxy bodyInfoProxy(bodyModuleName, pip, pport);
 	AL::ALProxy movementToolsProxy(movementModuleName, pip, pport);
 	AL::ALMotionProxy motion(pip, pport);
-	//__________________________________________________________________________________________
-	//__________________________________________________________________________________________
-	//END OF STUFF WE DONT UNDERSTAND, BREATHE NOW
 
-	//learning factor
+	proxyVec.push_back(bodyInfoProxy);
+	proxyVec.push_back(movementToolsProxy);
+	proxyVec.push_back(motion);
+
+	return proxyVec;
+}
+
+/**
+ * @brief Program launcher!
+ *
+ * Contains all initialisations including setting up the StateSpace and connecting to robot via a proxy. Holds main
+ * program loop to perform algorithm continuously using calls to selectAction and updateQ sequentially to update
+ * utilities and choose most optimal actions to perform based on position and velocity.
+ * 
+ * @return Program exit code
+ */
+int main() {
+	
+	// initialise proxies and robot connection and set movementToolsProxy object to 2nd
+	// element of robotProxyInitialisation return vector 
+	AL::ALProxy movementToolsProxy = robotProxyInitialisation()[1];
+
+	// Learning rate - set low for highly stochastic systems, high for less random and more symmetric systems
 	const double alpha = 0.8;
-	//discount factor
+	// Discount factor - set low for "disregarding" future events, high for taking the future into more consideration
 	const double gamma = 0.5;
 
-	//seed rng
+	// Seed PRNG with current system time
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 
+	// possible actions, initialise starting action to full forwards motion
 	int action_forwards = FORWARD;
 	int action_backwards = BACKWARD;
 	int chosen_action = action_forwards;
 
-	//create a priority queue to copy to all the state space priority queues
+	// create a priority queue to copy to all the state space priority queues
 	PriorityQueue<int, double> initiator_queue(MAX);
-	initiator_queue.enqueueWithPriority(action_forwards, 0);
-	initiator_queue.enqueueWithPriority(action_backwards, 0);
 
-	//create encoder
+	// enqueue possible actions with intial zero utilities to initiator_queue
+	initiator_queue.enqueueWithPriority(action_forwards, 0.0);
+	initiator_queue.enqueueWithPriority(action_backwards, 0.0);
+
+	// create encoder and calibrate to current angle
 	Encoder encoder;
 	encoder.Calibrate();
 	
@@ -190,18 +221,24 @@ int main() {
 	//pause briefly to allow the robot to be given a push if desired
 	qi::os::msleep(5000);
 	
-	//create the state space
-	StateSpace space(100, 50, M_PI * 0.25, 1.0, initiator_queue);
+	//create the state space, initialised with number of bins for angle and velocity
+	// and maximum angle and velocities for discretisation limits (alter if necessary)
+	const int angleBins = 100;
+	const int velocityBins = 50;
+	const double angleMax = 0.25*M_PI;
+	const double velocityMax = 1.0;
+	StateSpace space(angleBins, velocityBins, angleMax, velocityMax, initiator_queue);
 	
-	const char* filename = "output.txt";
+	const char* serializedSpacePath = "serializedStateSpaceData.txt";
 	
-	const char* encoderData = "encoderData.txt";
-	std::ofstream encoderOutput(encoderData);
+	// create output file to send encoder data to
+	const char* encoderDataPath = "encoderData.txt";
+	std::ofstream encoderOutput(encoderDataPath);
 	
 	// if file containing previous state space data exists
 	// get handle to this file and stream contents to space object
-	if (fileExists(filename)) {
-		std::ifstream inputFile(filename);
+	if (fileExists(serializedSpacePath)) {
+		std::ifstream inputFile(serializedSpacePath);
 		std::string firstFileLine;
 		std::getline(inputFile, firstFileLine);
 		// if file is not empty, save file data to state space object
@@ -209,55 +246,70 @@ int main() {
 			inputFile >> space;
 	}
 	
-	//state objects
-	State current_state(0, 0, FORWARD);
-	State old_state(0, 0, FORWARD);
+	// Create State objects for current state and previous state
+	State current_state(0.0, 0.0, FORWARD);
+	State old_state(0.0, 0.0, FORWARD);
+
+	// initialise epsilon parameter for greedy search to 0.0 (fully stochastic)
 	double epsilon = 0.0;
+
 	std::cout << "Initialisation complete!" << std::endl;
-	for( unsigned long i = 0; i<500 ;++i ) {
+
+	bool useEpsilonGreedy = true;
+
+	// Each iteration currently requires 700ms time for action performing
+	// => increase maxIterations for longer learning times
+	const unsigned long maxIterations = 500UL;
+	for(unsigned long i = 0UL; i < maxIterations; ++i) {
 		// set current state angle to angle received from encoder
 		// and set current state velocity to difference in new and
 		// old state angles over some time difference
-		current_state.theta = M_PI * (encoder.GetAngle()) / 180;
-		current_state.theta_dot = (current_state.theta - old_state.theta) / 700; //Needs actual time
+		current_state.theta = M_PI * (encoder.GetAngle()) / 180.0;
+		current_state.theta_dot = (current_state.theta - old_state.theta) / 700.0; //Needs actual time
 		current_state.robot_state = static_cast<ROBOT_STATE>(chosen_action);
 
-		//std::cout << "Angle of current state: " << current_state.theta << std::endl;
+		// save encoder data to encoderData.txt output file
 		encoderOutput << current_state.theta << std::endl;
 
-		// call updateQ function with state space, old and current states
+		// call updateQ function with state space, previous and current states
 		// and learning rate, discount factor
 		updateQ(space, chosen_action, old_state, current_state, alpha, gamma);
-	//	std::cout << "Update Q completed!" << std::endl;
+
 		// set old_state to current_state
 		old_state = current_state;
 		
-		if (i > 100) {
+		// after 100 iterations, start slowly increasing epsilon to
+		// reduce stochasticity of action learning
+		if (i > 100UL) {
 			epsilon += 0.005;	
 		}
 		
 		// determine chosen_action for current state
-		chosen_action = selectAction(space[current_state], i, epsilon);
-	//	std::cout << "Select Action completed!" << std::endl;
+		if (useEpsilonGreedy) 
+			chosen_action = selectAction_EpsilonGreedy(space[current_state], epsilon);
+		else 
+			chosen_action = selectAction_BoltzmannFactor(space[current_state], i);
+
 		// depending upon chosen action, call robot movement tools proxy with either
 		// swingForwards or swingBackwards commands.
 		(chosen_action) ? movementToolsProxy.callVoid("swingForwards") : movementToolsProxy.callVoid("swingBackwards");
 	}
 	
-//	std::ofstream output(filename);
-//	output<<space;
-//	output.close();
-	std::cout << space << std::endl;
+	// create output file for sending final contents of StateSpace object to, allowing 
+	// use of previously acquired learning runs to use for future learning runs
+	std::ofstream serializedStateSpace(serializedSpacePath);
+	serializedStateSpace<<space;
+	serializedStateSpace.close();
 	encoderOutput.close();
 	
 	return 1;
 }
 
-double probabilityFluxDensityCoeffieicent(unsigned long t) {
+double probabilityFluxDensityCoefficient(unsigned long t) {
 	return 100.0*std::exp((-8.0*t*t) / (2600.0*2600.0)) + 0.1;//0.1 is an offset
 }
 
-int selectActionAlt(PriorityQueue<int, double>& a_queue, unsigned long iterations) {
+int selectAction_BoltzmannFactor(const PriorityQueue<int, double>& a_queue, unsigned long iterations) {
 	
 	typedef std::vector<std::pair<int, double> > VecPair ; 
 	
@@ -269,12 +321,12 @@ int selectActionAlt(PriorityQueue<int, double>& a_queue, unsigned long iteration
 
 	// calculate partition function by iterating over action-values
 	for (VecPair::iterator iter = vec.begin(), end = vec.end(); iter < end; ++iter) {
-		sum += std::exp((iter->second) / probabilityFluxDensityCoeffieicent(iterations));
+		sum += std::exp((iter->second) / probabilityFluxDensityCoefficient(iterations));
 	}
 
 	// compute Boltzmann factors for action-values and enqueue to vec
 	for (VecPair::iterator iter = vec.begin(); iter < vec.end(); ++iter) {
-		iter->second = std::exp(iter->second / probabilityFluxDensityCoeffieicent(iterations)) / sum;
+		iter->second = std::exp(iter->second / probabilityFluxDensityCoefficient(iterations)) / sum;
 	}
 
 	// calculate cumulative probability distribution
@@ -296,13 +348,20 @@ int selectActionAlt(PriorityQueue<int, double>& a_queue, unsigned long iteration
 	
 	return -1; //note that this line should never be reached	
 }
-int selectAction(PriorityQueue<int, double>& a_queue, unsigned long iterations, double epsilon) {
-	//double epsilon = 0.8;
+
+int selectAction_EpsilonGreedy(const PriorityQueue<int, double>& a_queue, double epsilon) {
+
+	// generate random number between 0 and 1
 	double rand_num = static_cast<double>(rand()) / RAND_MAX;
+
+	// if random double is less than epsilon, take action of front element of queue
+	// i.e. the action with current highest utility value
 	if(rand_num < epsilon){
 		return a_queue.peekFront().first;
 	}
 	
+	// else generate another random double and use this to access a random
+	// element in the queue to take action from
 	rand_num = static_cast<double>(rand()) / RAND_MAX;
 	return a_queue[ round( rand_num*(a_queue.getSize()-1) ) ].first;
 }
@@ -323,40 +382,3 @@ void updateQ(StateSpace & space, int action, State & new_state, State & old_stat
 	// change priority of action to new Q value
 	space[old_state].changePriority(action, newQ);
 }
-/* OLD SELECT ACTION
-int selectAction(const PriorityQueue<int, double>& a_queue, unsigned long iterations) {
-	/*
-	// queue to store action values
-	PriorityQueue<int, double> actionQueue(MAX);
-	double sum = 0.0;
-	// calculate partition function by iterating over action-values
-	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(), end = a_queue.end(); iter < end; ++iter) {
-		sum += std::exp((iter->second) / temperature(iterations));
-	}
-	// compute Boltzmann factors for action-values and enqueue to actionQueue
-	for (PriorityQueue<int, double>::const_iterator iter = a_queue.begin(); iter < a_queue.end(); ++iter) {
-		double priority = std::exp(iter.operator*().second / temperature(iterations)) / sum;
-		actionQueue.enqueueWithPriority(iter.operator*().first, priority);
-	}
-	// calculate cumulative probability distribution
-	for (PriorityQueue<int, double>::const_iterator it1 = actionQueue.begin()++, it2 = actionQueue.begin(), end = actionQueue.end(); it1 < end; ++it1, ++it2) {
-		// change priority of it1->first data item in actionQueue to
-		// sum of priorities of it1 and it2 items
-		actionQueue.changePriority(it1->first, it1->second + it2->second);
-	}
-	//generate RN between 0 and 1
-	double rand_num = static_cast<double>(rand()) / RAND_MAX;
-	// choose action based on random number relation to priorities within action queue
-	for (PriorityQueue<int, double>::const_iterator iter = actionQueue.begin(), end = actionQueue.end(); iter < end; ++iter) {
-		if (rand_num < iter->second)
-			return iter->first;
-	}
-	
-	return -1; //note that this line should never be reached
-	
-	
-	double rand_num = static_cast<double>(rand()) / RAND_MAX;
-	
-	return (rand_num > 0.5)?0:1;	
-}
-*/
