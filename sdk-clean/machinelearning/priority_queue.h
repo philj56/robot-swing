@@ -394,7 +394,7 @@ namespace crsc {
 		template<class UnaryPredicate>
 		void alter_all(const value_type& _alter_to_val, UnaryPredicate _pred) {
 			for (typename std::vector<value_type>::iterator it = heap_vec.begin(); it < heap_vec.end(); ++it) {
-				if (_p(*it)) *it = _alter_to_val;
+				if (_pred(*it)) *it = _alter_to_val;
 			}
 			heapify();
 		}
