@@ -250,7 +250,7 @@ namespace crsc {
 		 * \complexity Linear in the size of the container.
 		 * \exceptionsafety Strong-guarantee, if an exception is thrown there are no changes
 		 *                  in the container.
-     	 */
+     	         */
 		template<class UnaryPredicate>
 		std::set<const_iterator> find_all(UnaryPredicate _pred) const {
 			std::set<const_iterator> it_set;
@@ -323,14 +323,12 @@ namespace crsc {
 		 * \exceptionsafety Strong-guarantee, if an exception is thrown there are no changes
 		 *                  in the container.
 		 */
-		void alter(const std::pair<value_type, value_type>& _target_alter) {
-			typename std::vector<value_type>::iterator it = std::find(heap_vec.begin(), heap_vec.end(), _target_alter.first);
+		void alter(const std::pair<value_type, value_type>& _tgt_alt) {
+			typename std::vector<value_type>::iterator it = std::find(heap_vec.begin(), heap_vec.end(), _tgt_alt.first);
 			if (it != heap_vec.end()) {
-				*it = _target_alter.second;
-				if (comp(_target_alter.first, _target_alter.second))
-					bubble_up(std::distance(heap_vec.begin(),it));
-				else 
-					bubble_down(std::distance(heap_vec.begin(),it));
+				*it = _tgt_alt.second;
+				difference_type index = std::distance(heap_vec.begin(), it); // index of changed element
+				comp(_tgt_alt.first, _tgt_alt.second) ? bubble_up(index) : bubble_down(index);
 			}
 		}
 		/**
@@ -350,12 +348,10 @@ namespace crsc {
 		void alter(const value_type& _alter_to_val, UnaryPredicate _pred) {
 			typename std::vector<value_type>::iterator it = std::find_if(heap_vec.begin(), heap_vec.end(), _pred);
 			if (it != heap_vec.end()) {
-				typename std::vector<value_type>::iterator it_cpy = it;
+				bool b_up = comp(*it, _alter_to_val);
 				*it = _alter_to_val;
-				if (comp(*it_cpy, _alter_to_val))
-					bubble_up(std::distance(heap_vec.begin(),it));
-				else 
-					bubble_down(std::distance(heap_vec.begin(),it));
+				difference_type index = std::distance(heap_vec.begin(), it); // index of changed element
+				b_up ? bubble_up(index) : bubble_down(index);
 			}
 		}
 		/**
