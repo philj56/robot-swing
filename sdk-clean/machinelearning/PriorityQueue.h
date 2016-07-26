@@ -8,6 +8,10 @@
 * @date March, 2016
 */
 
+/*********************** DEPRECATED ***********************/
+/************ USE crsc::priority_queue INSTEAD ************/
+/*********************** DEPRECATED ***********************/
+
 #ifndef PRIORITY_QUEUE_H
 #define PRIORITY_QUEUE_H
 
