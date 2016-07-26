@@ -22,11 +22,11 @@
  *
  * \code{.cpp}
  *      template<typename _Ty1, typename _Ty2>
- * 		struct qvalue_less {
- *	        bool operator()(const std::pair<_Ty1,_Ty2>& lhs, const std::pair<_Ty1,_Ty2>& rhs) const {
- *	 			return lhs.second < rhs.second;
- *			}
- *		};
+ * 	struct qvalue_less {
+ *	    bool operator()(const std::pair<_Ty1,_Ty2>& lhs, const std::pair<_Ty1,_Ty2>& rhs) const {
+ *	 	return lhs.second < rhs.second;
+ *	    }
+ *	};
  *      crsc::priority_queue<std::pair<int,double>, qvalue_less<int,double> > pq; 
  * \endcode
  *
@@ -531,7 +531,7 @@ namespace crsc {
 	};
 	/**
 	 * \brief Stream insertion operator for `crsc::priority_queue`, uses
-	 *        ' ' delimited by default for element separation.
+	 *        ' ' delimiter by default for element separation.
 	 *
 	 * \param _os Instance of `std::ostream` to write to.
 	 * \param _pq `crsc::priority_queue` container to write to stream.
