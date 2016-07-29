@@ -540,7 +540,7 @@ namespace crsc {
 	 * \exceptionsafety No-throw guarantee, `noexcept` specification.
 	 */
 	template<typename _Ty,
-		class _Pr = std::less<_Ty>
+		class _Pr
 	> std::ostream& operator<<(std::ostream& _os, const priority_queue<_Ty, _Pr>& _pq) {
 		return _pq.write(_os);
 	}
