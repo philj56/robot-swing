@@ -21,15 +21,20 @@
  * is the case with current code, then you must declare the priority queue as follows (for example):
  *
  * \code{.cpp}
- *      template<typename _Ty1, typename _Ty2>
+ *  template<typename _Ty1, typename _Ty2>
  * 	struct qvalue_less {
  *	    bool operator()(const std::pair<_Ty1,_Ty2>& lhs, const std::pair<_Ty1,_Ty2>& rhs) const {
- *	 	return lhs.second < rhs.second;
+ *	 	    return lhs.second < rhs.second;
  *	    }
  *	};
- *      crsc::priority_queue<std::pair<int,double>, qvalue_less<int,double> > pq; 
+ *  crsc::priority_queue<std::pair<int,double>, qvalue_less<int,double> > pq; 
  * \endcode
  *
+ * ALTERNATIVELY: Use the aqv_priority_queue class in file "aqv_priority_queue.h" which is a template specialisation
+ *                of crsc::priority_queue specifically for an action-qvalue queue with ordering based on maximum 
+ *                qvalue (i.e. constant time lookup for maximum q-value action-qvalue pair in the structure).
+ *
+ * --------------------------------------------------------------------------------------------------------------------------
  * IMPORTANT: IF >=C++11 COMPILER IS BEING USED THEN DO NOT USE THIS VERSION OF `crsc::priority_queue`, INSTEAD USE THE
  *            VERSION AT `https://github.com/SJR276/crescent_library/blob/master/crescent_library/priority_queue.h`. This
  *            is important as the version in the link above is compliant with non-copyable types such as `std::unique_ptr`
@@ -311,6 +316,24 @@ namespace crsc {
 			heap_vec.clear();
 		}
 		/**
+		 * \brief Alters the element value at the specified iterator position in the container
+		 *        to the value `_alter_to_val` by copy-assignment.
+		 *
+		 * \param _pos `const_iterator` to element in container to alter.
+		 * \param _alter_to_val Value to assign to element to alter.
+		 * \return `const_iterator` to next valid position in container after altering.
+		 * \complexity Logarithmic in the size of the container.
+		 * \exceptionsafety Strong-guarantee, if an exception is thrown there are no changes
+		 *                  in the container.
+		 */
+		const_iterator alter(const_iterator _pos, const value_type& _alter_to_val) {
+			difference_type index = std::distance<const_iterator>(heap_vec.begin(), _pos);
+			bool b_up = comp(heap_vec[index], _alter_to_val);
+			heap_vec[index] = _alter_to_val;
+			b_up ? bubble_up(index) : bubble_down(index);
+			return _pos;
+		}
+		/**
 		 * \brief Alters the first instance of the specified value `_val_find`
 		 *        in the container to `_alter_to_val` by copy-assignment. If 
 		 *        `_val_find` does not exist in the container, this method does
@@ -540,6 +563,7 @@ namespace crsc {
 	 * \exceptionsafety No-throw guarantee, `noexcept` specification.
 	 */
 	template<typename _Ty,
+		//class _Pr = std::less<_Ty>
 		class _Pr
 	> std::ostream& operator<<(std::ostream& _os, const priority_queue<_Ty, _Pr>& _pq) {
 		return _pq.write(_os);
